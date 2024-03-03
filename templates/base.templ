@@ -4,6 +4,7 @@ import (
   Globals "johtotimes.com/internal/globals"
 )
 
+// Provides the core HTML scaffolding
 templ Base(title string) {
   <html lang="en-gb">
     @Head(title)
@@ -13,6 +14,7 @@ templ Base(title string) {
   </html>
 }
 
+// Contents of <head> tag
 templ Head(title string) {
   <head>
     <title>{ title }</title>
@@ -28,6 +30,7 @@ templ Head(title string) {
   </head>
 }
 
+// Common brand/navigation items on top of every page
 templ Header() {
   <div class="brand-container" >
     <div class="hamburger-icon">
@@ -63,6 +66,12 @@ templ Header() {
   </div>
 }
 
+// This will be different according to the page
 templ Body(body templ.Component) {
+
+}
+
+// Common footer elements for all pages
+templ Foot() {
 
 }
