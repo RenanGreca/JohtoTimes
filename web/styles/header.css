@@ -1,0 +1,157 @@
+/* Logo/Brand */
+.brand-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 24px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+  /* padding: 0 12px; */
+}
+
+.search-icon,
+.hamburger-icon {
+  width: 24px;
+  height: 24px;
+  margin: 5px auto;
+}
+
+.search-icon img,
+.hamburger-icon img {
+  height: 24px;
+  width: auto;
+  max-width: 100%;
+  margin: auto auto;
+}
+
+.brand {
+  flex: 60%;
+}
+
+.logo {
+  display: block;
+  width: auto;
+  height: 24px;
+  margin: 0 auto;
+}
+
+/* Max width for mobile layout is iPad mini portrait */
+@media (min-width: 770px) {
+  .brand-container {
+    height: 36px;
+    margin: 18px 0;
+    /* padding: 0 18px; */
+  }
+
+  .search-icon,
+  .hamburger-icon {
+    display: none;
+  }
+
+  .brand {
+    flex: 40%;
+  }
+
+  .logo {
+    height:36px;
+    margin: 18px;
+  }
+}
+
+/* Social icons */
+.social-icons {
+  display: none;
+}
+
+@media (min-width: 770px) {
+  .social-icons {
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-end;
+    gap: 18px;
+    margin: 18px;
+  }
+  .social-icon {
+    display: inline-block;
+    height: 24px;
+    width: auto;
+    /* background-size: 100% auto; */
+    /* background-repeat: no-repeat; */
+  }
+}
+
+/* Navbar */
+.navbar {
+  display: none;
+}
+
+@media (min-width: 770px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1px;
+    background-color: #777777;
+    /* background-color: var(--white); */
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    margin: 0 -8px;
+  }
+
+  .navbar-link {
+    flex: 1;
+    text-align: center;
+    padding: 18px;
+    background-color: var(--dark-background);
+  }
+
+  .navbar-link {
+    text-decoration: none;
+  }
+
+  a:link.navbar-link {
+    color: var(--white) !important;
+    /* border-bottom: 1px var(--neon-red) solid; */
+  }
+
+  a:visited.navbar-link {
+    color: var(--white) !important;
+    /* border-bottom: 1px var(--neon-red) solid; */
+  }
+
+  a:hover.navbar-link {
+    color: var(--white) !important;
+    /* border-bottom: 1px var(--neon-blue) solid; */
+  }
+}
+
+
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+}
+
+#menuToggle
+{
+  display: none;
+  float: right;
+  height: 50px;
+  width: 50px;
+  margin-top: 15px;
+  position: relative;
+
+  z-index: 1;
+
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@media (max-width: 1000px) {
+  #menuToggle {
+    display: block;
+  }
+}
+

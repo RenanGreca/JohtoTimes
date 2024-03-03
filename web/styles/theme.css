@@ -1,0 +1,13 @@
+:root {
+  --dark-background: #373737;
+  --white: #ffffff;
+  --light-text: #dbecf0;
+  --neon-red: #fe494d;
+  --neon-blue: #3ffdfe:
+  --container-width-1600: 1570px;
+  --container-width-1200: 1170px;
+  --container-width-1000: 1000px;
+
+  --font-title: "Glacial Indifference";
+  --font-text: "Ubuntu";
+}

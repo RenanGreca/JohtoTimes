@@ -1,0 +1,18 @@
+/*
+Theme Name: Johto Times
+Theme URI: https://johtotimes.net/
+Description: Theme for the Johto Times website.
+Author: Renan Greca
+GitHub Theme URI: https://github.com/RenanGreca/Johto-Times
+Version: 1.0
+Tags: responsive, dark
+
+License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
+License URI: http://creativecommons.org/licenses/by-sa/3.0/
+*/
+
+body {
+  background-color: var(--dark-background);
+  color: var(--white);
+  font-family: var(--font-text), sans-serif;
+}

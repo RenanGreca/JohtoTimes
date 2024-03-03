@@ -1,0 +1,68 @@
+package templates
+
+import (
+  Globals "johtotimes.com/internal/globals"
+)
+
+templ Base(title string) {
+  <html lang="en-gb">
+    @Head(title)
+    <body>
+      @Header()
+    </body>
+  </html>
+}
+
+templ Head(title string) {
+  <head>
+    <title>{ title }</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
+    <meta name="description" content="Johto Times homepage" />
+    <meta name="HandheldFriendly" content="true"/>
+
+    for _, css := range Globals.Stylesheets {
+      <link href={ Globals.StylesPath + css } rel="stylesheet" />
+    }
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,700,700i&display=swap" rel="stylesheet"/>
+  </head>
+}
+
+templ Header() {
+  <div class="brand-container" >
+    <div class="hamburger-icon">
+      <img src={ Globals.ImgPath + "/search.png" }
+        title="Open menu" aria-placeholder="menu" aria-label="menu" />
+    </div>
+    <div class="brand">
+      <a class="brand-link" href="/">
+        <img class="logo"  src={ Globals.ImgPath + "/johto-times.png" } />
+      </a>
+    </div>
+    <div class="search-icon">
+      <img src={ Globals.ImgPath + "/search.png" }
+        title="Search" aria-placeholder="search" aria-label="search" />
+    </div>
+    <div class="social-icons">
+      for _, socialLink := range Globals.SocialLinks {
+        <a href={ templ.URL(socialLink.URL) } aria-label={ socialLink.Name } 
+          class="social-icon social-{ socialLink.Name }" target="_blank">
+          <img class="social-icon" 
+            src={ Globals.ImgPath + "/icons/" + socialLink.Name + "-blue.png" } />
+        </a>
+      }
+    </div>
+  </div>
+
+  <div class="navbar">
+    for _, category := range Globals.Categories {
+      <a class="navbar-link" href={ templ.URL(category.URL) }>
+        { category.Name }
+      </a>
+    }
+  </div>
+}
+
+templ Body(body templ.Component) {
+
+}
