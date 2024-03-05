@@ -2,14 +2,18 @@ package templates
 
 import (
   Globals "johtotimes.com/internal/globals"
+  Types "johtotimes.com/internal/types"
 )
 
 // Provides the core HTML scaffolding
-templ Base(title string) {
+templ Base(title string, body templ.Component) {
   <html lang="en-gb">
     @Head(title)
     <body>
       @Header()
+      <div class="content">
+        @body
+      </div>
     </body>
   </html>
 }
@@ -74,4 +78,20 @@ templ Body(body templ.Component) {
 // Common footer elements for all pages
 templ Foot() {
 
+}
+
+templ List(posts []Types.Post) {
+  <div>
+    for _, post := range posts {
+      @ListItem(post)
+    }
+  </div>
+}
+
+templ ListItem(post Types.Post) {
+  <div>
+    <a href={ templ.URL("posts/" + post.Slug) }>
+      <h3>{ post.Metadata["Title"].(string) }</h3>
+    </a>
+  </div>
 }

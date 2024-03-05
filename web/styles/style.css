@@ -15,4 +15,41 @@ body {
   background-color: var(--dark-background);
   color: var(--white);
   font-family: var(--font-text), sans-serif;
+  font-size: 16pt;
+  line-height: 24pt;
+}
+
+.content {
+  width: 800px;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.content img {
+  max-width: 100%;
+}
+
+h2 {
+  color: #cccccc;
+  font-weight: 400;
+  font-size: 16pt;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: var(--white) !important;
+  /* border-bottom: 1px var(--neon-red) solid; */
+}
+
+a:visited {
+  color: var(--white) !important;
+  /* border-bottom: 1px var(--neon-red) solid; */
+}
+
+a:hover {
+  color: var(--white) !important;
+  /* border-bottom: 1px var(--neon-blue) solid; */
 }

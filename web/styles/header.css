@@ -107,24 +107,6 @@
     background-color: var(--dark-background);
   }
 
-  .navbar-link {
-    text-decoration: none;
-  }
-
-  a:link.navbar-link {
-    color: var(--white) !important;
-    /* border-bottom: 1px var(--neon-red) solid; */
-  }
-
-  a:visited.navbar-link {
-    color: var(--white) !important;
-    /* border-bottom: 1px var(--neon-red) solid; */
-  }
-
-  a:hover.navbar-link {
-    color: var(--white) !important;
-    /* border-bottom: 1px var(--neon-blue) solid; */
-  }
 }
 
 
