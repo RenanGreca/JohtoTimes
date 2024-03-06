@@ -53,3 +53,9 @@ a:hover {
   color: var(--white) !important;
   /* border-bottom: 1px var(--neon-blue) solid; */
 }
+
+
+blockquote {
+  font-style: italic;
+  color: #eeeeee;
+}

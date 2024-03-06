@@ -80,7 +80,8 @@ templ Foot() {
 
 }
 
-templ List(posts []Types.Post) {
+templ List(title string, posts []Types.Post) {
+  <h1>{ title }</h1>
   <div>
     for _, post := range posts {
       @ListItem(post)
@@ -89,9 +90,13 @@ templ List(posts []Types.Post) {
 }
 
 templ ListItem(post Types.Post) {
-  <div>
-    <a href={ templ.URL("posts/" + post.Slug) }>
+  <div class="list-item">
+    <a href={ templ.URL("posts/" + post.Slug) } aria-label={ post.Metadata["Title"].(string) }>
+      <div class="list-image">
+        <img src={ post.Metadata["Header"].(string)} />
+      </div>
       <h3>{ post.Metadata["Title"].(string) }</h3>
+      Category: { post.Metadata["Category"].(string) }
     </a>
   </div>
 }
