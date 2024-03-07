@@ -1,11 +1,7 @@
-package globals
-
-import (
-	Types "johtotimes.com/internal/types"
-)
+package internal
 
 // This should rarely change once we've decided which links to have
-var SocialLinks = [...]Types.Link{
+var SocialLinks = [...]Link{
 	{Name: "instagram", URL: "https://instagram.com/"},
 	{Name: "twitter", URL: "https://twitter.com"},
 	{Name: "youtube", URL: "https://youtube.com"},
@@ -14,7 +10,7 @@ var SocialLinks = [...]Types.Link{
 }
 
 // Probably this should become dynamic according to some DB data
-var Categories = [...]Types.Link{
+var Categories = [...]Link{
 	{Name: "Interviews", URL: "/interviews"},
 	{Name: "Features", URL: "/features"},
 	{Name: "Opinions", URL: "/opinions"},

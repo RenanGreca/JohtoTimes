@@ -5,7 +5,7 @@ tmp_dir = "tmp"
 [build]
   args_bin = []
   bin = "./tmp/main"
-  pre_cmd = ["./scripts/kill.sh 3000", "templ generate"]
+  pre_cmd = ["./scripts/kill.sh 3000", "templ generate", "go test ./..."]
   cmd = "go build -o ./tmp/main ."
   post_cmd = []
   delay = 1000

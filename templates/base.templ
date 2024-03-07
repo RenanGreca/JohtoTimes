@@ -1,8 +1,7 @@
 package templates
 
 import (
-  Globals "johtotimes.com/internal/globals"
-  Types "johtotimes.com/internal/types"
+  "johtotimes.com/internal"
 )
 
 // Provides the core HTML scaffolding
@@ -27,8 +26,8 @@ templ Head(title string) {
     <meta name="description" content="Johto Times homepage" />
     <meta name="HandheldFriendly" content="true"/>
 
-    for _, css := range Globals.Stylesheets {
-      <link href={ Globals.StylesPath + css } rel="stylesheet" />
+    for _, css := range internal.Stylesheets {
+      <link href={ internal.StylesPath + css } rel="stylesheet" />
     }
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,700,700i&display=swap" rel="stylesheet"/>
   </head>
@@ -38,31 +37,31 @@ templ Head(title string) {
 templ Header() {
   <div class="brand-container" >
     <div class="hamburger-icon">
-      <img src={ Globals.ImgPath + "/search.png" }
+      <img src={ internal.ImgPath + "/search.png" }
         title="Open menu" aria-placeholder="menu" aria-label="menu" />
     </div>
     <div class="brand">
       <a class="brand-link" href="/">
-        <img class="logo"  src={ Globals.ImgPath + "/johto-times.png" } />
+        <img class="logo"  src={ internal.ImgPath + "/johto-times.png" } />
       </a>
     </div>
     <div class="search-icon">
-      <img src={ Globals.ImgPath + "/search.png" }
+      <img src={ internal.ImgPath + "/search.png" }
         title="Search" aria-placeholder="search" aria-label="search" />
     </div>
     <div class="social-icons">
-      for _, socialLink := range Globals.SocialLinks {
+      for _, socialLink := range internal.SocialLinks {
         <a href={ templ.URL(socialLink.URL) } aria-label={ socialLink.Name } 
           class="social-icon social-{ socialLink.Name }" target="_blank">
           <img class="social-icon" 
-            src={ Globals.ImgPath + "/icons/" + socialLink.Name + "-blue.png" } />
+            src={ internal.ImgPath + "/icons/" + socialLink.Name + "-blue.png" } />
         </a>
       }
     </div>
   </div>
 
   <div class="navbar">
-    for _, category := range Globals.Categories {
+    for _, category := range internal.Categories {
       <a class="navbar-link" href={ templ.URL(category.URL) }>
         { category.Name }
       </a>
@@ -80,7 +79,7 @@ templ Foot() {
 
 }
 
-templ List(title string, posts []Types.Post) {
+templ List(title string, posts []internal.Post) {
   <h1>{ title }</h1>
   <div>
     for _, post := range posts {
@@ -89,14 +88,14 @@ templ List(title string, posts []Types.Post) {
   </div>
 }
 
-templ ListItem(post Types.Post) {
+templ ListItem(post internal.Post) {
   <div class="list-item">
-    <a href={ templ.URL("posts/" + post.Slug) } aria-label={ post.Metadata["Title"].(string) }>
+    <a href={ templ.URL("posts/" + post.Slug) } aria-label={ post.Title }>
       <div class="list-image">
-        <img src={ post.Metadata["Header"].(string)} />
+        <img src={ post.Img } />
       </div>
-      <h3>{ post.Metadata["Title"].(string) }</h3>
-      Category: { post.Metadata["Category"].(string) }
+      <h3>{ post.Title }</h3>
+      Category: { post.Category }
     </a>
   </div>
 }

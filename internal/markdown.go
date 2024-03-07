@@ -1,35 +1,27 @@
-package utils
+package internal
 
 import (
 	"bytes"
 	"context"
-	"fmt"
 	"io"
 	"log"
-	"os"
 	"strings"
 
 	"github.com/a-h/templ"
 	"github.com/yuin/goldmark"
 	meta "github.com/yuin/goldmark-meta"
 	"github.com/yuin/goldmark/parser"
-	"johtotimes.com/internal/types"
 )
 
-func ParseMarkdown(fileName string) types.Post {
+// Received the path to a markdown file and returns a Post element
+func ParseMarkdown(fileName string) Post {
+	md := ReadFile(fileName)
+
 	markdown := goldmark.New(
 		goldmark.WithExtensions(
 			meta.Meta,
 		),
 	)
-
-	md := readFile(fileName)
-	split := strings.Split(fileName, "/")
-	last := split[len(split)-1]
-	split2 := strings.Split(last, ".")
-	slug := split2[0]
-	log.Println("Post slug: " + slug)
-
 	var buf bytes.Buffer
 	context := parser.NewContext()
 	if err := markdown.Convert([]byte(md), &buf, parser.WithContext(context)); err != nil {
@@ -37,14 +29,30 @@ func ParseMarkdown(fileName string) types.Post {
 	}
 	content := unsafe(buf.String())
 	metadata := meta.Get(context)
-	title := metadata["Title"]
-	fmt.Println("Title: ", title)
 
-	return types.Post{
+	return Post{
 		Contents: content,
-		Metadata: metadata,
-		Slug:     slug,
+		Slug:     extractSlug(fileName),
+		Title:    metadata["Title"].(string),
+		Category: metadata["Category"].(string),
+		Img:      metadata["Header"].(string),
+		Tags:     extractTags(metadata),
 	}
+}
+
+func extractSlug(fileName string) string {
+	split := strings.Split(fileName, "/")
+	last := split[len(split)-1]
+	split2 := strings.Split(last, ".")
+	slug := split2[0]
+	return slug
+}
+
+func extractTags(metadata map[string]interface{}) []string {
+	if metadata["Tags"] == nil {
+		return []string{}
+	}
+	return strings.Split(metadata["Tags"].(string), ",")
 }
 
 func unsafe(html string) templ.Component {
@@ -52,14 +60,4 @@ func unsafe(html string) templ.Component {
 		_, err = io.WriteString(w, html)
 		return
 	})
-}
-
-func readFile(fileName string) string {
-	log.Println("Opening file: " + fileName)
-	b, err := os.ReadFile(fileName)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	return string(b)
 }
