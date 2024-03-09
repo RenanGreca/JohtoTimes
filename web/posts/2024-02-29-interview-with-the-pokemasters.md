@@ -2,6 +2,7 @@
 Title: 'Interview with The Pokémasters'
 Category: Interviews
 Header: https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa6fd4ea1-f577-4b4f-b7b6-d59ce7167c2a_936x554.png
+Description: "The PokéMasters was a highly successful Pokémon fan website which began in 1998, and Johto Times is proud to share this interview with Lady Vulpix, who runs the website today, to discuss its history."
 ---
 # Interview with The PokéMasters
 

@@ -31,12 +31,13 @@ func ParseMarkdown(fileName string) Post {
 	metadata := meta.Get(context)
 
 	return Post{
-		Contents: content,
-		Slug:     extractSlug(fileName),
-		Title:    metadata["Title"].(string),
-		Category: metadata["Category"].(string),
-		Img:      metadata["Header"].(string),
-		Tags:     extractTags(metadata),
+		Contents:    content,
+		Slug:        extractSlug(fileName),
+		Title:       metadata["Title"].(string),
+		Category:    metadata["Category"].(string),
+		Img:         metadata["Header"].(string),
+		Description: metadata["Description"].(string),
+		Tags:        extractTags(metadata),
 	}
 }
 

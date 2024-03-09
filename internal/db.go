@@ -9,17 +9,29 @@ import (
 
 type DB struct {
 	Posts      []*Post
+	Issues     []*Issue
 	Categories []Category
 	Tags       []Category
 }
 
 type Post struct {
-	Contents templ.Component
-	Slug     string
-	Title    string
-	Category string
-	Tags     []string
-	Img      string
+	Contents    templ.Component
+	Slug        string
+	Title       string
+	Category    string
+	Tags        []string
+	Img         string
+	Description string
+}
+
+type Issue struct {
+	Volume      int
+	Issue       int
+	Title       string
+	News        templ.Component
+	Post        *Post
+	Mailbag     templ.Component
+	Description string
 }
 
 type Category struct {
@@ -51,5 +63,19 @@ func (db *DB) FillDB(postsPath string) {
 	for _, e := range entries {
 		post := ParseMarkdown(postsPath + e.Name())
 		db.Posts = append(db.Posts, &post)
+	}
+}
+
+func (db *DB) GetIssues(issuesPath string) {
+	entries, err := os.ReadDir(issuesPath)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	for _, e := range entries {
+		// parse issue markdown
+		// search for news file
+		// search for post file
+		// search for mailbag file
 	}
 }

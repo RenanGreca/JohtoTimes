@@ -2,6 +2,7 @@
 Title: 'Pokémon Legends Celebi: A Concept'
 Category: Features
 Header: https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff278dc61-2020-4f32-80e7-60b6373242f9_1280x720.png
+Description: "What if Game Freak released a Pokémon Legends style game based on the ancient region of Johto?"
 ---
 
 # Pokémon Legends Celebi: A Concept

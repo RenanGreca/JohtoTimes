@@ -1,0 +1,49 @@
+.list-item {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0;
+  gap: 10px;
+}
+
+.list-image {
+  flex: 1;
+}
+
+.list-image img {
+  width: 100%;
+  height: auto;
+} 
+
+.list-contents {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.list-contents h3 {
+  margin: 10px 0;
+  font-family: var(--font-title);
+  line-height: 16pt;
+}
+
+.list-item .category {
+  color: var(--neon-red);
+  font-weight: bold;
+  font-size: 13pt;
+  line-height: 14pt;
+}
+
+.list-item .description {
+  color: var(--gray);
+  font-size: 12pt;
+  line-height: 14pt;
+}
+
+/* Max width for mobile layout is iPad mini portrait */
+@media (min-width: 770px) {
+  .list-item {
+    flex-direction: row;
+    gap: 20px;
+  }
+}

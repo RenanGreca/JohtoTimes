@@ -1,0 +1,50 @@
+/* Glacial Indifference font for headings */
+
+/*default version*/
+@font-face {
+	font-family: 'Glacial Indifference';
+	src: url('../fonts/GlacialIndifference-Regular.otf');
+	src:
+		local('Glacial Indifference'),
+		local('Glacial-Indifference'),
+		url('../fonts/GlacialIndifference-Regular.otf')
+		format('opentype');
+	font-display: swap;
+}
+/*bold version*/
+@font-face {
+	font-family: 'Glacial Indifference';
+	src: url('../fonts/GlacialIndifference-Bold.otf');
+    src:
+		local('Glacial Indifference'),
+		local('Glacial-Indifference'),
+		url('../fonts/GlacialIndifference-Bold.otf')
+		format('opentype');
+	font-weight:bold;
+	font-display: swap;
+}
+
+/*default version*/
+@font-face {
+	font-family: 'Shin Go Pro';
+	src: url('../fonts/ShinGoProRegular.otf');
+	src:
+		local('Shin Go Pro'),
+		local('Shin-Go-Pro'),
+		url('../fonts/ShinGoProRegular.otf')
+		format('opentype');
+	font-display: swap;
+}
+/*bold version*/
+@font-face {
+	font-family: 'Shin Go Pro';
+	src: url('../fonts/ShinGoProBold.otf');
+    src:
+		local('Shin Go Pro'),
+		local('Shin-Go-Pro'),
+		url('../fonts/ShinGoProBold.otf')
+		format('opentype');
+	font-weight:bold;
+	font-display: swap;
+}
+

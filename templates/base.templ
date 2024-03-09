@@ -2,6 +2,7 @@ package templates
 
 import (
   "johtotimes.com/internal"
+  "strings"
 )
 
 // Provides the core HTML scaffolding
@@ -37,7 +38,7 @@ templ Head(title string) {
 templ Header() {
   <div class="brand-container" >
     <div class="hamburger-icon">
-      <img src={ internal.ImgPath + "/search.png" }
+      <img src={ internal.IconsPath + "/search.png" }
         title="Open menu" aria-placeholder="menu" aria-label="menu" />
     </div>
     <div class="brand">
@@ -46,7 +47,7 @@ templ Header() {
       </a>
     </div>
     <div class="search-icon">
-      <img src={ internal.ImgPath + "/search.png" }
+      <img src={ internal.IconsPath + "/search.png" }
         title="Search" aria-placeholder="search" aria-label="search" />
     </div>
     <div class="social-icons">
@@ -54,7 +55,7 @@ templ Header() {
         <a href={ templ.URL(socialLink.URL) } aria-label={ socialLink.Name } 
           class="social-icon social-{ socialLink.Name }" target="_blank">
           <img class="social-icon" 
-            src={ internal.ImgPath + "/icons/" + socialLink.Name + "-blue.png" } />
+            src={ internal.IconsPath + "/" + socialLink.Name + "-blue.png" } />
         </a>
       }
     </div>
@@ -89,13 +90,22 @@ templ List(title string, posts []internal.Post) {
 }
 
 templ ListItem(post internal.Post) {
-  <div class="list-item">
-    <a href={ templ.URL("posts/" + post.Slug) } aria-label={ post.Title }>
+  <a href={ templ.URL("posts/" + post.Slug) } aria-label={ post.Title }>
+    <div class="list-item">
       <div class="list-image">
         <img src={ post.Img } />
       </div>
-      <h3>{ post.Title }</h3>
-      Category: { post.Category }
-    </a>
-  </div>
+      <div class="list-contents">
+        <span class="category">
+          { strings.ToUpper(post.Category) }
+        </span>
+        <h3>{ post.Title }</h3>
+        <span class="description">
+          { post.Description }
+        </span>
+      </div>
+    </div>
+  </a>
+
+  <hr />
 }

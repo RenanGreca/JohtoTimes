@@ -24,12 +24,15 @@ const Title = "Johto Times"
 const AssetPath = "web"
 const StylesPath = "/" + AssetPath + "/styles"
 const ScriptsPath = "/" + AssetPath + "/scripts"
-const ImgPath = "/" + AssetPath + "/img"
+const ImgPath = AssetPath + "/img"
+const IconsPath = ImgPath + "/icons"
 
 // Add to this as we want more css files
 var Stylesheets = [...]string{
+	"/fonts.css",
 	"/theme.css",
 	"/style.css",
 	"/fonts.css",
 	"/header.css",
+	"/list.css",
 }
