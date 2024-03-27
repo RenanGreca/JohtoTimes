@@ -16,6 +16,7 @@ type DB struct {
 
 type Post struct {
 	Contents    templ.Component
+	String      string
 	Slug        string
 	Title       string
 	Category    string
@@ -67,15 +68,15 @@ func (db *DB) FillDB(postsPath string) {
 }
 
 func (db *DB) GetIssues(issuesPath string) {
-	entries, err := os.ReadDir(issuesPath)
-	if err != nil {
-		log.Fatalln(err)
-	}
+	// entries, err := os.ReadDir(issuesPath)
+	// if err != nil {
+	// 	log.Fatalln(err)
+	// }
 
-	for _, e := range entries {
-		// parse issue markdown
-		// search for news file
-		// search for post file
-		// search for mailbag file
-	}
+	// for _, e := range entries {
+	// parse issue markdown
+	// search for news file
+	// search for post file
+	// search for mailbag file
+	// }
 }

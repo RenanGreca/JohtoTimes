@@ -21,6 +21,7 @@ var Categories = [...]Link{
 
 const Title = "Johto Times"
 
+const URL = "https://johtotimes.renangreca.com"
 const AssetPath = "web"
 const StylesPath = "/" + AssetPath + "/styles"
 const ScriptsPath = "/" + AssetPath + "/scripts"

@@ -1,18 +1,55 @@
 package main
 
 import (
+	"context"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"strings"
 
 	"github.com/a-h/templ"
+	"github.com/go-mail/mail"
 
 	"johtotimes.com/handler"
 	"johtotimes.com/internal"
+	T "johtotimes.com/templates"
 )
 
 func main() {
+	// emailSender()
+
+	httpHandler()
+}
+
+func emailSender() {
+	fileName := "./web/posts/2024-02-22-pokemon-legends-celebi-a-concept.md"
+	post := internal.ParseMarkdown(fileName)
+	f, err := os.Create("head.html")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	err = T.Head(post.Title).Render(context.Background(), f)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	head := internal.ReadFile("head.html")
+
+	pass := os.Getenv("GOEMAILPASS")
+
+	m := mail.NewMessage()
+	m.SetHeader("From", "newsletter@johtotimes.com")
+	m.SetHeader("To", "renangreca@icloud.com")
+	m.SetHeader("Subject", post.Title)
+	m.SetBody("text/html", head+post.String)
+
+	d := mail.NewDialer("smtp.gmail.com", 587, "renangreca@gmail.com", pass)
+	if err := d.DialAndSend(m); err != nil {
+		log.Fatalln(err)
+	}
+}
+
+func httpHandler() {
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "3000"

@@ -32,6 +32,7 @@ func ParseMarkdown(fileName string) Post {
 
 	return Post{
 		Contents:    content,
+		String:      buf.String(),
 		Slug:        extractSlug(fileName),
 		Title:       metadata["Title"].(string),
 		Category:    metadata["Category"].(string),
