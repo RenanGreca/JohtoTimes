@@ -3,6 +3,7 @@ package internal
 type Link struct {
 	Name string
 	URL  string
+	Icon string
 }
 
 type CSS struct {

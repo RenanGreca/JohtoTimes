@@ -12,6 +12,10 @@ License URI: http://creativecommons.org/licenses/by-sa/3.0/
 */
 
 body {
+  margin: 0px;
+  background-image: url('/web/img/pokeball-pattern-bg.png');
+  background-attachment:fixed;
+  background-repeat: repeat;
   background-color: var(--dark-background);
   color: var(--white);
   font-family: var(--font-text), sans-serif;

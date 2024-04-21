@@ -32,7 +32,8 @@ func httpHandler() {
 	mux.Handle("/", templ.Handler(handler.IndexPage()))
 	prefix := "/" + internal.AssetPath + "/"
 	assets := http.FileServer(http.Dir(internal.AssetPath))
-	mux.Handle(prefix, http.StripPrefix(prefix, assets))
+	fmt.Println(prefix)
+	mux.Handle("GET "+prefix, http.StripPrefix(prefix, assets))
 	// for _, dir := range [...]string{"fonts", "img", "scripts", "styles"} {
 	// 	pattern := prefix + dir
 	// 	fmt.Println(pattern)

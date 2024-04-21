@@ -19,9 +19,18 @@ var Categories = [...]Link{
 	{Name: "Mailbag", URL: "/mailbag"},
 }
 
+var Tabs = []Link{
+	{Name: "Issues", URL: "/issues", Icon: "book@2x.png"},
+	{Name: "Archive", URL: "/archive", Icon: "archivebox@2x.png"},
+	{Name: "Search", URL: "/search", Icon: "magnifyingglass@2x.png"},
+	{Name: "Community", URL: "/community", Icon: "person.3@2x.png"},
+	{Name: "About", URL: "/about", Icon: "info.square@2x.png"},
+}
+
 const Title = "Johto Times"
 
-const URL = "https://johtotimes.renangreca.com"
+// const URL = "https://johtotimes.renangreca.com"
+// const URL = "http://localhost:3000"
 const AssetPath = "web"
 const StylesPath = "/" + AssetPath + "/styles"
 const ScriptsPath = "/" + AssetPath + "/scripts"
@@ -37,4 +46,5 @@ var Stylesheets = [...]string{
 	"/fonts.css",
 	"/header.css",
 	"/list.css",
+	"/tabbar.css",
 }
