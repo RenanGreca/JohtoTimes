@@ -2,7 +2,6 @@ package templates
 
 import (
   "johtotimes.com/src/internal"
-  "strings"
 )
 
 // Provides the core HTML scaffolding
@@ -19,53 +18,6 @@ templ Base(title string, body templ.Component) {
   </html>
 }
 
-// Contents of <head> tag
-templ Head(title string) {
-  <head>
-    <title>{ title }</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
-    <meta name="description" content="Johto Times homepage" />
-    <meta name="HandheldFriendly" content="true"/>
-
-    for _, css := range internal.Stylesheets {
-      <link href={ internal.StylesPath + css } rel="stylesheet" />
-    }
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,700,700i&display=swap" rel="stylesheet"/>
-  </head>
-}
-
-// Common brand/navigation items on top of every page
-templ Header() {
-  <div class="brand-container">
-    <div class="brand">
-      <a class="brand-link" href="/">
-        <img class="logo"  src={ "/" + internal.ImgPath + "/johto-times.png" } />
-      </a>
-    </div>
-    <!--
-    <div class="social-icons">
-      for _, socialLink := range internal.SocialLinks {
-        <a href={ templ.URL(socialLink.URL) } aria-label={ socialLink.Name } 
-          class="social-icon social-{ socialLink.Name }" target="_blank">
-          <img class="social-icon" 
-            src={ "/" + internal.IconsPath + "/" + socialLink.Name + "-blue.png" } />
-        </a>
-      }
-    </div>
-    -->
-  </div>
-
-  <div class="navbar">
-    for _, category := range internal.Categories {
-      <a class="navbar-link" href={ templ.URL(category.URL) }>
-        { category.Name }
-      </a>
-    }
-  </div>
-}
 
 // This will be different according to the page
 templ Body(body templ.Component) {
@@ -75,50 +27,4 @@ templ Body(body templ.Component) {
 // Common footer elements for all pages
 templ Foot() {
 
-}
-
-templ TabBar(tabs []internal.Link) {
-  <div class="tab-bar">
-    for _, tab := range tabs {
-      <a href={ templ.URL(tab.URL) }>
-        <div class="tab">
-          <div class="tab-icon-container">
-          <img class="tab-icon" 
-              src={ "/" + internal.IconsPath + "/" + tab.Icon } />
-          </div>
-          <div class="tab-name">
-            { tab.Name }
-          </div>
-        </div>
-      </a>
-    }
-  </div>
-}
-
-templ List(title string, posts []internal.Post) {
-  <h1>{ title }</h1>
-  <div class="list">
-    for _, post := range posts {
-      @ListItem(post)
-    }
-  </div>
-}
-
-templ ListItem(post internal.Post) {
-  <a href={ templ.URL( "posts/" + post.Category + "/" + post.Slug) } aria-label={ post.Title }>
-    <div class="list-item">
-      <div class="list-image">
-        <img src={ post.Img } />
-      </div>
-      <div class="list-contents">
-        <span class="category">
-          { strings.ToUpper(post.Category) }
-        </span>
-        <h3>{ post.Title }</h3>
-        <span class="description">
-          { post.Description }
-        </span>
-      </div>
-    </div>
-  </a>
 }

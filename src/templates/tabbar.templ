@@ -1,0 +1,23 @@
+package templates
+
+import (
+  "johtotimes.com/src/internal"
+)
+
+templ TabBar(tabs []internal.Link) {
+  <div class="tab-bar">
+    for _, tab := range tabs {
+      <a href={ templ.URL(tab.URL) }>
+        <div class="tab">
+          <div class="tab-icon-container">
+          <img class="tab-icon" 
+              src={ "/" + internal.IconsPath + "/" + tab.Icon } />
+          </div>
+          <div class="tab-name">
+            { tab.Name }
+          </div>
+        </div>
+      </a>
+    }
+  </div>
+}
