@@ -1,5 +1,10 @@
 .list {
-  margin-bottom: 64px;
+  /* margin-bottom: 64px; */
+  /* height: calc(100vh - 48px - 80px); */
+  /* overflow: scroll; */
+  width: 800px;
+  max-width: 90vw;
+  margin: 0 auto;
 }
 
 .list-item {

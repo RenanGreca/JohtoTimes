@@ -13,20 +13,25 @@ License URI: http://creativecommons.org/licenses/by-sa/3.0/
 
 body {
   margin: 0px;
-  background-image: url('/web/img/pokeball-pattern-bg.png');
-  background-attachment:fixed;
-  background-repeat: repeat;
-  background-color: var(--dark-background);
   color: var(--white);
   font-family: var(--font-text), sans-serif;
   font-size: 16pt;
   line-height: 24pt;
+  overflow: hidden;
+  
+  background-image: url('/web/img/pokeball-pattern-bg.png');
+  background-attachment:fixed;
+  background-repeat: repeat;
+  background-color: var(--dark-background);
+  z-index: -1;
 }
 
 .content {
-  width: 800px;
-  max-width: 90vw;
-  margin: 0 auto;
+  height: calc(100vh - 80px - 48px);
+  overflow: scroll;
+  /* width: 800px; */
+  /* max-width: 90vw; */
+  /* margin: 0 auto; */
 }
 
 .content img {
