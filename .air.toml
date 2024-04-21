@@ -1,12 +1,12 @@
-root = "."
+root = "./src"
 testdata_dir = "testdata"
 tmp_dir = "tmp"
 
 [build]
   args_bin = []
   bin = "./tmp/main"
-  pre_cmd = ["./scripts/kill.sh 3000", "templ generate", "go test ./...", "exportGOEMAILPASS=$(cat .GOEMAILPASS)"]
-  cmd = "go build -o ./tmp/main ."
+  pre_cmd = ["./scripts/kill.sh 3000", "templ generate", "go test ./...", "export GOEMAILPASS=$(cat .GOEMAILPASS)"]
+  cmd = "go build -o ./tmp/main ./src"
   post_cmd = []
   delay = 1000
   exclude_dir = ["assets", "tmp", "vendor", "testdata"]

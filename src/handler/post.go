@@ -7,8 +7,8 @@ import (
 	"os"
 
 	"github.com/a-h/templ"
-	"johtotimes.com/internal"
-	T "johtotimes.com/templates"
+	"johtotimes.com/src/internal"
+	T "johtotimes.com/src/templates"
 )
 
 func PostHandler(w http.ResponseWriter, r *http.Request) {

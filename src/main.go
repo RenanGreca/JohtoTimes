@@ -11,9 +11,9 @@ import (
 	"github.com/a-h/templ"
 	"github.com/go-mail/mail"
 
-	"johtotimes.com/handler"
-	"johtotimes.com/internal"
-	T "johtotimes.com/templates"
+	"johtotimes.com/src/handler"
+	"johtotimes.com/src/internal"
+	T "johtotimes.com/src/templates"
 )
 
 func main() {

@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-const fileName = "../web/posts/2024-02-22-pokemon-legends-celebi-a-concept.md"
+const fileName = "../../web/posts/2024-02-22-pokemon-legends-celebi-a-concept.md"
 
 var post Post
 
