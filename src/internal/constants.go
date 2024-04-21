@@ -27,6 +27,7 @@ const StylesPath = "/" + AssetPath + "/styles"
 const ScriptsPath = "/" + AssetPath + "/scripts"
 const ImgPath = AssetPath + "/img"
 const IconsPath = ImgPath + "/icons"
+const PostsPath = AssetPath + "/posts"
 
 // Add to this as we want more css files
 var Stylesheets = [...]string{

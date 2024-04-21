@@ -11,7 +11,7 @@ COPY go.mod go.sum ./
 
 RUN go mod download
 RUN go install github.com/cosmtrek/air@v1.51.0
-RUN go install github.com/a-h/templ/cmd/templ@v0.2.590
+RUN go install github.com/a-h/templ/cmd/templ@v0.2.663
 
 # COPY . .
 # RUN go build -o main ./src

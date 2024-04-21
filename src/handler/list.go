@@ -1,14 +1,23 @@
 package handler
 
 import (
+	"fmt"
 	"log"
+	"net/http"
 	"os"
-	"strings"
 
 	"github.com/a-h/templ"
 	"johtotimes.com/src/internal"
 	T "johtotimes.com/src/templates"
 )
+
+func ListHandler(w http.ResponseWriter, req *http.Request) {
+	category := req.PathValue("category")
+	fmt.Println(req)
+	fmt.Println("Listing: " + category)
+
+	ListPage(category).Render(req.Context(), w)
+}
 
 func ListPage(slug string) templ.Component {
 	log.Println("List page: ", slug)
@@ -20,7 +29,7 @@ func ListPage(slug string) templ.Component {
 	posts := []internal.Post{}
 	for _, e := range entries {
 		post := internal.ParseMarkdown("web/posts/" + e.Name())
-		if strings.ToLower(post.Category) == slug {
+		if post.Category == slug {
 			posts = append(posts, post)
 		}
 	}
