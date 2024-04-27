@@ -1,7 +1,9 @@
-package internal
+package post
 
 import (
 	"testing"
+
+	"johtotimes.com/src/internal"
 )
 
 const fileName = "../../web/posts/2024-02-22-pokemon-legends-celebi-a-concept.md"
@@ -9,11 +11,11 @@ const fileName = "../../web/posts/2024-02-22-pokemon-legends-celebi-a-concept.md
 var post Post
 
 func TestReadFile(t *testing.T) {
-	_ = ReadFile(fileName)
+	_ = internal.ReadFile(fileName)
 }
 
 func TestBeforeAll(t *testing.T) {
-	post = ParseMarkdown(fileName)
+	post, _ = parseHeaders(fileName)
 }
 
 func TestTitle(t *testing.T) {

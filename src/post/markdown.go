@@ -1,21 +1,21 @@
-package internal
+package post
 
 import (
 	"bytes"
-	"context"
-	"io"
 	"log"
+	"strconv"
 	"strings"
+	"time"
 
-	"github.com/a-h/templ"
 	"github.com/yuin/goldmark"
 	meta "github.com/yuin/goldmark-meta"
 	"github.com/yuin/goldmark/parser"
+	"johtotimes.com/src/internal"
 )
 
 // Received the path to a markdown file and returns a Post element
-func ParseMarkdown(fileName string) Post {
-	md := ReadFile(fileName)
+func parseHeaders(fileName string) (Post, string) {
+	md := internal.ReadFile(fileName)
 
 	markdown := goldmark.New(
 		goldmark.WithExtensions(
@@ -27,20 +27,20 @@ func ParseMarkdown(fileName string) Post {
 	if err := markdown.Convert([]byte(md), &buf, parser.WithContext(context)); err != nil {
 		log.Fatalf("failed to convert markdown to HTML: %v", err)
 	}
-	content := unsafe(buf.String())
 	metadata := meta.Get(context)
 
 	return Post{
-		Contents:    content,
-		String:      buf.String(),
-		Slug:        extractSlug(fileName),
-		Title:       metadata["Title"].(string),
-		Category:    metadata["Category"].(string),
+		// Contents: content,
+		Slug:  extractSlug(fileName),
+		Title: metadata["Title"].(string),
+		// Category:    metadata["Category"].(string),
 		Img:         metadata["Header"].(string),
 		Description: metadata["Description"].(string),
-		Tags:        extractTags(metadata),
-	}
+		Date:        extractDate(fileName),
+		// Tags:        extractTags(metadata),
+	}, buf.String()
 }
+
 
 func extractSlug(fileName string) string {
 	split := strings.Split(fileName, "/")
@@ -50,16 +50,29 @@ func extractSlug(fileName string) string {
 	return slug
 }
 
+func extractDate(fileName string) time.Time {
+	split := strings.Split(fileName, "/")
+	last := split[len(split)-1]
+	split2 := strings.Split(last, "-")
+	year, err := strconv.Atoi(split2[0])
+	if err != nil {
+		log.Fatal(err)
+	}
+	month, err := strconv.Atoi(split2[1])
+	if err != nil {
+		log.Fatal(err)
+	}
+	day, err := strconv.Atoi(split2[2])
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
+}
+
 func extractTags(metadata map[string]interface{}) []string {
 	if metadata["Tags"] == nil {
 		return []string{}
 	}
 	return strings.Split(metadata["Tags"].(string), ",")
-}
-
-func unsafe(html string) templ.Component {
-	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
-		_, err = io.WriteString(w, html)
-		return
-	})
 }

@@ -1,21 +1,51 @@
 package main
 
 import (
-	"context"
+	"database/sql"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
 
 	"github.com/a-h/templ"
-	"github.com/go-mail/mail"
+	_ "github.com/mattn/go-sqlite3"
 
 	"johtotimes.com/src/handler"
 	"johtotimes.com/src/internal"
-	T "johtotimes.com/src/templates"
+	"johtotimes.com/src/list"
+	"johtotimes.com/src/post"
 )
 
+const dbFile = "sqlite.db"
+
 func main() {
+	os.Remove(dbFile)
+	db, err := sql.Open("sqlite3", dbFile)
+	if err != nil {
+		log.Fatal(err)
+	}
+	postRepository := post.NewPostRepository(db)
+	if err := postRepository.Migrate(); err != nil {
+		log.Fatal(err)
+	}
+
+	posts := post.Populate()
+	for _, p := range posts {
+		created, err := postRepository.Create(p)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("Created post with slug %s and ID %d\n", created.Slug, created.ID)
+	}
+
+	retrievedPosts, err := postRepository.GetPage(10, 10)
+	if err != nil {
+		log.Fatal(err)
+	}
+	for _, p := range retrievedPosts {
+		fmt.Printf("Found post %s\n", p.Title)
+	}
+
 	// emailSender()
 	httpHandler()
 }
@@ -40,8 +70,8 @@ func httpHandler() {
 	// 	mux.Handle(pattern, http.StripPrefix(prefix, assets))
 	// }
 
-	mux.HandleFunc("GET /category/{category}", handler.ListHandler)
-	mux.HandleFunc("GET /posts/{category}/{slug}", handler.PostHandler)
+	mux.HandleFunc("GET /category/{category}", list.Handler)
+	mux.HandleFunc("GET /posts/{category}/{slug}", post.Handler)
 	// for _, category := range internal.Categories {
 	// 	slug := strings.ToLower(category.Name)
 	// 	mux.Handle("/"+slug, templ.Handler(handler.ListPage(slug)))
@@ -51,28 +81,28 @@ func httpHandler() {
 }
 
 func emailSender() {
-	fileName := "./web/posts/2024-02-22-pokemon-legends-celebi-a-concept.md"
-	post := internal.ParseMarkdown(fileName)
-	f, err := os.Create("head.html")
-	if err != nil {
-		log.Fatalln(err)
-	}
-	err = T.Head(post.Title).Render(context.Background(), f)
-	if err != nil {
-		log.Fatalln(err)
-	}
-	head := internal.ReadFile("head.html")
-
-	pass := os.Getenv("GOEMAILPASS")
-
-	m := mail.NewMessage()
-	m.SetHeader("From", "newsletter@johtotimes.com")
-	m.SetHeader("To", "renangreca@icloud.com")
-	m.SetHeader("Subject", post.Title)
-	m.SetBody("text/html", head+post.String)
-
-	d := mail.NewDialer("smtp.gmail.com", 587, "renangreca@gmail.com", pass)
-	if err := d.DialAndSend(m); err != nil {
-		log.Fatalln(err)
-	}
+	// fileName := "./web/posts/2024-02-22-pokemon-legends-celebi-a-concept.md"
+	// post := internal.ParseMarkdown(fileName)
+	// f, err := os.Create("head.html")
+	// if err != nil {
+	// 	log.Fatalln(err)
+	// }
+	// err = T.Head(post.Title).Render(context.Background(), f)
+	// if err != nil {
+	// 	log.Fatalln(err)
+	// }
+	// head := internal.ReadFile("head.html")
+	//
+	// pass := os.Getenv("GOEMAILPASS")
+	//
+	// m := mail.NewMessage()
+	// m.SetHeader("From", "newsletter@johtotimes.com")
+	// m.SetHeader("To", "renangreca@icloud.com")
+	// m.SetHeader("Subject", post.Title)
+	// m.SetBody("text/html", head+post.String)
+	//
+	// d := mail.NewDialer("smtp.gmail.com", 587, "renangreca@gmail.com", pass)
+	// if err := d.DialAndSend(m); err != nil {
+	// 	log.Fatalln(err)
+	// }
 }

@@ -1,8 +1,10 @@
-package handler
+package post
 
 import (
+	"context"
 	"errors"
 	"fmt"
+	"io"
 	"net/http"
 	"os"
 
@@ -11,7 +13,7 @@ import (
 	T "johtotimes.com/src/templates"
 )
 
-func PostHandler(w http.ResponseWriter, req *http.Request) {
+func Handler(w http.ResponseWriter, req *http.Request) {
 	// fmt.Println("Hello posts")
 	// fmt.Println(r.URL.Path)
 	slug := req.PathValue("slug")
@@ -21,14 +23,22 @@ func PostHandler(w http.ResponseWriter, req *http.Request) {
 	if _, err := os.Stat(fileName); err == nil {
 		singlePage(fileName).Render(req.Context(), w)
 	} else if errors.Is(err, os.ErrNotExist) {
-		fmt.Println("Error trying to open file "+fileName)
+		fmt.Println("Error trying to open file " + fileName)
 	}
 
 }
 
 func singlePage(fileName string) templ.Component {
 
-	post := internal.ParseMarkdown(fileName)
+	post, contents := parseHeaders(fileName)
 
-	return T.Base(post.Title, post.Contents)
+	return T.Base(post.Title, unsafe(contents))
+}
+
+// ! Todo: Move to another package
+func unsafe(html string) templ.Component {
+	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
+		_, err = io.WriteString(w, html)
+		return
+	})
 }
