@@ -4,6 +4,8 @@ import (
 	"log"
 	"os"
 	"time"
+
+	"johtotimes.com/src/internal"
 )
 
 type Post struct {
@@ -18,7 +20,7 @@ type Post struct {
 	Date        time.Time
 }
 
-func GetFromDirectory(postsDir string) []Post {
+func getFromDirectory(postsDir string) []Post {
 	entries, err := os.ReadDir(postsDir)
 	if err != nil {
 		log.Fatalln(err)
@@ -31,4 +33,22 @@ func GetFromDirectory(postsDir string) []Post {
 		posts = append(posts, post)
 	}
 	return posts
+}
+
+// Received the path to a markdown file and returns a Post element
+func parseHeaders(fileName string) (Post, string) {
+	md := internal.ReadFile(fileName)
+
+	metadata, buf := internal.ParseMarkdown(md)
+
+	return Post{
+		// Contents: content,
+		Slug:  internal.ExtractSlug(fileName),
+		Title: metadata["Title"].(string),
+		// Category:    metadata["Category"].(string),
+		Img:         metadata["Header"].(string),
+		Description: metadata["Description"].(string),
+		Date:        internal.ExtractDate(fileName),
+		// Tags:        extractTags(metadata),
+	}, buf.String()
 }

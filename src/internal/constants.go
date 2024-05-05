@@ -37,6 +37,9 @@ const ScriptsPath = "/" + AssetPath + "/scripts"
 const ImgPath = AssetPath + "/img"
 const IconsPath = ImgPath + "/icons"
 const PostsPath = AssetPath + "/posts"
+const MailbagPath = AssetPath + "/mailbag"
+const NewsPath = AssetPath + "/news"
+const IssuesPath = AssetPath + "/issues"
 
 // Add to this as we want more css files
 var Stylesheets = [...]string{

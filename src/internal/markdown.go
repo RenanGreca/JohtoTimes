@@ -1,4 +1,4 @@
-package post
+package internal
 
 import (
 	"bytes"
@@ -10,13 +10,9 @@ import (
 	"github.com/yuin/goldmark"
 	meta "github.com/yuin/goldmark-meta"
 	"github.com/yuin/goldmark/parser"
-	"johtotimes.com/src/internal"
 )
 
-// Received the path to a markdown file and returns a Post element
-func parseHeaders(fileName string) (Post, string) {
-	md := internal.ReadFile(fileName)
-
+func ParseMarkdown(md string) (map[string]interface{}, bytes.Buffer) {
 	markdown := goldmark.New(
 		goldmark.WithExtensions(
 			meta.Meta,
@@ -29,19 +25,10 @@ func parseHeaders(fileName string) (Post, string) {
 	}
 	metadata := meta.Get(context)
 
-	return Post{
-		// Contents: content,
-		Slug:  extractSlug(fileName),
-		Title: metadata["Title"].(string),
-		// Category:    metadata["Category"].(string),
-		Img:         metadata["Header"].(string),
-		Description: metadata["Description"].(string),
-		Date:        extractDate(fileName),
-		// Tags:        extractTags(metadata),
-	}, buf.String()
+	return metadata, buf
 }
 
-func extractSlug(fileName string) string {
+func ExtractSlug(fileName string) string {
 	split := strings.Split(fileName, "/")
 	last := split[len(split)-1]
 	split2 := strings.Split(last, ".")
@@ -49,7 +36,7 @@ func extractSlug(fileName string) string {
 	return slug
 }
 
-func extractDate(fileName string) time.Time {
+func ExtractDate(fileName string) time.Time {
 	split := strings.Split(fileName, "/")
 	last := split[len(split)-1]
 	split2 := strings.Split(last, "-")
@@ -69,7 +56,7 @@ func extractDate(fileName string) time.Time {
 	return time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
 }
 
-func extractTags(metadata map[string]interface{}) []string {
+func ExtractTags(metadata map[string]interface{}) []string {
 	if metadata["Tags"] == nil {
 		return []string{}
 	}

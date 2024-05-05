@@ -9,7 +9,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 
 	"johtotimes.com/src/database"
-	"johtotimes.com/src/handler"
+	"johtotimes.com/src/home"
 	"johtotimes.com/src/internal"
 	"johtotimes.com/src/list"
 	"johtotimes.com/src/post"
@@ -32,7 +32,7 @@ func httpHandler() {
 	mux := http.NewServeMux()
 
 	// Index page
-	mux.Handle("/", templ.Handler(handler.IndexPage()))
+	mux.Handle("/", templ.Handler(home.HomePage()))
 
 	// Assets directory
 	prefix := "/" + internal.AssetPath + "/"

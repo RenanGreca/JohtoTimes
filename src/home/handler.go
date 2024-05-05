@@ -1,4 +1,4 @@
-package handler
+package home
 
 import (
 	"log"
@@ -10,20 +10,19 @@ import (
 	T "johtotimes.com/src/templates"
 )
 
-func IndexPage() templ.Component {
-	log.Printf("Rendering index page")
+func HomePage() templ.Component {
+	log.Printf("Rendering home page")
 	db := database.Connect()
 	defer db.Close()
-	retrievedPosts, err := db.Posts.GetPage(10, 10)
+	retrievedPosts, err := db.Posts.GetPage(0, 10)
 	if err != nil {
 		log.Fatal(err)
 	}
 	posts := []post.Post{}
 	for _, p := range retrievedPosts {
 		posts = append(posts, p)
-		log.Printf("Found post %s\n", p.Title)
 	}
-	log.Printf("%d", len(posts))
+	log.Printf("Found %d posts", len(posts))
 
 	list := list.List("", posts)
 
