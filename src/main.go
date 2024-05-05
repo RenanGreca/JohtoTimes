@@ -1,50 +1,22 @@
 package main
 
 import (
-	"database/sql"
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 
 	"github.com/a-h/templ"
 	_ "github.com/mattn/go-sqlite3"
 
+	"johtotimes.com/src/database"
 	"johtotimes.com/src/handler"
 	"johtotimes.com/src/internal"
 	"johtotimes.com/src/list"
 	"johtotimes.com/src/post"
 )
 
-const dbFile = "sqlite.db"
-
 func main() {
-	os.Remove(dbFile)
-	db, err := sql.Open("sqlite3", dbFile)
-	if err != nil {
-		log.Fatal(err)
-	}
-	postRepository := post.NewPostRepository(db)
-	if err := postRepository.Migrate(); err != nil {
-		log.Fatal(err)
-	}
-
-	posts := post.Populate()
-	for _, p := range posts {
-		created, err := postRepository.Create(p)
-		if err != nil {
-			log.Fatal(err)
-		}
-		fmt.Printf("Created post with slug %s and ID %d\n", created.Slug, created.ID)
-	}
-
-	retrievedPosts, err := postRepository.GetPage(10, 10)
-	if err != nil {
-		log.Fatal(err)
-	}
-	for _, p := range retrievedPosts {
-		fmt.Printf("Found post %s\n", p.Title)
-	}
+	database.NewDB()
 
 	// emailSender()
 	httpHandler()
@@ -58,19 +30,28 @@ func httpHandler() {
 	fmt.Println("Listening on port " + port)
 
 	mux := http.NewServeMux()
-	// mux.Handle("/", templ.Handler(singlePage()))
+
+	// Index page
 	mux.Handle("/", templ.Handler(handler.IndexPage()))
+
+	// Assets directory
 	prefix := "/" + internal.AssetPath + "/"
 	assets := http.FileServer(http.Dir(internal.AssetPath))
-	fmt.Println(prefix)
 	mux.Handle("GET "+prefix, http.StripPrefix(prefix, assets))
+
 	// for _, dir := range [...]string{"fonts", "img", "scripts", "styles"} {
 	// 	pattern := prefix + dir
 	// 	fmt.Println(pattern)
 	// 	mux.Handle(pattern, http.StripPrefix(prefix, assets))
 	// }
 
+	// Category lists
 	mux.HandleFunc("GET /category/{category}", list.Handler)
+
+	// Post pages
+	// Handle direct link to post
+	mux.HandleFunc("GET /posts/{slug}", post.Handler)
+	// Handle category-type link
 	mux.HandleFunc("GET /posts/{category}/{slug}", post.Handler)
 	// for _, category := range internal.Categories {
 	// 	slug := strings.ToLower(category.Name)

@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 
@@ -14,8 +15,7 @@ import (
 )
 
 func Handler(w http.ResponseWriter, req *http.Request) {
-	// fmt.Println("Hello posts")
-	// fmt.Println(r.URL.Path)
+	log.Println("Handling request to " + req.URL.Path)
 	slug := req.PathValue("slug")
 	fileName := internal.PostsPath + "/" + slug + ".md"
 	fmt.Println(fileName)
@@ -29,7 +29,6 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 }
 
 func singlePage(fileName string) templ.Component {
-
 	post, contents := parseHeaders(fileName)
 
 	return T.Base(post.Title, unsafe(contents))

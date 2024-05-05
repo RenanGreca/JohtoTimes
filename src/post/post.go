@@ -18,15 +18,15 @@ type Post struct {
 	Date        time.Time
 }
 
-func Populate() []Post {
-	entries, err := os.ReadDir("web/posts")
+func GetFromDirectory(postsDir string) []Post {
+	entries, err := os.ReadDir(postsDir)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
 	var posts []Post
 	for _, e := range entries {
-		post, _ := parseHeaders("web/posts/" + e.Name())
+		post, _ := parseHeaders(postsDir + "/" + e.Name())
 		// posts[i] = post
 		posts = append(posts, post)
 	}

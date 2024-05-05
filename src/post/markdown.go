@@ -41,7 +41,6 @@ func parseHeaders(fileName string) (Post, string) {
 	}, buf.String()
 }
 
-
 func extractSlug(fileName string) string {
 	split := strings.Split(fileName, "/")
 	last := split[len(split)-1]

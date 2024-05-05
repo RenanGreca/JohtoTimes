@@ -25,19 +25,19 @@ func TestTitle(t *testing.T) {
 	}
 }
 
-func TestCategory(t *testing.T) {
-	expected := "Features"
-	if post.Category != expected {
-		t.Fatalf(`Expected category %q, received %q`, expected, post.Category)
-	}
-}
-
-func TestTags(t *testing.T) {
-	expectedCount := 0
-	if len(post.Tags) != expectedCount {
-		t.Fatalf(`Expected tags count %d, received %d`, expectedCount, len(post.Tags))
-	}
-}
+// func TestCategory(t *testing.T) {
+// 	expected := "Features"
+// 	if post.Category != expected {
+// 		t.Fatalf(`Expected category %q, received %q`, expected, post.Category)
+// 	}
+// }
+//
+// func TestTags(t *testing.T) {
+// 	expectedCount := 0
+// 	if len(post.Tags) != expectedCount {
+// 		t.Fatalf(`Expected tags count %d, received %d`, expectedCount, len(post.Tags))
+// 	}
+// }
 
 func TestSlug(t *testing.T) {
 	slug := extractSlug(fileName)

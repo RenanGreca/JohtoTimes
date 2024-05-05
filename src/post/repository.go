@@ -3,6 +3,9 @@ package post
 import (
 	"database/sql"
 	"fmt"
+	"log"
+
+	"johtotimes.com/src/internal"
 )
 
 type PostRepository struct {
@@ -10,9 +13,27 @@ type PostRepository struct {
 }
 
 func NewPostRepository(db *sql.DB) *PostRepository {
-	return &PostRepository{
+	postRepository := PostRepository{
 		db: db,
 	}
+	return &postRepository
+}
+
+func (r *PostRepository) Populate(db *sql.DB) {
+
+	if err := r.Migrate(); err != nil {
+		log.Fatal(err)
+	}
+
+	posts := GetFromDirectory(internal.PostsPath)
+	for _, p := range posts {
+		created, err := r.Create(p)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("Created post with slug %s and ID %d\n", created.Slug, created.ID)
+	}
+
 }
 
 func (r *PostRepository) Migrate() error {
@@ -29,7 +50,7 @@ func (r *PostRepository) Migrate() error {
 
 	_, err := r.db.Exec(query)
 	if err != nil {
-		fmt.Println(query)
+		log.Println(query)
 	}
 	return err
 }
@@ -41,7 +62,7 @@ func (r *PostRepository) Create(post Post) (*Post, error) {
 	`
 	res, err := r.db.Exec(query, post.Title, post.Slug, post.Img, post.Description, post.Date)
 	if err != nil {
-		fmt.Println(query)
+		log.Println(query)
 		return nil, err
 	}
 
@@ -59,9 +80,10 @@ func (r *PostRepository) GetPage(offset int, limit int) ([]Post, error) {
 	SELECT *
 	FROM posts
 	ORDER BY date`
+	// LIMIT ?, ?`
 	rows, err := r.db.Query(query, offset, limit)
 	if err != nil {
-		fmt.Println(query)
+		log.Println(query)
 		return nil, err
 	}
 	defer rows.Close()
