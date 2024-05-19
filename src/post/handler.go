@@ -29,9 +29,9 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 }
 
 func singlePage(fileName string) templ.Component {
-	post, contents := parseHeaders(fileName)
+	post := parseHeaders(fileName)
 
-	return T.Base(post.Title, unsafe(contents))
+	return T.Base(post.Metadata.Title, unsafe(post.Contents))
 }
 
 // ! Todo: Move to another package

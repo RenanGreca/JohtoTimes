@@ -39,12 +39,6 @@ func httpHandler() {
 	assets := http.FileServer(http.Dir(internal.AssetPath))
 	mux.Handle("GET "+prefix, http.StripPrefix(prefix, assets))
 
-	// for _, dir := range [...]string{"fonts", "img", "scripts", "styles"} {
-	// 	pattern := prefix + dir
-	// 	fmt.Println(pattern)
-	// 	mux.Handle(pattern, http.StripPrefix(prefix, assets))
-	// }
-
 	// Category lists
 	mux.HandleFunc("GET /category/{category}", list.Handler)
 
@@ -53,10 +47,6 @@ func httpHandler() {
 	mux.HandleFunc("GET /posts/{slug}", post.Handler)
 	// Handle category-type link
 	mux.HandleFunc("GET /posts/{category}/{slug}", post.Handler)
-	// for _, category := range internal.Categories {
-	// 	slug := strings.ToLower(category.Name)
-	// 	mux.Handle("/"+slug, templ.Handler(handler.ListPage(slug)))
-	// }
 
 	http.ListenAndServe(":"+port, mux)
 }

@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"log"
 
+	"johtotimes.com/src/category"
 	"johtotimes.com/src/internal"
 )
 
@@ -25,7 +26,10 @@ func (r *PostRepository) Migrate() error {
 		slug TEXT NOT NULL,
 		img TEXT NOT NULL,
 		description TEXT NOT NULL,
-		date DATETIME NOT NULL
+		date DATETIME NOT NULL,
+		category_id INTEGER NOT NULL,
+		FOREIGN KEY (category_id)
+			REFERENCES category(id)
 	);
 	`
 
@@ -44,8 +48,33 @@ func (r *PostRepository) Populate(db *sql.DB) {
 	}
 
 	posts := getFromDirectory(internal.PostsPath)
+	cr := category.NewCategoryRepository(r.db)
 	for _, p := range posts {
-		created, err := r.Create(p)
+		cat, err := cr.Create(p.Metadata.Category, 'C')
+		if err != nil {
+			log.Println("Error creating category: " + p.Metadata.Category)
+			log.Println(err)
+		}
+		var tags []*category.Category
+		for _, t := range p.Metadata.Tags {
+			tag, _ := cr.Create(t, 'T')
+			if err != nil {
+				log.Println("Error creating tag: " + t)
+				log.Println(err)
+			}
+			tags = append(tags, tag)
+		}
+		post := Post{
+			Title:       p.Metadata.Title,
+			String:      p.Contents,
+			Slug:        p.Slug,
+			Category:    cat,
+			Tags:        tags,
+			Img:         p.Metadata.Header,
+			Description: p.Metadata.Description,
+			Date:        p.Date,
+		}
+		created, err := r.Create(post)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -56,11 +85,19 @@ func (r *PostRepository) Populate(db *sql.DB) {
 
 func (r *PostRepository) Create(post Post) (*Post, error) {
 	query := `
-	INSERT INTO post(title, slug, img, description, date)
-	values(?,?,?,?,?)
+	INSERT INTO post(title, slug, img, description, date, category_id)
+	values(?,?,?,?,?,?)
 	`
-	res, err := r.db.Exec(query, post.Title, post.Slug, post.Img, post.Description, post.Date)
+	res, err := r.db.Exec(query,
+		post.Title,
+		post.Slug,
+		post.Img,
+		post.Description,
+		post.Date,
+		post.Category.ID,
+	)
 	if err != nil {
+		log.Println("Error running query.")
 		log.Println(query)
 		return nil, err
 	}
@@ -90,7 +127,12 @@ func (r *PostRepository) GetPage(offset int, limit int) ([]Post, error) {
 	var posts []Post
 	for rows.Next() {
 		var post Post
-		err := rows.Scan(&post.ID, &post.Title, &post.Slug, &post.Img, &post.Description, &post.Date)
+		var categoryID int64
+		err := rows.Scan(&post.ID, &post.Title, &post.Slug, &post.Img, &post.Description, &post.Date, &categoryID)
+
+		cr := category.NewCategoryRepository(r.db)
+		cat, err := cr.GetByID(categoryID)
+		post.Category = cat
 		if err != nil {
 			return nil, err
 		}
@@ -103,7 +145,12 @@ func (r *PostRepository) GetBySlug(slug string) (*Post, error) {
 	row := r.db.QueryRow("SELECT * FROM post WHERE slug = ? ", slug)
 
 	var post Post
-	err := row.Scan(&post.ID, &post.Title, &post.Slug, &post.Img, &post.Description, &post.Date)
+	var categoryID int64
+	err := row.Scan(&post.ID, &post.Title, &post.Slug, &post.Img, &post.Description, &post.Date, &categoryID)
+
+	cr := category.NewCategoryRepository(r.db)
+	cat, err := cr.GetByID(categoryID)
+	post.Category = cat
 	if err != nil {
 		return nil, err
 	}

@@ -17,6 +17,7 @@ type Issue struct {
 	Number      int
 	Date        time.Time
 
+	// These are stored in the DB as FKs to the respective tables
 	Post    *post.Post
 	Mailbag *mailbag.Mailbag
 	News    *news.News
