@@ -27,9 +27,10 @@ func (r *PostRepository) Migrate() error {
 		img TEXT NOT NULL,
 		description TEXT NOT NULL,
 		date DATETIME NOT NULL,
+		type CHARACTER(1) NOT NULL,
 		category_id INTEGER NOT NULL,
 		FOREIGN KEY (category_id)
-			REFERENCES category(id)
+		REFERENCES category(id)
 	);
 	`
 
@@ -46,47 +47,55 @@ func (r *PostRepository) Populate(db *sql.DB) {
 	if err := r.Migrate(); err != nil {
 		log.Fatal(err)
 	}
+	types := map[byte]string{
+		'P': internal.PostsPath,
+		'N': internal.NewsPath,
+		'M': internal.MailbagPath,
+	}
 
-	posts := getFromDirectory(internal.PostsPath)
-	cr := category.NewCategoryRepository(r.db)
-	for _, p := range posts {
-		cat, err := cr.Create(p.Metadata.Category, 'C')
-		if err != nil {
-			log.Println("Error creating category: " + p.Metadata.Category)
-			log.Println(err)
-		}
-		var tags []*category.Category
-		for _, t := range p.Metadata.Tags {
-			tag, _ := cr.Create(t, 'T')
+	for t, path := range types {
+		posts := getFromDirectory(path)
+		cr := category.NewCategoryRepository(r.db)
+		for _, p := range posts {
+			cat, err := cr.Create(p.Metadata.Category, 'C')
 			if err != nil {
-				log.Println("Error creating tag: " + t)
+				log.Println("Error creating category: " + p.Metadata.Category)
 				log.Println(err)
 			}
-			tags = append(tags, tag)
+			var tags []*category.Category
+			for _, t := range p.Metadata.Tags {
+				tag, _ := cr.Create(t, 'T')
+				if err != nil {
+					log.Println("Error creating tag: " + t)
+					log.Println(err)
+				}
+				tags = append(tags, tag)
+			}
+			post := Post{
+				Title:       p.Metadata.Title,
+				String:      p.Contents,
+				Slug:        p.Slug,
+				Category:    cat,
+				Tags:        tags,
+				Img:         p.Metadata.Header,
+				Description: p.Metadata.Description,
+				Type:        t,
+				Date:        p.Date,
+			}
+			created, err := r.Create(post)
+			if err != nil {
+				log.Fatal(err)
+			}
+			log.Printf("Created post with slug %s and ID %d\n", created.Slug, created.ID)
 		}
-		post := Post{
-			Title:       p.Metadata.Title,
-			String:      p.Contents,
-			Slug:        p.Slug,
-			Category:    cat,
-			Tags:        tags,
-			Img:         p.Metadata.Header,
-			Description: p.Metadata.Description,
-			Date:        p.Date,
-		}
-		created, err := r.Create(post)
-		if err != nil {
-			log.Fatal(err)
-		}
-		log.Printf("Created post with slug %s and ID %d\n", created.Slug, created.ID)
 	}
 
 }
 
 func (r *PostRepository) Create(post Post) (*Post, error) {
 	query := `
-	INSERT INTO post(title, slug, img, description, date, category_id)
-	values(?,?,?,?,?,?)
+	INSERT INTO post(title, slug, img, description, date, category_id, type)
+	values(?,?,?,?,?,?,?)
 	`
 	res, err := r.db.Exec(query,
 		post.Title,
@@ -95,6 +104,7 @@ func (r *PostRepository) Create(post Post) (*Post, error) {
 		post.Description,
 		post.Date,
 		post.Category.ID,
+		post.Type,
 	)
 	if err != nil {
 		log.Println("Error running query.")
@@ -111,13 +121,14 @@ func (r *PostRepository) Create(post Post) (*Post, error) {
 	return &post, nil
 }
 
-func (r *PostRepository) GetPage(offset int, limit int) ([]Post, error) {
+func (r *PostRepository) GetPage(postType byte, offset int, limit int) ([]Post, error) {
 	query := `
 	SELECT *
 	FROM post
+	WHERE type = ?
 	ORDER BY date
 	LIMIT ?, ?`
-	rows, err := r.db.Query(query, offset, limit)
+	rows, err := r.db.Query(query, postType, offset, limit)
 	if err != nil {
 		log.Println(query)
 		return nil, err
@@ -128,7 +139,7 @@ func (r *PostRepository) GetPage(offset int, limit int) ([]Post, error) {
 	for rows.Next() {
 		var post Post
 		var categoryID int64
-		err := rows.Scan(&post.ID, &post.Title, &post.Slug, &post.Img, &post.Description, &post.Date, &categoryID)
+		err := rows.Scan(&post.ID, &post.Title, &post.Slug, &post.Img, &post.Description, &post.Date, &post.Type, &categoryID)
 
 		cr := category.NewCategoryRepository(r.db)
 		cat, err := cr.GetByID(categoryID)
@@ -146,7 +157,7 @@ func (r *PostRepository) GetBySlug(slug string) (*Post, error) {
 
 	var post Post
 	var categoryID int64
-	err := row.Scan(&post.ID, &post.Title, &post.Slug, &post.Img, &post.Description, &post.Date, &categoryID)
+	err := row.Scan(&post.ID, &post.Title, &post.Slug, &post.Img, &post.Description, &post.Date, &post.Type, &categoryID)
 
 	cr := category.NewCategoryRepository(r.db)
 	cat, err := cr.GetByID(categoryID)

@@ -8,16 +8,12 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 
 	"johtotimes.com/src/category"
-	"johtotimes.com/src/mailbag"
-	"johtotimes.com/src/news"
 	"johtotimes.com/src/post"
 )
 
 type Database struct {
 	Connection *sql.DB
 	Posts      *post.PostRepository
-	Mailbag    *mailbag.MailbagRepository
-	News       *news.NewsRepository
 	Categories *category.CategoryRepository
 	// Issues     []*Issue
 	// Categories []Category
@@ -63,12 +59,6 @@ func NewDB() {
 	postRepository := post.NewPostRepository(db)
 	postRepository.Populate(db)
 
-	mailbagRepository := mailbag.NewMailbagRepository(db)
-	mailbagRepository.Populate(db)
-
-	newsRepository := news.NewNewsRepository(db)
-	newsRepository.Populate(db)
-
 	// database := Database{
 	// 	Connection: db,
 	// 	Posts:      postRepository,
@@ -83,13 +73,9 @@ func Connect() *Database {
 		log.Fatal(err)
 	}
 	postRepository := post.NewPostRepository(db)
-	mailbagRepository := mailbag.NewMailbagRepository(db)
-	newsRepository := news.NewNewsRepository(db)
 	database := Database{
 		Connection: db,
 		Posts:      postRepository,
-		Mailbag:    mailbagRepository,
-		News:       newsRepository,
 	}
 	return &database
 }

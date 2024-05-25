@@ -3,8 +3,6 @@ package issue
 import (
 	"time"
 
-	"johtotimes.com/src/mailbag"
-	"johtotimes.com/src/news"
 	"johtotimes.com/src/post"
 )
 
@@ -19,6 +17,6 @@ type Issue struct {
 
 	// These are stored in the DB as FKs to the respective tables
 	Post    *post.Post
-	Mailbag *mailbag.Mailbag
-	News    *news.News
+	Mailbag *post.Post
+	News    *post.Post
 }

@@ -1,4 +1,4 @@
-package internal
+package post
 
 import (
 	"bytes"
@@ -24,6 +24,7 @@ func ParseMarkdown(md string) (map[string]interface{}, bytes.Buffer) {
 		log.Fatalf("failed to convert markdown to HTML: %v", err)
 	}
 	metadata := meta.Get(context)
+	log.Println(metadata)
 
 	return metadata, buf
 }
@@ -56,9 +57,38 @@ func ExtractDate(fileName string) time.Time {
 	return time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
 }
 
-func ExtractTags(metadata map[string]interface{}) []string {
-	if metadata["Tags"] == nil {
-		return []string{}
+func ExtractMetadata(metadata map[string]interface{}) Metadata {
+	var result Metadata
+	if metadata["Title"] != nil {
+		result.Title = metadata["Title"].(string)
 	}
-	return strings.Split(metadata["Tags"].(string), ",")
+	if metadata["Header"] != nil {
+		result.Header = metadata["Header"].(string)
+	}
+	if metadata["Category"] != nil {
+		result.Category = metadata["Category"].(string)
+	}
+	if metadata["Description"] != nil {
+		result.Description = metadata["Description"].(string)
+	}
+	if metadata["Tags"] != nil {
+		result.Tags = ExtractTags(metadata["Tags"].([]interface{}))
+	}
+	// return Metadata{}
+	// return Metadata{
+	// 	Title:       metadata["Title"].(string),
+	// 	Header:      metadata["Header"].(string),
+	// 	Tags:        ExtractTags(metadata),
+	// 	Category:    metadata["Category"].(string),
+	// 	Description: metadata["Description"].(string),
+	// }
+	return result
+}
+
+func ExtractTags(tags []interface{}) []string {
+	var result []string
+	for _, t := range tags {
+		result = append(result, t.(string))
+	}
+	return result
 }

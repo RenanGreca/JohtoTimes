@@ -4,10 +4,12 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/a-h/templ"
+	"johtotimes.com/src/database"
 	"johtotimes.com/src/post"
-	T "johtotimes.com/src/templates"
+	"johtotimes.com/src/templates"
 )
 
 func Handler(w http.ResponseWriter, req *http.Request) {
@@ -20,19 +22,62 @@ func Handler(w http.ResponseWriter, req *http.Request) {
 
 func ListPage(slug string) templ.Component {
 	log.Println("List page: ", slug)
-	// entries, err := os.ReadDir("web/posts")
-	// if err != nil {
-	// 	log.Fatalln(err)
-	// }
 
 	var posts []post.Post
-	// for _, e := range entries {
-	// 	// post := internal.ParseMarkdown("web/posts/" + e.Name())
-	// 	// if post.Category == slug {
-	// 	// 	posts = append(posts, post)
-	// 	// }
-	// }
+
 	list := List("Category: "+slug, posts)
 
-	return T.Base("Johto Times", list)
+	return templates.Base("Johto Times", list)
+}
+
+func Mailbag(w http.ResponseWriter, req *http.Request) {
+	log.Println("Handling request to " + req.URL.Path)
+	page := 0
+	pagestr := req.PathValue("page")
+	if len(pagestr) > 0 {
+		var err error
+		page, err = strconv.Atoi(pagestr)
+		if err != nil {
+			log.Fatalf("Error converting %q to int\n", req.PathValue("page"))
+		}
+	}
+	PostType('M', page).Render(req.Context(), w)
+}
+
+func PostType(t byte, page int) templ.Component {
+	log.Printf("Rendering home page")
+	db := database.Connect()
+	defer db.Close()
+	retrievedPosts, err := db.Posts.GetPage('M', page, 10)
+	if err != nil {
+		log.Fatal(err)
+	}
+	posts := []post.Post{}
+	for _, p := range retrievedPosts {
+		posts = append(posts, p)
+	}
+	log.Printf("Found %d posts", len(posts))
+
+	list := List("", posts)
+
+	return templates.Base("Johto Times", list)
+}
+
+func HomePage() templ.Component {
+	log.Printf("Rendering home page")
+	db := database.Connect()
+	defer db.Close()
+	retrievedPosts, err := db.Posts.GetPage('P', 0, 10)
+	if err != nil {
+		log.Fatal(err)
+	}
+	posts := []post.Post{}
+	for _, p := range retrievedPosts {
+		posts = append(posts, p)
+	}
+	log.Printf("Found %d posts", len(posts))
+
+	list := List("", posts)
+
+	return templates.Base("Johto Times", list)
 }

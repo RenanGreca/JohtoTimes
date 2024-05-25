@@ -18,6 +18,7 @@ type Post struct {
 	Tags        []*category.Category
 	Img         string
 	Description string
+	Type        byte // 'P' for post, 'N' for news, 'M' for mailbag
 	Date        time.Time
 }
 
@@ -57,37 +58,13 @@ func getFromDirectory(postsDir string) []Markdown {
 func parseHeaders(fileName string) Markdown {
 	md := internal.ReadFile(fileName)
 
-	metadata, buf := internal.ParseMarkdown(md)
+	metadata, buf := ParseMarkdown(md)
 
-	// db := database.Connect()
-	// defer db.Close()
-	// catSlug := slug.Make(metadata["Category"].(string))
-	// cat, err := db.Categories.Create(catSlug, 'C')
-	// if err != nil {
-	// 	log.Println(err)
-	// }
 	return Markdown{
 		FileName: fileName,
-		Slug:     internal.ExtractSlug(fileName),
-		Date:     internal.ExtractDate(fileName),
-		Metadata: Metadata{
-			Title:  metadata["Title"].(string),
-			Header: metadata["Header"].(string),
-			// Tags:        metadata["Tags"].([]string),
-			Category:    metadata["Category"].(string),
-			Description: metadata["Description"].(string),
-		},
+		Slug:     ExtractSlug(fileName),
+		Date:     ExtractDate(fileName),
+		Metadata: ExtractMetadata(metadata),
 		Contents: buf.String(),
 	}
-
-	// return Post{
-	// 	// Contents: content,
-	// 	Slug:        internal.ExtractSlug(fileName),
-	// 	Title:       metadata["Title"].(string),
-	// 	Category:    cat,
-	// 	Img:         metadata["Header"].(string),
-	// 	Description: metadata["Description"].(string),
-	// 	Date:        internal.ExtractDate(fileName),
-	// 	// Tags:        extractTags(metadata),
-	// }, buf.String()
 }

@@ -8,20 +8,20 @@ import (
 
 const fileName = "../../web/posts/2024-02-22-pokemon-legends-celebi-a-concept.md"
 
-var post Post
+var post Markdown
 
 func TestReadFile(t *testing.T) {
 	_ = internal.ReadFile(fileName)
 }
 
 func TestBeforeAll(t *testing.T) {
-	post, _ = parseHeaders(fileName)
+	post = parseHeaders(fileName)
 }
 
 func TestTitle(t *testing.T) {
 	expected := "Pokémon Legends Celebi: A Concept"
-	if post.Title != expected {
-		t.Fatalf(`Expected title %q, received %q`, expected, post.Title)
+	if post.Metadata.Title != expected {
+		t.Fatalf(`Expected title %q, received %q`, expected, post.Metadata.Title)
 	}
 }
 
@@ -40,7 +40,7 @@ func TestTitle(t *testing.T) {
 // }
 
 func TestSlug(t *testing.T) {
-	slug := internal.ExtractSlug(fileName)
+	slug := ExtractSlug(fileName)
 	expected := "2024-02-22-pokemon-legends-celebi-a-concept"
 	if slug != expected {
 		t.Fatalf(`Expected slug %q, received %q`, expected, slug)
