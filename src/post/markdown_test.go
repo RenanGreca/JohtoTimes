@@ -15,7 +15,7 @@ func TestReadFile(t *testing.T) {
 }
 
 func TestBeforeAll(t *testing.T) {
-	post = parseHeaders(fileName)
+	post = ParseHeaders(fileName)
 }
 
 func TestTitle(t *testing.T) {

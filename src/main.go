@@ -5,13 +5,11 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/a-h/templ"
 	_ "github.com/mattn/go-sqlite3"
 
 	"johtotimes.com/src/database"
+	"johtotimes.com/src/handler"
 	"johtotimes.com/src/internal"
-	"johtotimes.com/src/list"
-	"johtotimes.com/src/post"
 )
 
 func main() {
@@ -30,24 +28,35 @@ func httpHandler() {
 
 	mux := http.NewServeMux()
 
-	// Index page
-	mux.Handle("/", templ.Handler(list.HomePage()))
-	mux.HandleFunc("GET /mailbag", list.Mailbag)
-	mux.HandleFunc("GET /mailbag/{page}", list.Mailbag)
+	// Index page and tab bar items
+	mux.HandleFunc("GET /", handler.PostsHandler)
+	mux.HandleFunc("GET /archive", handler.ArchiveHandler)
+	// mux.HandleFunc("GET /search", search.Handler)
+	// mux.HandleFunc("GET /search/{query}", search.Handler)
+	// mux.HandleFunc("GET /community", community.Handler)
+	// mux.HandleFunc("GET /about", about.Handler)
 
 	// Assets directory
 	prefix := "/" + internal.AssetPath + "/"
 	assets := http.FileServer(http.Dir(internal.AssetPath))
 	mux.Handle("GET "+prefix, http.StripPrefix(prefix, assets))
 
-	// Category lists
-	mux.HandleFunc("GET /category/{category}", list.Handler)
+	// Category/type lists
+	mux.HandleFunc("GET /category/{category}", handler.CategoryHandler)
+	mux.HandleFunc("GET /category/{category}/{page}", handler.CategoryHandler)
+	mux.HandleFunc("GET /mailbag", handler.MailbagHandler)
+	mux.HandleFunc("GET /mailbag/{page}", handler.MailbagHandler)
+	mux.HandleFunc("GET /news", handler.NewsHandler)
+	mux.HandleFunc("GET /news/{page}", handler.NewsHandler)
 
 	// Post pages
 	// Handle direct link to post
-	mux.HandleFunc("GET /posts/{slug}", post.Handler)
+	mux.HandleFunc("GET /posts/{slug}", handler.PostHandler)
 	// Handle category-type link
-	mux.HandleFunc("GET /posts/{category}/{slug}", post.Handler)
+	mux.HandleFunc("GET /posts/{category}/{slug}", handler.PostHandler)
+
+	// // Handle direct link to issue
+	// mux.HandleFunc("GET /issue/{slug}", issue.Handler)
 
 	http.ListenAndServe(":"+port, mux)
 }

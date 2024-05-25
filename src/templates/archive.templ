@@ -1,0 +1,29 @@
+package templates
+
+import (
+  "strings"
+
+  "johtotimes.com/src/internal"
+)
+
+templ ArchiveTemplate(title string) {
+  <h1>{title}</h1>
+  <div class="list">
+    for _, category := range internal.Categories {
+      @ListArchive(category)
+    }
+  </div>
+}
+
+templ ListArchive(category internal.Link) {
+  <a href={ templ.URL(category.URL) } aria-label={ category.Name }>
+    <div class="archive-item">
+      <div class="archive-image">
+        <img src={ internal.ImgPath + "/" + strings.ToLower(category.Name) + ".webp" } />
+      </div>
+      <div class="archive-contents">
+        { category.Name }
+      </div>
+    </div>
+  </a>
+}

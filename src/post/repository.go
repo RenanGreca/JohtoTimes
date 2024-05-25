@@ -26,6 +26,7 @@ func (r *PostRepository) Migrate() error {
 		slug TEXT NOT NULL,
 		img TEXT NOT NULL,
 		description TEXT NOT NULL,
+		filename TEXT NOT NULL,
 		date DATETIME NOT NULL,
 		type CHARACTER(1) NOT NULL,
 		category_id INTEGER NOT NULL,
@@ -94,8 +95,8 @@ func (r *PostRepository) Populate(db *sql.DB) {
 
 func (r *PostRepository) Create(post Post) (*Post, error) {
 	query := `
-	INSERT INTO post(title, slug, img, description, date, category_id, type)
-	values(?,?,?,?,?,?,?)
+	INSERT INTO post(title, slug, img, description, date, category_id, type, filename)
+	values(?,?,?,?,?,?,?,?)
 	`
 	res, err := r.db.Exec(query,
 		post.Title,
@@ -105,6 +106,7 @@ func (r *PostRepository) Create(post Post) (*Post, error) {
 		post.Date,
 		post.Category.ID,
 		post.Type,
+		post.FileName,
 	)
 	if err != nil {
 		log.Println("Error running query.")
@@ -121,49 +123,92 @@ func (r *PostRepository) Create(post Post) (*Post, error) {
 	return &post, nil
 }
 
+// Returns posts of a given type ('P', 'N', or 'M')
 func (r *PostRepository) GetPage(postType byte, offset int, limit int) ([]Post, error) {
 	query := `
-	SELECT *
-	FROM post
-	WHERE type = ?
-	ORDER BY date
+	SELECT p.id, p.title, p.slug, p.img, p.description, p.date, p.type, p.filename,
+	c.id, c.name, c.slug, c.type
+	FROM post AS p
+	JOIN category AS c ON c.id = p.category_id
+	WHERE p.type = ?
+	ORDER BY p.date
 	LIMIT ?, ?`
 	rows, err := r.db.Query(query, postType, offset, limit)
 	if err != nil {
 		log.Println(query)
 		return nil, err
 	}
+
+	return parseRows(rows)
+}
+
+// Returns posts matching category slug.
+func (r *PostRepository) GetByCategorySlug(category string, offset int, limit int) ([]Post, error) {
+	query := `
+	SELECT p.id, p.title, p.slug, p.img, p.description, p.date, p.type, p.filename,
+	c.id, c.name, c.slug, c.type
+	FROM post AS p
+	JOIN category AS c ON c.id = p.category_id
+	WHERE c.slug = ?
+	ORDER BY p.date
+	LIMIT ?, ?`
+	rows, err := r.db.Query(query, category, offset, limit)
+	if err != nil {
+		log.Println(query)
+		return nil, err
+	}
+
+	return parseRows(rows)
+}
+
+// Returns post matching the given slug. Should always find just 1 row.
+func (r *PostRepository) GetBySlug(slug string) (*Post, error) {
+	query := `
+	SELECT p.id, p.title, p.slug, p.img, p.description, p.date, p.type, p.filename,
+	c.id, c.name, c.slug, c.type
+	FROM post AS p
+	JOIN category AS c ON c.id = p.category_id
+	WHERE p.slug = ?`
+	rows, err := r.db.Query(query, slug)
+	if err != nil {
+		log.Println(query)
+		return nil, err
+	}
+	posts, err := parseRows(rows)
+	if len(posts) > 1 {
+		log.Printf(`Warning: Query by slug %q found %d results`, slug, len(posts))
+	}
+
+	return &posts[0], nil
+}
+
+func parseRows(rows *sql.Rows) ([]Post, error) {
 	defer rows.Close()
 
 	var posts []Post
 	for rows.Next() {
 		var post Post
-		var categoryID int64
-		err := rows.Scan(&post.ID, &post.Title, &post.Slug, &post.Img, &post.Description, &post.Date, &post.Type, &categoryID)
+		var category category.Category
+		err := rows.Scan(
+			&post.ID,
+			&post.Title,
+			&post.Slug,
+			&post.Img,
+			&post.Description,
+			&post.Date,
+			&post.Type,
+			&post.FileName,
+			&category.ID,
+			&category.Name,
+			&category.Slug,
+			&category.Type,
+		)
 
-		cr := category.NewCategoryRepository(r.db)
-		cat, err := cr.GetByID(categoryID)
-		post.Category = cat
+		post.Category = &category
 		if err != nil {
 			return nil, err
 		}
 		posts = append(posts, post)
 	}
 	return posts, nil
-}
-
-func (r *PostRepository) GetBySlug(slug string) (*Post, error) {
-	row := r.db.QueryRow("SELECT * FROM post WHERE slug = ? ", slug)
-
-	var post Post
-	var categoryID int64
-	err := row.Scan(&post.ID, &post.Title, &post.Slug, &post.Img, &post.Description, &post.Date, &post.Type, &categoryID)
-
-	cr := category.NewCategoryRepository(r.db)
-	cat, err := cr.GetByID(categoryID)
-	post.Category = cat
-	if err != nil {
-		return nil, err
-	}
-	return &post, nil
 }

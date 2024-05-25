@@ -11,11 +11,11 @@ var SocialLinks = [...]Link{
 
 // Probably this should become dynamic according to some DB data
 var Categories = [...]Link{
-	{Name: "Interviews", URL: "/interviews"},
-	{Name: "Features", URL: "/features"},
-	{Name: "Opinions", URL: "/opinions"},
-	{Name: "Collections", URL: "/collections"},
-	{Name: "Memories", URL: "/memories"},
+	{Name: "Interviews", URL: "/category/interview"},
+	{Name: "Features", URL: "/category/feature"},
+	{Name: "Opinions", URL: "/category/opinion"},
+	{Name: "Collections", URL: "/category/collection"},
+	{Name: "Memories", URL: "/category/memory"},
 	{Name: "Mailbag", URL: "/mailbag"},
 }
 
@@ -50,4 +50,5 @@ var Stylesheets = [...]string{
 	"/header.css",
 	"/list.css",
 	"/tabbar.css",
+	"/archive.css",
 }

@@ -1,0 +1,11 @@
+package templates
+
+import (
+  "johtotimes.com/src/post"
+)
+
+templ PostTemplate(post *post.Post, body templ.Component) {
+    <div class="single">
+        @body
+    </div>
+}

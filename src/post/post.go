@@ -14,6 +14,7 @@ type Post struct {
 	Title       string
 	String      string
 	Slug        string
+	FileName    string
 	Category    *category.Category
 	Tags        []*category.Category
 	Img         string
@@ -47,7 +48,7 @@ func getFromDirectory(postsDir string) []Markdown {
 	var posts []Markdown
 	for _, e := range entries {
 		fileName := postsDir + "/" + e.Name()
-		post := parseHeaders(fileName)
+		post := ParseHeaders(fileName)
 		// posts[i] = post
 		posts = append(posts, post)
 	}
@@ -55,7 +56,7 @@ func getFromDirectory(postsDir string) []Markdown {
 }
 
 // Received the path to a markdown file and returns a Post element
-func parseHeaders(fileName string) Markdown {
+func ParseHeaders(fileName string) Markdown {
 	md := internal.ReadFile(fileName)
 
 	metadata, buf := ParseMarkdown(md)

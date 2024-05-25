@@ -1,6 +1,6 @@
 ---
 Title: 'Pokémon Legends Celebi: A Concept'
-Category: Features
+Category: Feature
 Tags:
     - celebi
     - johto

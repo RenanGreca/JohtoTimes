@@ -1,4 +1,4 @@
-package list
+package templates
 
 import (
   "strings"
@@ -6,7 +6,8 @@ import (
   "johtotimes.com/src/post"
 )
 
-templ List(title string, posts []post.Post) {
+templ ListTemplate(title string, posts []post.Post) {
+  <h1>{title}</h1>
   <div class="list">
     for _, post := range posts {
       @ListItem(post)
@@ -15,7 +16,7 @@ templ List(title string, posts []post.Post) {
 }
 
 templ ListItem(post post.Post) {
-  <a href={ templ.URL( "posts/" + post.Category.Name + "/" + post.Slug) } aria-label={ post.Title }>
+  <a href={ templ.URL( "/posts/" + post.Category.Name + "/" + post.Slug) } aria-label={ post.Title }>
     <div class="list-item">
       <div class="list-image">
         <img src={ post.Img } />
