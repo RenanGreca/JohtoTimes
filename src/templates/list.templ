@@ -6,8 +6,9 @@ import (
   "johtotimes.com/src/post"
 )
 
-templ ListTemplate(title string, posts []post.Post) {
+templ ListTemplate(title string, slug string, description templ.Component, posts []post.Post) {
   <h1>{title}</h1>
+  <h2>@description</h2>
   <div class="list">
     for _, post := range posts {
       @ListItem(post)

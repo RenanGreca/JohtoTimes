@@ -6,3 +6,22 @@
 
 ## Build/run:
 `air -c .air.toml`
+
+## To-do:
+### P1
+- [ ] Issue builder
+- [x] List by category
+- [ ] Improve single post layout
+- [ ] First archive page
+   - [ ] Probably the archives are just the lists of posts by category/type
+- [ ] Search box
+   - [ ] Search results
+- [ ] Community page
+   - [ ] Pokémon Community Archive
+   - [ ] Guestbook
+   - [ ] Project ROAR
+   - [ ] Product Archive (Here?)
+- [ ] Desktop mode tab bar (dropdown menus?)
+### P2
+- [ ] Log traffic
+- [ ] Promoted features

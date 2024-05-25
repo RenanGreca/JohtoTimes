@@ -6,7 +6,9 @@ import (
 	"net/http"
 
 	"github.com/a-h/templ"
+	"johtotimes.com/src/category"
 	"johtotimes.com/src/database"
+	"johtotimes.com/src/internal"
 	"johtotimes.com/src/templates"
 )
 
@@ -29,7 +31,11 @@ func CategoryPage(slug string, page int) templ.Component {
 		log.Fatal(err)
 	}
 
-	list := templates.ListTemplate(slug, posts)
+	cat := category.GetFromFile(internal.CategoriesPath, slug)
+	description := unsafe(cat.Contents)
+	plural := cat.Metadata.Plural
+
+	list := templates.ListTemplate(plural, slug, description, posts)
 
 	return templates.Base("Johto Times", list)
 }

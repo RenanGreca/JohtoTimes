@@ -1,0 +1,1 @@
+We are now taking contributions to our mailbag! If you have a Pokémon related question, artwork, short poem, collection or anything you think might be great to feature in the Johto Times newsletter, be sure to contact us on johtotimesmail@gmail.com!

@@ -36,8 +36,9 @@ func listPage(title string, postType byte, page int) templ.Component {
 		log.Fatal(err)
 	}
 	log.Printf("Found %d posts", len(posts))
+	description := unsafe("")
 
-	list := templates.ListTemplate(title, posts)
+	list := templates.ListTemplate(title, title, description, posts)
 
 	return templates.Base("Johto Times", list)
 }

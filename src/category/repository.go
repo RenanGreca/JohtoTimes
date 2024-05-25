@@ -23,6 +23,7 @@ func (r *CategoryRepository) Migrate() error {
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		name TEXT NOT NULL,
 		slug TEXT NOT NULL,
+		description TEXT,
 		type CHARACTER(1) NOT NULL
 	);
 	`

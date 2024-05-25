@@ -10,9 +10,40 @@ import (
 	"github.com/yuin/goldmark"
 	meta "github.com/yuin/goldmark-meta"
 	"github.com/yuin/goldmark/parser"
+	"johtotimes.com/src/internal"
 )
 
-func ParseMarkdown(md string) (map[string]interface{}, bytes.Buffer) {
+type Markdown struct {
+	FileName string
+	Slug     string
+	Date     time.Time
+	Metadata Metadata
+	Contents string
+}
+
+type Metadata struct {
+	Title       string
+	Header      string
+	Category    string
+	Description string
+	Tags        []string
+}
+
+// Received the path to a markdown file and returns a Post element
+func ParseHeaders(fileName string) Markdown {
+	md := internal.ReadFile(fileName)
+
+	metadata, buf := parseMarkdown(md)
+
+	return Markdown{
+		FileName: fileName,
+		Slug:     extractSlug(fileName),
+		Date:     extractDate(fileName),
+		Metadata: extractMetadata(metadata),
+		Contents: buf.String(),
+	}
+}
+func parseMarkdown(md string) (map[string]interface{}, bytes.Buffer) {
 	markdown := goldmark.New(
 		goldmark.WithExtensions(
 			meta.Meta,
@@ -29,7 +60,7 @@ func ParseMarkdown(md string) (map[string]interface{}, bytes.Buffer) {
 	return metadata, buf
 }
 
-func ExtractSlug(fileName string) string {
+func extractSlug(fileName string) string {
 	split := strings.Split(fileName, "/")
 	last := split[len(split)-1]
 	split2 := strings.Split(last, ".")
@@ -37,7 +68,7 @@ func ExtractSlug(fileName string) string {
 	return slug
 }
 
-func ExtractDate(fileName string) time.Time {
+func extractDate(fileName string) time.Time {
 	split := strings.Split(fileName, "/")
 	last := split[len(split)-1]
 	split2 := strings.Split(last, "-")
@@ -57,7 +88,7 @@ func ExtractDate(fileName string) time.Time {
 	return time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
 }
 
-func ExtractMetadata(metadata map[string]interface{}) Metadata {
+func extractMetadata(metadata map[string]interface{}) Metadata {
 	var result Metadata
 	if metadata["Title"] != nil {
 		result.Title = metadata["Title"].(string)
@@ -72,20 +103,13 @@ func ExtractMetadata(metadata map[string]interface{}) Metadata {
 		result.Description = metadata["Description"].(string)
 	}
 	if metadata["Tags"] != nil {
-		result.Tags = ExtractTags(metadata["Tags"].([]interface{}))
+		result.Tags = extractTags(metadata["Tags"].([]interface{}))
 	}
-	// return Metadata{}
-	// return Metadata{
-	// 	Title:       metadata["Title"].(string),
-	// 	Header:      metadata["Header"].(string),
-	// 	Tags:        ExtractTags(metadata),
-	// 	Category:    metadata["Category"].(string),
-	// 	Description: metadata["Description"].(string),
-	// }
+
 	return result
 }
 
-func ExtractTags(tags []interface{}) []string {
+func extractTags(tags []interface{}) []string {
 	var result []string
 	for _, t := range tags {
 		result = append(result, t.(string))

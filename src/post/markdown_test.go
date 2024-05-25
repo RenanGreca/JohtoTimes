@@ -40,7 +40,7 @@ func TestTitle(t *testing.T) {
 // }
 
 func TestSlug(t *testing.T) {
-	slug := ExtractSlug(fileName)
+	slug := extractSlug(fileName)
 	expected := "2024-02-22-pokemon-legends-celebi-a-concept"
 	if slug != expected {
 		t.Fatalf(`Expected slug %q, received %q`, expected, slug)

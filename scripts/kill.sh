@@ -1,4 +1,4 @@
 LSOF=$(lsof -ti :$1)
-if [ $LSOF ]; then
+if [[ $LSOF ]]; then
   kill -9 $LSOF
 fi

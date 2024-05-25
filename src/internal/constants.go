@@ -40,6 +40,7 @@ const PostsPath = AssetPath + "/posts"
 const MailbagPath = AssetPath + "/mailbag"
 const NewsPath = AssetPath + "/news"
 const IssuesPath = AssetPath + "/issues"
+const CategoriesPath = AssetPath + "/categories"
 
 // Add to this as we want more css files
 var Stylesheets = [...]string{

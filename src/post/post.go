@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"johtotimes.com/src/category"
-	"johtotimes.com/src/internal"
 )
 
 type Post struct {
@@ -23,22 +22,6 @@ type Post struct {
 	Date        time.Time
 }
 
-type Markdown struct {
-	FileName string
-	Slug     string
-	Date     time.Time
-	Metadata Metadata
-	Contents string
-}
-
-type Metadata struct {
-	Title       string
-	Header      string
-	Category    string
-	Description string
-	Tags        []string
-}
-
 func getFromDirectory(postsDir string) []Markdown {
 	entries, err := os.ReadDir(postsDir)
 	if err != nil {
@@ -53,19 +36,4 @@ func getFromDirectory(postsDir string) []Markdown {
 		posts = append(posts, post)
 	}
 	return posts
-}
-
-// Received the path to a markdown file and returns a Post element
-func ParseHeaders(fileName string) Markdown {
-	md := internal.ReadFile(fileName)
-
-	metadata, buf := ParseMarkdown(md)
-
-	return Markdown{
-		FileName: fileName,
-		Slug:     ExtractSlug(fileName),
-		Date:     ExtractDate(fileName),
-		Metadata: ExtractMetadata(metadata),
-		Contents: buf.String(),
-	}
 }
