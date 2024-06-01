@@ -47,7 +47,7 @@ h1 {
   font-family: var(--font-title);
   font-variant: small-caps;
   font-size: 20pt;
-  /* line-height: 22pt; */
+  line-height: 22pt;
   font-weight: normal;
   text-align: center;
 }

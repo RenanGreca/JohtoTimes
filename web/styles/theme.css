@@ -1,6 +1,7 @@
 :root {
   --dark-background: #333333;
-  --card-background: #3F3F3F;
+  --card-background: #333333;
+  /* --card-background: #3F3F3F; */
   --white: #ffffff;
   --gray: #A3A3A3;
   --light-text: #dbecf0;

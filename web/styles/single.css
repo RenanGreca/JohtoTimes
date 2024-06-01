@@ -2,10 +2,11 @@
     width: 800px;
     max-width: 90vw;
     margin: 10px auto;
-    background: var(--card-background);
+    background: var(--dark-background);
     filter: drop-shadow(2px 4px 6px black);
     border-radius: 10px;
     padding: 10px;
+    line-height: 1.5;
 }
 
 /* Max width for mobile layout is iPad mini portrait */
