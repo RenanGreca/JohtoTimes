@@ -11,13 +11,20 @@ License: Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)
 License URI: http://creativecommons.org/licenses/by-sa/3.0/
 */
 
+html {
+  scroll-padding-top: 88px; /* height of sticky header */
+}
+
 body {
   margin: 0px;
   color: var(--white);
   font-family: var(--font-text), sans-serif;
   /* font-size: 14pt; */
   /* line-height: 18pt; */
-  overflow: hidden;
+  /* overflow: hidden; */
+  /* height: 100%; */
+  /* display: flex; */
+  /* flex-direction: column; */
   
   background-image: url('/web/img/pokeball-pattern-bg.png');
   background-attachment:fixed;
@@ -27,11 +34,29 @@ body {
 }
 
 .content {
-  height: calc(100vh - 40px - 24px - 48px);
-  overflow: scroll;
+  position: relative;
+  /* top: 88px; */
+  /* bottom: 48px; */
+  /* left: 0; */
+  /* right: 0; */
+  /* flex: 1; */
+  /* height: calc(100vh - 40px - 24px - 48px); */
+  /* overflow: scroll; */
   /* width: 800px; */
   /* max-width: 90vw; */
   /* margin: 0 auto; */
+}
+
+.content::before {
+  content: "";
+  height: 88px;
+  display: block;
+}
+
+.content::after {
+  content: "";
+  height: 48px;
+  display: block;
 }
 
 .content img {
