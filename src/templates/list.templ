@@ -2,6 +2,7 @@ package templates
 
 import (
   "strings"
+  "strconv"
 
   "johtotimes.com/src/post"
 )
@@ -11,21 +12,28 @@ templ ListTemplate(title string, slug string, description templ.Component, posts
   <h2>@description</h2>
   <div class="list">
     for _, post := range posts {
-      @ListItem(post)
+      @ListItem(&post)
     }
   </div>
 }
 
-templ ListItem(post post.Post) {
-  <a href={ templ.URL( "/posts/" + post.Category.Name + "/" + post.Slug) } aria-label={ post.Title }>
+templ ListItem(post *post.Post) {
+  <a href={ templ.URL( post.Permalink ) } aria-label={ post.Title }>
     <div class="list-item">
       <div class="list-image">
         <img src={ post.Img } />
       </div>
       <div class="list-contents">
-        <span class="category">
-          { strings.ToUpper(post.Category.Name) }
-        </span>
+        if post.Type == 'I' {
+          <span class="category">
+            Vol. { strconv.Itoa(post.Volume) }, Issue { strconv.Itoa(post.Issue) }
+          </span>
+        } else {
+          <span class="category">
+            { strings.ToUpper(post.Category.Name) }
+          </span>
+        }
+
         <h3>{ post.Title }</h3>
         <span class="description">
           { post.Description }

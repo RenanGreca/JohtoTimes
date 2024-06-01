@@ -32,7 +32,7 @@ func CategoryPage(slug string, page int) templ.Component {
 	}
 
 	cat := category.GetFromFile(internal.CategoriesPath, slug)
-	description := unsafe(cat.Contents)
+	description := renderHTML(cat.Contents)
 	plural := cat.Metadata.Plural
 
 	list := templates.ListTemplate(plural, slug, description, posts)

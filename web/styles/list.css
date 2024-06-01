@@ -48,11 +48,12 @@
   font-variant: small-caps;
 }
 
-.list-item .category {
+.category {
   color: var(--neon-red);
   font-weight: bold;
   font-size: 13pt;
   line-height: 14pt;
+  text-align: center;
 }
 
 .list-item .description {

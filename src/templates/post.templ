@@ -1,11 +1,64 @@
 package templates
 
 import (
-  "johtotimes.com/src/post"
+        "strconv"
+        "strings"
+        "johtotimes.com/src/post"
 )
+
+templ SingleTemplate(post *post.Post, body templ.Component) {
+    <div class="container">
+          <div class="category">
+            { strings.ToUpper(post.Category.Name) }
+          </div>
+        <h1>{ post.Title }</h1>
+        <h2>{ post.Description }</h2>
+        <div class="single">
+            @body
+        </div>
+    </div>
+}
 
 templ PostTemplate(post *post.Post, body templ.Component) {
     <div class="single">
         @body
+    </div>
+}
+
+templ NewsTemplate(post *post.Post, body templ.Component) {
+    <div class="single">
+        @body
+    </div>
+}
+
+templ MailbagTemplate(post *post.Post, body templ.Component) {
+    <div class="single">
+        @body
+    </div>
+}
+
+templ IssueTemplate(post *post.Post,
+                    issueBody templ.Component, 
+                    postBody templ.Component, 
+                    newsBody templ.Component,
+                    mailbagBody templ.Component,
+) {
+    <div class="container">
+        <h2>Issue { strconv.Itoa(post.Issue) } - Volume { strconv.Itoa(post.Volume) }</h2>
+        <h1>{ post.Title }</h1>
+        <h2>{ post.Description }</h2>
+        @issueBody
+        if newsBody != nil {
+            <hr />
+            <h4>News</h4>
+            @newsBody
+        } 
+        <hr />
+        @PostTemplate(post, postBody)
+        if mailbagBody != nil {
+            <hr />
+            <h4>Mailbag</h4>
+            @mailbagBody
+        }
     </div>
 }

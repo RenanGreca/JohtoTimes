@@ -1,17 +1,14 @@
 ---
-Volume: 2
-Issue: 8
 Title: "Pokémon Legends Celebi: A Concept"
 News: "2024-02-24-news"
 Post: "2024-02-24-pokemon-legends-celebi-a-concept"
 Mailbag: "2024-02-24-mailbag"
+Volume: 2
+Issue: 8
+Header: https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ff278dc61-2020-4f32-80e7-60b6373242f9_1280x720.png
 Description: "This week's feature focuses on a concept for a hypothetical Pokémon Legends Celebi game, which I had tons of fun writing! We also have the latest Pokémon news, and more from the Johto Times mailbag."
 
 ---
-
-# Vol. 2, Issue 8 - Pokémon Legends Celebi: A Concept
-
-## This week's feature focuses on a concept for a hypothetical Pokémon Legends Celebi game, which I had tons of fun writing! We also have the latest Pokémon news, and more from the Johto Times mailbag
 
 Another week, another issue of the Johto Times newsletter! Vol. 2, Issue 8 marks the final week before Pokémon Day on February 27th, 2024, a day that will mark 28 years since the original release of Pokémon Red & Green in Japan. For the past few years, the Pokémon Company has marked the occasion with exciting announcements during a live stream on their [official YouTube channel](https://www.youtube.com/channel/UCFctpiB_Hnlk3ejWfHqSm6Q). I am happy to confirm that this trend hasn't been broken, and a Pokémon Presents presentation will be happening once again on February 27th, 2024, at 14:00 UTC. I am hopeful for lots of great announcements next week, and you can be sure that Johto Times will recap everything!
 

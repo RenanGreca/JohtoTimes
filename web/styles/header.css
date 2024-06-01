@@ -46,7 +46,7 @@
 @media (min-width: 770px) {
   .brand-container {
     height: 36px;
-    margin: 18px 0;
+    /* margin: 18px 0; */
     /* padding: 0 18px; */
   }
 

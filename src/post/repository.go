@@ -3,10 +3,18 @@ package post
 import (
 	"database/sql"
 	"log"
+	"time"
 
 	"johtotimes.com/src/category"
 	"johtotimes.com/src/internal"
 )
+
+const selectPosts = `
+	SELECT p.id, p.title, p.slug, p.img, p.description, p.date,
+	p.type, p.filename, p.issue, p.volume, p.permalink,
+	c.id, c.name, c.slug, c.type
+	FROM post AS p
+	JOIN category AS c ON c.id = p.category_id`
 
 type PostRepository struct {
 	db *sql.DB
@@ -26,6 +34,9 @@ func (r *PostRepository) Migrate() error {
 		slug TEXT NOT NULL,
 		img TEXT NOT NULL,
 		description TEXT NOT NULL,
+		issue INTEGER NOT NULL,
+		volume INTEGER NOT NULL,
+		permalink TEXT NOT NULL,
 		filename TEXT NOT NULL,
 		date DATETIME NOT NULL,
 		type CHARACTER(1) NOT NULL,
@@ -48,13 +59,8 @@ func (r *PostRepository) Populate(db *sql.DB) {
 	if err := r.Migrate(); err != nil {
 		log.Fatal(err)
 	}
-	types := map[byte]string{
-		'P': internal.PostsPath,
-		'N': internal.NewsPath,
-		'M': internal.MailbagPath,
-	}
 
-	for t, path := range types {
+	for t, path := range internal.PostTypePath {
 		posts := getFromDirectory(path)
 		cr := category.NewCategoryRepository(r.db)
 		for _, p := range posts {
@@ -72,6 +78,17 @@ func (r *PostRepository) Populate(db *sql.DB) {
 				}
 				tags = append(tags, tag)
 			}
+			var permalink string
+			switch t {
+			case 'P':
+				permalink = "/posts/" + cat.Slug + "/" + p.Slug
+			case 'M':
+				permalink = "/mailbag/" + p.Slug
+			case 'N':
+				permalink = "/news/" + p.Slug
+			case 'I':
+				permalink = "/issues/" + p.Slug
+			}
 			post := Post{
 				Title:       p.Metadata.Title,
 				String:      p.Contents,
@@ -80,6 +97,9 @@ func (r *PostRepository) Populate(db *sql.DB) {
 				Tags:        tags,
 				Img:         p.Metadata.Header,
 				Description: p.Metadata.Description,
+				Issue:       p.Metadata.Issue,
+				Volume:      p.Metadata.Volume,
+				Permalink:   permalink,
 				Type:        t,
 				Date:        p.Date,
 			}
@@ -87,7 +107,7 @@ func (r *PostRepository) Populate(db *sql.DB) {
 			if err != nil {
 				log.Fatal(err)
 			}
-			log.Printf("Created post with slug %s and ID %d\n", created.Slug, created.ID)
+			log.Printf("Created post of type %s with slug %s and ID %d\n", string(created.Type), created.Slug, created.ID)
 		}
 	}
 
@@ -95,8 +115,8 @@ func (r *PostRepository) Populate(db *sql.DB) {
 
 func (r *PostRepository) Create(post Post) (*Post, error) {
 	query := `
-	INSERT INTO post(title, slug, img, description, date, category_id, type, filename)
-	values(?,?,?,?,?,?,?,?)
+	INSERT INTO post(title, slug, img, description, date, category_id, type, filename, issue, volume, permalink)
+	values(?,?,?,?,?,?,?,?,?,?, ?)
 	`
 	res, err := r.db.Exec(query,
 		post.Title,
@@ -107,6 +127,9 @@ func (r *PostRepository) Create(post Post) (*Post, error) {
 		post.Category.ID,
 		post.Type,
 		post.FileName,
+		post.Issue,
+		post.Volume,
+		post.Permalink,
 	)
 	if err != nil {
 		log.Println("Error running query.")
@@ -125,11 +148,7 @@ func (r *PostRepository) Create(post Post) (*Post, error) {
 
 // Returns posts of a given type ('P', 'N', or 'M')
 func (r *PostRepository) GetPage(postType byte, offset int, limit int) ([]Post, error) {
-	query := `
-	SELECT p.id, p.title, p.slug, p.img, p.description, p.date, p.type, p.filename,
-	c.id, c.name, c.slug, c.type
-	FROM post AS p
-	JOIN category AS c ON c.id = p.category_id
+	query := selectPosts + `
 	WHERE p.type = ?
 	ORDER BY p.date
 	LIMIT ?, ?`
@@ -144,11 +163,7 @@ func (r *PostRepository) GetPage(postType byte, offset int, limit int) ([]Post, 
 
 // Returns posts matching category slug.
 func (r *PostRepository) GetByCategorySlug(category string, offset int, limit int) ([]Post, error) {
-	query := `
-	SELECT p.id, p.title, p.slug, p.img, p.description, p.date, p.type, p.filename,
-	c.id, c.name, c.slug, c.type
-	FROM post AS p
-	JOIN category AS c ON c.id = p.category_id
+	query := selectPosts + `
 	WHERE c.slug = ?
 	ORDER BY p.date
 	LIMIT ?, ?`
@@ -162,21 +177,38 @@ func (r *PostRepository) GetByCategorySlug(category string, offset int, limit in
 }
 
 // Returns post matching the given slug. Should always find just 1 row.
-func (r *PostRepository) GetBySlug(slug string) (*Post, error) {
-	query := `
-	SELECT p.id, p.title, p.slug, p.img, p.description, p.date, p.type, p.filename,
-	c.id, c.name, c.slug, c.type
-	FROM post AS p
-	JOIN category AS c ON c.id = p.category_id
-	WHERE p.slug = ?`
-	rows, err := r.db.Query(query, slug)
+func (r *PostRepository) GetBySlug(slug string, postType byte) (*Post, error) {
+	query := selectPosts + `
+	WHERE p.slug = ?
+	AND p.type = ?`
+	rows, err := r.db.Query(query, slug, postType)
 	if err != nil {
 		log.Println(query)
 		return nil, err
 	}
 	posts, err := parseRows(rows)
 	if len(posts) > 1 {
-		log.Printf(`Warning: Query by slug %q found %d results`, slug, len(posts))
+		log.Fatalf(`Error: Query by slug %q found %d results`, slug, len(posts))
+	}
+
+	return &posts[0], nil
+}
+
+func (r *PostRepository) GetByDateAndType(date time.Time, postType byte) (*Post, error) {
+	query := selectPosts + `
+	WHERE p.date = ?
+	AND p.type = ?
+	ORDER BY p.date
+	`
+	rows, err := r.db.Query(query, date, postType)
+	if err != nil {
+		log.Println(query)
+		return nil, err
+	}
+
+	posts, err := parseRows(rows)
+	if len(posts) > 1 {
+		log.Fatalf(`Warning: Query by date %q and type %q found %d results`, date, string(postType), len(posts))
 	}
 
 	return &posts[0], nil
@@ -198,6 +230,9 @@ func parseRows(rows *sql.Rows) ([]Post, error) {
 			&post.Date,
 			&post.Type,
 			&post.FileName,
+			&post.Issue,
+			&post.Volume,
+			&post.Permalink,
 			&category.ID,
 			&category.Name,
 			&category.Slug,

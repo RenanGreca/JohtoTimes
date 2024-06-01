@@ -26,6 +26,8 @@ type Metadata struct {
 	Header      string
 	Category    string
 	Description string
+	Issue       int
+	Volume      int
 	Tags        []string
 }
 
@@ -55,7 +57,6 @@ func parseMarkdown(md string) (map[string]interface{}, bytes.Buffer) {
 		log.Fatalf("failed to convert markdown to HTML: %v", err)
 	}
 	metadata := meta.Get(context)
-	log.Println(metadata)
 
 	return metadata, buf
 }
@@ -104,6 +105,12 @@ func extractMetadata(metadata map[string]interface{}) Metadata {
 	}
 	if metadata["Tags"] != nil {
 		result.Tags = extractTags(metadata["Tags"].([]interface{}))
+	}
+	if metadata["Issue"] != nil {
+		result.Issue = int(metadata["Issue"].(int))
+	}
+	if metadata["Volume"] != nil {
+		result.Volume = int(metadata["Volume"].(int))
 	}
 
 	return result

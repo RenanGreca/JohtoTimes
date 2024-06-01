@@ -29,7 +29,7 @@ func httpHandler() {
 	mux := http.NewServeMux()
 
 	// Index page and tab bar items
-	mux.HandleFunc("GET /", handler.PostsHandler)
+	mux.HandleFunc("GET /", handler.IssuesHandler)
 	mux.HandleFunc("GET /archive", handler.ArchiveHandler)
 	// mux.HandleFunc("GET /search", search.Handler)
 	// mux.HandleFunc("GET /search/{query}", search.Handler)
@@ -56,7 +56,8 @@ func httpHandler() {
 	mux.HandleFunc("GET /posts/{category}/{slug}", handler.PostHandler)
 
 	// // Handle direct link to issue
-	// mux.HandleFunc("GET /issue/{slug}", issue.Handler)
+	mux.HandleFunc("GET /issues/{slug}", handler.IssueHandler)
+	mux.HandleFunc("GET /issues/{category}/{slug}", handler.IssueHandler)
 
 	http.ListenAndServe(":"+port, mux)
 }

@@ -1,0 +1,29 @@
+.container {
+    width: 800px;
+    max-width: 90vw;
+    margin: 10px auto;
+    background: var(--card-background);
+    filter: drop-shadow(2px 4px 6px black);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Max width for mobile layout is iPad mini portrait */
+@media (min-width: 770px) {
+  .container {
+    font-size: 14pt;
+    line-height: 18pt;
+  }
+
+  h1 {
+    font-size: 30pt;
+    line-height: 32pt;
+    margin: 20px 0;
+  }
+}
+
+/* .single { */
+/*   max-width: 800px; */
+/*   margin: 0 auto; */
+/*   padding: 0 1rem; */
+/* } */

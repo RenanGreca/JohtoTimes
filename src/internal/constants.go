@@ -42,6 +42,13 @@ const NewsPath = AssetPath + "/news"
 const IssuesPath = AssetPath + "/issues"
 const CategoriesPath = AssetPath + "/categories"
 
+var PostTypePath = map[byte]string{
+	'P': PostsPath,
+	'M': MailbagPath,
+	'N': NewsPath,
+	'I': IssuesPath,
+}
+
 // Add to this as we want more css files
 var Stylesheets = [...]string{
 	"/fonts.css",
@@ -52,4 +59,5 @@ var Stylesheets = [...]string{
 	"/list.css",
 	"/tabbar.css",
 	"/archive.css",
+	"/single.css",
 }

@@ -43,12 +43,4 @@ templ Header() {
     </div>
     -->
   </div>
-
-  <div class="navbar">
-    for _, category := range internal.Categories {
-      <a class="navbar-link" href={ templ.URL(category.URL) }>
-        { category.Name }
-      </a>
-    }
-  </div>
 }

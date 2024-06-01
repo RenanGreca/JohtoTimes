@@ -9,6 +9,12 @@ import (
 	"johtotimes.com/src/templates"
 )
 
+func IssuesHandler(w http.ResponseWriter, req *http.Request) {
+	log.Println("Handling request to " + req.URL.Path)
+	page := getPageNumber(req)
+	listPage("Issues", 'I', page).Render(req.Context(), w)
+}
+
 func PostsHandler(w http.ResponseWriter, req *http.Request) {
 	log.Println("Handling request to " + req.URL.Path)
 	page := getPageNumber(req)
@@ -36,7 +42,7 @@ func listPage(title string, postType byte, page int) templ.Component {
 		log.Fatal(err)
 	}
 	log.Printf("Found %d posts", len(posts))
-	description := unsafe("")
+	description := renderHTML("")
 
 	list := templates.ListTemplate(title, title, description, posts)
 

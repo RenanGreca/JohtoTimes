@@ -47,7 +47,6 @@ func parseMarkdown(md string) (map[string]interface{}, bytes.Buffer) {
 		log.Fatalf("failed to convert markdown to HTML: %v", err)
 	}
 	metadata := meta.Get(context)
-	log.Println(metadata)
 
 	return metadata, buf
 }

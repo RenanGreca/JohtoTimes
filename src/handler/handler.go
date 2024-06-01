@@ -24,7 +24,7 @@ func getPageNumber(req *http.Request) int {
 }
 
 // Produces the templ component from raw HTML
-func unsafe(html string) templ.Component {
+func renderHTML(html string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
 		_, err = io.WriteString(w, html)
 		return

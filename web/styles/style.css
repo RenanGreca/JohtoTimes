@@ -15,8 +15,8 @@ body {
   margin: 0px;
   color: var(--white);
   font-family: var(--font-text), sans-serif;
-  font-size: 14pt;
-  line-height: 18pt;
+  /* font-size: 14pt; */
+  /* line-height: 18pt; */
   overflow: hidden;
   
   background-image: url('/web/img/pokeball-pattern-bg.png');

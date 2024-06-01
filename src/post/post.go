@@ -18,7 +18,10 @@ type Post struct {
 	Tags        []*category.Category
 	Img         string
 	Description string
-	Type        byte // 'P' for post, 'N' for news, 'M' for mailbag
+	Issue       int
+	Volume      int
+	Permalink   string
+	Type        byte // 'P' for post, 'N' for news, 'M' for mailbag, 'I' for issue
 	Date        time.Time
 }
 

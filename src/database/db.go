@@ -15,9 +15,6 @@ type Database struct {
 	Connection *sql.DB
 	Posts      *post.PostRepository
 	Categories *category.CategoryRepository
-	// Issues     []*Issue
-	// Categories []Category
-	// Tags       []Category
 }
 
 // type Issue struct {
@@ -73,9 +70,12 @@ func Connect() *Database {
 		log.Fatal(err)
 	}
 	postRepository := post.NewPostRepository(db)
+	categoryRepository := category.NewCategoryRepository(db)
+
 	database := Database{
 		Connection: db,
 		Posts:      postRepository,
+		Categories: categoryRepository,
 	}
 	return &database
 }
