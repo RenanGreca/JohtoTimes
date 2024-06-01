@@ -9,9 +9,11 @@
 
 ## To-do:
 ### P1
-- [ ] Issue builder
+- [x] Issue builder
 - [x] List by category
-- [ ] Improve single post layout
+- [x] Improve single post layout
+   - [ ] Comments
+   - [ ] Image captions
 - [ ] First archive page
    - [ ] Probably the archives are just the lists of posts by category/type
 - [ ] Search box
