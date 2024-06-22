@@ -17,6 +17,8 @@ templ SingleTemplate(post *post.Post, body templ.Component) {
             @body
         </div>
     </div>
+    @setTitle(post.Title)
+    @CommentLoader(post.ID)
 }
 
 templ PostTemplate(post *post.Post, body templ.Component) {
@@ -61,4 +63,11 @@ templ IssueTemplate(post *post.Post,
             @mailbagBody
         }
     </div>
+    @setTitle(post.Title)
+}
+
+templ setTitle(title string) {
+    <script>
+        document.title = "{ title }";
+    </script>
 }

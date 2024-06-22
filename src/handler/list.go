@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/a-h/templ"
+	"johtotimes.com/src/assert"
 	"johtotimes.com/src/database"
 	"johtotimes.com/src/templates"
 )
@@ -37,10 +38,9 @@ func listPage(title string, postType byte, page int) templ.Component {
 	log.Printf("Rendering content of type " + string(postType))
 	db := database.Connect()
 	defer db.Close()
-	posts, err := db.Posts.GetPage(postType, page, 10)
-	if err != nil {
-		log.Fatal(err)
-	}
+	assert.NotNil(page, "Page number cannot be nil")
+	posts := db.Posts.GetPage(postType, page, 10)
+
 	log.Printf("Found %d posts", len(posts))
 	description := renderHTML("")
 

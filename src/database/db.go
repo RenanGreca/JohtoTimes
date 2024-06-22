@@ -7,7 +7,9 @@ import (
 
 	_ "github.com/mattn/go-sqlite3"
 
+	"johtotimes.com/src/assert"
 	"johtotimes.com/src/category"
+	"johtotimes.com/src/comment"
 	"johtotimes.com/src/post"
 )
 
@@ -15,6 +17,7 @@ type Database struct {
 	Connection *sql.DB
 	Posts      *post.PostRepository
 	Categories *category.CategoryRepository
+	Comments   *comment.CommentRepository
 }
 
 // type Issue struct {
@@ -44,17 +47,16 @@ func NewDB() {
 	os.Remove(dbFile)
 	db, err := sql.Open("sqlite3", dbFile)
 	defer db.Close()
+	assert.NoError(err, "Database: Error opening database")
 
-	if err != nil {
-		log.Fatal(err)
-	}
 	categoryRepository := category.NewCategoryRepository(db)
-	if err := categoryRepository.Migrate(); err != nil {
-		log.Fatal(err)
-	}
+	categoryRepository.Migrate()
 
 	postRepository := post.NewPostRepository(db)
 	postRepository.Populate(db)
+
+	commentRepository := comment.NewCommentRepository(db)
+	commentRepository.Migrate()
 
 	// database := Database{
 	// 	Connection: db,
@@ -71,11 +73,13 @@ func Connect() *Database {
 	}
 	postRepository := post.NewPostRepository(db)
 	categoryRepository := category.NewCategoryRepository(db)
+	commentRepository := comment.NewCommentRepository(db)
 
 	database := Database{
 		Connection: db,
 		Posts:      postRepository,
 		Categories: categoryRepository,
+		Comments:   commentRepository,
 	}
 	return &database
 }

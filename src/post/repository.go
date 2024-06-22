@@ -2,9 +2,12 @@ package post
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
+	"strings"
 	"time"
 
+	"johtotimes.com/src/assert"
 	"johtotimes.com/src/category"
 	"johtotimes.com/src/internal"
 )
@@ -26,7 +29,7 @@ func NewPostRepository(db *sql.DB) *PostRepository {
 	}
 }
 
-func (r *PostRepository) Migrate() error {
+func (r *PostRepository) Migrate() {
 	query := `
 	CREATE TABLE IF NOT EXISTS post(
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -40,45 +43,42 @@ func (r *PostRepository) Migrate() error {
 		filename TEXT NOT NULL,
 		date DATETIME NOT NULL,
 		type CHARACTER(1) NOT NULL,
-		category_id INTEGER NOT NULL,
+		category_id INTEGER,
 		FOREIGN KEY (category_id)
 		REFERENCES category(id)
 	);
 	`
 
 	_, err := r.db.Exec(query)
-	if err != nil {
-		log.Println("Error running query")
-		log.Println(query)
-	}
-	return err
+	assert.NoError(err, "PostRepository: Error running query: %s", query)
 }
 
 func (r *PostRepository) Populate(db *sql.DB) {
 
-	if err := r.Migrate(); err != nil {
-		log.Fatal(err)
-	}
+	r.Migrate()
 
 	for t, path := range internal.PostTypePath {
 		posts := getFromDirectory(path)
 		cr := category.NewCategoryRepository(r.db)
 		for _, p := range posts {
-			cat, err := cr.Create(p.Metadata.Category, 'C')
-			if err != nil {
-				log.Println("Error creating category: " + p.Metadata.Category)
-				log.Println(err)
+			// Create category
+			var cat *category.Category
+			if len(p.Metadata.Category) > 0 {
+				cat = cr.Create(p.Metadata.Category, 'C')
+			} else {
+				cat = cr.Create(fmt.Sprintf("Uncategorized %s", string(t)), 'C')
 			}
-			var tags []*category.Category
-			for _, t := range p.Metadata.Tags {
-				tag, _ := cr.Create(t, 'T')
-				if err != nil {
-					log.Println("Error creating tag: " + t)
-					log.Println(err)
-				}
-				tags = append(tags, tag)
-			}
+
+			// TODO: Create tags
+			// for _, t := range p.Metadata.Tags {
+			// 	tag := cr.Create(t, 'T')
+			// 	tags = append(tags, tag)
+			// }
+
+			// Create permalink
 			var permalink string
+
+			var tags []*category.Category
 			switch t {
 			case 'P':
 				permalink = "/posts/" + cat.Slug + "/" + p.Slug
@@ -89,6 +89,7 @@ func (r *PostRepository) Populate(db *sql.DB) {
 			case 'I':
 				permalink = "/issues/" + p.Slug
 			}
+			assert.NotNil(permalink, "PostRepository: Error creating permalink")
 			post := Post{
 				Title:       p.Metadata.Title,
 				String:      p.Contents,
@@ -103,75 +104,73 @@ func (r *PostRepository) Populate(db *sql.DB) {
 				Type:        t,
 				Date:        p.Date,
 			}
-			created, err := r.Create(post)
-			if err != nil {
-				log.Fatal(err)
-			}
-			log.Printf("Created post of type %s with slug %s and ID %d\n", string(created.Type), created.Slug, created.ID)
+			created := r.Create(post)
+			log.Printf(
+				"Created post of type %s with slug %s and ID %d\n",
+				string(created.Type), created.Slug, created.ID,
+			)
 		}
 	}
 
 }
 
-func (r *PostRepository) Create(post Post) (*Post, error) {
+func (r *PostRepository) Create(post Post) *Post {
 	query := `
 	INSERT INTO post(title, slug, img, description, date, category_id, type, filename, issue, volume, permalink)
-	values(?,?,?,?,?,?,?,?,?,?, ?)
+	values(?,?,?,?,?,?,?,?,?,?,?)
 	`
+
+	var category_id int64
+	if post.Category != nil {
+		category_id = post.Category.ID
+	}
 	res, err := r.db.Exec(query,
 		post.Title,
 		post.Slug,
 		post.Img,
 		post.Description,
 		post.Date,
-		post.Category.ID,
+		category_id,
 		post.Type,
 		post.FileName,
 		post.Issue,
 		post.Volume,
 		post.Permalink,
 	)
-	if err != nil {
-		log.Println("Error running query.")
-		log.Println(query)
-		return nil, err
-	}
+	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
 	id, err := res.LastInsertId()
-	if err != nil {
-		return nil, err
-	}
+	assert.NoError(err, "PostRepository: Error getting last insert ID")
 	post.ID = id
 
-	return &post, nil
+	return &post
 }
 
 // Returns posts of a given type ('P', 'N', or 'M')
-func (r *PostRepository) GetPage(postType byte, offset int, limit int) ([]Post, error) {
+func (r *PostRepository) GetPage(postType byte, offset int, limit int) []Post {
 	query := selectPosts + `
 	WHERE p.type = ?
 	ORDER BY p.date
 	LIMIT ?, ?`
-	rows, err := r.db.Query(query, postType, offset, limit)
-	if err != nil {
-		log.Println(query)
-		return nil, err
-	}
+	rows, err := r.db.Query(query, postType, 0, 10)
+	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
 	return parseRows(rows)
 }
 
+func printQuery(query string, args ...interface{}) {
+	query = strings.ReplaceAll(query, "?", "%q")
+	log.Printf(query, args...)
+}
+
 // Returns posts matching category slug.
-func (r *PostRepository) GetByCategorySlug(category string, offset int, limit int) ([]Post, error) {
+func (r *PostRepository) GetByCategorySlug(category string, offset int, limit int) []Post {
 	query := selectPosts + `
 	WHERE c.slug = ?
 	ORDER BY p.date
 	LIMIT ?, ?`
 	rows, err := r.db.Query(query, category, offset, limit)
-	if err != nil {
-		log.Println(query)
-		return nil, err
-	}
+	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
 	return parseRows(rows)
 }
@@ -182,15 +181,15 @@ func (r *PostRepository) GetBySlug(slug string, postType byte) (*Post, error) {
 	WHERE p.slug = ?
 	AND p.type = ?`
 	rows, err := r.db.Query(query, slug, postType)
-	if err != nil {
-		log.Println(query)
-		return nil, err
-	}
-	posts, err := parseRows(rows)
+	assert.NoError(err, "PostRepository: Error running query: %s", query)
+
+	posts := parseRows(rows)
 	if len(posts) > 1 {
 		log.Fatalf(`Error: Query by slug %q found %d results`, slug, len(posts))
 	}
-
+	if len(posts) == 0 {
+		return nil, fmt.Errorf("PostRepository: Error: Query by slug %q found 0 results", slug)
+	}
 	return &posts[0], nil
 }
 
@@ -201,20 +200,22 @@ func (r *PostRepository) GetByDateAndType(date time.Time, postType byte) (*Post,
 	ORDER BY p.date
 	`
 	rows, err := r.db.Query(query, date, postType)
-	if err != nil {
-		log.Println(query)
-		return nil, err
-	}
+	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
-	posts, err := parseRows(rows)
+	posts := parseRows(rows)
 	if len(posts) > 1 {
-		log.Fatalf(`Warning: Query by date %q and type %q found %d results`, date, string(postType), len(posts))
+		log.Printf(
+			"Warning: Query by date %q and type %q found %d results\n",
+			date, string(postType), len(posts),
+		)
 	}
-
+	if len(posts) == 0 {
+		return nil, fmt.Errorf("PostRepository: Error: Query by date %q and type %q found 0 results", date, string(postType))
+	}
 	return &posts[0], nil
 }
 
-func parseRows(rows *sql.Rows) ([]Post, error) {
+func parseRows(rows *sql.Rows) []Post {
 	defer rows.Close()
 
 	var posts []Post
@@ -238,12 +239,9 @@ func parseRows(rows *sql.Rows) ([]Post, error) {
 			&category.Slug,
 			&category.Type,
 		)
-
+		assert.NoError(err, "PostRepository: Error scanning row")
 		post.Category = &category
-		if err != nil {
-			return nil, err
-		}
 		posts = append(posts, post)
 	}
-	return posts, nil
+	return posts
 }

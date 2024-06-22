@@ -10,18 +10,10 @@ templ Base(title string, body templ.Component) {
     @Head(title)
     <body>
       @Header()
-      <div class="content">
+      <div id="content" class="content">
         @body
       </div>
       @TabBar(internal.Tabs)
     </body>
-    <script>
-      window.scrollTo(0, 1);
-    </script>
   </html>
-}
-
-// Common footer elements for all pages
-templ Foot() {
-
 }

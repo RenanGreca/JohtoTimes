@@ -9,6 +9,49 @@
     line-height: 1.5;
 }
 
+/** 
+ * Images and their captions.
+ * By convetion, images are contained in <a> tags,
+ * and the caption is contained in the <em> tag.
+ */
+p:has(a+em) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+/** 
+ * Image without a caption.
+ */
+p:has(a:has(img)) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* quotes for interviews */
+blockquote > p:first-child {
+  font-weight: bold;
+}
+
+blockquote {
+  font-style: italic;
+  color: #eeeeee;
+  background-color: #222;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 20px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Max width for mobile layout is iPad mini portrait */
 @media (min-width: 770px) {
   .container {

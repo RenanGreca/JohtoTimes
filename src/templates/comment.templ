@@ -1,0 +1,47 @@
+package templates
+
+import (
+  "fmt"
+
+  "johtotimes.com/src/comment"
+)
+
+templ CommentLoader(postID int64) {
+  <h1>Comments</h1>
+  @createCommentTemplate(postID)
+  <div id="comments" class="comments"
+       hx-get={ fmt.Sprintf("/comments/%d", postID) }
+       hx-trigger="load"
+       hx-target="#comments"
+       hx-swap="outerHTML">
+    <h1>Loading comments...</h1>
+  </div>
+}
+
+templ CommentListTemplate(comments []comment.Comment) {
+  <div id="comments" class="comments">
+    for _, c := range comments {
+      @commentTemplate(&c)
+    }
+  </div>
+}
+
+templ createCommentTemplate(postID int64) {
+  <form id="create-comment"
+        hx-post={ fmt.Sprintf("/comments/%d", postID) }
+        hx-target="#comments">
+    <div class="comment-form container">
+      <textarea name="name" placeholder="Name"></textarea>
+      <textarea name="email" placeholder="Email"></textarea>
+      <textarea name="content" placeholder="Write a comment..."></textarea>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+}
+
+templ commentTemplate(comment *comment.Comment) {
+  <div class="comment container">
+    <h3>{ comment.Name }</h3>
+    { comment.Content }
+  </div>
+}

@@ -26,10 +26,7 @@ func CategoryPage(slug string, page int) templ.Component {
 
 	db := database.Connect()
 	defer db.Close()
-	posts, err := db.Posts.GetByCategorySlug(slug, page, 10)
-	if err != nil {
-		log.Fatal(err)
-	}
+	posts := db.Posts.GetByCategorySlug(slug, page, 10)
 
 	cat := category.GetFromFile(internal.CategoriesPath, slug)
 	description := renderHTML(cat.Contents)

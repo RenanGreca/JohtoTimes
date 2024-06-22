@@ -19,6 +19,7 @@ func main() {
 	httpHandler()
 }
 
+// httpHandler sets up the http server and prepares the handlers for each endpoint.
 func httpHandler() {
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -58,6 +59,10 @@ func httpHandler() {
 	// // Handle direct link to issue
 	mux.HandleFunc("GET /issues/{slug}", handler.IssueHandler)
 	mux.HandleFunc("GET /issues/{category}/{slug}", handler.IssueHandler)
+
+	// Handle loading and creating comments
+	mux.HandleFunc("GET /comments/{postID}", handler.CommentHandler)
+	mux.HandleFunc("POST /comments/{postID}", handler.CommentHandler)
 
 	http.ListenAndServe(":"+port, mux)
 }

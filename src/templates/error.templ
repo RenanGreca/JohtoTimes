@@ -1,0 +1,9 @@
+package templates
+
+import "fmt"
+
+templ Error(code int) {
+  <div class="error">
+    Page not found: <code>{ fmt.Sprintf("%d", code) }</code>
+  </div>
+}

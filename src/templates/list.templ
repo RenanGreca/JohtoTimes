@@ -18,8 +18,13 @@ templ ListTemplate(title string, slug string, description templ.Component, posts
 }
 
 templ ListItem(post *post.Post) {
-  <a href={ templ.URL( post.Permalink ) } aria-label={ post.Title }>
-    <div class="list-item">
+    <div class="list-item"
+         hx-get={ post.Permalink }
+         hx-trigger="click"
+         hx-target="#content"
+         hx-swap="innerHTML"
+         hx-replace-url={ post.Permalink }
+         hx-vals='{"htmx": "true"}'>
       <div class="list-image">
         <img src={ post.Img } />
       </div>
@@ -40,5 +45,4 @@ templ ListItem(post *post.Post) {
         </span>
       </div>
     </div>
-  </a>
 }
