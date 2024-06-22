@@ -68,3 +68,10 @@ func NotZero(n int, msg string, data ...any) {
 		log.Fatalf(msg, data...)
 	}
 }
+
+func Equal(a, b any, msg string, data ...any) {
+	if a != b {
+		log.Println("Assert#Equal failed")
+		log.Fatalf(msg, data...)
+	}
+}

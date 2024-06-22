@@ -8,7 +8,6 @@ import (
 
 templ CommentLoader(postID int64) {
   <h1>Comments</h1>
-  @createCommentTemplate(postID)
   <div id="comments" class="comments"
        hx-get={ fmt.Sprintf("/comments/%d", postID) }
        hx-trigger="load"
@@ -26,7 +25,8 @@ templ CommentListTemplate(comments []comment.Comment) {
   </div>
 }
 
-templ createCommentTemplate(postID int64) {
+// TODO: submitting the form duplicates the form
+templ CreateCommentTemplate(postID int64, captchaID string) {
   <form id="create-comment"
         hx-post={ fmt.Sprintf("/comments/%d", postID) }
         hx-target="#comments">
@@ -34,6 +34,9 @@ templ createCommentTemplate(postID int64) {
       <textarea name="name" placeholder="Name"></textarea>
       <textarea name="email" placeholder="Email"></textarea>
       <textarea name="content" placeholder="Write a comment..."></textarea>
+      <img src={ fmt.Sprintf("/captcha/%s", captchaID) } alt="Captcha" />
+      <input type="hidden" name="captchaID" value={ captchaID } />
+      <textarea name="captcha" placeholder="Type the Unown above"></textarea>
       <button type="submit">Submit</button>
     </div>
   </form>

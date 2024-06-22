@@ -64,6 +64,8 @@ func httpHandler() {
 	mux.HandleFunc("GET /comments/{postID}", handler.CommentHandler)
 	mux.HandleFunc("POST /comments/{postID}", handler.CommentHandler)
 
+	mux.HandleFunc("GET /captcha/{captchaID}", handler.CaptchaHandler)
+
 	http.ListenAndServe(":"+port, mux)
 }
 

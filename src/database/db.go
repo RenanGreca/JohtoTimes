@@ -18,6 +18,7 @@ type Database struct {
 	Posts      *post.PostRepository
 	Categories *category.CategoryRepository
 	Comments   *comment.CommentRepository
+	Captchas   *comment.CaptchaRepository
 }
 
 // type Issue struct {
@@ -58,6 +59,9 @@ func NewDB() {
 	commentRepository := comment.NewCommentRepository(db)
 	commentRepository.Migrate()
 
+	captchaRepository := comment.NewCaptchaRepository(db)
+	captchaRepository.Migrate()
+
 	// database := Database{
 	// 	Connection: db,
 	// 	Posts:      postRepository,
@@ -74,12 +78,14 @@ func Connect() *Database {
 	postRepository := post.NewPostRepository(db)
 	categoryRepository := category.NewCategoryRepository(db)
 	commentRepository := comment.NewCommentRepository(db)
+	captchaRepository := comment.NewCaptchaRepository(db)
 
 	database := Database{
 		Connection: db,
 		Posts:      postRepository,
 		Categories: categoryRepository,
 		Comments:   commentRepository,
+		Captchas:   captchaRepository,
 	}
 	return &database
 }
