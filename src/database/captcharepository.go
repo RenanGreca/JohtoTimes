@@ -1,10 +1,11 @@
-package comment
+package database
 
 import (
 	"database/sql"
 	"time"
 
 	"johtotimes.com/src/assert"
+	"johtotimes.com/src/model"
 )
 
 type CaptchaRepository struct {
@@ -30,7 +31,7 @@ func (r *CaptchaRepository) Migrate() {
 	assert.NoError(err, "CaptchaRepository: Error running query: %s", query)
 }
 
-func (r *CaptchaRepository) Create(captcha *Captcha) {
+func (r *CaptchaRepository) Create(captcha *model.Captcha) {
 	query := `
 	INSERT INTO captcha(uuid, value, date)
 	values(?,?,?)`
@@ -46,14 +47,14 @@ func (r *CaptchaRepository) Create(captcha *Captcha) {
 	captcha.ID = id
 }
 
-func (r *CaptchaRepository) Retrieve(uuid string) Captcha {
+func (r *CaptchaRepository) Retrieve(uuid string) model.Captcha {
 	query := `
 	SELECT id, value, date
 	FROM captcha
 	WHERE uuid = ?`
 	row := r.db.QueryRow(query, uuid)
 
-	var captcha Captcha
+	var captcha model.Captcha
 	err := row.Scan(
 		&captcha.ID,
 		&captcha.Value,

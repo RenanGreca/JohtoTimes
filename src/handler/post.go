@@ -8,9 +8,10 @@ import (
 
 	"github.com/a-h/templ"
 	"johtotimes.com/src/assert"
+	"johtotimes.com/src/constants"
 	"johtotimes.com/src/database"
-	"johtotimes.com/src/internal"
-	"johtotimes.com/src/post"
+	"johtotimes.com/src/file"
+	"johtotimes.com/src/model"
 	"johtotimes.com/src/templates"
 )
 
@@ -42,39 +43,38 @@ func IssueHandler(w http.ResponseWriter, req *http.Request) {
 		errorPage(404).Render(req.Context(), w)
 		return
 	}
-	post, err := db.Posts.GetByDateAndType(issue.Date, 'P')
+	post, err := db.Posts.GetByDateAndType(issue.CreatedAt, 'P')
 	if err != nil {
 		log.Printf("IssueHandler: Error getting post: %s", err)
 		errorPage(404).Render(req.Context(), w)
 		return
 	}
-	news, err := db.Posts.GetByDateAndType(issue.Date, 'N')
+	news, err := db.Posts.GetByDateAndType(issue.CreatedAt, 'N')
 	assert.NoError(err, "IssueHandler: Error getting news")
-	mailbag, err := db.Posts.GetByDateAndType(issue.Date, 'M')
+	mailbag, err := db.Posts.GetByDateAndType(issue.CreatedAt, 'M')
 	assert.NoError(err, "IssueHandler: Error getting mailbag")
 
 	render(issuePage(issue, post, news, mailbag), isHTMX(req), issue.Title, w)
 }
 
-func postPage(p *post.Post) templ.Component {
-	filePath := internal.PostTypePath[p.Type]
+func postPage(p *model.Post) templ.Component {
+	filePath := constants.PostTypePath[p.Type]
 	fileName := filePath + "/" + p.Slug + ".md"
 	fmt.Printf("File path: %s %s\n", string(p.Type), fileName)
 
-	headers := post.ParseHeaders(fileName)
-	return templates.SingleTemplate(p, renderHTML(headers.Contents))
+	return templates.SingleTemplate(p, renderHTML(p.Content()))
 }
 
-func postBody(p *post.Post) templ.Component {
+func postBody(p *model.Post) templ.Component {
 	if p == nil {
 		return errorPage(404)
 	}
-	filePath := internal.PostTypePath[p.Type]
+	filePath := constants.PostTypePath[p.Type]
 	fileName := filePath + "/" + p.Slug + ".md"
 	fmt.Printf("File path: %s %s\n", string(p.Type), fileName)
 
 	// In the issue builder, if the file doesn't exist, we show a message
-	if !internal.FileExists(fileName) {
+	if !file.FileExists(fileName) {
 		switch p.Type {
 		case 'M':
 			return templates.MailbagTemplate(p, renderHTML("No mailbag this week!"))
@@ -84,11 +84,10 @@ func postBody(p *post.Post) templ.Component {
 			return templates.PostTemplate(p, renderHTML("Error: post not found"))
 		}
 	}
-	headers := post.ParseHeaders(fileName)
-	return templates.PostTemplate(p, renderHTML(headers.Contents))
+	return templates.PostTemplate(p, renderHTML(p.Content()))
 }
 
-func issuePage(issue *post.Post, post *post.Post, news *post.Post, mailbag *post.Post) templ.Component {
+func issuePage(issue *model.Post, post *model.Post, news *model.Post, mailbag *model.Post) templ.Component {
 	return templates.IssueTemplate(
 		issue,
 		postBody(issue),

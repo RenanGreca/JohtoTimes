@@ -1,7 +1,7 @@
 package templates
 
 import (
-  "johtotimes.com/src/internal"
+  "johtotimes.com/src/constants"
 )
 
 // Provides the core HTML scaffolding
@@ -13,7 +13,7 @@ templ Base(title string, body templ.Component) {
       <div id="content" class="content">
         @body
       </div>
-      @TabBar(internal.Tabs)
+      @TabBar(constants.Tabs)
     </body>
   </html>
 }

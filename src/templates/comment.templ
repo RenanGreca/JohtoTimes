@@ -3,11 +3,17 @@ package templates
 import (
   "fmt"
 
-  "johtotimes.com/src/comment"
+  "johtotimes.com/src/model"
 )
 
 templ CommentLoader(postID int64) {
   <h1>Comments</h1>
+  <div class="button container"
+       hx-get={ fmt.Sprintf("/newcomment/%d", postID) }
+       hx-trigger="click"
+       hx-swap="outerHTML">
+    Leave a comment!
+  </div>
   <div id="comments" class="comments"
        hx-get={ fmt.Sprintf("/comments/%d", postID) }
        hx-trigger="load"
@@ -17,7 +23,7 @@ templ CommentLoader(postID int64) {
   </div>
 }
 
-templ CommentListTemplate(comments []comment.Comment) {
+templ CommentListTemplate(comments []model.Comment) {
   <div id="comments" class="comments">
     for _, c := range comments {
       @commentTemplate(&c)
@@ -37,12 +43,12 @@ templ CreateCommentTemplate(postID int64, captchaID string) {
       <img src={ fmt.Sprintf("/captcha/%s", captchaID) } alt="Captcha" />
       <input type="hidden" name="captchaID" value={ captchaID } />
       <textarea name="captcha" placeholder="Type the Unown above"></textarea>
-      <button type="submit">Submit</button>
+      <button type="submit" class="button">Submit</button>
     </div>
   </form>
 }
 
-templ commentTemplate(comment *comment.Comment) {
+templ commentTemplate(comment *model.Comment) {
   <div class="comment container">
     <h3>{ comment.Name }</h3>
     { comment.Content }

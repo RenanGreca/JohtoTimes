@@ -13,9 +13,9 @@ import (
 	"github.com/google/uuid"
 
 	"johtotimes.com/src/assert"
-	"johtotimes.com/src/comment"
+	"johtotimes.com/src/constants"
 	"johtotimes.com/src/database"
-	"johtotimes.com/src/internal"
+	"johtotimes.com/src/model"
 	"johtotimes.com/src/templates"
 )
 
@@ -67,7 +67,7 @@ func createPostComment(req *http.Request, postID int64) {
 	content := req.FormValue("content")
 	date := time.Now()
 
-	comment := comment.Comment{
+	comment := model.Comment{
 		PostID:     postID,
 		Name:       name,
 		Email:      email,
@@ -92,11 +92,18 @@ func CaptchaHandler(w http.ResponseWriter, req *http.Request) {
 	captchaID := req.PathValue("captchaID")
 	cap := captcha.New()
 	cap.SetSize(256, 64)
-	cap.SetFrontColor(color.RGBA{255, 255, 255, 255})
-	cap.SetBkgColor(color.RGBA{255, 0, 0, 255}, color.RGBA{0, 0, 255, 255}, color.RGBA{0, 153, 0, 255})
-	cap.SetFont(internal.AssetPath + "/fonts/unown.ttf")
+	cap.SetDisturbance(captcha.HIGH)
+	// White font color
+	cap.SetFrontColor(color.White)
+	// Transparent background with a different accent color
+	cap.SetBkgColor(
+		color.RGBA{255, 0, 0, 0}, // transparent
+		color.RGBA{0, 0, 255, 0}, // blue
+		color.RGBA{0, 153, 0, 0}, // green
+	)
+	cap.SetFont(constants.AssetPath + "/fonts/unown.ttf")
 	img, str := cap.Create(6, captcha.UPPER)
-	captcha := comment.Captcha{
+	captcha := model.Captcha{
 		UUID:  captchaID,
 		Value: str,
 	}

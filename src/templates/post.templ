@@ -3,13 +3,13 @@ package templates
 import (
         "strconv"
         "strings"
-        "johtotimes.com/src/post"
+        "johtotimes.com/src/model"
 )
 
-templ SingleTemplate(post *post.Post, body templ.Component) {
+templ SingleTemplate(post *model.Post, body templ.Component) {
     <div class="container">
           <div class="category">
-            { strings.ToUpper(post.Category.Name) }
+            { strings.ToUpper(post.Category.Singular) }
           </div>
         <h1>{ post.Title }</h1>
         <h2>{ post.Description }</h2>
@@ -21,25 +21,25 @@ templ SingleTemplate(post *post.Post, body templ.Component) {
     @CommentLoader(post.ID)
 }
 
-templ PostTemplate(post *post.Post, body templ.Component) {
+templ PostTemplate(post *model.Post, body templ.Component) {
     <div class="single">
         @body
     </div>
 }
 
-templ NewsTemplate(post *post.Post, body templ.Component) {
+templ NewsTemplate(post *model.Post, body templ.Component) {
     <div class="single">
         @body
     </div>
 }
 
-templ MailbagTemplate(post *post.Post, body templ.Component) {
+templ MailbagTemplate(post *model.Post, body templ.Component) {
     <div class="single">
         @body
     </div>
 }
 
-templ IssueTemplate(post *post.Post,
+templ IssueTemplate(post *model.Post,
                     issueBody templ.Component, 
                     postBody templ.Component, 
                     newsBody templ.Component,

@@ -1,4 +1,22 @@
-package internal
+package constants
+
+type Link struct {
+	Name string
+	URL  string
+	Icon string
+}
+
+type CSS struct {
+	Path string
+}
+
+type Colors struct {
+	Background string
+	White      string
+	Text       string
+	NeonRed    string
+	NeonBlue   string
+}
 
 // This should rarely change once we've decided which links to have
 var SocialLinks = [...]Link{

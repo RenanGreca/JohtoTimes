@@ -1,21 +1,22 @@
-package post
+package database
 
 import (
 	"database/sql"
 	"fmt"
 	"log"
-	"strings"
 	"time"
 
+	"github.com/gosimple/slug"
 	"johtotimes.com/src/assert"
-	"johtotimes.com/src/category"
-	"johtotimes.com/src/internal"
+	"johtotimes.com/src/constants"
+	"johtotimes.com/src/model"
 )
 
 const selectPosts = `
-	SELECT p.id, p.title, p.slug, p.img, p.description, p.date,
+	SELECT p.id, p.title, p.slug, p.img, p.description, 
 	p.type, p.filename, p.issue, p.volume, p.permalink,
-	c.id, c.name, c.slug, c.type
+	p.created_at, p.modified_at, p.hash,
+	c.id, c.singular, c.plural, c.slug, c.type
 	FROM post AS p
 	JOIN category AS c ON c.id = p.category_id`
 
@@ -41,7 +42,9 @@ func (r *PostRepository) Migrate() {
 		volume INTEGER NOT NULL,
 		permalink TEXT NOT NULL,
 		filename TEXT NOT NULL,
-		date DATETIME NOT NULL,
+		created_at DATETIME NOT NULL,
+		modified_at DATETIME,
+		hash TEXT NOT NULL,
 		type CHARACTER(1) NOT NULL,
 		category_id INTEGER,
 		FOREIGN KEY (category_id)
@@ -53,57 +56,34 @@ func (r *PostRepository) Migrate() {
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
 }
 
-func (r *PostRepository) Populate(db *sql.DB) {
+func (r *PostRepository) Populate() {
 
-	r.Migrate()
-
-	for t, path := range internal.PostTypePath {
-		posts := getFromDirectory(path)
-		cr := category.NewCategoryRepository(r.db)
-		for _, p := range posts {
-			// Create category
-			var cat *category.Category
-			if len(p.Metadata.Category) > 0 {
-				cat = cr.Create(p.Metadata.Category, 'C')
-			} else {
-				cat = cr.Create(fmt.Sprintf("Uncategorized %s", string(t)), 'C')
+	for t, path := range constants.PostTypePath {
+		posts := model.GetPostsFromDirectory(path)
+		cr := NewCategoryRepository(r.db)
+		for _, post := range posts {
+			// Find or create category
+			if len(post.Category.Slug) == 0 {
+				post.Category = model.Category{
+					Singular: fmt.Sprintf("Uncategorized %s", string(t)),
+					Plural:   fmt.Sprintf("Uncategorized %s", string(t)),
+					Slug:     slug.Make(fmt.Sprintf("Uncategorized %s", string(t))),
+					Type:     'C',
+				}
 			}
+			cr.Create(&post.Category)
 
 			// TODO: Create tags
+			var tags []model.Category
 			// for _, t := range p.Metadata.Tags {
 			// 	tag := cr.Create(t, 'T')
 			// 	tags = append(tags, tag)
 			// }
 
-			// Create permalink
-			var permalink string
+			post.Tags = tags
+			post.Type = t
+			post.SetPermalink()
 
-			var tags []*category.Category
-			switch t {
-			case 'P':
-				permalink = "/posts/" + cat.Slug + "/" + p.Slug
-			case 'M':
-				permalink = "/mailbag/" + p.Slug
-			case 'N':
-				permalink = "/news/" + p.Slug
-			case 'I':
-				permalink = "/issues/" + p.Slug
-			}
-			assert.NotNil(permalink, "PostRepository: Error creating permalink")
-			post := Post{
-				Title:       p.Metadata.Title,
-				String:      p.Contents,
-				Slug:        p.Slug,
-				Category:    cat,
-				Tags:        tags,
-				Img:         p.Metadata.Header,
-				Description: p.Metadata.Description,
-				Issue:       p.Metadata.Issue,
-				Volume:      p.Metadata.Volume,
-				Permalink:   permalink,
-				Type:        t,
-				Date:        p.Date,
-			}
 			created := r.Create(post)
 			log.Printf(
 				"Created post of type %s with slug %s and ID %d\n",
@@ -114,28 +94,31 @@ func (r *PostRepository) Populate(db *sql.DB) {
 
 }
 
-func (r *PostRepository) Create(post Post) *Post {
+func (r *PostRepository) Create(post model.Post) *model.Post {
 	query := `
-	INSERT INTO post(title, slug, img, description, date, category_id, type, filename, issue, volume, permalink)
-	values(?,?,?,?,?,?,?,?,?,?,?)
+	INSERT INTO post(
+		title, slug, img, description, category_id,
+		type, filename, issue, volume, permalink,
+		created_at, modified_at, hash
+	)
+	values(?,?,?,?,?,?,?,?,?,?,?,?,?)
 	`
 
-	var category_id int64
-	if post.Category != nil {
-		category_id = post.Category.ID
-	}
+	assert.NotZero(int(post.Category.ID), "PostRepository: Category ID is zero")
 	res, err := r.db.Exec(query,
 		post.Title,
 		post.Slug,
 		post.Img,
 		post.Description,
-		post.Date,
-		category_id,
+		post.Category.ID,
 		post.Type,
 		post.FileName,
 		post.Issue,
 		post.Volume,
 		post.Permalink,
+		post.CreatedAt,
+		post.ModifiedAt,
+		post.Hash,
 	)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
@@ -147,7 +130,7 @@ func (r *PostRepository) Create(post Post) *Post {
 }
 
 // Returns posts of a given type ('P', 'N', or 'M')
-func (r *PostRepository) GetPage(postType byte, offset int, limit int) []Post {
+func (r *PostRepository) GetPage(postType byte, offset int, limit int) []model.Post {
 	query := selectPosts + `
 	WHERE p.type = ?
 	ORDER BY p.date
@@ -155,16 +138,11 @@ func (r *PostRepository) GetPage(postType byte, offset int, limit int) []Post {
 	rows, err := r.db.Query(query, postType, 0, 10)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
-	return parseRows(rows)
-}
-
-func printQuery(query string, args ...interface{}) {
-	query = strings.ReplaceAll(query, "?", "%q")
-	log.Printf(query, args...)
+	return parsePostRows(rows)
 }
 
 // Returns posts matching category slug.
-func (r *PostRepository) GetByCategorySlug(category string, offset int, limit int) []Post {
+func (r *PostRepository) GetByCategorySlug(category string, offset int, limit int) []model.Post {
 	query := selectPosts + `
 	WHERE c.slug = ?
 	ORDER BY p.date
@@ -172,18 +150,18 @@ func (r *PostRepository) GetByCategorySlug(category string, offset int, limit in
 	rows, err := r.db.Query(query, category, offset, limit)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
-	return parseRows(rows)
+	return parsePostRows(rows)
 }
 
 // Returns post matching the given slug. Should always find just 1 row.
-func (r *PostRepository) GetBySlug(slug string, postType byte) (*Post, error) {
+func (r *PostRepository) GetBySlug(slug string, postType byte) (*model.Post, error) {
 	query := selectPosts + `
 	WHERE p.slug = ?
 	AND p.type = ?`
 	rows, err := r.db.Query(query, slug, postType)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
-	posts := parseRows(rows)
+	posts := parsePostRows(rows)
 	if len(posts) > 1 {
 		log.Fatalf(`Error: Query by slug %q found %d results`, slug, len(posts))
 	}
@@ -193,7 +171,7 @@ func (r *PostRepository) GetBySlug(slug string, postType byte) (*Post, error) {
 	return &posts[0], nil
 }
 
-func (r *PostRepository) GetByDateAndType(date time.Time, postType byte) (*Post, error) {
+func (r *PostRepository) GetByDateAndType(date time.Time, postType byte) (*model.Post, error) {
 	query := selectPosts + `
 	WHERE p.date = ?
 	AND p.type = ?
@@ -202,7 +180,7 @@ func (r *PostRepository) GetByDateAndType(date time.Time, postType byte) (*Post,
 	rows, err := r.db.Query(query, date, postType)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
-	posts := parseRows(rows)
+	posts := parsePostRows(rows)
 	if len(posts) > 1 {
 		log.Printf(
 			"Warning: Query by date %q and type %q found %d results\n",
@@ -215,32 +193,35 @@ func (r *PostRepository) GetByDateAndType(date time.Time, postType byte) (*Post,
 	return &posts[0], nil
 }
 
-func parseRows(rows *sql.Rows) []Post {
+func parsePostRows(rows *sql.Rows) []model.Post {
 	defer rows.Close()
 
-	var posts []Post
+	var posts []model.Post
 	for rows.Next() {
-		var post Post
-		var category category.Category
+		var post model.Post
+		var category model.Category
 		err := rows.Scan(
 			&post.ID,
 			&post.Title,
 			&post.Slug,
 			&post.Img,
 			&post.Description,
-			&post.Date,
 			&post.Type,
 			&post.FileName,
 			&post.Issue,
 			&post.Volume,
 			&post.Permalink,
+			&post.CreatedAt,
+			&post.ModifiedAt,
+			&post.Hash,
 			&category.ID,
-			&category.Name,
+			&category.Singular,
+			&category.Plural,
 			&category.Slug,
 			&category.Type,
 		)
 		assert.NoError(err, "PostRepository: Error scanning row")
-		post.Category = &category
+		post.Category = category
 		posts = append(posts, post)
 	}
 	return posts

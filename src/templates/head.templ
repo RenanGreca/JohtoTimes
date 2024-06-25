@@ -1,7 +1,7 @@
 package templates
 
 import (
-  "johtotimes.com/src/internal"
+  "johtotimes.com/src/constants"
 )
 
 // Contents of <head> tag
@@ -14,14 +14,14 @@ templ Head(title string) {
     <meta name="HandheldFriendly" content="true"/>
     <meta name="theme-color" content="#333333" media="(prefers-color-scheme: dark)" />
 
-    for _, css := range internal.Stylesheets {
-      <link href={ "/" + internal.StylesPath + css } rel="stylesheet" />
+    for _, css := range constants.Stylesheets {
+      <link href={ "/" + constants.StylesPath + css } rel="stylesheet" />
     }
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,700,700i&display=swap" rel="stylesheet"/>
 
-    <script src={ "/" + internal.ScriptsPath + "/htmx.js" }></script>
+    <script src={ "/" + constants.ScriptsPath + "/htmx.js" }></script>
   </head>
 }
 
@@ -30,16 +30,16 @@ templ Header() {
   <div class="brand-container">
     <div class="brand">
       <a class="brand-link" href="/">
-        <img class="logo"  src={ "/" + internal.ImgPath + "/johto-times.png" } />
+        <img class="logo"  src={ "/" + constants.ImgPath + "/johto-times.png" } />
       </a>
     </div>
     <!--
     <div class="social-icons">
-      for _, socialLink := range internal.SocialLinks {
+      for _, socialLink := range constants.SocialLinks {
         <a href={ templ.URL(socialLink.URL) } aria-label={ socialLink.Name } 
           class="social-icon social-{ socialLink.Name }" target="_blank">
           <img class="social-icon" 
-            src={ "/" + internal.IconsPath + "/" + socialLink.Name + "-blue.png" } />
+            src={ "/" + constants.IconsPath + "/" + socialLink.Name + "-blue.png" } />
         </a>
       }
     </div>

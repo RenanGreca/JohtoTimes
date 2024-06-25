@@ -1,10 +1,10 @@
-package post
+package markdown
 
 import (
 	"log"
 	"testing"
 
-	"johtotimes.com/src/internal"
+	"johtotimes.com/src/file"
 )
 
 const fileName = "../../web/posts/2024-02-24-pokemon-legends-celebi-a-concept.md"
@@ -44,7 +44,7 @@ var testCases = []TestCase{
 
 func TestReadFile(t *testing.T) {
 	for _, tc := range testCases {
-		_ = internal.ReadFile(tc.FileName)
+		_ = file.ReadFile(tc.FileName)
 	}
 }
 

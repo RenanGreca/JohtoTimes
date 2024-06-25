@@ -7,9 +7,9 @@ import (
 
 	_ "github.com/mattn/go-sqlite3"
 
+	"johtotimes.com/src/constants"
 	"johtotimes.com/src/database"
 	"johtotimes.com/src/handler"
-	"johtotimes.com/src/internal"
 )
 
 func main() {
@@ -38,8 +38,8 @@ func httpHandler() {
 	// mux.HandleFunc("GET /about", about.Handler)
 
 	// Assets directory
-	prefix := "/" + internal.AssetPath + "/"
-	assets := http.FileServer(http.Dir(internal.AssetPath))
+	prefix := "/" + constants.AssetPath + "/"
+	assets := http.FileServer(http.Dir(constants.AssetPath))
 	mux.Handle("GET "+prefix, http.StripPrefix(prefix, assets))
 
 	// Category/type lists
@@ -71,7 +71,7 @@ func httpHandler() {
 
 func emailSender() {
 	// fileName := "./web/posts/2024-02-22-pokemon-legends-celebi-a-concept.md"
-	// post := internal.ParseMarkdown(fileName)
+	// post := constants.ParseMarkdown(fileName)
 	// f, err := os.Create("head.html")
 	// if err != nil {
 	// 	log.Fatalln(err)
@@ -80,7 +80,7 @@ func emailSender() {
 	// if err != nil {
 	// 	log.Fatalln(err)
 	// }
-	// head := internal.ReadFile("head.html")
+	// head := file.ReadFile("head.html")
 	//
 	// pass := os.Getenv("GOEMAILPASS")
 	//

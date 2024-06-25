@@ -4,21 +4,24 @@ import (
 	"database/sql"
 	"log"
 	"os"
+	"strings"
 
 	_ "github.com/mattn/go-sqlite3"
 
 	"johtotimes.com/src/assert"
-	"johtotimes.com/src/category"
-	"johtotimes.com/src/comment"
-	"johtotimes.com/src/post"
 )
 
 type Database struct {
 	Connection *sql.DB
-	Posts      *post.PostRepository
-	Categories *category.CategoryRepository
-	Comments   *comment.CommentRepository
-	Captchas   *comment.CaptchaRepository
+	Posts      *PostRepository
+	Categories *CategoryRepository
+	Comments   *CommentRepository
+	Captchas   *CaptchaRepository
+}
+
+type Repository interface {
+	Migrate()
+	Populate(db *sql.DB)
 }
 
 // type Issue struct {
@@ -50,23 +53,19 @@ func NewDB() {
 	defer db.Close()
 	assert.NoError(err, "Database: Error opening database")
 
-	categoryRepository := category.NewCategoryRepository(db)
+	categoryRepository := NewCategoryRepository(db)
 	categoryRepository.Migrate()
+	categoryRepository.Populate()
 
-	postRepository := post.NewPostRepository(db)
-	postRepository.Populate(db)
+	postRepository := NewPostRepository(db)
+	postRepository.Migrate()
+	postRepository.Populate()
 
-	commentRepository := comment.NewCommentRepository(db)
+	commentRepository := NewCommentRepository(db)
 	commentRepository.Migrate()
 
-	captchaRepository := comment.NewCaptchaRepository(db)
+	captchaRepository := NewCaptchaRepository(db)
 	captchaRepository.Migrate()
-
-	// database := Database{
-	// 	Connection: db,
-	// 	Posts:      postRepository,
-	// }
-	// return &database
 }
 
 func Connect() *Database {
@@ -75,10 +74,10 @@ func Connect() *Database {
 	if err != nil {
 		log.Fatal(err)
 	}
-	postRepository := post.NewPostRepository(db)
-	categoryRepository := category.NewCategoryRepository(db)
-	commentRepository := comment.NewCommentRepository(db)
-	captchaRepository := comment.NewCaptchaRepository(db)
+	postRepository := NewPostRepository(db)
+	categoryRepository := NewCategoryRepository(db)
+	commentRepository := NewCommentRepository(db)
+	captchaRepository := NewCaptchaRepository(db)
 
 	database := Database{
 		Connection: db,
@@ -93,4 +92,9 @@ func Connect() *Database {
 func (db *Database) Close() {
 	log.Println("Closing connection")
 	db.Connection.Close()
+}
+
+func printQuery(query string, args ...interface{}) {
+	query = strings.ReplaceAll(query, "?", "%q")
+	log.Printf(query, args...)
 }

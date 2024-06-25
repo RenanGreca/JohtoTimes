@@ -1,9 +1,10 @@
-package comment
+package database
 
 import (
 	"database/sql"
 
 	"johtotimes.com/src/assert"
+	"johtotimes.com/src/model"
 )
 
 const selectComments = `
@@ -42,7 +43,7 @@ func (r *CommentRepository) Migrate() {
 	assert.NoError(err, "CommentRepository: Error running query: %s", query)
 }
 
-func (r *CommentRepository) Create(comment *Comment) {
+func (r *CommentRepository) Create(comment *model.Comment) {
 	query := `
 	INSERT INTO comment(post_id, name, email, date, content, is_deleted, is_spam, is_approved)
 	values(?,?,?,?,?,?,?,?)`
@@ -64,22 +65,22 @@ func (r *CommentRepository) Create(comment *Comment) {
 	comment.ID = id
 }
 
-func (r *CommentRepository) GetCommentsFromPost(postID int64) []Comment {
+func (r *CommentRepository) GetCommentsFromPost(postID int64) []model.Comment {
 	query := selectComments + `
 	WHERE c.post_id = ?
 	ORDER BY c.date DESC`
 	rows, err := r.db.Query(query, postID)
 	assert.NoError(err, "CommentRepository: Error running query: %s", query)
 
-	return parseRows(rows)
+	return parseCommentRows(rows)
 }
 
-func parseRows(rows *sql.Rows) []Comment {
+func parseCommentRows(rows *sql.Rows) []model.Comment {
 	defer rows.Close()
 
-	var comments []Comment
+	var comments []model.Comment
 	for rows.Next() {
-		var comment Comment
+		var comment model.Comment
 		err := rows.Scan(
 			&comment.ID,
 			&comment.PostID,

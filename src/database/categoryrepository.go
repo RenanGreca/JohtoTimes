@@ -1,12 +1,12 @@
-// Package category provides a repository for categories.
-package category
+package database
 
 import (
 	"database/sql"
 	"log"
 
-	"github.com/gosimple/slug"
 	"johtotimes.com/src/assert"
+	"johtotimes.com/src/constants"
+	"johtotimes.com/src/model"
 )
 
 type CategoryRepository struct {
@@ -23,7 +23,8 @@ func (r *CategoryRepository) Migrate() {
 	query := `
 	CREATE TABLE IF NOT EXISTS category (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		name TEXT NOT NULL,
+		singular TEXT NOT NULL,
+		plural TEXT NOT NULL,
 		slug TEXT NOT NULL,
 		description TEXT,
 		type CHARACTER(1) NOT NULL
@@ -33,58 +34,57 @@ func (r *CategoryRepository) Migrate() {
 	assert.NoError(err, "CategoryRepository: Error running query: %s", query)
 }
 
-func (r *CategoryRepository) Create(name string, t byte) *Category {
-	slug := slug.Make(name)
-	if len(slug) == 0 {
-		return nil
+func (r *CategoryRepository) Populate() {
+	categories := model.GetCategoriesFromDirectory(constants.CategoriesPath)
+	for _, category := range categories {
+		r.Create(&category)
 	}
-	assert.NotZero(len(slug), "CategoryRepository: Slug cannot be empty: %s\n", name)
+}
 
+func (r *CategoryRepository) Create(category *model.Category) {
 	// Check if category already exists, return it if so.
-	cat, err := r.GetBySlug(slug, t)
+	cat, err := r.GetBySlug(category.Slug, category.Type)
 	if err == nil && cat != nil {
-		return cat
+		category = cat
+		return
 	}
 
 	query := `
-	INSERT INTO category(name, slug, type)
-	values(?,?,?)
+	INSERT INTO category(singular, plural, slug, type)
+	values(?,?,?,?)
 	`
 	res, err := r.db.Exec(query,
-		name,
-		slug,
-		t,
+		category.Singular,
+		category.Plural,
+		category.Slug,
+		category.Type,
 	)
 	assert.NoError(err, "CategoryRepository: Error running query: %s", query)
 	id, err := res.LastInsertId()
 	assert.NoError(err, "CategoryRepository: Error getting last insert ID")
-
-	category := Category{
-		ID:   id,
-		Name: name,
-		Slug: slug,
-		Type: t,
-	}
-	log.Println("Created category:", category.Name)
-	return &category
+	category.ID = id
+	log.Printf(
+		"Created category of type %s with slug %s and ID %d\n",
+		string(category.Type), category.Slug, category.ID,
+	)
 }
 
 // GetByID searches for a category by its ID.
 // If the category is not found, (nil, ErrNotFound) is returned.
-func (r *CategoryRepository) GetByID(id int64) (*Category, error) {
+func (r *CategoryRepository) GetByID(id int64) (*model.Category, error) {
 	row := r.db.QueryRow("SELECT * FROM category WHERE id = ?", id)
 
-	var category Category
-	err := row.Scan(&category.ID, &category.Name, &category.Slug, &category.Type)
+	var category model.Category
+	err := row.Scan(&category.ID, &category.Singular, &category.Plural, &category.Slug, &category.Type)
 	return &category, err
 }
 
 // GetBySlug searches for a category of a specified type t by its slug.
 // If the category is not found, (nil, ErrNotFound) is returned.
-func (r *CategoryRepository) GetBySlug(slug string, t byte) (*Category, error) {
+func (r *CategoryRepository) GetBySlug(slug string, t byte) (*model.Category, error) {
 	row := r.db.QueryRow("SELECT * FROM category WHERE slug = ? AND type = ?", slug, t)
 
-	var category Category
-	err := row.Scan(&category.ID, &category.Name, &category.Slug, &category.Type)
+	var category model.Category
+	err := row.Scan(&category.ID, &category.Singular, &category.Plural, &category.Slug, &category.Type)
 	return &category, err
 }

@@ -3,23 +3,23 @@ package templates
 import (
   "strings"
 
-  "johtotimes.com/src/internal"
+  "johtotimes.com/src/constants"
 )
 
 templ ArchiveTemplate(title string) {
   <h1>{title}</h1>
   <div class="list">
-    for _, category := range internal.Categories {
+    for _, category := range constants.Categories {
       @ListArchive(category)
     }
   </div>
 }
 
-templ ListArchive(category internal.Link) {
+templ ListArchive(category constants.Link) {
   <a href={ templ.URL(category.URL) } aria-label={ category.Name }>
     <div class="archive-item">
       <div class="archive-image">
-        <img src={ internal.ImgPath + "/" + strings.ToLower(category.Name) + ".webp" } />
+        <img src={ constants.ImgPath + "/" + strings.ToLower(category.Name) + ".webp" } />
       </div>
       <div class="archive-contents">
         { category.Name }

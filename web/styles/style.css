@@ -104,8 +104,26 @@ a:hover {
   /* border-bottom: 1px var(--neon-blue) solid; */
 }
 
+.button {
+  background-color: var(--neon-red) !important;
+  color: var(--white);
 
-blockquote {
-  font-style: italic;
-  color: #eeeeee;
+  font-family: var(--font-title);
+  font-variant: small-caps;
+  text-align: center;
+
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+textarea {
+  background-color: rgba(0, 0, 0, 0);
+  color: var(--white);
+  font-family: var(--font-text);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }

@@ -1,17 +1,17 @@
 package templates
 
 import (
-  "johtotimes.com/src/internal"
+  "johtotimes.com/src/constants"
 )
 
-templ TabBar(tabs []internal.Link) {
+templ TabBar(tabs []constants.Link) {
   <div class="tab-bar">
     for _, tab := range tabs {
       <a href={ templ.URL(tab.URL) }>
         <div class="tab">
           <div class="tab-icon-container">
           <img class="tab-icon" 
-              src={ "/" + internal.IconsPath + "/" + tab.Icon } />
+              src={ "/" + constants.IconsPath + "/" + tab.Icon } />
           </div>
           <div class="tab-name">
             { tab.Name }

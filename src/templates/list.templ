@@ -4,10 +4,10 @@ import (
   "strings"
   "strconv"
 
-  "johtotimes.com/src/post"
+  "johtotimes.com/src/model"
 )
 
-templ ListTemplate(title string, slug string, description templ.Component, posts []post.Post) {
+templ ListTemplate(title string, slug string, description templ.Component, posts []model.Post) {
   <h1>{title}</h1>
   <h2>@description</h2>
   <div class="list">
@@ -17,14 +17,13 @@ templ ListTemplate(title string, slug string, description templ.Component, posts
   </div>
 }
 
-templ ListItem(post *post.Post) {
+templ ListItem(post *model.Post) {
     <div class="list-item"
          hx-get={ post.Permalink }
          hx-trigger="click"
          hx-target="#content"
          hx-swap="innerHTML"
-         hx-replace-url={ post.Permalink }
-         hx-vals='{"htmx": "true"}'>
+         hx-replace-url={ post.Permalink }>
       <div class="list-image">
         <img src={ post.Img } />
       </div>
@@ -35,7 +34,7 @@ templ ListItem(post *post.Post) {
           </span>
         } else {
           <span class="category">
-            { strings.ToUpper(post.Category.Name) }
+            { strings.ToUpper(post.Category.Singular) }
           </span>
         }
 
