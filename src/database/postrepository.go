@@ -133,7 +133,7 @@ func (r *PostRepository) Create(post model.Post) *model.Post {
 func (r *PostRepository) GetPage(postType byte, offset int, limit int) []model.Post {
 	query := selectPosts + `
 	WHERE p.type = ?
-	ORDER BY p.date
+	ORDER BY p.created_at
 	LIMIT ?, ?`
 	rows, err := r.db.Query(query, postType, 0, 10)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
@@ -145,7 +145,7 @@ func (r *PostRepository) GetPage(postType byte, offset int, limit int) []model.P
 func (r *PostRepository) GetByCategorySlug(category string, offset int, limit int) []model.Post {
 	query := selectPosts + `
 	WHERE c.slug = ?
-	ORDER BY p.date
+	ORDER BY p.created_at
 	LIMIT ?, ?`
 	rows, err := r.db.Query(query, category, offset, limit)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
@@ -173,10 +173,9 @@ func (r *PostRepository) GetBySlug(slug string, postType byte) (*model.Post, err
 
 func (r *PostRepository) GetByDateAndType(date time.Time, postType byte) (*model.Post, error) {
 	query := selectPosts + `
-	WHERE p.date = ?
+	WHERE p.created_at = ?
 	AND p.type = ?
-	ORDER BY p.date
-	`
+	ORDER BY p.created_at`
 	rows, err := r.db.Query(query, date, postType)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
