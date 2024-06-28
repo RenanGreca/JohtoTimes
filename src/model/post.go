@@ -92,38 +92,36 @@ func (post *Post) Content() string {
 func (post *Post) extractMetadata(metadata map[string]interface{}) {
 	assert.NotNil(metadata, "PostRepository: Error extracting metadata")
 
-	// assert.NotNil(metadata["Title"],
-	// 	"PostRepository: Error extracting Title from markdown metadata")
 	if metadata["Title"] != nil {
 		post.Title = metadata["Title"].(string)
 	}
 
-	assert.NotNil(metadata["Header"],
-		"PostRepository: Error extracting Header from markdown metadata")
-	post.Img = metadata["Header"].(string)
-
-	assert.NotNil(metadata["Category"],
-		"PostRepository: Error extracting Category from markdown metadata")
-	post.Category = Category{
-		Singular: metadata["Category"].(string),
-		Slug:     slug.Make(metadata["Category"].(string)),
+	if metadata["Header"] != nil {
+		post.Img = metadata["Header"].(string)
 	}
 
-	assert.NotNil(metadata["Description"],
-		"PostRepository: Error extracting Description from markdown metadata")
-	post.Description = metadata["Description"].(string)
+	if metadata["Category"] != nil {
+		post.Category = Category{
+			Singular: metadata["Category"].(string),
+			Slug:     slug.Make(metadata["Category"].(string)),
+		}
+	}
 
-	assert.NotNil(metadata["Tags"],
-		"PostRepository: Error extracting Tags from markdown metadata")
-	post.Tags = extractTags(metadata["Tags"].([]interface{}))
+	if metadata["Description"] != nil {
+		post.Description = metadata["Description"].(string)
+	}
 
-	assert.NotNil(metadata["Issue"],
-		"PostRepository: Error extracting Issue from markdown metadata")
-	post.Issue = int(metadata["Issue"].(int))
+	if metadata["Tags"] != nil {
+		post.Tags = extractTags(metadata["Tags"].([]interface{}))
+	}
 
-	assert.NotNil(metadata["Volume"],
-		"PostRepository: Error extracting Volume from markdown metadata")
-	post.Volume = int(metadata["Volume"].(int))
+	if metadata["Issue"] != nil {
+		post.Issue = int(metadata["Issue"].(int))
+	}
+
+	if metadata["Volume"] != nil {
+		post.Volume = int(metadata["Volume"].(int))
+	}
 }
 
 func (post *Post) SetPermalink() {
