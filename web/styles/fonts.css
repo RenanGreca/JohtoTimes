@@ -11,10 +11,11 @@
 
 @font-face {
 	font-family: 'Unown';
-	src: url('/web/fonts/Unown.ttf');
+	src: url('/web/fonts/Annon.ttf');
 	src:
 		local('Unown'),
 		local('Unown'),
-		url('/web/fonts/Unown.ttf')
+		url('/web/fonts/Annon.ttf')
 		format('truetype');
+	font-display: swap;
 }
