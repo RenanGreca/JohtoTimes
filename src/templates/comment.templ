@@ -77,9 +77,9 @@ templ CommentContentTemplate(value string) {
 templ CaptchaTemplate(captchaID string) {
   <div id="captcha-wrapper" class="form-field">
     <label>Captcha</label>
-    <div class="captcha-image">
       <img src={ fmt.Sprintf("/captcha/%s", captchaID) }
            id="captcha" alt="Captcha" />
+    <div class="captcha-image">
       @AudioCaptchaTemplate(captchaID, false)
       <button hx-get={ fmt.Sprintf("/reloadcaptcha/%s", captchaID) }
               hx-target="#captcha-wrapper">↺</button>
