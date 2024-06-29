@@ -94,6 +94,7 @@ func issuePage(issue *model.Post, post *model.Post, news *model.Post, mailbag *m
 		postBody(post),
 		postBody(news),
 		postBody(mailbag),
+		post.ID,
 	)
 }
 

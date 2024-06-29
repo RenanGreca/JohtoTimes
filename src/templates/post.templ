@@ -44,6 +44,7 @@ templ IssueTemplate(post *model.Post,
                     postBody templ.Component, 
                     newsBody templ.Component,
                     mailbagBody templ.Component,
+                    postID int64,
 ) {
     <div class="container">
         <h2>Issue { strconv.Itoa(post.Issue) } - Volume { strconv.Itoa(post.Volume) }</h2>
@@ -64,6 +65,7 @@ templ IssueTemplate(post *model.Post,
         }
     </div>
     @setTitle(post.Title)
+    @CommentLoader(postID)
 }
 
 templ setTitle(title string) {
