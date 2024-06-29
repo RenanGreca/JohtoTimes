@@ -84,4 +84,5 @@ func (r *CaptchaRepository) DeleteOld() {
 	query := `DELETE FROM captcha WHERE date < ?`
 	_, err := r.db.Exec(query, time.Now().AddDate(0, 0, -1))
 	assert.NoError(err, "CaptchaRepository: Error running query: %s", query)
+	// TODO: Also delete related files
 }

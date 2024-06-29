@@ -67,6 +67,7 @@ func httpHandler() {
 
 	mux.HandleFunc("GET /captcha/{captchaID}", handler.CaptchaHandler)
 	mux.HandleFunc("GET /reloadcaptcha/{captchaID}", handler.NewCaptchaHandler)
+	mux.HandleFunc("GET /audiocaptcha/{captchaID}", handler.AudioCaptchaHandler)
 
 	http.ListenAndServe(":"+port, mux)
 }

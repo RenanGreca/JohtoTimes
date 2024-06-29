@@ -11,11 +11,13 @@ import (
 
 	"github.com/a-h/templ"
 	"github.com/afocus/captcha"
+	"github.com/go-tts/tts/pkg/speech"
 	"github.com/google/uuid"
 
 	"johtotimes.com/src/assert"
 	"johtotimes.com/src/constants"
 	"johtotimes.com/src/database"
+	"johtotimes.com/src/file"
 	"johtotimes.com/src/model"
 	"johtotimes.com/src/templates"
 )
@@ -106,12 +108,13 @@ func createPostComment(req *http.Request, postID int64) (model.Comment, []string
 	}
 
 	db.Captchas.Delete(captcha.ID)
+	file.Delete(constants.AudioPath + "/" + captchaID + ".mp3")
 	return comment, errMsg
 }
 
 func commentForm(comment model.Comment, errMsg ...string) templ.Component {
-	captchaID := uuid.New()
-	return templates.CreateCommentTemplate(comment, captchaID.String(), errMsg...)
+	captchaID := uuid.New().String()
+	return templates.CreateCommentTemplate(comment, captchaID, errMsg...)
 }
 
 func CaptchaHandler(w http.ResponseWriter, req *http.Request) {
@@ -132,8 +135,32 @@ func NewCaptchaHandler(w http.ResponseWriter, req *http.Request) {
 	defer db.Close()
 
 	db.Captchas.DeleteByUUID(captchaID)
+	file.Delete(constants.AudioPath + "/" + captchaID + ".mp3")
 
+	captchaID = uuid.New().String()
 	templates.CaptchaTemplate(captchaID).Render(req.Context(), w)
+}
+
+func AudioCaptchaHandler(w http.ResponseWriter, req *http.Request) {
+	captchaID := req.PathValue("captchaID")
+	db := database.Connect()
+	defer db.Close()
+
+	log.Printf("Retrieving captcha with ID %s", captchaID)
+	captcha, err := db.Captchas.Retrieve(captchaID)
+	if err != nil {
+		return
+	}
+
+	file := file.Create(constants.AudioPath + "/" + captchaID + ".mp3")
+	assert.NoError(err, "AudioCaptchaHandler: Error creating file")
+	defer file.Close()
+
+	reader := strings.NewReader(captcha.Value)
+	err = speech.WriteToAudioStream(reader, file, speech.LangEn)
+	assert.NoError(err, "AudioCaptchaHandler: Error writing audio to file")
+
+	templates.AudioCaptchaTemplate(captchaID, true).Render(req.Context(), w)
 }
 
 func newCaptcha(captchaID string) (*captcha.Image, model.Captcha) {
