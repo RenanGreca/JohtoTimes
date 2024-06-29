@@ -75,6 +75,7 @@ blockquote {
   background-color: #3B3B3B;
   border: none;
   border-radius: 5px;
+  color: white;
 }
 
 .form-field textarea {

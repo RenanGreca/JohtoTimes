@@ -67,7 +67,9 @@ templ CommentNameTemplate(value string) {
 templ CommentContentTemplate(value string) {
   <div class="form-field">
     <label>Comment content</label>
-    <textarea name="content" value={ value } placeholder="Write a comment..."></textarea>
+    <textarea name="content" placeholder="Write a comment...">
+      { value }
+    </textarea>
   </div>
 }
 
