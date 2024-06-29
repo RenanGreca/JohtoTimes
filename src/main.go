@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	database.NewDB()
+	database.NewDB(database.DEV_DB_FILE)
 
 	// emailSender()
 	httpHandler()
@@ -63,8 +63,10 @@ func httpHandler() {
 	// Handle loading and creating comments
 	mux.HandleFunc("GET /comments/{postID}", handler.CommentHandler)
 	mux.HandleFunc("POST /comments/{postID}", handler.CommentHandler)
+	mux.HandleFunc("GET /newcomment/{postID}", handler.NewCommentHandler)
 
 	mux.HandleFunc("GET /captcha/{captchaID}", handler.CaptchaHandler)
+	mux.HandleFunc("GET /reloadcaptcha/{captchaID}", handler.NewCaptchaHandler)
 
 	http.ListenAndServe(":"+port, mux)
 }

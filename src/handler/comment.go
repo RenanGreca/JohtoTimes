@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/a-h/templ"
@@ -25,18 +26,28 @@ func CommentHandler(w http.ResponseWriter, req *http.Request) {
 
 	switch req.Method {
 	case "POST":
-		createPostComment(req, postID)
-		commentForm(postID).Render(req.Context(), w)
+		comment, errMsg := createPostComment(req, postID)
+		if len(errMsg) == 0 {
+			templates.CreateCommentButton(postID).Render(req.Context(), w)
+		} else {
+			commentForm(comment, errMsg...).Render(req.Context(), w)
+		}
 		getPostComments(postID).Render(req.Context(), w)
 		return
 	case "GET":
-		commentForm(postID).Render(req.Context(), w)
 		getPostComments(postID).Render(req.Context(), w)
 		return
 	default:
 		errorPage(405).Render(req.Context(), w)
 		return
 	}
+}
+
+func NewCommentHandler(w http.ResponseWriter, req *http.Request) {
+	postID, err := strconv.ParseInt(req.PathValue("postID"), 10, 64)
+	assert.NoError(err, "CommentHandler: Error parsing postID")
+
+	commentForm(model.Comment{PostID: postID}).Render(req.Context(), w)
 }
 
 func getPostComments(postID int64) templ.Component {
@@ -49,47 +60,83 @@ func getPostComments(postID int64) templ.Component {
 	return templates.CommentListTemplate(comments)
 }
 
-func createPostComment(req *http.Request, postID int64) {
+func createPostComment(req *http.Request, postID int64) (model.Comment, []string) {
 	assert.NotNil(postID, "CommentHandler: postID cannot be nil")
 	log.Printf("Creating comment for post %d", postID)
 	db := database.Connect()
 	defer db.Close()
 
-	// TODO: Check if captcha still exists in DB
+	var errMsg []string
+
 	captchaID := req.FormValue("captchaID")
-	captcha := db.Captchas.Retrieve(captchaID)
-	captchaInput := req.FormValue("captcha")
-	// TODO: Show a message if captcha is invalid
-	assert.Equal(captcha.Value, captchaInput, "CommentHandler: Captcha value does not match")
+	captcha, err := db.Captchas.Retrieve(captchaID)
+	if err != nil {
+		errMsg = append(errMsg, "Invalid captcha")
+	} else {
+		captchaInput := strings.ToUpper(req.FormValue("captcha"))
+		if captchaInput == "" || captchaInput != captcha.Value {
+			errMsg = append(errMsg, "Invalid captcha")
+		}
+	}
 
 	name := req.FormValue("name")
-	email := req.FormValue("email")
+	if name == "" {
+		errMsg = append(errMsg, "Name cannot be empty")
+	}
 	content := req.FormValue("content")
+	if content == "" {
+		errMsg = append(errMsg, "Content cannot be empty")
+	}
 	date := time.Now()
 
 	comment := model.Comment{
 		PostID:     postID,
 		Name:       name,
-		Email:      email,
+		Email:      "",
 		Content:    content,
 		Date:       date,
 		IsDeleted:  false,
 		IsSpam:     false,
 		IsApproved: true,
 	}
-	db.Comments.Create(&comment)
-	log.Printf("Created comment with ID %d", comment.ID)
+
+	if len(errMsg) == 0 {
+		db.Comments.Create(&comment)
+		log.Printf("Created comment with ID %d", comment.ID)
+	}
 
 	db.Captchas.Delete(captcha.ID)
+	return comment, errMsg
 }
 
-func commentForm(postID int64) templ.Component {
+func commentForm(comment model.Comment, errMsg ...string) templ.Component {
 	captchaID := uuid.New()
-	return templates.CreateCommentTemplate(postID, captchaID.String())
+	return templates.CreateCommentTemplate(comment, captchaID.String(), errMsg...)
 }
 
 func CaptchaHandler(w http.ResponseWriter, req *http.Request) {
 	captchaID := req.PathValue("captchaID")
+	img, captcha := newCaptcha(captchaID)
+
+	db := database.Connect()
+	defer db.Close()
+	log.Printf("Creating captcha with ID %s\n", captchaID)
+	db.Captchas.Create(&captcha)
+
+	png.Encode(w, img)
+}
+
+func NewCaptchaHandler(w http.ResponseWriter, req *http.Request) {
+	captchaID := req.PathValue("captchaID")
+	db := database.Connect()
+	defer db.Close()
+
+	db.Captchas.DeleteByUUID(captchaID)
+
+	templates.CaptchaTemplate(captchaID).Render(req.Context(), w)
+}
+
+func newCaptcha(captchaID string) (*captcha.Image, model.Captcha) {
 	cap := captcha.New()
 	cap.SetSize(256, 64)
 	cap.SetDisturbance(captcha.HIGH)
@@ -101,16 +148,12 @@ func CaptchaHandler(w http.ResponseWriter, req *http.Request) {
 		color.RGBA{0, 0, 255, 0}, // blue
 		color.RGBA{0, 153, 0, 0}, // green
 	)
-	cap.SetFont(constants.AssetPath + "/fonts/unown.ttf")
+	cap.SetFont(constants.AssetPath + "/fonts/Annon.ttf")
 	img, str := cap.Create(6, captcha.UPPER)
 	captcha := model.Captcha{
 		UUID:  captchaID,
 		Value: str,
 	}
 
-	db := database.Connect()
-	defer db.Close()
-	db.Captchas.Create(&captcha)
-
-	png.Encode(w, img)
+	return img, captcha
 }

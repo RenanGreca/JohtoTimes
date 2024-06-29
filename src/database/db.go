@@ -9,6 +9,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 
 	"johtotimes.com/src/assert"
+	"johtotimes.com/src/file"
 )
 
 type Database struct {
@@ -24,29 +25,19 @@ type Repository interface {
 	Populate(db *sql.DB)
 }
 
-// type Issue struct {
-// 	Volume int
-// 	Issue  int
-// 	Title  string
-// 	News   templ.Component
-// 	// Post        *Post
-// 	Mailbag     templ.Component
-// 	Description string
-// }
-//
-// type Category struct {
-// 	Name   string
-// 	Plural string
-// 	Slug   string
-// 	// Posts  []*Post
-// }
+const DEV_DB_FILE = "sqlite_test.db"
+const PROD_DB_FILE = "sqlite.db"
 
-const dbFile = "sqlite.db"
+var selectedDbFile string
 
-// var DB = NewDB()
+func NewDB(dbFile string) {
+	selectedDbFile = dbFile
 
-// For now this function always creates a DB from scratch
-func NewDB() {
+	if file.FileExists(dbFile) {
+		// Skip if database already exists
+		return
+	}
+
 	log.Println("Creating new database")
 	os.Remove(dbFile)
 	db, err := sql.Open("sqlite3", dbFile)
@@ -70,7 +61,7 @@ func NewDB() {
 
 func Connect() *Database {
 	log.Println("Opening connection to existing database")
-	db, err := sql.Open("sqlite3", dbFile)
+	db, err := sql.Open("sqlite3", selectedDbFile)
 	if err != nil {
 		log.Fatal(err)
 	}

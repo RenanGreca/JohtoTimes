@@ -7,19 +7,82 @@ import (
 )
 
 templ CommentLoader(postID int64) {
-  <h1>Comments</h1>
+  <div id="comment-wrapper" class="comment-wrapper">
+    <h1>Comments</h1>
+    @CreateCommentButton(postID)
+    <div id="comments" class="comments"
+         hx-get={ fmt.Sprintf("/comments/%d", postID) }
+         hx-trigger="load"
+         hx-target="#comments"
+         hx-swap="outerHTML">
+      <h1>Loading comments...</h1>
+    </div>
+  </div>
+}
+
+templ CreateCommentButton(postID int64) {
   <div class="button container"
        hx-get={ fmt.Sprintf("/newcomment/%d", postID) }
        hx-trigger="click"
        hx-swap="outerHTML">
     Leave a comment!
   </div>
-  <div id="comments" class="comments"
-       hx-get={ fmt.Sprintf("/comments/%d", postID) }
-       hx-trigger="load"
-       hx-target="#comments"
-       hx-swap="outerHTML">
-    <h1>Loading comments...</h1>
+}
+
+templ CreateCommentTemplate(comment model.Comment, captchaID string, errorMessage ...string) {
+  <form id="create-comment"
+        hx-post={ fmt.Sprintf("/comments/%d", comment.PostID) }
+        hx-target="#comment-wrapper">
+    <div class="comment-form container">
+      @CommentNameTemplate(comment.Name)
+      @CommentContentTemplate(comment.Content)
+      @CaptchaTemplate(captchaID)
+      if len(errorMessage) > 0 {
+        <div class="error-message">
+          Please review your input:
+          <ul>
+          for _, error := range errorMessage {
+            <li>
+              { error }
+            </li>
+          }
+          </ul>
+        </div>
+      }
+      <button type="submit" class="button">Submit</button>
+    </div>
+  </form>
+  <script>
+    loadComments();
+  </script>
+}
+
+templ CommentNameTemplate(value string) {
+  <div class="form-field">
+    <label>Name</label>
+    <input name="name" type="text" value={ value } placeholder="Your name" />
+  </div>
+}
+
+templ CommentContentTemplate(value string) {
+  <div class="form-field">
+    <label>Comment content</label>
+    <textarea name="content" value={ value } placeholder="Write a comment..."></textarea>
+  </div>
+}
+
+templ CaptchaTemplate(captchaID string) {
+  <div id="captcha-wrapper" class="form-field">
+    <label>Captcha</label>
+    <div class="captcha-image">
+      <img src={ fmt.Sprintf("/captcha/%s", captchaID) }
+           id="captcha" alt="Captcha" />
+      <button hx-get={ fmt.Sprintf("/reloadcaptcha/%s", captchaID) }
+              hx-target="#captcha-wrapper">↺</button>
+    </div>
+    <input type="hidden" name="captchaID" value={ captchaID } />
+    Please type the Unown above:
+    <input class="captcha-input" type="text" name="captcha" placeholder="Unown" />
   </div>
 }
 
@@ -31,26 +94,15 @@ templ CommentListTemplate(comments []model.Comment) {
   </div>
 }
 
-// TODO: submitting the form duplicates the form
-templ CreateCommentTemplate(postID int64, captchaID string) {
-  <form id="create-comment"
-        hx-post={ fmt.Sprintf("/comments/%d", postID) }
-        hx-target="#comments">
-    <div class="comment-form container">
-      <textarea name="name" placeholder="Name"></textarea>
-      <textarea name="email" placeholder="Email"></textarea>
-      <textarea name="content" placeholder="Write a comment..."></textarea>
-      <img src={ fmt.Sprintf("/captcha/%s", captchaID) } alt="Captcha" />
-      <input type="hidden" name="captchaID" value={ captchaID } />
-      <textarea name="captcha" placeholder="Type the Unown above"></textarea>
-      <button type="submit" class="button">Submit</button>
-    </div>
-  </form>
-}
-
 templ commentTemplate(comment *model.Comment) {
   <div class="comment container">
-    <h3>{ comment.Name }</h3>
+    <div class="comment-author">
+      { comment.Name }
+    </div>
+  	// Mon Jan 2 15:04:05 -0700 MST 2006
+    <div class="comment-date">
+      { comment.Date.Format("15:04 Jan 2, 2006") }
+    </div>
     { comment.Content }
   </div>
 }

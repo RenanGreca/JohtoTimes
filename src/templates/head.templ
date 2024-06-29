@@ -22,6 +22,18 @@ templ Head(title string) {
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,700,700i&display=swap" rel="stylesheet"/>
 
     <script src={ "/" + constants.ScriptsPath + "/htmx.js" }></script>
+    <script>
+      async function loadComments() {
+        console.log("Scrolling");
+        await new Promise(r => setTimeout(r, 10));
+        const height = document.getElementById("create-comment").offsetHeight;
+        console.log("Height: " + height);
+        window.scrollBy({
+          top: height,
+          behavior: 'smooth'
+        });
+      }
+    </script>
   </head>
 }
 

@@ -8,3 +8,13 @@
 		format('truetype');
 	font-display: swap;
 }
+
+@font-face {
+	font-family: 'Unown';
+	src: url('/web/fonts/Unown.ttf');
+	src:
+		local('Unown'),
+		local('Unown'),
+		url('/web/fonts/Unown.ttf')
+		format('truetype');
+}

@@ -9,6 +9,7 @@
     line-height: 1.5;
 }
 
+
 /** 
  * Images and their captions.
  * By convetion, images are contained in <a> tags,
@@ -47,9 +48,82 @@ blockquote {
   margin: 20px;
 }
 
+.comment-wrapper {
+  margin: 10px auto;
+}
+
+.comment-wrapper h1 {
+  margin: 0 auto;
+}
+
 .comment-form {
   display: flex;
   flex-direction: column;
+}
+
+.form-field label {
+  font-weight: bold;
+  display: none;
+}
+.form-field input {
+  font-weight: bold;
+  font-size: 1.2em;
+  display: block;
+  width: 100%;
+  margin: 5px auto;
+  padding: 5px;
+  background-color: #3B3B3B;
+  border: none;
+  border-radius: 5px;
+}
+
+.form-field textarea {
+  width: 100%;
+  font-size: 14pt;
+  margin: 5px auto;
+  padding: 5px;
+  background-color: #3B3B3B;
+  border: none;
+  border-radius: 5px;
+}
+
+.captcha-input {
+  font-size: 2em !important;
+  font-family: var(--font-unown);
+  font-weight: normal !important;
+  text-transform: uppercase;
+}
+
+#captcha-wrapper img {
+  width: 256px;
+  height: 64px;
+}
+
+.captcha-image {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+  justify-content: center;
+  gap: 32px;
+}
+.captcha-image button {
+  font-size: 2em;
+  width: 64px;
+  height: 64px;
+}
+
+.error-message {
+  color: var(--neon-red);
+}
+
+.comment-author {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.comment-date {
+  font-size: 0.8em;
+  color: var(--gray);
 }
 
 /* Max width for mobile layout is iPad mini portrait */
