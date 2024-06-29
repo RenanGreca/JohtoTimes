@@ -6,3 +6,4 @@ tmp
 .GOEMAILPASS
 *.db
 web/audio
+.DS_Store
