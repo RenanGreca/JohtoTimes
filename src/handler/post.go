@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"context"
 	"fmt"
 	"log"
 	"net/http"
@@ -96,20 +95,4 @@ func issuePage(issue *model.Post, post *model.Post, news *model.Post, mailbag *m
 		postBody(mailbag),
 		post.ID,
 	)
-}
-
-func render(component templ.Component, isHTMX bool, title string, w http.ResponseWriter) {
-	if isHTMX {
-		log.Println("Rendering HTMX")
-		component.Render(context.Background(), http.ResponseWriter(w))
-	} else {
-		log.Println("Rendering HTML")
-		templates.Base(title, component).Render(context.Background(), http.ResponseWriter(w))
-	}
-}
-
-// isHTMX returns true if the request contains "htmx=true"
-func isHTMX(req *http.Request) bool {
-	htmx := req.URL.Query().Get("htmx")
-	return htmx == "true"
 }

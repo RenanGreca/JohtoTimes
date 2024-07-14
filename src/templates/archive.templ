@@ -16,14 +16,18 @@ templ ArchiveTemplate(title string) {
 }
 
 templ ListArchive(category constants.Link) {
-  <a href={ templ.URL(category.URL) } aria-label={ category.Name }>
-    <div class="archive-item">
-      <div class="archive-image">
-        <img src={ constants.ImgPath + "/" + strings.ToLower(category.Name) + ".webp" } />
-      </div>
-      <div class="archive-contents">
-        { category.Name }
-      </div>
+  <div class="archive-item"
+       hx-get={ category.URL }
+       hx-target="#content"
+       hx-trigger="click"
+       hx-swap="innerHTML"
+       hx-replace-url={ category.URL }
+       aria-label={ category.Name }>
+    <div class="archive-image">
+      <img src={ constants.ImgPath + "/" + strings.ToLower(category.Name) + ".webp" } />
     </div>
-  </a>
+    <div class="archive-contents">
+      { category.Name }
+    </div>
+  </div>
 }

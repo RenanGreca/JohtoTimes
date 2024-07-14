@@ -10,6 +10,5 @@ import (
 func ArchiveHandler(w http.ResponseWriter, req *http.Request) {
 	log.Println("Handling request to " + req.URL.Path)
 	body := templates.ArchiveTemplate("Archive")
-
-	templates.Base("Archive", body).Render(req.Context(), w)
+	render(body, isHTMX(req), "Archive", w)
 }

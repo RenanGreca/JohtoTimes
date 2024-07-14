@@ -127,3 +127,12 @@ textarea {
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* Max width for mobile layout is iPad mini portrait */
+@media (min-width: 770px) {
+  h1 {
+    font-size: 30pt;
+    line-height: 32pt;
+    margin: 20px auto;
+  }
+}

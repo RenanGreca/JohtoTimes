@@ -4,6 +4,8 @@ go 1.22.0
 
 require github.com/a-h/templ v0.2.663
 
+require github.com/air v1.52.3
+
 require github.com/yuin/goldmark v1.7.1
 
 require (

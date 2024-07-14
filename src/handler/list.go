@@ -13,25 +13,29 @@ import (
 func IssuesHandler(w http.ResponseWriter, req *http.Request) {
 	log.Println("Handling request to " + req.URL.Path)
 	page := getPageNumber(req)
-	listPage("Issues", 'I', page).Render(req.Context(), w)
+	body := listPage("Issues", 'I', page)
+	render(body, isHTMX(req), "Issues", w)
 }
 
 func PostsHandler(w http.ResponseWriter, req *http.Request) {
 	log.Println("Handling request to " + req.URL.Path)
 	page := getPageNumber(req)
-	listPage("", 'P', page).Render(req.Context(), w)
+	body := listPage("", 'P', page)
+	render(body, isHTMX(req), "Posts", w)
 }
 
 func MailbagHandler(w http.ResponseWriter, req *http.Request) {
 	log.Println("Handling request to " + req.URL.Path)
 	page := getPageNumber(req)
-	listPage("Mailbag", 'M', page).Render(req.Context(), w)
+	body := listPage("Mailbag", 'M', page)
+	render(body, isHTMX(req), "Mailbag", w)
 }
 
 func NewsHandler(w http.ResponseWriter, req *http.Request) {
 	log.Println("Handling request to " + req.URL.Path)
 	page := getPageNumber(req)
-	listPage("News", 'N', page).Render(req.Context(), w)
+	body := listPage("News", 'N', page)
+	render(body, isHTMX(req), "News", w)
 }
 
 func listPage(title string, postType byte, page int) templ.Component {
@@ -44,7 +48,5 @@ func listPage(title string, postType byte, page int) templ.Component {
 	log.Printf("Found %d posts", len(posts))
 	description := renderHTML("")
 
-	list := templates.ListTemplate(title, title, description, posts)
-
-	return templates.Base("Johto Times", list)
+	return templates.ListTemplate(title, title, description, posts)
 }

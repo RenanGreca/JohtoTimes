@@ -7,17 +7,21 @@ import (
 templ TabBar(tabs []constants.Link) {
   <div class="tab-bar">
     for _, tab := range tabs {
-      <a href={ templ.URL(tab.URL) }>
-        <div class="tab">
-          <div class="tab-icon-container">
-          <img class="tab-icon" 
-              src={ "/" + constants.IconsPath + "/" + tab.Icon } />
-          </div>
-          <div class="tab-name">
-            { tab.Name }
-          </div>
+      <div class="tab"
+           hx-get={ tab.URL }
+           hx-target="#content"
+           hx-trigger="click"
+           hx-swap="innerHTML"
+           hx-replace-url={ tab.URL }
+           aria-label={ tab.Name }>
+        <div class="tab-icon-container">
+        <img class="tab-icon" 
+            src={ "/" + constants.IconsPath + "/" + tab.Icon } />
         </div>
-      </a>
+        <div class="tab-name">
+          { tab.Name }
+        </div>
+      </div>
     }
   </div>
 }

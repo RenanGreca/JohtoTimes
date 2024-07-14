@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"image/color"
 	"image/png"
 	"log"
 	"net/http"
@@ -10,7 +9,6 @@ import (
 	"time"
 
 	"github.com/a-h/templ"
-	"github.com/afocus/captcha"
 	"github.com/go-tts/tts/pkg/speech"
 	"github.com/google/uuid"
 
@@ -107,7 +105,7 @@ func createPostComment(req *http.Request, postID int64) (model.Comment, []string
 		log.Printf("Created comment with ID %d", comment.ID)
 	}
 
-	db.Captchas.Delete(captcha.ID)
+	db.Captchas.Delete(captcha.UUID)
 	file.Delete(constants.AudioPath + "/" + captchaID + ".mp3")
 	return comment, errMsg
 }
@@ -119,14 +117,14 @@ func commentForm(comment model.Comment, errMsg ...string) templ.Component {
 
 func CaptchaHandler(w http.ResponseWriter, req *http.Request) {
 	captchaID := req.PathValue("captchaID")
-	img, captcha := newCaptcha(captchaID)
+	captcha := model.NewCaptcha(captchaID)
 
 	db := database.Connect()
 	defer db.Close()
 	log.Printf("Creating captcha with ID %s\n", captchaID)
 	db.Captchas.Create(&captcha)
 
-	png.Encode(w, img)
+	png.Encode(w, captcha.Image)
 }
 
 func NewCaptchaHandler(w http.ResponseWriter, req *http.Request) {
@@ -134,7 +132,7 @@ func NewCaptchaHandler(w http.ResponseWriter, req *http.Request) {
 	db := database.Connect()
 	defer db.Close()
 
-	db.Captchas.DeleteByUUID(captchaID)
+	db.Captchas.Delete(captchaID)
 	file.Delete(constants.AudioPath + "/" + captchaID + ".mp3")
 
 	captchaID = uuid.New().String()
@@ -161,26 +159,4 @@ func AudioCaptchaHandler(w http.ResponseWriter, req *http.Request) {
 	assert.NoError(err, "AudioCaptchaHandler: Error writing audio to file")
 
 	templates.AudioCaptchaTemplate(captchaID, true).Render(req.Context(), w)
-}
-
-func newCaptcha(captchaID string) (*captcha.Image, model.Captcha) {
-	cap := captcha.New()
-	cap.SetSize(256, 64)
-	cap.SetDisturbance(captcha.HIGH)
-	// White font color
-	cap.SetFrontColor(color.White)
-	// Transparent background with a different accent color
-	cap.SetBkgColor(
-		color.RGBA{255, 0, 0, 0}, // transparent
-		color.RGBA{0, 0, 255, 0}, // blue
-		color.RGBA{0, 153, 0, 0}, // green
-	)
-	cap.SetFont(constants.AssetPath + "/fonts/Annon.ttf")
-	img, str := cap.Create(6, captcha.UPPER)
-	captcha := model.Captcha{
-		UUID:  captchaID,
-		Value: str,
-	}
-
-	return img, captcha
 }

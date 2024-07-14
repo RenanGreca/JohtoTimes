@@ -20,7 +20,6 @@ templ ListTemplate(title string, slug string, description templ.Component, posts
 templ ListItem(post *model.Post) {
     <div class="list-item"
          hx-get={ post.Permalink }
-         hx-trigger="click"
          hx-target="#content"
          hx-swap="innerHTML"
          hx-replace-url={ post.Permalink }>

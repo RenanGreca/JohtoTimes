@@ -44,11 +44,8 @@ func httpHandler() {
 
 	// Category/type lists
 	mux.HandleFunc("GET /category/{category}", handler.CategoryHandler)
-	mux.HandleFunc("GET /category/{category}/{page}", handler.CategoryHandler)
 	mux.HandleFunc("GET /mailbag", handler.MailbagHandler)
-	mux.HandleFunc("GET /mailbag/{page}", handler.MailbagHandler)
 	mux.HandleFunc("GET /news", handler.NewsHandler)
-	mux.HandleFunc("GET /news/{page}", handler.NewsHandler)
 
 	// Post pages
 	// Handle direct link to post

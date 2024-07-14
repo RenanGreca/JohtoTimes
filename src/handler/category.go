@@ -18,10 +18,13 @@ func CategoryHandler(w http.ResponseWriter, req *http.Request) {
 	fmt.Println("Listing: " + category)
 
 	page := getPageNumber(req)
-	CategoryPage(category, page).Render(req.Context(), w)
+	body := categoryPage(category, page)
+
+	render(body, isHTMX(req), category, w)
+	// categoryPage(category, page).Render(req.Context(), w)
 }
 
-func CategoryPage(slug string, page int) templ.Component {
+func categoryPage(slug string, page int) templ.Component {
 	log.Println("List category page: ", slug)
 
 	db := database.Connect()
@@ -31,7 +34,6 @@ func CategoryPage(slug string, page int) templ.Component {
 	cat := model.GetCategoryFromFile(constants.CategoriesPath, slug)
 	description := renderHTML(cat.Description)
 
-	list := templates.ListTemplate(cat.Plural, slug, description, posts)
-
-	return templates.Base("Johto Times", list)
+	return templates.ListTemplate(cat.Plural, slug, description, posts)
+	// return templates.Base("Johto Times", list)
 }
