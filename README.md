@@ -1,5 +1,20 @@
 ## Build/run:
-`air -c .air.toml`
+
+1. Ensure GOPATH is in your PATH. Add the following to your .bashrc/.zshrc:
+```sh
+export PATH="$(go env GOPATH)/bin:$PATH"
+```
+
+2. Install dependencies:
+```sh
+go install github.com/a-h/templ
+go install github.com/air-verse/air
+```
+
+3. Use air to build:
+```sh
+air [-c .air.toml]
+```
 
 ## To-do:
 ### P1
