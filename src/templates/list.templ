@@ -22,7 +22,8 @@ templ ListItem(post *model.Post) {
          hx-get={ post.Permalink }
          hx-target="#content"
          hx-swap="innerHTML"
-         hx-replace-url={ post.Permalink }>
+         hx-replace-url={ post.Permalink }
+         hx-push-url="true">
       <div class="list-image">
         <img src={ post.Img } />
       </div>

@@ -13,6 +13,7 @@ templ TabBar(tabs []constants.Link) {
            hx-trigger="click"
            hx-swap="innerHTML"
            hx-replace-url={ tab.URL }
+           hx-push-url="true"
            aria-label={ tab.Name }>
         <div class="tab-icon-container">
         <img class="tab-icon" 

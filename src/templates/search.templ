@@ -1,0 +1,28 @@
+package templates
+
+import (
+  "johtotimes.com/src/model"
+)
+
+templ SearchTemplate(query string) {
+  <div class="container">
+
+    <form id="search-form" hx-post="/search" hx-target="#search-results">
+      <div class="form-field">
+        <label>Search</label>
+        <input type="text" name="query" value={ query } placeholder="Search..."/>
+      </div>
+    </form>
+  </div>
+
+  <div class="search-results" id="search-results">
+  </div>
+}
+
+templ SearchResultsTemplate(posts []model.Post) {
+  <div class="list">
+    for _, post := range posts {
+      @ListItem(&post)
+    }
+  </div>
+}

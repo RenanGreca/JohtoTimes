@@ -8,7 +8,7 @@ import (
 templ Base(title string, body templ.Component) {
   <html lang="en-gb">
     @Head(title)
-    <body>
+    <body hx-boost="true">
       @Header()
       <div id="content" class="content">
         @body

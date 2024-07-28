@@ -11,28 +11,29 @@ import (
 )
 
 func IssuesHandler(w http.ResponseWriter, req *http.Request) {
-	log.Println("Handling request to " + req.URL.Path)
+	log.Println("IssuesHandler: Handling request to " + req.URL.Path)
 	page := getPageNumber(req)
+	log.Printf("Page number is %d\n", page)
 	body := listPage("Issues", 'I', page)
 	render(body, isHTMX(req), "Issues", w)
 }
 
 func PostsHandler(w http.ResponseWriter, req *http.Request) {
-	log.Println("Handling request to " + req.URL.Path)
+	log.Println("PostsHandler: Handling request to " + req.URL.Path)
 	page := getPageNumber(req)
 	body := listPage("", 'P', page)
 	render(body, isHTMX(req), "Posts", w)
 }
 
 func MailbagHandler(w http.ResponseWriter, req *http.Request) {
-	log.Println("Handling request to " + req.URL.Path)
+	log.Println("MailbagHandler: Handling request to " + req.URL.Path)
 	page := getPageNumber(req)
 	body := listPage("Mailbag", 'M', page)
 	render(body, isHTMX(req), "Mailbag", w)
 }
 
 func NewsHandler(w http.ResponseWriter, req *http.Request) {
-	log.Println("Handling request to " + req.URL.Path)
+	log.Println("NewsHandler: Handling request to " + req.URL.Path)
 	page := getPageNumber(req)
 	body := listPage("News", 'N', page)
 	render(body, isHTMX(req), "News", w)
