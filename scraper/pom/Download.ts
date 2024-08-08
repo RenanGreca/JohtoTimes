@@ -4,7 +4,7 @@ import axios from "axios";
 import { resolve } from "path";
 
 export async function download(url: string, name: string) {
-  const slug = slugify(name);
+  const slug = slugify(name).slice(0, 100);
   const extension = url.split('.').pop();
   const path = resolve('downloads', `${slug}.${extension}`);
    
