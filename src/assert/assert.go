@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"time"
 )
 
 func stringify(item any) string {
@@ -19,9 +20,13 @@ func stringify(item any) string {
 		return string(t)
 	case int:
 		return fmt.Sprintf("%d", item)
+	case bool:
+		return fmt.Sprintf("%t", item)
+	case time.Time:
+		return item.(time.Time).Format(time.RFC3339)
 	default:
 		d, err := json.Marshal(item)
-		if err != nil {
+		if err == nil {
 			return string(d)
 		}
 	}

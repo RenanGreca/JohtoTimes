@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"johtotimes.com/src/assert"
 	"net/http"
 	"os"
 
@@ -67,7 +68,8 @@ func httpHandler() {
 	mux.HandleFunc("GET /reloadcaptcha/{captchaID}", handler.NewCaptchaHandler)
 	mux.HandleFunc("GET /audiocaptcha/{captchaID}", handler.AudioCaptchaHandler)
 
-	http.ListenAndServe(":"+port, mux)
+	err := http.ListenAndServe(":"+port, mux)
+	assert.NoError(err, "Error starting server")
 }
 
 func emailSender() {

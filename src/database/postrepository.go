@@ -140,7 +140,7 @@ func (r *PostRepository) Search(search string, offset int, limit int) []model.Po
 	return parsePostRows(rows)
 }
 
-// Returns posts of a given type ('P', 'N', or 'M')
+// GetPage returns posts of a given type ('P', 'N', or 'M')
 func (r *PostRepository) GetPage(postType byte, offset int, limit int) []model.Post {
 	query := selectPosts + `
 	WHERE p.type = ?
@@ -152,7 +152,7 @@ func (r *PostRepository) GetPage(postType byte, offset int, limit int) []model.P
 	return parsePostRows(rows)
 }
 
-// Returns posts matching category slug.
+// GetByCategorySlug returns posts matching category slug.
 func (r *PostRepository) GetByCategorySlug(category string, offset int, limit int) []model.Post {
 	query := selectPosts + `
 	WHERE c.slug = ?
@@ -164,7 +164,7 @@ func (r *PostRepository) GetByCategorySlug(category string, offset int, limit in
 	return parsePostRows(rows)
 }
 
-// Returns post matching the given slug. Should always find just 1 row.
+// GetBySlug returns post matching the given slug. Should always find just 1 row.
 func (r *PostRepository) GetBySlug(slug string, postType byte) (*model.Post, error) {
 	query := selectPosts + `
 	WHERE p.slug = ?
@@ -204,7 +204,10 @@ func (r *PostRepository) GetByDateAndType(date time.Time, postType byte) (*model
 }
 
 func parsePostRows(rows *sql.Rows) []model.Post {
-	defer rows.Close()
+	defer func(rows *sql.Rows) {
+		err := rows.Close()
+		assert.NoError(err, "PostRepository: Error closing rows: %s", rows.Err())
+	}(rows)
 
 	var posts []model.Post
 	for rows.Next() {
