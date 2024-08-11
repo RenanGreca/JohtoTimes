@@ -8,11 +8,13 @@ import (
 
 templ SingleTemplate(post *model.Post, body templ.Component) {
     <div class="container">
-          <div class="category">
-            { strings.ToUpper(post.Category.Singular) }
-          </div>
-        <h1>{ post.Title }</h1>
-        <h2>{ post.Description }</h2>
+        <div class="post-header">
+            <div class="category">
+                { strings.ToUpper(post.Category.Singular) }
+            </div>
+            <h1>{ post.Title }</h1>
+            <h2>{ post.Description }</h2>
+        </div>
         <div class="single">
             @body
         </div>
@@ -47,9 +49,11 @@ templ IssueTemplate(post *model.Post,
                     postID int64,
 ) {
     <div class="container">
-        <h2>Issue { strconv.Itoa(post.Issue) } - Volume { strconv.Itoa(post.Volume) }</h2>
-        <h1>{ post.Title }</h1>
-        <h2>{ post.Description }</h2>
+        <div class="post-header">
+            <h2 class="issue">Volume { strconv.Itoa(post.Volume) } - Issue { strconv.Itoa(post.Issue) }</h2>
+            <h1>{ post.Title }</h1>
+            <h2>{ post.Description }</h2>
+        </div>
         @issueBody
         if newsBody != nil {
             <hr />

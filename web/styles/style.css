@@ -17,7 +17,7 @@ html {
 
 body {
   margin: 0px;
-  color: var(--white);
+  color: var(--font-color);
   font-family: var(--font-text), sans-serif;
   /* font-size: 14pt; */
   /* line-height: 18pt; */
@@ -31,6 +31,12 @@ body {
   background-repeat: repeat;
   background-color: var(--dark-background);
   z-index: -1;
+}
+
+hr {
+  color: var(--border-color);
+  border-style: solid;
+  border-width: 0.5px;
 }
 
 .content {
@@ -67,6 +73,7 @@ body {
 h1, h2, h3, h4 {
   max-width: 90vw;
   margin: 10px auto;
+  color: var(--white);
 }
 
 h1 {
@@ -81,7 +88,7 @@ h1 {
 h2 {
   color: #cccccc;
   font-weight: 400;
-  font-size: 14pt;
+  font-size: 16px;
   line-height: 16pt;
   text-align: center;
 }
@@ -137,6 +144,6 @@ textarea {
   h1 {
     font-size: 30pt;
     line-height: 32pt;
-    margin: 20px auto;
+    /* margin: 20px auto; */
   }
 }
