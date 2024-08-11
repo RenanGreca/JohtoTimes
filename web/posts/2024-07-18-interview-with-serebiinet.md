@@ -1,0 +1,295 @@
+---
+Title: 'Interview with Serebii.net'
+Volume: 2
+Issue: 29
+Header: '/web/images/serebii-banners-from-twenty-five-years-of-the-websites-history-between-1999-2024.png'
+Description: 'An interview with Joe Merrick from Serebii.net. Joe shares his thoughts on Pokémon, and an insight into his website, as it reaches its 25th anniversary. Plus, a recap of the latest Pokémon news!'
+---
+### Feature: Interview with Serebii.net
+On October 21st, 1999, a Pokémon fan called Joe Merrick created a website which grew to become Serebii.net, one of the most trusted and respected sources of news and information related to Pokémon. To celebrate twenty-five years of his website, I had the pleasure of speaking to Joe to reflect on the history of Serebii.net and its place in the Pokémon fan community.
+* * *
+
+[![Serebii banners from twenty-five years of the website’s history, between 1999-2024](/web/images/serebii-banners-from-twenty-five-years-of-the-websites-history-between-1999-2024.png)](/web/images/serebii-banners-from-twenty-five-years-of-the-websites-history-between-1999-2024.png)*Serebii banners from twenty-five years of the website’s history, between 1999-2024*
+
+#### Thanks for joining me for this interview with Johto Times, Joe! When it comes to the Pokémon fan community, you likely don’t need an introduction, but just in case there are some out there that don’t know you, please introduce yourself to our readers!
+> Joe:
+> 
+> Right, so I'm Joe and I run Serebii.net, the world's foremost hub for Pokémon news and information and I have been running it for almost 25 years now. Through the site I cover all aspects of the Pokémon franchise, from games, to the anime, and even to museums.
+#### I feel confident that many of our readers have heard of the amazing work you and your team at Serebii.net have done over the years. How did you first become interested in the Pokémon franchise?
+> Joe:
+> 
+> So in the 90s, Pokémon was just starting out and was so mysterious throughout school. The anime came here and we were all watching it and a friend soon went on holiday to America and came back with the game. I eventually asked my mum to import it, which she did, and the rest is basically history.
+
+[![Serebii's Pokémon Page from around May 2000](/web/images/serebiis-pokemon-page-from-around-may-2000.png)](/web/images/serebiis-pokemon-page-from-around-may-2000.png)*Serebii's Pokémon Page from around May 2000*
+
+#### On October 21st, 1999, you decided to start your own Pokémon fan website, which was called Joe’s Pokémon Page (later called Serebii's Pokémon Page). What inspired you to decide to create your own website in the first place?
+> Joe:
+> 
+> Nice memory for the original name, haha. Basically, it was boredom. We were in the computer lab during a lunch break and friends and I were bored so basically decided to make webpages on WYSIWYG (What You See Is What You Get) editors on Geocities and other sites. I decided to go forward with a Pokémon one since that was growing here and just about to release on the Game Boy, and it just fell into place.
+#### I want to get further insight into the origins of Serebii.net and the early Pokémon fan community. What was it like to build your initial audience in the days before social media? How did you decide which content to include?
+> Joe:
+> 
+> Before social media was a really different scenario. At the time, web forums were big and you grew basically on word of mouth. Even search engines weren't amazing so for Serebii to grow it took a long time. It basically only started to grow after a friend in Okinawa started to help me and Serebii started to cover the Japanese elements of the franchise, which the vast majority of Western outlets just didn't do. As time went, this grew and grew until Serebii became known as the resource for news from Japan.
+
+[![Serebii.net's layout from February 2001](/web/images/serebiinets-layout-from-february-2001.png)](/web/images/serebiinets-layout-from-february-2001.png)*Serebii.net's layout from February 2001*
+
+#### Back in the late 90s and early 2000s, there were a staggeringly large number of Pokémon fan websites with a wide variety of content. As the years went on, Serebii grew larger, and many of those communities disappeared, either due to a lack of interest from their respective owners or because their lives got busier. How did you maintain your enthusiasm during those early years?
+> Joe:
+> 
+> Basically it's a mix of sheer stubbornness and the constant\[ly\] changing face of Pokémon. As Pokémon has grown more and more and more, there's just more to do every day and it's just so varied. One week I'll be covering a main series game and the next I'll be in Amsterdam for the Van Gogh exhibit. This helps keep the enthusiasm. Besides, I've now spent so long on it, I'll not just let it die with a whimper.
+#### Was there ever a point where Serebii.net risked following suit and disappearing from the internet entirely?
+> Joe:
+> 
+> A couple of times. The first time was in 2002 when Pokémon Ruby & Sapphire released in Japan. The sheer load of the activity on the site caused us to break a server and we could no longer have the site hosted for free, and with no money we couldn't really get hosting so the site was down for a few months until a friend said he'd cover costs until the site was self sufficient.
+> 
+> Another was in 2019. After the announcement of the National Dex cull, the Internet turned horrid. Although I was \[just\] as upset and annoyed at first too, as a journalist I decided to investigate and try and find out \[the\] reasoning behind it, so I spoke to developers across the industry to try and find out likely causes. When I realised the likely scenario (which has been all but confirmed now) and tried to explain it to people, I got so much hate, called a shill and so forth. There are still accounts on social media to this day that send daily harassment to me due to the fact I don't just scream at it. In 2019 it just kept building and it sent me on a downward spiral to the point I almost just deleted the site and quit. Luckily I chose not to and the site has been thriving ever since.
+
+[![Serebii.net forums from December 2003](/web/images/serebiinet-forums-from-december-2003.png)](/web/images/serebiinet-forums-from-december-2003.png)*Serebii.net forums from December 2003*
+
+#### Serebii is the Japanese name of Celebi. I’m very interested to hear how it ended up becoming your favourite Pokémon, one that you loved enough to name your website after it. What’s the story behind it?
+> Joe:
+> 
+> So I always joking\[ly\] respond by paraphrasing Quantum Leap with this, but the honest answer is simply that, back in 1999 when I started the site, every small fansite was named after Mew or Mewtwo and, with Gold & Silver releasing in November of 1999 and \[the community\] finding out about Celebi, I decided to get ahead of everything before localisation and took that Mythical Pokémon as my mascot, all to get ahead of the curve. Then we learned the lore being all time travel based, and I've always been partial to sci-fi, so it was just the perfect mascot.
+#### Serebii.net has a massive following wherever it is present, on most social media platforms and on your community message board. When it comes to your community as a whole, how would you describe it?
+> Joe:
+> 
+> So the community is lovely. People can be themselves in it and share their love of Pokémon. I've made some great friends through the site's community and it's really just fantastic. The global reach is what totally throws me the most, which I always forget until I go to Worlds or other events and meet so many people from across the globe who have used the site for years. It's fantastic.
+
+[![Serebii.net's layout from July 2003](/web/images/serebiinets-layout-from-july-2003.png)](/web/images/serebiinets-layout-from-july-2003.png)*Serebii.net's layout from July 2003*
+
+#### With a franchise as large as Pokémon, there is a significant amount of news and information to cover. Serebii.net is usually one of the first sites to provide coverage, even if the news breaks during the middle of the night. Tell us how you are able to stay on top of it all so effectively.
+> Joe:
+> 
+> I'm a robot.
+> 
+> Seriously, though, I've just developed a bit of a sixth sense in regards to this. Oftentimes I wake up randomly a couple of minutes before news drops. This doesn't always happen, though, and I do thankfully have friends in different time zones who will wake me up if really important news comes. If it's something that can wait such as UNITE Holowear or a Café ReMix event announcement then I'll just hold off for that, but important stuff... friends have a way to wake me.
+#### I have personally followed your work for over twenty years, and I have noticed your significant dedication to your passion project, to the point where I have become concerned with your wellbeing! Please reassure me, and others, that you are taking good care of yourself!
+> Joe:
+> 
+> Oh, 100%. I always try to make sure to get 8 hours of sleep a day even though some may get interrupted, in which case I make up with a nap on the day. I am also regularly exercising. I routinely get \[my\] eyes checked and my vision is top notch. I’m in great health. :)
+
+[![Serebii.net was optimised for mobile devices in August 2019](/web/images/serebiinet-was-optimised-for-mobile-devices-in-august-2019.png)](/web/images/serebiinet-was-optimised-for-mobile-devices-in-august-2019.png)*Serebii.net was optimised for mobile devices in August 2019*
+
+#### The way websites look and behave in the modern era is very different to that of the early 2000s, and while Serebii is optimised for mobile devices, it seems to be a conscious decision that you have retained a classic look reminiscent of that era. Why is that?
+> Joe:
+> 
+> Honestly it's simple. Modern website layouts have typically become more used to linear blogs or sites with less than a dozen pages of content so current layout trends don't really fit the websites that have masses of data. The nearest alternative to what I do is a wiki and their only form of navigation is search and that's not that great \[of a navigation method\].
+> 
+> When I implemented the mobile layout, I trialed dozens of different styles and not one of them worked well for usability so I stuck with the classic design, completely recoded with modern coding techniques so it looks similar in desktop to before and works in a similar \[way\] to mobile sites on mobile with some of the skeleton of the classic \[site\].
+> 
+> So in essence, while the layout looks very similar to how it was in say 2006, it's vastly different and far more advanced.
+#### Out of all the content on Serebii.net, which are you most proud of, and why?
+> Joe:
+> 
+> Honestly, it's the interactive map. Basically this was the concept I had for Pokéarth when I first opened it in 2008 but could never actually get it. When Legends: Arceus came, I knew my previous structures for displaying areas wouldn't work, so I got to work on an interactive map which would show spawns, items and any other bits of note, with the ability to tap them on the map to get full details later.
+> 
+> This has then expanded even more going into Scarlet & Violet and I'm sure will be used even more in Legends: Z-A and going onwards into Gen 9.
+> 
+> It is honestly one of \[my\] favourite things I've ever added. It was a lot of work but it was so worth it and got such \[a\] positive response that heck, so many other sites just either do their own or rip mine.
+
+[![Pokéarth covers every area from each of the main Pokémon titles, including the Pokémon Ranger games](/web/images/pokearth-covers-every-area-from-each-of-the-main-pokemon-titles-including-the-pokemon-ranger-games.png)](/web/images/pokearth-covers-every-area-from-each-of-the-main-pokemon-titles-including-the-pokemon-ranger-games.png)*Pokéarth covers every area from each of the main Pokémon titles, including the Pokémon Ranger games*
+
+#### We touched on other Pokémon fan communities earlier. I was curious to know which fan websites you remember visiting back then that you have fond memories of, and if there are any that you look at today that you admire and respect?
+> Joe:
+> 
+> My relationship with other fan sites has largely been amicable. I've helped many of them over the years, even introducing them to contacts in the industry. The community is so much better when we work together. Though there are a couple that I'm on less good terms with, and that animosity has gone on for decades, but we don't really need to get into that.
+#### What has your relationship been like with other Pokémon fan websites throughout the years?
+> Joe:
+> 
+> Back when I first started there \[were\] only a handful and the big one was The PokéMasters. It was basically the "Serebii" of the late 90s, providing information and news and being the biggest. It existing was a bit of an inspiration and the people there were lovely.
+#### The huge success and online presence of Serebii.net has made you a respectable source and an authority on Pokémon. It has led to some great collaborations over the years, one of which was Nintendo Official Magazine in the United Kingdom. Tell us a bit about your involvement with that!
+> Joe:
+> 
+> So basically it started way back in like 2004 when NOM (Nintendo Official Magazine) wanted to do a preview of Pokémon Emerald. I had imported it from Japan and they reached out asking if I'd be willing to write one. I had done some work on a couple of other outlets at that point and did my work experience on a magazine at school, so I was known in the field somewhat. I was happy to oblige, and I just kept on good terms with them going on from there. They frequently asked for me to do some opinion pieces, lists and so forth, and I was published in the magazine many times, even in the short lived Pokémon Official Magazine.
+> 
+> I'll forever be grateful for the work there. Through that, I met Marti who is now my wife by doing a collaborative "reaction" article to Black 2 & White 2's reveal.
+
+[![Joe previewed Pokémon Emerald in issue 154 of Nintendo Official Magazine UK (June 2005)](/web/images/joe-previewed-pokemon-emerald-in-issue-154-of-nintendo-official-magazine-uk-june-2005.png)](/web/images/joe-previewed-pokemon-emerald-in-issue-154-of-nintendo-official-magazine-uk-june-2005.png)*Joe previewed Pokémon Emerald in issue 154 of Nintendo Official Magazine UK (June 2005)*
+
+#### Another project you were involved with is Pokémon World Magazine (later named Pocket World), an unofficial publication that ran between 2000 and 2015, for which you wrote Pokémon hints and tips! How was that experience for you?
+> Joe:
+> 
+> That was a lovely experience. I did my work experience at that publisher at school and met the editor there. Soon afterwards, around the same time as ONM reached out, they reached out to me. In time they regularly reached out to me, and I did a load of tips, articles and everything there. It was lovely working with them most months until it unfortunately shuttered.
+#### Many years later, you have even been invited along to attend official events! It must be amazing to write passionately about Pokémon for so many years and then go on to be invited to preview and review products and collaborate more closely with the company. How has that been going for you?
+> Joe:
+> 
+> It has definitely been a long time coming. I was always terrified of interacting with them as they have the power to take me out. However, we've built a great working relationship, and being able to do previews of coming apps and games is great. It really gives me an avenue to provide the best information I possibly can to everyone, and getting opportunities such as going to Creatures Inc. really helps.
+> 
+> Though of course I am acutely aware of perception, so I try to keep a good balance and I always share my opinions, good or bad, with them. I know people think I'm a shill and everything, but if TPCi tomorrow said "Joe, we can't work with you anymore", I'd continue doing everything as I do right now. I'm a positive person and always look for the positives in everything rather than dwell on the negatives. It's who I am.
+
+[![Serebii.net's layout from December 2003](/web/images/serebiinets-layout-from-december-2003.png)](/web/images/serebiinets-layout-from-december-2003.png)*Serebii.net's layout from December 2003*
+
+#### Let’s touch on that visit to Creatures Inc. a bit more! The company is known for developing the Pokémon TCG, as well as several spin-off titles such as PokéPark, Detective Pikachu, and Pokémon Ranger. What was that whole experience like for you?
+> Joe:
+> 
+> Well it was focused on the Pokémon TCG. We got to go to their offices and see their amazing decor (I made a video about that, it's quite fun) and learned about the development cycle of the TCG, as well as seeing test battles, and basically we could ask anything we wanted about it. It was quite enlightening and such an amazing experience.
+#### The visit to Creatures Inc. took place in 2023, while you were hosted by TPC for the Pokémon World Championships in Yokohama as an official partner, allowing you to visit and explore Japan for the first time. How was that?
+> Joe:
+> 
+> It was hot! So very hot.
+> 
+> Seriously, though, it was an amazing experience. I had often heard stories about how Pokémon-centric Japan was but just took it at face value. Until you see it, with a massive takeover of an entire city, you can't really say it for certain. Seeing the PokéGenic photo spots, huge queues for meeting Pikachu, malls filled with screens to watch the matches, it was just so surreal and amazing. I can't wait to go back to Japan.
+
+[![Joe at the Pokémon World Championships in Yokohama, Japan (August 2023)](/web/images/joe-at-the-pokemon-world-championships-in-yokohama-japan-august-2023.jpeg)](/web/images/joe-at-the-pokemon-world-championships-in-yokohama-japan-august-2023.jpeg)*Joe at the Pokémon World Championships in Yokohama, Japan (August 2023)*
+
+#### At the time of interview, you are preparing for your trip to Honolulu, Hawaiʻi for the 2024 Pokémon World Championships, which will be held between August 16th–18th. How are you feeling about it?
+> Joe:
+> 
+> Well I got a bit of backlash for posting about looking forward to it, so I'm not sure how that's going to go. It's going to be a lovely time, I'm sure, and I am very much looking forward to going and seeing the beauty of Hawai**ʻ**i.
+#### One event we were both fortunate to attend was the Pokémon Symphonic Evolutions concert in London back in 2016, performed by the London Philharmonic Orchestra. I am a huge fan of the music of Pokémon, so for me, it was the perfect evening. I’d love to hear your memories of that event, too!
+> Joe:
+> 
+> Oh, it was lovely. The first time, it was truly magical hearing all the music orchestrated, back when really we had only heard it as chiptune music. It was spectacular. It was one of the first events I had ever done where I met the wider community too. As a webmaster, I always felt disconnected, and it was the time that content creation was just growing and people were starting to associate more with personalities in the community. So many people said lots of nice things.
+
+[![Pokémon Symphonic Evolutions visited the Hammersmith Apollo in London, UK on December 19th-20th 2016 (Photo credit: Johto Times)](/web/images/pokemon-symphonic-evolutions-visited-the-hammersmith-apollo-in-london-uk-on-december-19th-20th-2016-.jpeg)](/web/images/pokemon-symphonic-evolutions-visited-the-hammersmith-apollo-in-london-uk-on-december-19th-20th-2016-.jpeg)*Pokémon Symphonic Evolutions visited the Hammersmith Apollo in London, UK on December 19th-20th 2016 (Photo credit: Johto Times)*
+
+#### You mentioned earlier that people have branded you a shill because of your close connection with the company. Do you feel at ease to publish whatever you wish? Or do you avoid specific topics that make the company look bad, in order to stay in TPC’s good books?
+> Joe:
+> 
+> Oh I'm 100% at ease to say whatever I want. Like, I don't really post leaks anymore due to \[the\] respect that I have for the developers, and I have seen in my time how leaks can negatively impact people who work in the industry, but in terms of everything else, I can post whatever I want, say whatever I want. I am sure TPC and TPCi appreciate my absolute candour, but I can see why it may rub people the wrong way when I try to look for the reasons for things rather than just going to rage, and like I said, I always try to see the positive in everything.
+
+[![The Serebii.net Pokémon Hub is separated into different databases of information, detailing the games, anime, cards, and Pokédex entries](/web/images/the-serebiinet-pokemon-hub-is-separated-into-different-databases-of-information-detailing-the-games-.png)](/web/images/the-serebiinet-pokemon-hub-is-separated-into-different-databases-of-information-detailing-the-games-.png)*The Serebii.net Pokémon Hub is separated into different databases of information, detailing the games, anime, cards, and Pokédex entries*
+
+#### You have been quite outspoken towards Niantic in recent years for the changes they have made in Pokémon GO, on the topic of accessibility and monetisation. Tell us a bit more about your feelings on those decisions.
+> Joe:
+> 
+> So it's a bit complicated. Despite what people believe, Game Freak listens to feedback with the main series games and adjusts with the next one. Pokémon Masters, UNITE and Café ReMix all routinely gather user feedback and adjust accordingly. Pokémon GO on the other hand just really doesn't seem to care about the userbase and have done a variety of changes based on just their vision of the game, such as the Remote Raids. These were vital for keeping the game alive during the pandemic, and even early into the pandemic Niantic was looking into nerfing them and making them useless, trying to roll it back while lockdowns were still rolling around.
+> 
+> Like, I get it's their game and their vision, but when you have the userbase screaming at you that it's a bad shout, then they really should listen. Our local communities have been decimated because they just got fed up with Niantic's continual decisions, and you can tell now that they're a bit concerned, \[since\] they've been implementing things that people have been asking for \[for\] years.
+> 
+> I just wish they'd listen.
+
+[![Joe attended the Pokémon GOFest in Madrid, on June 14th, 2024](/web/images/joe-attended-the-pokemon-gofest-in-madrid-on-june-14th-2024.jpeg)](/web/images/joe-attended-the-pokemon-gofest-in-madrid-on-june-14th-2024.jpeg)*Joe attended the Pokémon GOFest in Madrid, on June 14th, 2024*
+
+#### What kind of changes would you like to see Niantic make now in 2024 that would benefit their game and bring players back?
+> Joe:
+> 
+> Just listen to the fans more. Return Remote Raids to how they \[were\]and stop putting so many tickets in events. Provide incentives for people to come back and play without locking previously free content behind paywalls.
+#### One controversy that tore through the community during the Sword and Shield era was Dexit, an issue that gained traction with fans due to the exclusion of many Pokémon from Generation 8 titles. Serebii.net even had a policy to ban discussion of the topic on the forum entirely. Now that some time has passed, what are your thoughts on the campaign and how it was handled by TPC, fans and Serebii?
+> Joe:
+> 
+> So we didn’t really ban it but just stopped discussion because it was going in circles. The whole situation was a mess. I was outraged at first but then spoke to developers throughout the industry to try and work out what happened and learned a lot. I understand what could have happened now and it could have been handled better with a bit more transparency, but the whole thing was fuelled by people with no knowledge of game development making claims and people trusting it.
+#### The latest mainline titles in the series, Pokémon Scarlet & Violet, were a commercial success and sold over twenty million copies during the first six weeks on sale. However, some fans have raised concerns of the quality and performance issues the game has, which continue to be a big talking point. What are your feelings about this, and what circumstances do you believe led to Scarlet & Violet being released this way?
+> Joe:
+> 
+> So a big thing that people seem to completely ignore for some reason is the pandemic. The bulk of the development of the game was done during times when development would have to be paused or be more remote than usual, and that was a long period of adjustment.
+> 
+> Now, of course this only explains and doesn't excuse, but it's a big factor that very few people actually consider during the discourse of the game. However, this was a thing across the entire industry. From 2021 and going through to mid 2023, across the industry, games were being released in a state that in the past would have been deemed unacceptable, and this was largely due to the impact from the pandemic. From 2020 through 2021 you had delays, 2021 through mid 2023 you had bugs, and now we're in the period of quiet due to \[fewer\] games being commissioned, or projects in their infancy being cancelled at that point in the pandemic. This is an impact that will be seen for years to come still.
+> 
+> Obviously some of the aforementioned games did get fixed, and the vast majority of SV's bugs have also been fixed (\[while\] most were fixed Day 1, the viral ones weren't really present beyond the first post-launch patch). It's just the performance that's a bit iffy, and that is clearly a sign of a fundamental problem which probably can't be fixed without a ground-up rewrite of the engine. We'll just have to see how things go from here on.
+
+[![Joe at an event celebrating the release of the Paldean Fates TCG set (February 2024)](/web/images/joe-at-an-event-celebrating-the-release-of-the-paldean-fates-tcg-set-february-2024.jpeg)](/web/images/joe-at-an-event-celebrating-the-release-of-the-paldean-fates-tcg-set-february-2024.jpeg)*Joe at an event celebrating the release of the Paldean Fates TCG set (February 2024)*
+
+#### In the past few years the popularity of the Pokémon TCG has exploded, with demand for product going through the roof. Stock runs out quickly, with some of it flipped online for profit, and some cards are commanding significant sums of money. This results in the target audience struggling to obtain them. What are your feelings on the increased demand for the TCG, and what you think needs to be done by TPC and retailers to ensure everyone can obtain the product and discourage scalping?
+> Joe:
+> 
+> Well nature is healing there. I saw a tweet the other day of someone upset because stores had stock of Pokémon cards. It's madness, haha. It's great seeing the TCG do well. While some people are in it for the wrong reasons, it has grown. 42% of the cards ever sold are since March 2020. It's actual madness. TPC and TPCi have done a great job sorting supply out here.
+> 
+> I just hate seeing the mindset of the cards as financial commodities. I've seen it push people out of the hobby, on both sides. When it was impossible to get cards, that was bad. I'm glad it's over.
+#### Do you believe TPC and their partners take note of fan feedback and criticism and make efforts to address them?
+> Joe:
+> 
+> Oh, 100%. We see it all the time with each new generation adding more QoL changes people want, especially towards competitive. They clearly listen, and we see it with almost every other mobile game. Pokémon Café ReMix and Masters have routinely put questionnaires out for feedback and adjusted accordingly. They frequently listen, they frequently adapt. Now, that doesn't mean they'll do everything the fanbase demands, as more often than not that would go badly, but they listen, they adjust and they are in tune with the fanbase and the overall audience.
+
+[![Joe standing with a giant Celebi card from Vivid Voltage during his trip to the 2023 Pokémon World Championships](/web/images/joe-standing-with-a-giant-celebi-card-from-vivid-voltage-during-his-trip-to-the-2023-pokemon-world-c.jpeg)](/web/images/joe-standing-with-a-giant-celebi-card-from-vivid-voltage-during-his-trip-to-the-2023-pokemon-world-c.jpeg)*Joe standing with a giant Celebi card from Vivid Voltage during his trip to the 2023 Pokémon World Championships*
+
+#### In your opinion, who knows best? Developers, or fans?
+> Joe:
+> 
+> I'm going to get so much vitriol for this, but developers 100%. So often have I seen games and TV shows focus more on appeasing the fans rather than the wider audience and it just drives people away.
+> 
+> With Pokémon, the core online audience is barely a percentage of the overall Pokémon audience, and that's just for video games. We saw it with Sword & Shield  and Scarlet & Violet; both sold better than all prior Pokémon games, and they keep selling. The continual sales, legs as commonly known, are an indicator of how well a game does, how good it is, etc., and Scarlet & Violet's legs are just behind Sword & Shield's, which was the best and had the pandemic bump shoring up its first year. This shows that the audience is engaged. The people \[who\] play probably see a bug and chuckle thinking, "Oh, that's stupid," and move on, whereas the vocal online community see a bug and write an essay about how it's unacceptable.
+
+[![Serebii.net's layout from June 2024](/web/images/serebiinets-layout-from-june-2024.png)](/web/images/serebiinets-layout-from-june-2024.png)*Serebii.net's layout from June 2024*
+
+#### It goes without saying that you are well known within the Pokémon fan community and the wider gaming community. How have you adjusted and coped with this fame throughout the years?
+> Joe:
+> 
+> It's been tricky being more front-facing, but that's the industry the way it is now. It's a tricky balance. However, it's something I will never get used to. When I'm doing the site, I'm mostly doing it for me, but when I see hundreds of thousands of people on it each day it's wild, and when I go to events and people come up to me and thank me, it always throws me a bit. After 2019 and the vitriol online, followed by the pandemic where I didn't see people, my brain did start shifting to the notion that people didn't like me, but Worlds 2022 happened and it was the most overwhelming thing, in a good way. It made me realise that people enjoy what I do and that made me really happy.
+#### What have been some of your personal highlights and fondest memories with Pokémon throughout the years?
+> Joe:
+> 
+> Well, The Pokémon Company International bringing me to Worlds is one of the biggest, as we spoke about earlier. It truly was magical... But really it's the community, and it is something that I've only been dealing with in-person front-facing \[for\] the last 9 years. The sheer joy of the community at key events is always great. The reveal of the next Worlds in 2019 and 2022 brought such joy too.
+> 
+> Overall, though, there's just so many to list. Going to Creatures, going to TPCi's offices, meeting people who made the games, meeting people who play the games. It's just been so fantastic.
+#### On June 21st, 2024, you announced that you were an official Pokémon Partner, a scheme set up by TPCi which allows you to work closer with the company. Can you tell us more about what that partnership will do to benefit Serebii.net?
+> Joe:
+> 
+> So basically it'll just aid in giving me access to resources to do the job better. Take the Creatures visit. It provides opportunities like that so I can learn about how Pokémon is made, and gives me an avenue to do my job in a way I never have before. But in case there was any fear, they have no control over me. What I say and what I do on Serebii is all me. The program just exists to help me out should I need it.
+
+[![Joe has an impressive collection of Celebi and Zarude plushies](/web/images/joe-has-an-impressive-collection-of-celebi-and-zarude-plushies.jpeg)](/web/images/joe-has-an-impressive-collection-of-celebi-and-zarude-plushies.jpeg)*Joe has an impressive collection of Celebi and Zarude plushies*
+
+#### You must have accumulated an impressive collection of Pokémon items and merchandise throughout your time as a fan. What are some of your favourites from your collection?
+> Joe:
+> 
+> Honestly I think the best must be my Celebi GBA. One year for my birthday my mum surprised me with it, years after it came out. It really is great. I've really accrued quite a high amount of Celebi stuff.
+#### Fans and collectors tend to have a ‘holy grail’ item that they would love to own more than anything else. What would your grail be, and have you been fortunate enough to obtain it already?
+> Joe:
+> 
+> Honestly I'd say it was the Celebi GBA. It was such a rare item from back in 2001 and being able to own one is just incredible. Not sure there's anything else much that I'd love; the animatronic Pikachu from the Pokémon Presents in 2023 would be fun, but I don't think they'd ever sell that.
+
+[![One of Joe's most prized posessions is a special edition Celebi Game Boy Advance console, released in 2001](/web/images/one-of-joes-most-prized-posessions-is-a-special-edition-celebi-game-boy-advance-console-released-in-.jpeg)](/web/images/one-of-joes-most-prized-posessions-is-a-special-edition-celebi-game-boy-advance-console-released-in-.jpeg)*One of Joe's most prized posessions is a special edition Celebi Game Boy Advance console, released in 2001*
+
+#### Out of all the currently released Pokémon games, which one is your absolute favourite, and which one is your most disliked, and why?
+> Joe:
+> 
+> So this is definitely going to stoke a lot of people, but my favourite one right now is Scarlet & Violet, but only with the DLC. While it has performance issues, the characters, the Pokémon designs, the snappiness of the battle system is all fantastic. Like, it's not without its flaws, just like other Pokémon games, but it's just a joy to play.
+> 
+> Most disliked is hard to say because people will go off saying "Oh my gosh he hates this", when I don't, but I honestly have to say Gold & Silver. They compromised a lot to get both regions in and you end up with two small regions with little to do in them, with a terrible level curve and the new Pokémon are imbalanced in terms of where you can get them, with many being exclusive to Kanto. It's madness. I only really feel it's nostalgia for people to say it's the best.
+> 
+> Or Brilliant Diamond & Shining Pearl. Let's go with that.
+#### No one truly knows what the future holds, but I would like you to make a couple of predictions for me. We are conducting this interview in 2024, so where do you see the Pokémon franchise, and Serebii.net, ten years from now?
+> Joe:
+> 
+> Oh it's always tricky for me to make predictions; people often take it as fact, haha.
+> 
+> Basically, I think things will continue on. Nintendo will still be making consoles and Pokémon will be on it. We'll be at Gen 12 or approaching Gen 13 at that point. I'll be older and still running the site. It'll still look the same but have some modern twists like it does now. Maybe a holographic interface. Pokémon is still growing, and that's what is nuts to me. Unlike before when you have franchises, people would age out and go and be replaced by new people coming in, but that's not happening here. 
+> 
+> I just had my second best April on record and am on track to have my best May, and that's with nothing really going on. With the 30th and 35th anniversary in the next ten years, I think we're going to truly see some crazy things, especially as new developers come to the fore in Game Freak and TPC. 
+> 
+> I can't wait to see what's going to happen.
+
+[![More items from Joe's collection of items include Pokémon cards, figures, and Poké Balls, including a special GS Ball](/web/images/more-items-from-joes-collection-of-items-include-pokemon-cards-figures-and-poke-balls-including-a-sp.jpeg)](/web/images/more-items-from-joes-collection-of-items-include-pokemon-cards-figures-and-poke-balls-including-a-sp.jpeg)*More items from Joe's collection of items include Pokémon cards, figures, and Poké Balls, including a special GS Ball*
+
+#### At the time of this interview, the next big Pokémon game on the horizon is Pokémon Legends: Z-A. What are your hopes, predictions, and feelings about this upcoming title, which will release at some point in 2025?
+> Joe:
+> 
+> I hope to be surprised, and having a game set entirely in a city is a big thing. I think what Legends Z-A shows is that Game Freak don't want to do the generic obvious remakes and do new twists on the old regions. With little information, it's hard to gauge exactly what's going to happen. I hope we get to see some new Mega Evolutions and Kalosian Form Pokémon at the very least. I truly believe Regional Forms are the best concept from the last 10 years.
+> 
+> But it's a Pokémon Legends game too, so this game will help solidify what we can expect with this main series offshoot.
+> 
+> I'm so excited to see more.
+#### It’s safe to assume that Game Freak is already thinking about the tenth generation of Pokémon. What are your predictions for the game in terms of its region, gimmick, and the sort of hardware we might see for the game?
+> Joe:
+> 
+> It's really hard to say. Like I said before, they like to surprise us so that makes it really hard to predict. I'd love a unique region. After two European ones, we could get something cool next. Maybe a more Mediterranean one.
+> 
+> Only prediction I have is that the "gimmick" will involve the word Peta in it because Mega -> Giga -> Tera -> Peta, but that's just nonsense guessing on my part, haha.
+
+[![Joe poses for a photograph with voice actress Veronica Taylor at MegaCon Live (January 2024)](/web/images/joe-poses-for-a-photograph-with-voice-actress-veronica-taylor-at-megacon-live-january-2024.jpeg)](/web/images/joe-poses-for-a-photograph-with-voice-actress-veronica-taylor-at-megacon-live-january-2024.jpeg)*Joe poses for a photograph with voice actress Veronica Taylor at MegaCon Live (January 2024)*
+
+#### This year marks the 25th anniversary of Serebii.net, a significant milestone which I congratulate you for. What do you believe is the secret to the longevity and success of a fan website like yours?
+> Joe:
+> 
+> Honestly I think it's just my sheer persistence. As it's 25 years, it has now been a part of me for two thirds of my life, and so why would I just let it slide down to obscurity? Like, even some of the other big websites for Pokémon have \[gotten\] bad at updating, with some of them not including game data for the latest games. 
+> 
+> I'm also a bit of a perfectionist, even if it may not seem \[like\] it. I don't want to half-arse things, for lack of a better term. If I'm going to do something, I'm going to do it right.
+> 
+> Plus passion. I love what I do, even after so long. If I didn't then I could see myself letting it slip down.
+#### Like all good things, one day we will inevitably have a world without Serebii.net, and while that seems impossible right now, when that day finally comes, what do you believe will be the legacy your website and community leaves behind?
+> Joe:
+> 
+> Oh, gosh. Honestly, the only way I can see that happening is if the world ends, in which case there will be no legacy as humanity would be gone.
+> 
+> Seriously, though, I just hope people look back on it and what I do as trying to provide the facts and make sure they are out there for everybody. I hope it's looked upon favourably.
+
+[![Joe's parents made him an Ilex Forest shrine for his garden in 2018](/web/images/joes-parents-made-him-an-ilex-forest-shrine-for-his-garden-in-2018.jpeg)](/web/images/joes-parents-made-him-an-ilex-forest-shrine-for-his-garden-in-2018.jpeg)*Joe's parents made him an Ilex Forest shrine for his garden in 2018*
+
+#### Joe, it has been a pleasure to conduct this interview with you. From the bottom of my heart, thank you for everything you have done and continue to do for the Pokémon community through Serebii. As someone who has been visiting your community since 2001, I consider it a valuable and trusted resource. Are there any closing remarks you wish to share to Johto Times readers and the wider Pokémon community?
+> Joe:
+> 
+> It has been fun!
+> 
+> Really just a thanks to all of you who have used the site over the last 25 years. Though I do it as a passion project, it makes me so happy that people find it so useful, even if it's not the prettiest site. It means the world to me every time I see people recommend it, or I meet some of you at events and you tell me the stories of how long you've been using it, even if it does sometimes make me feel like I need to get a zimmer frame (mobility aid). It means everything, more than any of you may ever know.
+> 
+> I hope you'll all continue to use the site over coming launches and I'll do my best to not let you all down.

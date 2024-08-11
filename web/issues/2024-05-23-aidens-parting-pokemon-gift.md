@@ -1,0 +1,12 @@
+---
+Title: 'Aiden''s Parting Pokémon Gift'
+News: '2024-05-23-news'
+Post: '2024-05-23-2024-05-23-aidens-parting-pokemon-gift'
+Mailbag: '2024-05-23-mailbag'
+Volume: 2
+Issue: 21
+Header: '/web/images/a-photograph-of-aidens-japanese-charizard-card-from-neo-premium-file-2-released-in-july-2000-followe.jpeg'
+Description: 'A memory from a Pokémon fan called Aiden, who shares a bittersweet story of when his school friend gave him a Pokémon card to remember her by. Plus, we have a recap on the latest Pokémon news'
+---
+Welcome to Vol. 2, issue 21 of the Johto Times! Today, I am publishing another personal memory from a Pokémon fan called Aiden, who talks about a special gift from an old school friend. We also have the usual recap of Pokémon news for you!
+As you have probably noticed, we took a break from sharing mailbag content for a while. I’m hoping to bring it back again in the near future. So if you’d like to send something in such as fan art, questions, short stories, photographs of your collection or precious Pokémon memories, or even a cool Pokémon tattoo you have, [contact details can be found by visiting this page](https://johto.substack.com/s/mailbag).
