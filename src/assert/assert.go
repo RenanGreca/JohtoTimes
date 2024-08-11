@@ -63,6 +63,7 @@ func NoError(err error, msg string, data ...any) {
 	if err != nil {
 		log.Println("Assert#NoError failed")
 		log.Printf("%s\n", stringify(err))
+		log.Printf("%s\n", err.Error())
 		log.Fatalf(msg, data...)
 	}
 }

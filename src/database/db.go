@@ -33,8 +33,8 @@ var selectedDbFile string
 func NewDB(dbFile string) {
 	selectedDbFile = dbFile
 
-	if file.FileExists(dbFile) {
-		// Skip if database already exists
+	if file.FileExists(dbFile) && os.Getenv("ENV") == "prod" {
+		// Skip if database already exists or program is in prod mode
 		return
 	}
 

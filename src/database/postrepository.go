@@ -132,7 +132,7 @@ func (r *PostRepository) Create(post model.Post) *model.Post {
 func (r *PostRepository) Search(search string, offset int, limit int) []model.Post {
 	query := selectPosts + `
 	WHERE p.title LIKE ? OR p.description LIKE ?
-	ORDER BY p.created_at, p.title
+	ORDER BY p.created_at DESC, p.title
 	LIMIT ?, ?`
 	rows, err := r.db.Query(query, "%"+search+"%", "%"+search+"%", offset, limit)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
@@ -144,7 +144,7 @@ func (r *PostRepository) Search(search string, offset int, limit int) []model.Po
 func (r *PostRepository) GetPage(postType byte, offset int, limit int) []model.Post {
 	query := selectPosts + `
 	WHERE p.type = ?
-	ORDER BY p.created_at, p.title
+	ORDER BY p.created_at DESC, p.title
 	LIMIT ?, ?`
 	rows, err := r.db.Query(query, postType, offset, limit)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
@@ -156,7 +156,7 @@ func (r *PostRepository) GetPage(postType byte, offset int, limit int) []model.P
 func (r *PostRepository) GetByCategorySlug(category string, offset int, limit int) []model.Post {
 	query := selectPosts + `
 	WHERE c.slug = ?
-	ORDER BY p.created_at, p.title
+	ORDER BY p.created_at DESC, p.title
 	LIMIT ?, ?`
 	rows, err := r.db.Query(query, category, offset, limit)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
@@ -186,7 +186,7 @@ func (r *PostRepository) GetByDateAndType(date time.Time, postType byte) (*model
 	query := selectPosts + `
 	WHERE p.created_at = ?
 	AND p.type = ?
-	ORDER BY p.created_at`
+	ORDER BY p.created_at DESC`
 	rows, err := r.db.Query(query, date, postType)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
 

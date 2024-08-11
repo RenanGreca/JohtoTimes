@@ -69,7 +69,8 @@ templ IssueTemplate(post *model.Post,
 }
 
 templ setTitle(title string) {
+    <input type="hidden" name="title" id="title" value={ title } />
     <script>
-        document.title = "{ title }";
+        document.title = document.getElementById("title").value;
     </script>
 }
