@@ -5,3 +5,7 @@ node_modules/
 /playwright/.cache/
 /downloads/
 /jsons/
+/posts/
+/issues/
+/news/
+/mailbag/
