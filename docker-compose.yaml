@@ -1,0 +1,11 @@
+name: 'johtotimes'
+
+services:
+  johtotimes:
+    image: johtotimes
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./web:/app/web
+    environment:
+      - ENV=production

@@ -1,21 +1,35 @@
-# syntax=docker/dockerfile:1
-FROM golang:1.22
+# Build container
+FROM --platform=$BUILDPLATFORM golang:1.22.5-alpine AS build
 
-################################################################################
-# Create a stage for building the application.
-ARG GO_VERSION=1.22.0
-# FROM --platform=$BUILDPLATFORM golang:${GO_VERSION} AS build
-WORKDIR /src/johtotimes
+ARG VERSION
+ARG TARGETOS
+ARG TARGETARCH
 
-COPY go.mod go.sum ./
+WORKDIR /app
 
+# Install build dependencies (e.g. gcc)
+RUN apk add build-base
+
+COPY ./src ./src
+COPY ./go.mod .
+COPY ./go.sum .
+
+# Download Go dependencies
 RUN go mod download
-RUN go install github.com/cosmtrek/air@v1.51.0
-RUN go install github.com/a-h/templ/cmd/templ@v0.2.663
+# Generate Templ templates
+RUN go install github.com/a-h/templ/cmd/templ@latest
+RUN templ generate
 
-# COPY . .
-# RUN go build -o main ./src
+# Compile with CGo enabled
+RUN CGO_ENABLED=1 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o johtotimes ./src
+
+# Deployment container
+FROM alpine:latest
+
+WORKDIR /app
+
+COPY --from=build /app/johtotimes .
 
 EXPOSE 3000
 
-CMD ["air"]
+ENTRYPOINT ["/app/johtotimes"]
