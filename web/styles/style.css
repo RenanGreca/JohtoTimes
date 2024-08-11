@@ -61,6 +61,7 @@ body {
 
 .content img {
   max-width: 100%;
+  max-height: 400px;
 }
 
 h1, h2, h3, h4 {
@@ -90,17 +91,20 @@ a {
 }
 
 a:link {
-  color: var(--white) !important;
+  color: var(--neon-red) !important;
+  font-weight: bold;
   /* border-bottom: 1px var(--neon-red) solid; */
 }
 
 a:visited {
-  color: var(--white) !important;
+  color: var(--neon-red) !important;
+  font-weight: bold;
   /* border-bottom: 1px var(--neon-red) solid; */
 }
 
 a:hover {
   color: var(--white) !important;
+  font-weight: bold;
   /* border-bottom: 1px var(--neon-blue) solid; */
 }
 
