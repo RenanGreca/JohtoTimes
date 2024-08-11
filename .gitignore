@@ -7,3 +7,5 @@ tmp
 *.db
 web/audio
 .DS_Store
+johtotimes.tar
+.idea
