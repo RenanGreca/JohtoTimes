@@ -10,6 +10,6 @@ Playwright script to extract existing data from Johto Times' Substack page.
 - [x] Extract body
 - [x] Extract mailbag
 - [x] Download images
-- [ ] Extract comments
-- [ ] Substitute image URLs with local ones
+- [x] Extract comments
+- [x] Substitute image URLs with local ones
 - [ ] Detect other substack-dependent URLs

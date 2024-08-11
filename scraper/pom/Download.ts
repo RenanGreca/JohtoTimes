@@ -6,7 +6,8 @@ import { resolve } from "path";
 export async function download(url: string, name: string) {
   const slug = slugify(name).slice(0, 100);
   const extension = url.split('.').pop();
-  const path = resolve('downloads', `${slug}.${extension}`);
+  const filename = `${slug}.${extension}`;
+  const path = resolve('downloads', filename);
    
   const response = await axios({
     url,
@@ -16,8 +17,10 @@ export async function download(url: string, name: string) {
   const writer = createWriteStream(path);
   response.data.pipe(writer);
 
-  return new Promise((resolve, reject) => {
-    writer.on('finish', resolve);
+  return new Promise<string>((resolve, reject) => {
+    writer.on('finish', () => {
+      resolve(filename);
+    });
     writer.on('error', reject);
   })
 }

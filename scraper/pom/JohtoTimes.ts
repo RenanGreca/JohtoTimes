@@ -2,6 +2,8 @@ import { Page, Locator } from "@playwright/test";
 import TurndownService from 'turndown';
 import { download } from "./Download";
 import { assert } from "console";
+import { Comment } from "./Post";
+import { dateToString, escapeString } from "./Slug";
 
 export class JohtoTimesPOM {
   public static readonly POM_NAME = "JohtoTimes";
@@ -9,6 +11,9 @@ export class JohtoTimesPOM {
   private url: string;
   private components: string[];
   private body: Locator;
+
+  // The first (header) image in the post body
+  firstImage: string;
   constructor(private page: Page, vol: number, issue: number) {
     this.url = `https://johto.substack.com/p/vol${vol}-${issue}`;
     this.body = this.page.locator('.body');
@@ -25,29 +30,27 @@ export class JohtoTimesPOM {
 
   async getTitle() {
     const locator = this.page.locator('.post-title')
-    const title = await locator.innerText();
+    let title = await locator.innerText();
 
     if (title.includes(' - ')) {
-      return title.split(' - ')[1];
+      title = title.split(' - ')[1];
     }
-    return title;
+
+    return escapeString(title);
   }
 
   async getDate() {
     const locator = this.page.locator('.post-header').locator('.pc-reset').nth(1)
     const datestring = await locator.innerText();
     const date = new Date(`${datestring} 00:00:00 UTC`);
+    return dateToString(date);
+  }
 
-    const year = date.getFullYear().toString();
-    let month = (date.getMonth() + 1).toString();
-    if (date.getMonth() < 9) {
-      month = `0${month}`;
-    }
-    let day = date.getDate().toString();
-    if (date.getDate() < 10) {
-      day = `0${day}`;
-    }
-    return `${year}-${month}-${day}`;
+  async getDescription() {
+    const locator = this.page.locator('.subtitle')
+    const subtitle = await locator.innerText();
+
+    return escapeString(subtitle);
   }
 
   async getIntro() {
@@ -77,6 +80,30 @@ export class JohtoTimesPOM {
     return this.filterMarkdown(md, "Feature");
   }
 
+  async getImg() {
+    const mailbagIndex = this.sectionIndex("Mailbag");
+    const featureIndex = this.sectionIndex("Feature");
+    assert(featureIndex > -1);
+    let body = this.components.slice(featureIndex, this.components.length-2).join("<div><hr></div>");
+    if (mailbagIndex > -1) {
+      body = this.components.slice(featureIndex, mailbagIndex).join("<hr>");
+    }
+
+    const turndownService = new TurndownService();
+    const md = turndownService.turndown(body);
+  
+    let arr = md.split('\n')
+    for (let i = 0; i < arr.length; i++) {
+      if (this.isImage(arr, i)) {
+        const [_, imgpath] = await this.downloadImage(arr, i);
+        console.log("Found image", imgpath);
+        return imgpath;
+      }
+    }
+
+    return "";
+  }
+
   async getMailbag() {
     const mailbagIndex = this.sectionIndex("Mailbag");
     if (mailbagIndex === -1) {
@@ -87,6 +114,35 @@ export class JohtoTimesPOM {
     const turndownService = new TurndownService();
     const md = turndownService.turndown(body);
     return this.filterMarkdown(md, "Mailbag");
+  }
+
+  async getComments() {
+    const moreComments = this.page.locator('.more-comments');
+    if (await moreComments.isVisible()) {
+      await moreComments.click();
+    }
+
+    const commentsBlock = this.page.locator('.comment-rest');
+
+    let comments: Comment[] = [];
+
+    for (const commentBlock of await commentsBlock.all()) {
+      const comment = {} as Comment;
+      comment.name = await commentBlock.locator('.commenter-name').innerText();
+
+      const body = await commentBlock.locator('.comment-body').innerText();
+      const turndownService = new TurndownService();
+      const md = turndownService.turndown(body);
+      comment.body = md.split('\n').filter((el: string) => el.length > 0);
+
+      const datestring = await commentBlock.locator('.comment-timestamp').innerText();
+      const date = new Date(`${datestring} 00:00:00 UTC`);
+      comment.date = dateToString(date);
+
+      comments.push(comment);
+    }
+
+    return comments;
   }
 
   /**
@@ -124,8 +180,10 @@ export class JohtoTimesPOM {
         continue;
       } else
       if (this.isImage(arr, i)) {
-        const img = await this.downloadImage(arr, i);
-        ret.push(img);
+        const [imgmd, _] = await this.downloadImage(arr, i);
+        ret.push("");
+        ret.push(imgmd);
+        ret.push("");
         i += 8;
       } else {
         ret.push(el);
@@ -158,15 +216,21 @@ export class JohtoTimesPOM {
    */
   private async downloadImage(arr: string[], i: number) {
     assert(i + 8 < arr.length, "i + 8 is out of bounds");
-    const imgstart = arr[i]
-    const imgblock = arr[i + 2];
+    // const imgstart = arr[i]
+    // const imgblock = arr[i + 2];
     const imgend = arr[i + 6];
     const imgtitle = arr[i + 8];
-    const img = `${imgstart}${imgblock}${imgend}*${imgtitle}*`;
     const imgurl = imgend.split('](')[1].replace(')', '');
 
-    await download(imgurl, imgtitle);
-    return img;
+    const imgpath = "/web/images/" + await download(imgurl, imgtitle);
+
+    if (!this.firstImage) {
+      this.firstImage = imgpath;
+    }
+
+    const imgmd = `[![${imgtitle}](${imgpath})](${imgpath})*${imgtitle}*`;
+
+    return [imgmd, imgpath];
   }
 
 }

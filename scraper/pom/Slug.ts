@@ -15,3 +15,25 @@ export function slugify(str: string) {
 
   return str;
 }
+
+export function dateToString(date: Date) {
+  let year = date.getFullYear().toString();
+  if (year == "2001") {
+    const today = new Date();
+    year = today.getFullYear().toString();
+  }
+
+  let month = (date.getMonth() + 1).toString();
+  if (date.getMonth() < 9) {
+    month = `0${month}`;
+  }
+  let day = date.getDate().toString();
+  if (date.getDate() < 10) {
+    day = `0${day}`;
+  }
+  return `${year}-${month}-${day}`;
+}
+
+export function escapeString(str: string) {
+  return str.replace(/'/g, `''`);
+}
