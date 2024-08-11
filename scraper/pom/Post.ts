@@ -49,11 +49,11 @@ export function issueMarkdown(post: Post): string {
 }
 
 export function newsMarkdown(post: Post): string {
-  return post.news.join('\n');
+  return post.news.join('\n\n');
 }
 
 export function mailbagMarkdown(post: Post): string {
-  return post.mailbag.join('\n');
+  return post.mailbag.join('\n\n');
 }
 
 export interface Comment {

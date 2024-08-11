@@ -173,7 +173,7 @@ export class JohtoTimesPOM {
     let ret: string[] = [];
     for (let i = 0; i < arr.length; i++) {
       const el = arr[i];
-      if (el.length == 0) {
+      if (el.trim().length == 0) {
         continue;
       } else
       if (el.startsWith(`#### ${section}`)) {
