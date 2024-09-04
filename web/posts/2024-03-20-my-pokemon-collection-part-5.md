@@ -1,0 +1,62 @@
+---
+Title: 'My Pokémon Collection (Part 5)'
+Volume: 2
+Issue: 12
+Header: '/web/images/pokemon-red-green-complete-sound-cd-was-released-in-japan-on-november-1st-1997.jpeg'
+Description: 'More awesome Pokémon items from my personal collection. Raise your trumpets for a collection of physical Pokémon soundtracks! Plus, the latest Pokémon news delivered direct to your email inbox!'
+---
+### Feature: My Pokémon Collection (Part 5)
+The music of Pokémon games is one of my absolute favourite aspects of the series. It has been an inspiration, and listening to these iconic tracks always takes me back to some fond memories of playing the mainline series of video games. I’m a huge fan of video game music in general, and Pokémon is no exception. Listed below are the nine officially released Pokémon Super Music Collection albums that I have collected throughout the years.
+* * *
+
+[![Pokémon Red & Green Complete Sound CD was released in Japan on November 1st, 1997](/web/images/pokemon-red-green-complete-sound-cd-was-released-in-japan-on-november-1st-1997.jpeg)](/web/images/pokemon-red-green-complete-sound-cd-was-released-in-japan-on-november-1st-1997.jpeg)*Pokémon Red & Green Complete Sound CD was released in Japan on November 1st, 1997*
+
+**Pokémon Red & Green Complete Sound CD**
+The one that started it all! The soundtrack to Pokémon Red & Green means a great deal to me, as it was the first Pokémon game I owned and played. Junichi Masuda, Go Ichinose, Shinichi Aoki, and others in the audio team did a great job at creating memorable and catchy compositions. The CD has more than two discs filled with music and Pokédex entries of all 151 Pokémon narrated in Japanese. An old acquaintance of mine, who lived in Japan at the time, shipped it to me. I love the classic Pokémon art across the sleeve and the discs. It’s truly a wonderful item!
+
+[![Pokémon FireRed & LeafGreen Super Music Complete was released in Japan on May 26th, 2004](/web/images/pokemon-firered-leafgreen-super-music-complete-was-released-in-japan-on-may-26th-2004.jpeg)](/web/images/pokemon-firered-leafgreen-super-music-complete-was-released-in-japan-on-may-26th-2004.jpeg)*Pokémon FireRed & LeafGreen Super Music Complete was released in Japan on May 26th, 2004*
+
+**Pokémon FireRed & LeafGreen Super Music Complete**
+This soundtrack took the original Pokémon Red & Green themes and modernised them for the Game Boy Advance generation. This release had 90 tracks over two discs, including remixes and a small selection of original tracks from Pokémon Red and Green.
+
+[![Pokémon Ruby & Sapphire Super Music Complete](/web/images/pokemon-ruby-sapphire-super-music-complete.jpeg)](/web/images/pokemon-ruby-sapphire-super-music-complete.jpeg)*Pokémon Ruby & Sapphire Super Music Complete*
+
+**Pokémon Ruby & Sapphire Super Music Complete**
+The third generation was represented with a 109-track album featuring all the music heard throughout the Hoenn adventure. There are some truly wonderful compositions in this game, with one of my favourites being the theme of Route 120. This soundtrack also features a few remixes, and The Trick Master arrangement continues to confuse and scare me greatly…
+
+[![Pokémon Diamond & Pearl Super Music Collection was released in Japan on Dec 22nd, 2006](/web/images/pokemon-diamond-pearl-super-music-collection-was-released-in-japan-on-dec-22nd-2006.jpeg)](/web/images/pokemon-diamond-pearl-super-music-collection-was-released-in-japan-on-dec-22nd-2006.jpeg)*Pokémon Diamond & Pearl Super Music Collection was released in Japan on Dec 22nd, 2006*
+
+**Pokémon Diamond & Pearl Super Music Collection**
+Pokémon Diamond & Pearl’s soundtrack included an even larger number of tracks, 149 of them in total, since it was the generation that introduced day and night variations of themes. The two discs don’t include any additional remixes or tracks, making it a much more contained release compared to other albums in this list.
+
+[![Pokémon HeartGold & SoulSilver Music Super Complete was released in Japan on October 28th, 2009](/web/images/pokemon-heartgold-soulsilver-music-super-complete-was-released-in-japan-on-october-28th-2009.jpeg)](/web/images/pokemon-heartgold-soulsilver-music-super-complete-was-released-in-japan-on-october-28th-2009.jpeg)*Pokémon HeartGold & SoulSilver Music Super Complete was released in Japan on October 28th, 2009*
+
+**Pokémon HeartGold & SoulSilver Music Super Complete**
+I was super disappointed that Pokémon Gold, Silver & Crystal didn’t have a physical soundtrack release, especially since that generation was my favourite. So nothing was going to prevent me from owning a physical copy of the Pokémon HeartGold & SoulSilver soundtrack. It featured two discs covering all the arrangements heard in the game, and a third disc of chiptune-like arrangements heard in the game via the GB Sounds item, a throw-back to the original games.
+
+[![Pokémon Black2 & White2 Super Music Complete was released in Japan on July 25th, 2012](/web/images/pokemon-black2-white2-super-music-complete-was-released-in-japan-on-july-25th-2012.jpeg)](/web/images/pokemon-black2-white2-super-music-complete-was-released-in-japan-on-july-25th-2012.jpeg)*Pokémon Black2 & White2 Super Music Complete was released in Japan on July 25th, 2012*
+
+**Pokémon Black 2 & White 2 Super Music Complete**
+Admittedly, I haven’t listened to the music of my Pokémon Black 2 and White 2 soundtrack since I purchased it. This is mostly because until 2023, I didn’t even own the game! This soundtrack contains a massive 173 tracks over four discs. That makes it one of the most interesting releases, as it features an additional disc of music from previous games. The first three discs total 124 tracks, and cover the Pokémon Black 2 & White 2 games, and then 49 tracks on disc four featuring music from Pokémon Emerald and Pokémon Platinum. It was great to see Emerald's Battle Frontier tracks and its event Pokémon battle themes, as well as a wide range of music exclusive to Platinum finally get a physical release and the love it deserves.
+
+[![Pokémon X & Y Super Music Collection was released in Japan on Nov 13th, 2013](/web/images/pokemon-x-y-super-music-collection-was-released-in-japan-on-nov-13th-2013.jpeg)](/web/images/pokemon-x-y-super-music-collection-was-released-in-japan-on-nov-13th-2013.jpeg)*Pokémon X & Y Super Music Collection was released in Japan on Nov 13th, 2013*
+
+**Pokémon X & Y Super Music Collection**
+The soundtrack to Pokémon X & Y contains 212 music tracks over four discs, including some music from Red and Green without reverb as bonus tracks. Admittedly, it's probably the least played soundtrack of my collection, but I still love the sheer volume of music contained. After playing this generation again in 2022, it allowed me to appreciate some of the themes a lot more deeply, such as Professor Sycamore’s theme.
+
+[![Pokémon Omega Ruby & Alpha Sapphire Super Music Complete was released in Japan on December 3rd, 2014](/web/images/pokemon-omega-ruby-alpha-sapphire-super-music-complete-was-released-in-japan-on-december-3rd-2014.jpeg)](/web/images/pokemon-omega-ruby-alpha-sapphire-super-music-complete-was-released-in-japan-on-december-3rd-2014.jpeg)*Pokémon Omega Ruby & Alpha Sapphire Super Music Complete was released in Japan on December 3rd, 2014*
+
+**Pokémon Omega Ruby & Alpha Sapphire Super Music Complete**
+I purchased the soundtrack to Omega Ruby & Alpha Sapphire as a last minute Christmas gift to myself in 2022. It contains six discs of music, two of which are a re-release of the original Pokémon Ruby and Sapphire soundtrack. I’ll never forget the Primal Reversion arrangement from this game, which contained hints of the original instruments used in Ruby & Sapphire, hitting me with a wave of nostalgia!
+
+[![Pokémon Sun & Moon Super Music Complete was released in Japan on November 30th, 2016](/web/images/pokemon-sun-moon-super-music-complete-was-released-in-japan-on-november-30th-2016.jpeg)](/web/images/pokemon-sun-moon-super-music-complete-was-released-in-japan-on-november-30th-2016.jpeg)*Pokémon Sun & Moon Super Music Complete was released in Japan on November 30th, 2016*
+
+**Pokémon Sun & Moon Super Music Complete**
+The Alola region and its soundtrack to Sun & Moon were captured within 169 tracks over four discs, including some music exclusive to its demo release. I appreciated the shift in tone this game and its soundtrack had, making things feel fresh at a time when Pokémon was becoming a little stale for me. That being said, it’s probably my least favourite soundtrack of all the entries on this list.
+
+[![Pokémon: Let's Go, Pikachu! & Let's Go, Eevee! Super Music Complete was released on Dec 1st, 2018](/web/images/pokemon-lets-go-pikachu-lets-go-eevee-super-music-complete-was-released-on-dec-1st-2018.jpeg)](/web/images/pokemon-lets-go-pikachu-lets-go-eevee-super-music-complete-was-released-on-dec-1st-2018.jpeg)*Pokémon: Let's Go, Pikachu! & Let's Go, Eevee! Super Music Complete was released on Dec 1st, 2018*
+
+**Pokémon: Let's Go, Pikachu! & Let's Go, Eevee! Super Music Complete**
+I bought this album on April 21st, 2023, and it arrived a couple of days later. It contains 122 tracks over three discs. Discs 1 and 2 cover the game’s musical score, which include arrangements of themes from Pokémon GO. Disc 3 contains the music from the original first generation games, and I believe marks the first time the themes exclusive to Pokémon Yellow, such as the theme when you encounter Jesse and James, and the Surfing Pikachu mini-game, have had an official release!
+* * *
+For a few years, no further soundtrack releases beyond Let’s Go Pikachu & Eevee were announced, but on December 7th, 2023, The Pokémon Company confirmed that physical soundtracks of Sword & Shield, Legends Arceus, and Scarlet & Violet would release on February 26th, 2024. At the time of writing, I do not own these albums, but I will absolutely be doing everything I can to obtain them. Perhaps someday I will even find a copy of Pokémon Black & White’s soundtrack to complete my collection.

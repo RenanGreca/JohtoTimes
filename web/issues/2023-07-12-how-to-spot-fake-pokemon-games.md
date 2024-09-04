@@ -1,0 +1,12 @@
+---
+Title: 'How to spot fake Pokémon games'
+News: '2023-07-12-news'
+Post: '2023-07-12-2023-07-12-how-to-spot-fake-pokemon-games'
+Mailbag: '2023-07-12-mailbag'
+Volume: 1
+Issue: 23
+Header: '/web/images/pokemon-trading-card-game-on-game-boy-could-you-tell-the-difference-between-the-fake-and-the-genuine.jpeg'
+Description: 'A helpful guide written with the aim of identifying counterfeit Pokémon games, plus the latest Pokémon news, with more from our mailbag!'
+---
+For Issue 23 of the Johto Times, I am proud to share a feature I have been writing and researching for several months: how to spot a fake Pokémon game. Whether you’re interested in buying classic Pokémon games for your collection, or checking the legitimacy of your own games, this guide will hopefully give you some idea of what to look out for. I was inspired to look into this topic as soon as I heard about Nintendo’s plans to close the 3DS and Wii U eShops, something which happened earlier this year. I have done my best to include as many things as possible to watch out for, so I truly hope that it will be helpful!
+We would like to make an apology for our mailbag last week, where a photograph of Luca’s awesome Pikachu didn’t make it into the email we sent out. It was added to the website later, but anyone who read the issue via email would not have seen it. We hope that you will all consider giving that another read by clicking [here](https://johto.substack.com/p/vol1-22).

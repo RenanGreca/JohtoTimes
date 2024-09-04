@@ -1,0 +1,127 @@
+---
+Title: 'Interview with Poké-Amph'
+Volume: 2
+Issue: 26
+Header: '/web/images/a-selection-of-logos-from-poke-amph-during-its-twelve-year-history-online-between-2002-and-2014.jpeg'
+Description: 'An interview with Ryan, the webmaster of Poké-Amph, a Pokémon fansite that ran between May 1999 and June 2014. Plus, a recap of the latest Pokémon news'
+---
+### Feature: Interview with Poké-Amph
+Poké-Amph was a Pokémon fan website that shared information on the video games and animated series and provided Pokémon assets and resources. The website began on Geocities on May 2nd, 1999, and was transferred to two different domains in 2002 and 2003. The website continued to be updated until June 2014 and remained online until late 2022. I had the opportunity to interview Poké-Amph’s webmaster, Ryan, to discuss the history of the website and give him an opportunity to share his thoughts and opinions on the Pokémon series.
+* * *
+
+[![A selection of logos from Poké-Amph during its twelve-year history online between 2002 and 2014](/web/images/a-selection-of-logos-from-poke-amph-during-its-twelve-year-history-online-between-2002-and-2014.jpeg)](/web/images/a-selection-of-logos-from-poke-amph-during-its-twelve-year-history-online-between-2002-and-2014.jpeg)*A selection of logos from Poké-Amph during its twelve-year history online between 2002 and 2014*
+
+#### It’s great to be interviewing you for Johto Times, Ryan! Could you please introduce yourself and your website, Poké-Amph?
+> Ryan:
+> 
+> Thanks for reaching out! It’s great to see a project dedicated to preserving and celebrating a little slice of internet history so near and dear to my heart. Video games, and Pokémon specifically, were a huge part of my childhood and I wanted to share that online. That led me to create my first website in 1999, which eventually became Poké-Amph. I kept on updating it throughout the years and it led to a lot of great experiences in my life.
+#### Poké-Amph was originally created on May 2nd, 1999, and had a home on Geocities before moving over to its own hosting. What encouraged you to create the website in the first place?
+> Ryan:
+> 
+> It’s hard to even remember back that far, but I do know I was really entranced with the Pokémon franchise when it hit North American shores. I had been a video game player before then, but Pokémon is what really solidified me as a “gamer” as a kid. It was the first time I had a video game system of my very own that I didn’t have to share with my family. My little lime green Game Boy Color was a lens into different imaginative worlds I could explore. 
+> 
+> Pokémon was the perfect example of this. The games, the TV show, and the trading card game all created a magical universe to daydream about and discuss with my friends at school. That’s surely what made me want to hop online to the world wide web and share my love of Pokémon with other people around the world. The internet was still relatively new (for consumers, at least) in the late 1990s and the possibilities seemed endless. It was really magical to put things online like a guestbook and have someone sign it from halfway across the world.
+
+[![Poké-Amph’s layout from May 2001](/web/images/poke-amphs-layout-from-may-2001.png)](/web/images/poke-amphs-layout-from-may-2001.png)*Poké-Amph’s layout from May 2001*
+
+#### You were playing Pokémon during the early days of Pokémon’s release, which is known in our community as Pokémania. How were you first introduced to Pokémon?
+> Ryan:
+> 
+> Pokémania really is a great way to describe it. Pokémon was truly everywhere. You couldn’t even find the trading cards because they were always sold out as soon as they hit the shelves.
+> 
+> I can’t remember specifically the first thing that caught my eye. It was probably the animated series, which was aired on FOX in the States. I do remember waking up early to watch it at 6 or 7 a.m. before school because they would play 2 episodes back to back. My friends and I would discuss that morning’s episodes every day on the bus ride to school.
+> 
+> I also remember the old advertisements, like the TV ad with animated Pokémon tight roping from apartment to apartment in the real world. And, of course, Red & Blue were featured in all the magazines and gaming websites at that point. Eventually, I got Pokémon Red (which started my tradition of getting the first game in every release: Red, Gold, Ruby, etc.) and that was the start of it all. From 1999 through 2002 or so, I was heavily into the TCG as well. I definitely preferred the card game from a competitive standpoint and I played from the Base set through the Neo sets.
+#### In terms of content, Poké-Amph covered the video games, trading card series, anime and movies, and had a resource for Pokémon media such as sprites, animations and 3D models. Which sections of the website were your personal favourites, and why?
+> Ryan:
+> 
+> I think my favorite part of the site, especially as the website evolved, were the video game guides \[section\]. When I started the website, I was throwing anything and everything at the wall with no rhyme or reason. Granted, I was 10 or 11 years old at that point and just having fun. But, by the time I took the development \[of the site\] a bit more seriously in my late teens and early 20s, the video games were the priority for me. That was the way I could best serve my audience. I enjoyed detailing all of the information of the games and writing guides to help people maximize their enjoyment as they played.
+
+[![Poké-Amph’s layout from February 2003](/web/images/poke-amphs-layout-from-february-2003.png)](/web/images/poke-amphs-layout-from-february-2003.png)*Poké-Amph’s layout from February 2003*
+
+#### The website’s mascot was Ampharos! What was the reason you chose this Pokémon to represent your website?
+> Ryan:
+> 
+> Fun fact: Ampharos isn’t actually my favorite Pokémon. Squirtle holds that title :)
+> 
+> By the time Gold and Silver came out, my website was still “Ryan’s Pokémon Website”, or something to that effect. The trend at the time was to have your website’s name start with “Poké” and end with something related to the games. As I was playing through Pokémon Gold, Ampharos was the lead Pokémon in my team. Looking back, Poké-Amph is a pretty bad name and doesn’t really roll off the tongue. It still holds a special place in my heart, though.
+#### Poké-Amph was just one of hundreds of different fan websites out there. Which others do you remember visiting during your time running your website, and what did you enjoy about them?
+> Ryan:
+> 
+> I’m sure I won’t remember countless websites from back then, but some that come to mind are PokéPalace, PokéWizards, The APCC, Pojo, Poké-PC, Marriland, Marill’s World, PokéDen, PKMN.co.uk, Pokémon Sky, Pokémon Safari, Pokémon Dream, Pokémon Icons, Zapchu, Tohjo Falls, Pokémon Dungeon, Seafoam Island Volunteer Pokemon Hut, Serebii, and The Underground Dungeon. Most of the people behind those websites taught me a lot when I asked questions on AIM. Then there’s the countless pages that were on Geocities, AngelFire, Tripod, Altavista, Homestead, etc. that had so much personality. I loved scrolling down to the bottom of their pages to see their page counters and compare them to mine.
+> 
+> One thing I enjoyed about these websites was the sense of community and personality that you could get from visiting them. Back then, people’s personalities really shined through on their websites. Nowadays, people make a website with a content management system and throw on some generic, boring looking WordPress theme. Back then, the internet was really exciting for a lot of reasons. There weren’t that many screen resolutions to account for, which meant websites could be tailored for those resolutions. (800x600 or 1024x768 for the most part.) There weren’t mobile devices and the need for responsive websites. I think the need for responsive design ripped away a lot of the personality that existed on the early internet.
+> 
+> Sometimes the website owner’s lack of tech skills actually added to the charm and feel of a site. If their website layout was made of tables with that ugly default table style, that was part of the charm. If they had a million pictures that made your 56k internet connection crawl to a halt, that was part of the experience back then. Nowadays, a lot of the edges have been rounded off, but back then the internet was really the wild west.
+> 
+> Other things that I enjoy looking back at: topsites, chat rooms, useless splash pages, .tk and .cjb.net domain names, left navigation bars using frames, “NEW” icons on recently added sections, and tag boards.
+
+[![Poké-Amph’s forum from April 2006](/web/images/poke-amphs-forum-from-april-2006.png)](/web/images/poke-amphs-forum-from-april-2006.png)*Poké-Amph’s forum from April 2006*
+
+#### You ran Poké-Amph for just over fifteen years, with your final post on June 10th, 2014, but your website remained online until October 25th, 2022 or just after. It was obviously a huge part of your childhood, so what were the reasons for you stepping away from it?
+> Ryan:
+> 
+> Life evolves. I finished college in 2016, so I had to get a real job. I just don’t have the time to keep it going. I’m happy with what I accomplished and what I learned with the project, and I wouldn’t trade it for the world. Also, if I’m being honest, I don’t like the newer Pokémon games for a lot of reasons. The last set of games I really enjoyed were Pokémon Black & White.
+#### How did Pokémon shape your childhood?
+> Ryan:
+> 
+> I think Pokémon shaped my childhood greatly. Especially from the ages of 10 to 15 or so, Pokémon was a big part of what I did day to day. Between playing the TCG, updating Poké-Amph, and scanning the various fan sites out there, Pokémon was a big part of my daily routine. Fortunately, it ended up teaching me a lot. The TCG can teach kids about economics, strategy, optimization, etc.
+> 
+> Spending time making Poké-Amph eventually taught me a lot about scripting/programming and graphic design, which opened a lot of career opportunities that I wouldn’t otherwise have. Honestly, the only reason why I got job offers after college was exclusively because of my self-taught website knowledge from Poké-Amph. So running a Pokémon website not only shaped my childhood, it also shaped my adult life to a certain degree.
+
+[![PokéAmph’s layout from April 2006](/web/images/pokeamphs-layout-from-april-2006.png)](/web/images/pokeamphs-layout-from-april-2006.png)*PokéAmph’s layout from April 2006*
+
+#### What are some of the cherished Pokémon items you still have to this day?
+> Ryan:
+> 
+> Some of the items I hold onto include my childhood TCG collection and decks (Base Set Charizard!), video games, and some packages sent to me from Golin Harris (Nintendo’s PR company, now known as just Golin).
+> 
+> Some items of note:
+> 
+> Handwritten notes of all Ruby trainers and their Pokémon as I originally played through the game in 2003. I planned on writing a guide for the game, but my 14-year-old self couldn't stick with the project.
+> 
+> Copies of Pojo magazine (they had a printed monthly magazine that was sold in WalMart in 1999-2000ish).
+> 
+> Items from a package Golin Harris (Nintendo's marketing/PR company) sent to me in 2007. There's a 10th anniversary Pikachu plush, Pokémon Ranger water bottle and safari hat, promotional DVD/booklet, and copies of Pokémon Ranger and Blue Rescue Team.
+> 
+> TCG memorabilia: full Base set and Jungle theme deck boxes, my rare cards binder, my DCI ID card (DCI was Wizards of the Coast's player ranking system back in the day before Nintendo/The Pokémon Company took over the TCG after the Neo sets), Base set misprint 1st edition booster packs (they accidentally printed 1st edition pack wrappers and put unlimited cards inside, so they printed a black triangle over the 1st edition stamp on the cards), Pokémon CDs (one of which had a mail in rebate thing to get a Jigglypuff promo card, which I still have today), my last card deck featuring Sneasel and Slowking, my original red deck protector box, some fake cards Devin of Marriland.com fame gave me, old school damage counters.
+> 
+> A Pikachu plush circa 1998, random toys, VHS tapes.
+
+[![Ryan still has a ton of awesome Pokémon items from his childhood! Pictured here are video games, VHS videos, books, TCG deck boxes, Pikachu plush toys, a Pokémon Ranger water bottle, magazines, a Pikachu 3DS console, and a hand-written note by Ryan from his days playing Pokémon Ruby.](/web/images/ryan-still-has-a-ton-of-awesome-pokemon-items-from-his-childhood-pictured-here-are-video-games-vhs-v.jpeg)](/web/images/ryan-still-has-a-ton-of-awesome-pokemon-items-from-his-childhood-pictured-here-are-video-games-vhs-v.jpeg)*Ryan still has a ton of awesome Pokémon items from his childhood! Pictured here are video games, VHS videos, books, TCG deck boxes, Pikachu plush toys, a Pokémon Ranger water bottle, magazines, a Pikachu 3DS console, and a hand-written note by Ryan from his days playing Pokémon Ruby.*
+
+#### At the time of the interview, there’s now over 1000 Pokémon and nine generations of mainline games. What are your thoughts on how the Pokémon franchise has developed since the days you were running your website?
+> Ryan:
+> 
+> To be honest, I don’t have a very positive outlook on the Pokémon franchise nowadays. The last games I played and actually enjoyed were Pokémon Black and White. I finished Pokémon Sun, but it was severely lacking. From what I remember, the game never stopped holding your hand. Part of the fun of Pokémon Red and Blue is that after you give Professor Oak his parcel you’re completely free to explore as you see fit.
+> 
+> Granted, the game funnels you through certain points, but there’s at least a plausible illusion of an open world in those games that is completely missing in the modern entries. I could go on a long rant on the reasons why the modern Pokémon games are lackluster, but I’ll spare you!
+
+[![Poké-Amph’s final layout from March 2013](/web/images/poke-amphs-final-layout-from-march-2013.png)](/web/images/poke-amphs-final-layout-from-march-2013.png)*Poké-Amph’s final layout from March 2013*
+
+#### Despite there being no further updates since 2014, the website did remain online until late 2022. Do you think you will ever resurrect Poké-Amph again in the future, even in an archival capacity?
+> Ryan:
+> 
+> Bots, spammers, and hackers make it very difficult. I’d like to get it back online, though. At the very least, it should stay up as a little slice of internet history, so to speak. I don’t think I would ever update it again, unless they start making good Pokémon games again. If anything, I’d probably start a YouTube channel instead.
+#### Ryan, I truly appreciate you taking the time to talk to me about your website and community, Poké-Amph. I occasionally visited it growing up, and often saw your affiliate button on some of the websites I frequented back then. It was a pleasure to speak to you! Do you have any final words for our readers, or to visitors of your website throughout the years?
+> Ryan:
+> 
+> Thinking about affiliates gave me goosebumps! That was such a big part of fan sites back in the day.
+> 
+> I just want to say thanks to anyone who ever visited Poké-Amph throughout the years. I had a lot of fun evolving (pun intended) as a person with that website. Also, thanks to everyone in the late 90s and early 2000s who ever posted to a forum, signed a guestbook, or refreshed the page to give a website an extra hit on their page counter :)
+* * *
+Additional photos:
+
+[![A page of Ryan’s binder of Pokémon cards, featuring powerful fire type Pokémon from the Jungle, Team Rocket, Gym Heroes, Gym Challenge, and Neo Genesis TCG sets.](/web/images/a-page-of-ryans-binder-of-pokemon-cards-featuring-powerful-fire-type-pokemon-from-the-jungle-team-ro.jpeg)](/web/images/a-page-of-ryans-binder-of-pokemon-cards-featuring-powerful-fire-type-pokemon-from-the-jungle-team-ro.jpeg)*A page of Ryan’s binder of Pokémon cards, featuring powerful fire type Pokémon from the Jungle, Team Rocket, Gym Heroes, Gym Challenge, and Neo Genesis TCG sets.*
+
+
+[![More items from Ryan’s collection, including a WotC ID card, misprinted TCG Base set booster packs, music albums, TCG counters and coins, and fake cards](/web/images/more-items-from-ryans-collection-including-a-wotc-id-card-misprinted-tcg-base-set-booster-packs-musi.jpeg)](/web/images/more-items-from-ryans-collection-including-a-wotc-id-card-misprinted-tcg-base-set-booster-packs-musi.jpeg)*More items from Ryan’s collection, including a WotC ID card, misprinted TCG Base set booster packs, music albums, TCG counters and coins, and fake cards*
+
+
+[![Ryan’s hand-written notes from Pokémon Ruby from when he as fourteen years old! They derail all trainers found in the game, and their Pokémon.](/web/images/ryans-hand-written-notes-from-pokemon-ruby-from-when-he-as-fourteen-years-old-they-derail-all-traine.jpeg)](/web/images/ryans-hand-written-notes-from-pokemon-ruby-from-when-he-as-fourteen-years-old-they-derail-all-traine.jpeg)*Ryan’s hand-written notes from Pokémon Ruby from when he as fourteen years old! They derail all trainers found in the game, and their Pokémon.*
+
+
+[![A selection of random Pokémon toys, including some gold-plated Pokémon cards from Burger King](/web/images/a-selection-of-random-pokemon-toys-including-some-gold-plated-pokemon-cards-from-burger-king.jpeg)](/web/images/a-selection-of-random-pokemon-toys-including-some-gold-plated-pokemon-cards-from-burger-king.jpeg)*A selection of random Pokémon toys, including some gold-plated Pokémon cards from Burger King*
+
+* * *
+I want to extend a huge thank you to Ryan for taking the time to tell us about his website Poké-Amph and sharing his awesome collection of items! We wish him the best of luck with everything he does in the future.

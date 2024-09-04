@@ -1,0 +1,12 @@
+---
+Title: 'A Tribute to Rachael Lillis'
+News: '2024-08-21-news'
+Post: '2024-08-21-2024-08-21-a-tribute-to-rachael-lillis'
+Mailbag: '2024-08-21-mailbag'
+Volume: 2
+Issue: 34
+Header: '/web/images/rachael-lillis-july-8th-1969-august-10-2024-was-the-voice-of-misty-and-jessie-in-the-first-eight-sea.jpeg'
+Description: 'A special issue, paying tribute to the late Rachael Lillis, who voiced Misty, Jessie, Jigglypuff, and many other characters in the English adaption of the Pokémon anime'
+---
+Welcome to Vol. 2, issue 34 of the Johto Times newsletter. We are dedicating this issue to the late Rachael Lillis, who passed away on August 10th, 2024, with a series of tributes from a wide range of Pokémon fan websites and communities. Rachael’s work, voicing beloved characters such as Misty and Jessie in the English adaptation of Pokémon’s anime, will be forever remembered and appreciated by many Pokémon fans.
+We also have a recap of the latest Pokémon news from the 2024 World Championship.

@@ -1,0 +1,15 @@
+---
+Title: 'Miles''s Pokemon Figure Collection'
+News: '2023-09-27-news'
+Post: '2023-09-27-2023-09-27-miless-pokemon-figure-collection'
+Mailbag: '2023-09-27-mailbag'
+Volume: 1
+Issue: 34
+Header: '/web/images/miles-has-shelves-upon-shelves-of-figures-including-alolan-muk-scyther-articuno-mew-eevee-evolutions.jpeg'
+Description: 'This week we share a collection from a figure collector called Miles, the latest Pokémon news, and more from the Johto Times mailbag!'
+---
+A warm welcome to issue 34 of the Johto Times! This week we are sharing an impressive collection of Pokémon figures by a fan called Miles. He kindly told us about why he started his hobby and which ones mean the most to him. We also have more from our mailbag, as well as the latest Pokémon news.
+Before we begin today’s issue, I would like to say a big thank you to everyone who joined us for our first livestream on Twitch! I had a fantastic time opening up the latest Pokémon TCG set: Scarlet & Violet 151, and meeting many of you there. For anyone who missed it, a video can be viewed on our Twitch channel.
+In an effort to push the newsletter and our Twitch streams to a wider audience, we are testing the waters with a Discord server, which you are welcome to join to stay in the loop with live events and future issues of the Johto Times newsletter!
+[Click here for a link to our Twitch channel](https://www.twitch.tv/johtotimes)
+[Click here for a link to our Discord server (valid for 28 days)](https://discord.gg/sS2F5EThS)

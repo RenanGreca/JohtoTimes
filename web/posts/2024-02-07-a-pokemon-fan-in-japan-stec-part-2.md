@@ -1,0 +1,72 @@
+---
+Title: 'A Pokémon fan in Japan: SteC (Part 2)'
+Volume: 2
+Issue: 6
+Header: '/web/images/this-impressive-koraidon-statue-looks-like-its-jumping-right-out-of-the-wall-in-the-osaka-pokemon-ce.jpeg'
+Description: 'In this issue, we have more Pokémon items, merchandise and sights from SteC, a Pokémon fan in Japan! We''ve also got more Pokémon news and mailbag content to share with you'
+---
+### Feature: A Pokémon fan in Japan: SteC (Part 2)
+SteC is back with even more Pokémon goods and items straight from his travels around Japan! His discoveries this time around include more visits to the many different Pokémon Centers located around the country, some promotional trading cards he has obtained throughout the years, and some Pokémon-themed cleaning products. It’s quite the variety of items!
+* * *
+
+[![This impressive Koraidon statue looks like it’s jumping right out of the wall in the Osaka Pokémon Center store](/web/images/this-impressive-koraidon-statue-looks-like-its-jumping-right-out-of-the-wall-in-the-osaka-pokemon-ce.jpeg)](/web/images/this-impressive-koraidon-statue-looks-like-its-jumping-right-out-of-the-wall-in-the-osaka-pokemon-ce.jpeg)*This impressive Koraidon statue looks like it’s jumping right out of the wall in the Osaka Pokémon Center store*
+
+**Koraidon Statue  
+**_Location: Pokémon Center Osaka (February 2023)_  
+The Pokémon Center in Osaka is home to a really awesome Koraidon statue, serving as the mascot for the store. Just like the many other Pokémon Centers across Japan, you can purchase a wide variety of Pokémon-themed goods!
+
+[![The three legendary birds of Kanto dominate the space at the Osaka DX Pokémon Center](/web/images/the-three-legendary-birds-of-kanto-dominate-the-space-at-the-osaka-dx-pokemon-center.jpeg)](/web/images/the-three-legendary-birds-of-kanto-dominate-the-space-at-the-osaka-dx-pokemon-center.jpeg)*The three legendary birds of Kanto dominate the space at the Osaka DX Pokémon Center*
+
+**Legendary Bird Trio Statues  
+**_Location: Pokémon Center Osaka DX (March 2023)_
+The legendary bird trio, Articuno, Zapdos and Moltres, were discovered at another Pokémon Center, the Shinsaibashi branch in Osaka. This store contains a Pokémon Café, where you can purchase some delicious treats in addition to spending a fortune on Pokémon goods. Please take us there!
+
+[![There must be around one hundred different Pokémon items here](/web/images/there-must-be-around-one-hundred-different-pokemon-items-here.jpeg)](/web/images/there-must-be-around-one-hundred-different-pokemon-items-here.jpeg)*There must be around one hundred different Pokémon items here*
+
+
+[![A huge variety of items were on sale at Admski, but Pokémon had a huge presence on these shelves](/web/images/a-huge-variety-of-items-were-on-sale-at-admski-but-pokemon-had-a-huge-presence-on-these-shelves.jpeg)](/web/images/a-huge-variety-of-items-were-on-sale-at-admski-but-pokemon-had-a-huge-presence-on-these-shelves.jpeg)*A huge variety of items were on sale at Admski, but Pokémon had a huge presence on these shelves*
+
+**Various Classic Pokémon items  
+**_Location Admski in Namba, Osaka (June 2023)_
+SteC visited a store called Admski containing a treasure trove of second hand hobbies and media from decades of Japanese interests, from sports gear to gacha prizes, music memorabilia and imports from around the world. SteC compared it to a museum due to how wonderful it was to look around. The Pokémon shelf contained mostly figures, but there were also some items such as a Pokémon Diamond & Pearl writing pad, a Pikachu movie book, an Infernape figure kit, and a Mon Colle electronic game. The window shelving shows a smaller range of older merchandise.
+
+[![Have you ever seen so many used copies of Pokémon games in one place?](/web/images/have-you-ever-seen-so-many-used-copies-of-pokemon-games-in-one-place.jpeg)](/web/images/have-you-ever-seen-so-many-used-copies-of-pokemon-games-in-one-place.jpeg)*Have you ever seen so many used copies of Pokémon games in one place?*
+
+**Pokémon Games for Game Boy  
+**_Location: Super Potato in Namba, Osaka (June 2023)_
+Another location SteC went to while in Osaka that day was Super Potato, where he discovered a variety of Pokémon Game Boy games, all of which had their batteries repaired and ready to play. Due to their age, many Pokémon titles will have dead batteries, so battery replacements are commonplace.
+
+[![**Pokémon Wet Wipes  ](/web/images/pokemon-wet-wipes.jpeg)](/web/images/pokemon-wet-wipes.jpeg)***Pokémon Wet Wipes  *
+
+**_Location: Daiso (March 2023)_
+One of the more random items SteC shared with me were Pokémon-themed wet wipes from Japan’s pound/dollar store called Daiso. Each type-based pack is suitable for different utilities, such as those found in the kitchen and living room. For 110 yen each, they’re good value! There are a large variety of different Pokémon types featured, such as Normal, Water, Fairy, Ice and Dragon.
+
+[![**Pokémon TCG Promo Cards  ](/web/images/pokemon-tcg-promo-cards.jpeg)](/web/images/pokemon-tcg-promo-cards.jpeg)***Pokémon TCG Promo Cards  *
+
+**_Location: Various (Between May 2019 and November 2022)_  
+SteC kindly shared a few of the Pokémon promo cards he has picked up over the past few years, received by purchasing Pokémon related items and games. He wanted me to emphasise strongly that these legally acquired cards are not for sale, nor does he invest in trading cards so he can buy a yacht! His cards include the following:  
+_**Arceus V (SWSH204)** - Promotion for early purchase of Pokémon Legends: Arceus  
+Acquired from Joshin electronic store, January 2022 (launch date of Pokémon Legends Arceus)_  
+_**Pikachu (208/S-P)** - Cross promotion with artist Yu Nugaba  
+Acquired from Pokémon Center, July 2021 (obtained by spending over 1500 yen instore)  
+**Piplup (232/S-P)** - Promotion for the Project Piplup event  
+Acquired from Pokémon Center, September 2021 (free with any purchase)  
+**Pikachu (001/SV-P)** - Promotion for early purchase of Pokémon Scarlet/Violet  
+Acquired from EDION, November 2022 (launch date of Scarlet & Violet)  
+**Graniph Mischievous Pichu (214/S-P)** - Cross promotion with Graniph clothing brand  
+Acquired from Pokémon Center, May 2022 (limited stock)  
+**Shibuya Pikachu (002/S-P)** - Promotion for Pokémon Center Shibuya Store  
+Acquired from UNKNOWN, May 2019 (SteC doesn’t recall where this was obtained exactly)_
+
+[![Lugia is the mascot for the Kyoto Pokémon Center store, represented by this impressive statue](/web/images/lugia-is-the-mascot-for-the-kyoto-pokemon-center-store-represented-by-this-impressive-statue.jpeg)](/web/images/lugia-is-the-mascot-for-the-kyoto-pokemon-center-store-represented-by-this-impressive-statue.jpeg)*Lugia is the mascot for the Kyoto Pokémon Center store, represented by this impressive statue*
+
+**Lugia Statue  
+**_Location: Pokémon Center Kyoto store (December 2023)_
+SteC was able to visit the Kyoto store once again in December 2023 and took a photograph of the amazing Lugia statue situated there. I love how detailed it looks, and personally I'd love this in my home, but sadly it’s just a bit too big…
+
+[![While the Girafarig / Farigiraf keychains are fantastic, i'm a huge fan of the Toedscool socks](/web/images/while-the-girafarig-farigiraf-keychains-are-fantastic-im-a-huge-fan-of-the-toedscool-socks.jpeg)](/web/images/while-the-girafarig-farigiraf-keychains-are-fantastic-im-a-huge-fan-of-the-toedscool-socks.jpeg)*While the Girafarig / Farigiraf keychains are fantastic, i'm a huge fan of the Toedscool socks*
+
+**Toedscool Socks and Girafarig / Farigiraf Keychains  
+**_Location: Pokémon Center Kyoto store (December 2023)_
+Finally, while visiting the Kyoto store in December 2023, SteC was able to purchase a couple of great items: a pair of Toedscool socks, and a pair of keychains featuring Girafarig and Farigiraf! My favourite of the two items has to be the Toedschool socks; they are so perfect!
+Once again, a huge thank you to SteC for sharing some photographs from his Pokémon adventures around Japan. I wonder what he will find next time?

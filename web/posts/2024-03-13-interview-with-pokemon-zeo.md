@@ -1,0 +1,140 @@
+---
+Title: 'Interview with Pokémon Zeo!'
+Volume: 2
+Issue: 11
+Header: '/web/images/the-pokemon-zeo-splash-page-from-june-2001.gif'
+Description: 'Our interview with Purity from Pokémon Zeo!, a fake and custom Pokémon card community, which was online between 2000 and 2014. Plus, the latest Pokémon news!'
+---
+### Feature: Interview with Pokémon Zeo!
+Pokémon Zeo (stylised as Zeo! and ZEO!) was a Pokémon community that opened on October 13th, 2000, with a focus on creating fake Pokémon cards for fun. It provided card templates, tutorials, logos, backgrounds and other resources so fans could create their own fake cards, as well as an active forum community. Zeo also shared the latest Pokémon news and their own fake cards, including promos which would be distributed among staff members and given out at events they attended. The site continued to be updated until February 2010, but went offline around 2014. Our interview today is with one of the original founders of Pokémon Zeo: Purity!
+* * *
+
+[![The Pokémon Zeo! splash page from June 2001](/web/images/the-pokemon-zeo-splash-page-from-june-2001.gif)](/web/images/the-pokemon-zeo-splash-page-from-june-2001.gif)*The Pokémon Zeo! splash page from June 2001*
+
+#### Purity, thank you for agreeing to an interview with us! For those who may not be familiar already, please tell us a bit about yourself, and what the website and community offered to fans back then.
+> Purity:
+> 
+> Pokémon is where I got my start in TCGs, I picked up Pokémon Red and then got into the card game. There were a few online fan communities and message boards back then in the pre-social media era of the internet.
+#### Pokémon Zeo was founded on October 13th, 2000 by you and The Echidna and was updated actively for around eight years. What was the inspiration for creating the website and community in the first place?
+> Purity:
+> 
+> Good question!
+> 
+> We really enjoyed doing fan-created Pokémon cards and as I recall the site was opened mainly as a focus for those…I did have access to a CoroCoro subscription, so we were able to get some information on the game from Japan. I also lived in NY at the time so I could do frequent updates on the Pokémon Center store.
+> 
+> Adding the forums and the AIM chat (lord, remember AIM?) pulled the focus from “let’s post content every day on the website” to “let’s provide an online community that is a good place to be”.
+> 
+> We did a “card per day” where we tried to do one fan card per day, in Pokédex order. That was harder than people realized, since we created original art and text for all of them. I think we did Red/Blue and Gold/Silver? I can’t remember if we did Ruby/Sapphire too.
+#### Zeo had a large amount of resources available for anyone to create their own fake cards, such as blank templates, fonts, logos and symbols. How did you manage to provide those assets and ensure accuracy?
+> Purity:
+> 
+> Echidna and I did most of the work on the blanks, but the community that collected around the site also contributed. We scanned the cards and used Photoshop to remove the text and images, sometimes pixel by pixel to create the blanks. We did a few “custom” blanks too.
+> 
+> I remember trying to get access to packs as early as possible whenever the card styles changed or new cards were added so we could try and get the blanks up quickly.
+> 
+> Those original Steel type cards were a \*\*\*\* to try and edit.
+
+[![Physical Pokémon Zeo! fakes created by Purity, Echidna, and various members of the Pokémon Zeo! community (Scans by Jim Roszel)](/web/images/physical-pokemon-zeo-fakes-created-by-purity-echidna-and-various-members-of-the-pokemon-zeo-communit.jpeg)](/web/images/physical-pokemon-zeo-fakes-created-by-purity-echidna-and-various-members-of-the-pokemon-zeo-communit.jpeg)*Physical Pokémon Zeo! fakes created by Purity, Echidna, and various members of the Pokémon Zeo! community (Scans by Jim Roszel)*
+
+#### The Zeo team would often attend events and even hand out promo cards that the staff had created. Can you give us an insight into what those events were like, and any fond memories you have of them?
+> Purity:
+> 
+> The first one we attended was the Super Trainer Showdown at the Meadowlands (I actually just found a flyer from that the other day!) We handed out the first promo which was the Purity and Echidna’s Unowns, and met some of the Zeo community in person which was fun.
+> 
+> I played in the event and did a lot better than I expected to, I was playing a definitely off-meta deck with Rocket Zapdos and Lt. Surge’s Raticate. I cannot remember my record but I won more matches than I lost, not bad for my first tournament.
+> 
+> Going to the Super Trainer Showdown in San Diego, though, now THAT was a party. We gave out the Electric Soldier Porygon promo and had a big Zeo dinner of something like…thirty people? at the Old Spaghetti Factory (every time I eat at the San Diego OSF I remember that dinner).
+> 
+> I didn’t play in this event, I did Duel the Master for part of the weekend and some event coverage also.
+> 
+> I did get to attend some of the “invitational” events hosted by the WoTC trainers, we made a promo card for the “Maple Bar Invitational”. It was nice to get that positive recognition from WoTC for the fan site we’d created.
+> 
+> JDGloom and I went to the Pokémon Park in Nagoya in…2005? I was in Tokyo to judge at the Yu-Gi-Oh! World Championship and stayed in Japan for another week or so. THAT was an amazing experience.
+#### What was your first official Pokémon card, and do you still have it?
+> Purity:
+> 
+> Probably! I bought several packs but I don’t remember what was in them. I bought a LOT of the Team Rocket set.
+#### In recent years, demand for the Pokémon trading card game has been significant, with prices of classic Wizards of the Coast cards going through the roof. What’s your opinion on the state of the TCG as of 2023?
+> Purity:
+> 
+> I have five four-column boxes of mostly WoTC Pokémon cards. I am ALL ABOUT THE DEMAND. I think it’s cool that there are a lot of people playing now for whom Pokémon has always been a thing; Pokémon was around when they were born and it’s just one of those enduring brands to them.
+
+[![Sneasel, drawn by Purity](/web/images/sneasel-drawn-by-purity.jpeg)](/web/images/sneasel-drawn-by-purity.jpeg)*Sneasel, drawn by Purity*
+
+#### Which of your pieces of Pokémon art are you most proud of, and what was the story behind it?
+> Purity:
+> 
+> I think I did a good job on Crystal Onix, I also like the Armored Mewtwo and Resident Weedle is pretty good! My favorite was the series of drawings for “Groudon Day” (we changed Groundhog Day to Groudon Day). I like that cursing Skitty. They aren’t the best drawings I’ve ever done but the concept was fun.
+#### Tell us a bit about your artistic process. How has your style and technique evolved over time?
+> Purity:
+> 
+> I’m not a particularly good artist, just a mildly talented amateur. I will say - use it or lose it. If you don’t keep working at something you will start to forget how. Even worse, you might stop caring about it. I have started to learn to use Procreate but I think traditional media will always be what I enjoy most. I haven’t been doing much with drawing lately other than as a design tool for making costumes/clothing/accessories, or as a basis for digitizing embroidery.
+> 
+> I absolutely LOVE the full-art cards that Pokémon has now! I’d love to redo some of the more popular promos with new artwork as full art cards.
+#### Which cards from the Zeo community and staff did you enjoy the most, and why?
+> Purity:
+> 
+> In no particular order:
+> 
+> **Electric Soldier Porygon** - it was the first really GOOD looking promo we made and people really loved it. I made a few holo versions too, which were tricky to make.
+> 
+> **Shining Lapras** - it was a Zeo staff promo and it had a cool “foil Pokémon” effect.
+> 
+> **Baracus Larvitar, Pupitar, and Tyranitar** - I can’t remember where we gave out the Larvitar but I remember the TO announcing that you can’t play the card in your deck, it is not a real card.
+> 
+> **Crystal Onix** and **Armored Mewtwo** for the art and card text. Live Nude Sneasel was fun.
+> 
+> I think my absolute favorites were the giant cards we created for the team at WoTC when they lost the license for the TCG. We did…four? Something like that. Anyway they each got a card combining their favorite Pokémon and a video game they liked. **Resident Weedle** had the best art.
+> 
+> Anyway we had the cards printed and mounted on foam core and took them to GenCon and had anyone there for Pokémon sign the cards and leave messages of thanks to the Pokémon team at WoTC.
+
+[![The Pokémon Zeo! website in December 2007](/web/images/the-pokemon-zeo-website-in-december-2007.png)](/web/images/the-pokemon-zeo-website-in-december-2007.png)*The Pokémon Zeo! website in December 2007*
+
+#### Looking back at the years running Zeo, what are some of your highlights from its community?
+> Purity:
+> 
+> Oh absolutely the community itself. They made a lot of friends and had a place to stay on the internet that was a positive place to be. The site was nice and the cards were cool and all but the whole time for me really, it was about “here is an online home that has provided a place to go and people to talk to, where you are expected to treat each other with civility”.
+> 
+> Going to events and seeing other people from the site was always fun, even when traveling for other card games we would often get Zeo people dropping by. There are people I still hear from that I’ve known since they were kids, and I’ve received messages from some of them as they’ve grown up thanking us for providing this place for them and being a support system.
+#### The Pokémon Zeo community eventually closed its doors after many years online. The last logged news post we could find was on February 26th, 2010, and the website was still online up until July 9th, 2014. What was the reason behind its closure?
+> Purity:
+> 
+> When we opened the site, I was self-employed as a costume designer, so my schedule was relatively flexible. Once I started in the full time corporate world it became harder and harder to keep up. A lot of the daily running of the site had to be passed on to others, and eventually it just wasn’t feasible.
+> 
+> The site went down when my credit card was stolen and I forgot to update the web host with the new CC number. They demanded a sizable ransom if I wanted my domain back and well that was that. I did start working for another TCG too, which would have been a conflict of interest.
+
+[![The Pokémon Zeo! forums from June 2008](/web/images/the-pokemon-zeo-forums-from-june-2008.png)](/web/images/the-pokemon-zeo-forums-from-june-2008.png)*The Pokémon Zeo! forums from June 2008*
+
+#### Pokémon nostalgia has hit new heights in recent years across all media, and some legacy sites have returned. Can you envisage Pokémon Zeo's website and community returning?
+> Purity:
+> 
+> I don’t think it will from me! But some of the former community members do all still keep in touch on social media, so Zeo lives on in a way.
+#### Despite Zeo’s closure, I was happy to see that a small group still continues to interact on Discord, and friendships have been maintained. Have you been able to keep in touch with many of your friends that you made back then?
+> Purity:
+> 
+> I’m glad they set up that Discord server :) They are even more amusing now than they were when they were teenagers. I do still keep in touch with people! I actually work with Mechachu, he’s on my team at my current job. I went to a Pokémon Regional a week ago and saw some of the old familiar faces and it felt good.
+#### We were unable to find or contact The Echidna for this interview. Do you know how he’s doing these days?
+> Purity:
+> 
+> Alas, I do not. He went his own way about the time that we last updated the site. I imagine he is probably fine.
+
+[![The Printed Promo Edition page on the Pokémon Zeo! website](/web/images/the-printed-promo-edition-page-on-the-pokemon-zeo-website.png)](/web/images/the-printed-promo-edition-page-on-the-pokemon-zeo-website.png)*The Printed Promo Edition page on the Pokémon Zeo! website*
+
+#### What do you think Pokémon Zeo’s enduring legacy is?
+> Purity:
+> 
+> THE FRIENDS WE MADE ALONG THE WAY
+> 
+> No, seriously. That’s what I think ended up mattering the most. A lot of people had a site and forums to visit that made them feel welcome, accepted, and liked and lord, if there’s anything one really needs in the pre teen and teen years, it’s that.
+> 
+> We had some great fan-made cards, we did get a lot of interesting and exclusive content but we were never going to be the ultimate destination for all information about Pokémon and I know that’s not what I personally envisioned for the site. It was always going to be about the community.
+> 
+> That and sometimes our old promos crop up with people asking “what card is this? I can’t find any information on it.”
+#### Thank you so much for taking the time to speak with us, Purity! What closing comments would you like to make on behalf of Pokémon Zeo?
+> Purity:
+> 
+> I still have red hair, and it makes me feel good that there’s a lasting and positive impact from the site. To anyone who used to be part of our space, thank you for being there and I hope you are doing well!
+> 
+> Caveat: I can’t clearly remember everything that happened and when it happened - so much has gone on in the last 20+ years. It’s not that it didn’t matter enough for me to keep it straight, I’ve just had a very crowded life.
+* * *
+A huge thank you to Purity for the interview, and sharing her memories of the community she and The Echidna put together. On a personal note, it was a great trip down memory lane for me, as it was a community I used to visit frequently.

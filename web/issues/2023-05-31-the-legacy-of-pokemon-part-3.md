@@ -1,0 +1,13 @@
+---
+Title: 'The Legacy of Pokémon: Part 3'
+News: '2023-05-31-news'
+Post: '2023-05-31-2023-05-31-the-legacy-of-pokemon-part-3'
+Mailbag: '2023-05-31-mailbag'
+Volume: 1
+Issue: 17
+Header: '/web/images/my-beloved-copy-of-pokemon-crystal.jpeg'
+Description: 'A record of the personal journey of a Pokémon fan, along with the latest Pokémon news and mailbag content'
+---
+It’s time for another issue of the Johto Times! This week in issue 17, I am happy to be publishing another chapter in The Legacy of Pokémon series, a record of my personal journey as a Pokémon fan. This time around, I am focusing on Generation 2. It happens to be my favourite generation and I had plenty to say about it, so please excuse the length of this feature!
+On May 31st 2023, [PokéCommunity](https://www.pokecommunity.com) published an interview with me to discuss the Johto Times, something we had been working on for a little while. I was very proud to represent the newsletter to one of the largest and longest running Pokémon forums online. Special thanks to Fact Checking Gardevoir from the PokéCommunity for taking the time to speak with me!
+[Check out the full interview here](https://daily.pokecommunity.com/2023/05/28/interview-with-darren-johto-times/).

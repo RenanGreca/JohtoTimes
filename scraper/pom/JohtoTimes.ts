@@ -1,7 +1,6 @@
-import { Page, Locator } from "@playwright/test";
+import { Page, Locator, expect } from "@playwright/test";
 import TurndownService from 'turndown';
 import { download } from "./Download";
-import { assert } from "console";
 import { Comment } from "./Post";
 import { dateToString, escapeString } from "./Slug";
 
@@ -11,16 +10,19 @@ export class JohtoTimesPOM {
   private url: string;
   private components: string[];
   private body: Locator;
+  private titleBlock: Locator;
 
   // The first (header) image in the post body
   firstImage: string;
-  constructor(private page: Page, vol: number, issue: number) {
+  constructor(private page: Page, private vol: number, private issue: number) {
     this.url = `https://johto.substack.com/p/vol${vol}-${issue}`;
     this.body = this.page.locator('.body');
+    this.titleBlock = this.page.locator('.post-title')
   }
 
   async goTo() {
     await this.page.goto(this.url);
+    await expect(this.titleBlock).toContainText(`Vol. ${this.vol}, Issue ${this.issue}`)
   }
 
   async preprocess() {
@@ -29,8 +31,7 @@ export class JohtoTimesPOM {
   }
 
   async getTitle() {
-    const locator = this.page.locator('.post-title')
-    let title = await locator.innerText();
+    let title = await this.titleBlock.innerText();
 
     if (title.includes(' - ')) {
       title = title.split(' - ')[1];
@@ -69,7 +70,7 @@ export class JohtoTimesPOM {
   async getBody() {
     const mailbagIndex = this.sectionIndex("Mailbag");
     const featureIndex = this.sectionIndex("Feature");
-    assert(featureIndex > -1);
+    expect(featureIndex).toBeGreaterThan(-1);
     let body = this.components.slice(featureIndex, this.components.length-2).join("<div><hr></div>");
     if (mailbagIndex > -1) {
       body = this.components.slice(featureIndex, mailbagIndex).join("<hr>");
@@ -83,7 +84,7 @@ export class JohtoTimesPOM {
   async getImg() {
     const mailbagIndex = this.sectionIndex("Mailbag");
     const featureIndex = this.sectionIndex("Feature");
-    assert(featureIndex > -1);
+    expect(featureIndex).toBeGreaterThan(-1);
     let body = this.components.slice(featureIndex, this.components.length-2).join("<div><hr></div>");
     if (mailbagIndex > -1) {
       body = this.components.slice(featureIndex, mailbagIndex).join("<hr>");
@@ -201,7 +202,7 @@ export class JohtoTimesPOM {
    */
   private isImage(arr: string[], i: number) {
     if (arr[i] === "[") {
-      assert(i + 2 < arr.length, `i + 2 is out of bounds`);
+      expect(i + 2, `i + 2 is out of bounds`).toBeLessThan(arr.length);
       return arr[i] === "[" && arr[i + 2].startsWith("![");
     }
     return false;
@@ -215,7 +216,7 @@ export class JohtoTimesPOM {
    * @returns The markdown for the image
    */
   private async downloadImage(arr: string[], i: number) {
-    assert(i + 8 < arr.length, "i + 8 is out of bounds");
+    expect(i + 8, `i + 8 is out of bounds`).toBeLessThan(arr.length);
     // const imgstart = arr[i]
     // const imgblock = arr[i + 2];
     const imgend = arr[i + 6];

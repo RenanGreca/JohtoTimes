@@ -1,0 +1,102 @@
+---
+Title: 'A Tribute to Rachael Lillis'
+Volume: 2
+Issue: 34
+Header: '/web/images/rachael-lillis-july-8th-1969-august-10-2024-was-the-voice-of-misty-and-jessie-in-the-first-eight-sea.jpeg'
+Description: 'A special issue, paying tribute to the late Rachael Lillis, who voiced Misty, Jessie, Jigglypuff, and many other characters in the English adaption of the Pokémon anime'
+---
+### Feature: A Tribute to Rachael Lillis
+On August 10th, 2024, we lost Rachael Lillis, who provided the original voice of Misty, Jessie and Jigglypuff in the English adaptation of the Pokémon anime. She passed away after a battle with breast cancer, aged 55 years old. These characters meant so much to many Pokémon fans, and to me in particular. As soon as I heard the news, I contacted as many Pokémon fan websites and communities as I possibly could, even those who are no longer around, to share their tributes.
+* * *
+
+[![Rachael Lillis (July 8th, 1969 – August 10, 2024) was the voice of Misty and Jessie in the first eight seasons of the English dub of the Pokémon anime](/web/images/rachael-lillis-july-8th-1969-august-10-2024-was-the-voice-of-misty-and-jessie-in-the-first-eight-sea.jpeg)](/web/images/rachael-lillis-july-8th-1969-august-10-2024-was-the-voice-of-misty-and-jessie-in-the-first-eight-sea.jpeg)*Rachael Lillis (July 8th, 1969 – August 10, 2024) was the voice of Misty and Jessie in the first eight seasons of the English dub of the Pokémon anime*
+
+> Rachael Lillis was a Los Angeles-based voice actress for various Pokémon media, joining the franchise with Season 1 (Indigo League) of Pokémon the Series's English dub. Rachael was best known in the franchise as the original voice of Misty, Jessie, Jigglypuff, and many others.
+> 
+> On May 13, 2024, it was revealed by her sister that Rachael was diagnosed with breast cancer in January of the same year, and that it had since spread to her spine. A GoFundMe was started to help her find a caregiver to tend to her needs at her residence, before it was changed to find a cancer-specific medical facility. Many Pokémon voice actors shared the GoFundMe and it hit its original goal within a week. On August 12, 2024, fellow voice actress Veronica Taylor made a post on her social media confirming Rachael's passing two days prior.
+> 
+> Rachael Lillis voiced 90+ characters in the Pokémon anime and over 40+ Pokémon species. Her impact \[on the\] show cannot be understated. Her voice work inspired newer VAs and made Saturday mornings something special to lots of children. She will be very missed.
+> 
+> _Sunain, PocketMonsters_
+* * *
+> Rachael’s loss is one that will forever be felt in the Pokémon community. She was an integral part of shaping how the series came to be for so many people, especially those who grew up in the late 90s and early 00s, and her voice helped craft some of the most beloved characters in media in general.
+> 
+> I only had the briefest of interactions with her, but she was so nice during it.
+> 
+> She will be missed throughout the community, but her spirit and memory shall always continue on forever.
+> 
+> _Joe Merrick, Serebii_
+* * *
+> Few animated series have had as much of a global cultural impact as Pokémon, defined as much by a sense of fun and humour as well as battles between the titular creatures. Never was this more apparent \[than\] when Misty, Jessie or Jigglypuff were in full force on the screen, given energy and zest through the immense vocal talents of Rachael Lillis. For those Pokemon fans who grew up accompanying Ash, Misty and Brock on their epic journey, today’s sad news comes as a sharp blow. Rachael’s legacy is a trove of sweet memories of halcyon childhood days. Our hearts go out to Rachael’s family and her costars - especially Veronica and Eric. Rest in peace.
+> 
+> _WyndonCalling, Bulbagarden_
+
+[![A photograph of Rachael signing her autograph for TR Rose](/web/images/a-photograph-of-rachael-signing-her-autograph-for-tr-rose.jpeg)](/web/images/a-photograph-of-rachael-signing-her-autograph-for-tr-rose.jpeg)*A photograph of Rachael signing her autograph for TR Rose*
+
+> I met Rachael Lillis at Retro Expo 2022 and got her autograph. She was wonderful and very sweet. I've spent many hours listening to her in the anime and soundtrack albums, and even more time trying to imitate her character voices. I am heartbroken to hear of her passing.
+> 
+> _TR Rose, TRsRockin_
+* * *
+> It's a challenge to talk about someone I've never met before... but even then it feels like actors like Rachael Lillis can still connect with us and become a part of our lives just the same, which I imagine is what drives many actors to put themselves out there in the first place.
+> 
+> To me, Rachael was a classic working actor, focused on her craft and making a living. In fact, those working actors are often what shapes our popular culture to begin with. As it turned out, Rachael was part of that generation of actors that helped elevate anime dubs from a niche "so bad it's good" interest to a far more respected form. I actually first recognized her from _The Slayers_ and _The Irresponsible Captain Tylor_, which for me was simply the latest in the line of dubbed anime I watched going all the way back to _Bubblegum Crisis_ from the 80s. But many voice actors today likely trace their inspiration from watching _Pokémon_ as kids and now star in more anime released this year than was released in a decade back in the day. Could it have happened without Rachael? Maybe, but she was there, at that right place and right time, to show how "there are no small parts."
+> 
+> Of course I expect the people in our lives to be with \[us until\] their 90s. Certainly, growing older means seeing those who made up a part of who we are slip away one by one. But to see the Kevin Conroys, Shannen Dohertys and David Bowies to go before their time is especially tough. However, it just makes me appreciate the time we had to see them in their prime, while also reminding us to cherish those who are still with us.
+> 
+> _Nick15, Pokémon Aaah!_
+* * *
+> As the owner and operator of The Pokémon Tower, Rachael's impact on the lives of children (and adults) everywhere was quite apparent.  There is zero doubt that the voice talents of Rachael Lillis helped bring all her characters to life for so many of us.  Over the many years that I have administered over The Pokémon Tower, there was always a constant flow of content created by the authors, artists, and auteurs, especially pertaining to Jessie and Misty.  There was (is!) a great deal of love for Pokémon and their human counterparts and Rachael's talented voice facilitated that love and brought it home for all of us to enjoy.  That enjoyment inspired thousands upon thousands to write stories, draw artwork, and create videos as a testament to the life she brought to her characters.
+> 
+> She will be greatly missed by us and by so many around the world.
+> 
+> _The Jolt Master, The Pokémon Tower_
+
+[![Ray once cosplayed as Misty at an Anime Expo 2013, in Los Angeles, pictured here](/web/images/ray-once-cosplayed-as-misty-at-an-anime-expo-2013-in-los-angeles-pictured-here.jpeg)](/web/images/ray-once-cosplayed-as-misty-at-an-anime-expo-2013-in-los-angeles-pictured-here.jpeg)*Ray once cosplayed as Misty at an Anime Expo 2013, in Los Angeles, pictured here*
+
+> Rachael brought amazing performances and bright energy to the show with her voice. Her performances as Misty with her love and hate relationship with Psyduck are some of my most cherished Pokemon memories. I'm still a lifelong Psyduck fan for all these years, thank you Rachael. 
+> 
+> _Ray, Pokémon Elite 2000_
+* * *
+> Most of my exposure to Rachael's work came from watching the Pokemon anime, and I always had the personalities she forged for the characters of Misty and Jessie in mind when writing them in fanfiction. Rachael conveyed the fieriness and softness in both these characters so well, and there was notable passion in all her performances.
+> 
+> My thoughts are with her family and closest friends at this time - it is an especially painful loss for them.
+> 
+> _Gemma Bright, Pokémon Rebirth_
+* * *
+> I was surprised and saddened to learn of the passing of Rachael Lillis, who voiced Jessie, Misty and other voices for the Pokémon anime.  Saddened, of course, because her voice was such a distinctive part of what initially attracted me to the show in the first place.  That she was Misty AND Jessie always caught me by surprise; she certainly wasn't a voice actor who just phoned in a performance that made you say, "Oh that's Rachael Lillis doing her Rachael Lillis voice."  Her Jessie in particular was always a great delight to me; her vocal performance really served the writing well by playing up the wildly different reactions and demeanor that Jessie the character could fly into at a moment's notice during an episode.
+> 
+> The loss fans of Pokémon feel is very real, of course, but nothing compared to what her family and friends must be feeling, and to say my heart goes out to them seems a very empty statement \[in light\] of their loss.  What else can I offer though, except to say that this wonderful woman brought a lot of joy, laughter and fun to the lives of literally millions upon millions of people for a great many years, and what finer remembrance can anybody have?
+> 
+> Rest in peace.
+> 
+> _Dodgemaster Tim, Pokemopolis_
+
+[![Amanda shared a photo of her cosplaying as Misty, one of her favourite characters](/web/images/amanda-shared-a-photo-of-her-cosplaying-as-misty-one-of-her-favourite-characters.jpeg)](/web/images/amanda-shared-a-photo-of-her-cosplaying-as-misty-one-of-her-favourite-characters.jpeg)*Amanda shared a photo of her cosplaying as Misty, one of her favourite characters*
+
+> I was 13 when the Pokemon craze first hit the US. I quickly fell in love with the franchise, especially the anime. My two favorite characters were (and still are) Misty and Jessie, who both happened to be voiced by Rachael Lillis. When I learned who she was, I spent countless hours scouring the internet reading her interviews, imagining how cool it would have been to get to talk with her. As an actress and Pokemon fan, I always looked up to Rachael. She brought so much life to these characters who had a huge impact on me. Her voice was a gift, one \[for\] which I’ll always be grateful.
+> 
+> _Amanda, Zelda Universe_
+* * *
+> So sorry to hear of Rachael Lillis’ passing. I never know what to say in these situations, only that she will be missed by those of us to whom the Pokémon anime always meant so much, and in times like these, I am reminded of all the other favorite shows and beloved characters…those who have also passed, whom we as fans only knew from afar, and in watching reruns years…decades later…that part of them will always be here, and how they will always be remembered. In Jessie, Misty, Jigglypuff, Maylene (Veilstone City Gym Leader), and so many others…may she live on and her voice always be heard.
+> 
+> _Kimberly (“We All Live in a Pokémon World…”)_
+* * *
+> We'd never met, but her voice was the stuff of memories that one would never realize had formed. Having grown up in Greece, all characters were naturally dubbed in Greek, apart from the Pokémon. We may keep in our memories Rachael Lillis's stunning Goldeen, the cute and mischievous Jigglypuff, the bold Vulpix, the elusive Venonat. Let our attention be to the joys and struggles alike that make us human. Farewell Rachael.
+> 
+> _Arty2, Legendary PKMN_
+* * *
+> Misty, Jessie and the many Pokémon Rachael Lillis voiced were integral parts of the original Pokémon anime and she did an amazing job bringing them to life. I grew up watching those early seasons in which she was the voice actress and she is ingrained in my childhood through her contributions. She will forever be remembered fondly by myself and the Pokémon fandom at large. Thank you Rachael, you will be very missed.
+> 
+> _Paul, PokéJungle_
+* * *
+> Rachael was responsible for bringing Misty, Jessie, Jigglypuff, and other characters to life, for Pokémon's English audience. These voices are beloved and recognisable to anyone who grew up with the anime during its first several seasons.
+> 
+> While it is tremendously sad that Rachael is no longer with us, her memory will live on through the many fantastic performances she gave us over the years. My heart goes out to those who were fortunate enough to work alongside her, and to her loved ones.
+> 
+> As someone who grew up watching the show, waking up early and rushing downstairs to the television to watch each episode as it aired each Saturday morning, I have many cherished memories, and I am grateful for everything Rachael gave fans like me, and I regret that I never had the opportunity to express that to her directly. Rest in peace.
+> 
+> _Darren, Johto Times_
+* * *
+> Rachael Lillis's work in Pokémon, and some of her fellow cast, was one of the first times I was aware of an actor performing two or more roles in the same cartoon; I liked Team Rocket so much that I wanted to know everything about them including their actors. Her work inspired me to be more interested in the behind the scenes efforts made to entertain us. Much has been said about Rachael already, but I wanted to thank her for giving me a lifelong interest and appreciation for the work that goes into bringing joy and entertainment to us. 
+> 
+> _Jim Roszel, Johto Times contributor and Pokémon Zeo community_

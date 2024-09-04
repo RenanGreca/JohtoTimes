@@ -1,0 +1,11 @@
+---
+Title: 'Crystal: My Favourite Pokémon Game'
+News: '2023-11-01-news'
+Post: '2023-11-01-2023-11-01-crystal-my-favourite-pokemon-game'
+Mailbag: '2023-11-01-mailbag'
+Volume: 1
+Issue: 39
+Header: '/web/images/my-original-copy-of-pokemon-crystal-still-in-its-box-since-i-bought-it-in-2001.jpeg'
+Description: 'Twenty-two years after I first played Crystal, I share my thoughts on why its my favourite Pokémon game. We have the latest Pokémon news, and more from the Johto Times mailbag!'
+---
+Welcome to issue 39 of the Johto Times newsletter. For this issue I decided to take the opportunity to express why Pokémon Crystal is my favourite Pokémon game. Today, November 2nd 2023, marks 22 years since the game launched in Europe, and while I don’t remember the exact date I obtained it, I know it was around this time that I began playing this wonderful game. I hope you’ll allow me some of your time to express why I love it so much. In addition to this, we have the latest Pokémon news, and more from the Johto Times mailbag.

@@ -1,0 +1,11 @@
+---
+Title: 'Interview with Lawrence Schwedler'
+News: '2023-06-28-news'
+Post: '2023-06-28-2023-06-28-interview-with-lawrence-schwedler'
+Mailbag: '2023-06-28-mailbag'
+Volume: 1
+Issue: 21
+Header: '/web/images/photograph-of-lawrence-schwedler.jpeg'
+Description: 'An interview with Lawrence Schwedler, the Audio Director of Pokémon Puzzle League on Nintendo 64, plus the latest Pokémon news and more mailbag contributions!'
+---
+Welcome to Issue 21 of the Johto Times. This week, we are thrilled to share our interview with Lawrence Schwedler, the Audio Director for Pokémon Puzzle League, which was originally released on the Nintendo 64. It has since appeared on the Wii U Virtual Console and most recently, the Nintendo Switch Online service. Lawrence tells us about his time working on the game as part of Nintendo Software Technology (NST), how he translated iconic Pokémon series themes to work on the Nintendo 64, and how he might approach a modern version of the game.

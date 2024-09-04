@@ -1,0 +1,12 @@
+---
+Title: 'Memories of the Pokémon European International Championship 2023'
+News: '2023-06-14-news'
+Post: '2023-06-14-2023-06-14-memories-of-the-pokemon-european-international-championship-2023'
+Mailbag: '2023-06-14-mailbag'
+Volume: 1
+Issue: 19
+Header: '/web/images/leon-with-pikachu-and-the-paldean-starter-pokemon-sprigatito-fuecoco-and-quaxly.jpeg'
+Description: 'Memories of the Pokémon European International Championship by Leon Fletcher, along with the latest Pokémon news and more from our mailbag!'
+---
+Welcome to Issue 19 of the Johto Times! This week we have a new addition to our section of Pokémon memories by Leon Fletcher, with their thoughts of working for the Pokémon European International Championship 2023, which took place in London, United Kingdom, between April 14th - 16th 2023. We also have the latest Pokémon news and more from our mailbag!
+Before we begin, I recently had the pleasure of being a guest on the Good Morning Johto Podcast, where I discussed my love for Pokémon and talked about the Johto Times. Big thanks to Lane for being a great host and giving us the opportunity to share our work with their listeners. [You can listen to the episode here](https://open.spotify.com/episode/40OLtoOQxWQ7omyVXhhoOb).

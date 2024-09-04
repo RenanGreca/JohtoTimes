@@ -1,0 +1,47 @@
+---
+Title: 'A Pokémon fan in Japan: SteC'
+Volume: 1
+Issue: 30
+Header: '/web/images/this-pokelid-featuring-aggron-is-one-many-utility-hole-covers-found-around-japan.jpeg'
+Description: 'We explore more cool Pokémon swag, sights and cool items from a fan in Japan called SteC. We also have more Pokémon news and more of your contributions from the Johto Times mailbag!'
+---
+### Feature: A Pokémon fan in Japan: SteC
+When it comes to Pokémon, it seems that Japan has all the cool stuff! Our feature today was supported by SteC, who lives and works in Japan, frequently finds Pokémon-related items, and has agreed to let us share them here in the Johto Times. This collection of photographs features some awesome Pokémon displays, figures, games and products encountered on his travels. Let’s dive in and see what treasures he has encountered!
+* * *
+
+[![This Pokélid featuring Aggron is one many utility hole covers found around Japan](/web/images/this-pokelid-featuring-aggron-is-one-many-utility-hole-covers-found-around-japan.jpeg)](/web/images/this-pokelid-featuring-aggron-is-one-many-utility-hole-covers-found-around-japan.jpeg)*This Pokélid featuring Aggron is one many utility hole covers found around Japan*
+
+**Aggron Poké Lid  
+**_Location: Fukuoka (August 2022)_
+SteC first shared this photo of a Poké Lid featuring Aggron that he encountered in August 2022 in Fukuoka, Japan’s sixth-largest city. This manhole cover is one of many that appear all over Japan to promote the local acts and cultural value of its prefectures. While you’re not able to take the original home with you and unleash an outbreak of Grimer, you are able to purchase the design as button badges and stickers! SteC used this opportunity to take the photograph alongside his Aggron buddy in Pokémon GO.
+
+[![Pokémon statues can be found in different Pokémon Centers across Japan. This Pikachu riding Ho-Oh used to be found at the Kyoto store, before it was closed down and relocated to the Kyoto Econony Center](/web/images/pokemon-statues-can-be-found-in-different-pokemon-centers-across-japan-this-pikachu-riding-ho-oh-use.jpeg)](/web/images/pokemon-statues-can-be-found-in-different-pokemon-centers-across-japan-this-pikachu-riding-ho-oh-use.jpeg)*Pokémon statues can be found in different Pokémon Centers across Japan. This Pikachu riding Ho-Oh used to be found at the Kyoto store, before it was closed down and relocated to the Kyoto Econony Center*
+
+**Ho-Oh Statue  
+**_Location: Pokémon Center Kyoto store (September 2017)_
+On a visit to the Pokémon Center Kyoto store back in September 2017, SteC snapped this awesome photograph of the giant Ho-Oh statue on display there, which was surrounded by other smaller Pokémon plush toys. This photo was taken at the store’s original location in the Takashimaya Kyoto Store, which has since closed down and relocated to the Kyoto Economy Center in 2019.
+
+[![A huge Feraligatr statue liquifying itself can be found in the Kaiyodo Figure Museum, surrounded by many other legendary and mythical Pokémon figures](/web/images/a-huge-feraligatr-statue-liquifying-itself-can-be-found-in-the-kaiyodo-figure-museum-surrounded-by-m.jpeg)](/web/images/a-huge-feraligatr-statue-liquifying-itself-can-be-found-in-the-kaiyodo-figure-museum-surrounded-by-m.jpeg)*A huge Feraligatr statue liquifying itself can be found in the Kaiyodo Figure Museum, surrounded by many other legendary and mythical Pokémon figures*
+
+**Kaiyodo Figure Museum Kurokabe  
+**_Location: Nagahama (March 2023)_
+The Kaiyodo Figure Museum is said to be the ‘world's first figure museum’ and is home to three thousand exhibits, including some cool Pokémon figures. Kaiyado, the Osaka-based company that manufactures collectible figures and garage kits, started out making licensed sets for Godzilla and has grown to encompass high-quality manga and anime–related characters. SteC was able to snap a photograph of this gigantic and awesome-looking Feraligatr, surrounded by many legendary and mythical Pokémon from across the generations. I’m super jealous; I wish I could go and check it out for myself!
+
+[![A huge selection of model building kits for Pokémon, found at the Yodobashi Camera Multimedia stores in Umeda](/web/images/a-huge-selection-of-model-building-kits-for-pokemon-found-at-the-yodobashi-camera-multimedia-stores-.jpeg)](/web/images/a-huge-selection-of-model-building-kits-for-pokemon-found-at-the-yodobashi-camera-multimedia-stores-.jpeg)*A huge selection of model building kits for Pokémon, found at the Yodobashi Camera Multimedia stores in Umeda*
+
+**Pokémon Model Building Kits  
+**_Location: Yodobashi Camera Multimedia Umeda (June 2023)_
+Located in a thirteen-story department store across from the north side of Osaka Station, the Yodobashi Camera is an electronics chain store that spans six floors. It's known for offering discount prices on electrical goods and digital appliances. On a visit there, SteC found an isle full of Build-it-yourself Pokémon figurines from Bandai. Although he was tempted to buy some, he refrained from doing so on this occasion. His favourite was Tepig.
+
+[![This gigantic Snorlax statue, featuring Pikachu and Mew, can be found at the Pokémon Center Tokyo DX store](/web/images/this-gigantic-snorlax-statue-featuring-pikachu-and-mew-can-be-found-at-the-pokemon-center-tokyo-dx-s.jpeg)](/web/images/this-gigantic-snorlax-statue-featuring-pikachu-and-mew-can-be-found-at-the-pokemon-center-tokyo-dx-s.jpeg)*This gigantic Snorlax statue, featuring Pikachu and Mew, can be found at the Pokémon Center Tokyo DX store*
+
+**Snorlax Statue**  
+_Location: Pokémon Center TOKYO DX ＆ Pokémon Cafe (May 2023)_
+The Pokémon Center Tokyo DX store opened in 2019 and is located on the 9th floor of the Daimaru department store. It even has a Pokémon-themed café! One of the photographs SteC took during his visit was of a huge Snorlax statue, which includes a Pikachu and Mew on each of its shoulders.
+
+[![This window display found in the Pokémon Center Tokyo DX store, shows the history of the mainline Pokémon series](/web/images/this-window-display-found-in-the-pokemon-center-tokyo-dx-store-shows-the-history-of-the-mainline-pok.jpeg)](/web/images/this-window-display-found-in-the-pokemon-center-tokyo-dx-store-shows-the-history-of-the-mainline-pok.jpeg)*This window display found in the Pokémon Center Tokyo DX store, shows the history of the mainline Pokémon series*
+
+**Retrospective Pokémon Window Display  
+**_Location: Pokémon Center TOKYO DX ＆ Pokémon Cafe (May 2023)_
+On the same visit to the Pokémon Center Tokyo DX store, SteC shared some pictures of a really cool window display, showing the history of the mainline Pokémon series up to the 3DS era. This display will likely tug at the heartstrings of any Pokémon fan who grew up in these eras. I personally love that they included boxes of each of the games as part of the display.
+A huge thanks to SteC for sharing his awesome Pokémon finds! We love all of these cool discoveries and can’t wait to see more in the future.

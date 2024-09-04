@@ -4,70 +4,67 @@ import { slugify } from '../pom/Slug';
 import { issueMarkdown, mailbagMarkdown, newsMarkdown, Post, postMarkdown } from '../pom/Post';
 import { readFileSync, writeFileSync } from 'fs';
 
-const vols = [2];
-const issues = [21, 29, 30];
 
-for (const vol of vols) {
+const vols = {
+  1: Array.from({ length: 48 }, (_, i) => i + 1),
+  2: Array.from({ length: 35 }, (_, i) => i + 1),
+}
+
+for (const v in vols) {
+  const vol = Number(v);
+  const issues = vols[v];
   for (const issue of issues) {
     test.describe(`JohtoTimes vol ${vol}, issue ${issue}`, () => {
-      let pom: JohtoTimesPOM;
-      let json: Post;
       test(`Get data from Substack`, async ({ browser }) => {
-        const page = await browser.newPage();
-        pom = new JohtoTimesPOM(page, vol, issue);
-        await pom.goTo();
 
-        json = {} as Post;
-        json.volume = vol;
-        json.issue = issue;
+        const pom = await test.step("Load page in Substack", async () => {
+          const page = await browser.newPage();
+          const pom = new JohtoTimesPOM(page, vol, issue);
+          await pom.goTo();
+          await pom.preprocess();
+          return pom;
+        })
 
-        await pom.preprocess();
-        const title = await pom.getTitle();
-        const date = await pom.getDate();
+        await test.step("Parse data from webpage", async () => {
+          const json = {} as Post;
+          json.volume = vol;
+          json.issue = issue;
 
-        json.title = title;
-        json.date = date;
-        json.slug = `${date}-${slugify(title)}`;
+          json.title = await pom.getTitle();
+          json.date = await pom.getDate();
+          json.slug = `${json.date}-${slugify(json.title)}`;
 
-        const description = await pom.getDescription();
-        json.description = description;
+          json.description = await pom.getDescription();
+          json.intro = await pom.getIntro();
+          json.news = await pom.getNews();
+          json.body = await pom.getBody();
+          json.img = await pom.getImg();
+          json.mailbag = await pom.getMailbag();
+          json.comments = await pom.getComments();
 
-        const intro = await pom.getIntro();
-        json.intro = intro;
+          writeFileSync(`./jsons/${vol}-${issue}.json`, JSON.stringify(json));
+          return json;
+        })
 
-        const news = await pom.getNews();
-        json.news = news;
+        const post = await test.step(`Parse JSON`, () => {
+          console.log(`Parsing: ./jsons/${vol}-${issue}.json`);
+          const post = JSON.parse(readFileSync(`./jsons/${vol}-${issue}.json`, 'utf8')) as Post;
+          return post;
+        })
 
-        const body = await pom.getBody();
-        json.body = body;
+        await test.step(`Generate Markdowns`, () => {
+          const postMD = postMarkdown(post);
+          writeFileSync(`./posts/${post.slug}.md`, postMD);
 
-        const img = await pom.getImg();
-        json.img = img;
+          const issueMD = issueMarkdown(post);
+          writeFileSync(`./issues/${post.slug}.md`, issueMD);
 
-        const mailbag = await pom.getMailbag();
-        json.mailbag = mailbag;
+          const newsMD = newsMarkdown(post);
+          writeFileSync(`./news/${post.date}-news.md`, newsMD);
 
-        const comments = await pom.getComments();
-        json.comments = comments;
-
-        writeFileSync(`./jsons/${vol}-${issue}.json`, JSON.stringify(json));
-      })
-
-      test(`Generate Markdowns from JSON`, () => {
-        console.log(`Parsing: ./jsons/${vol}-${issue}.json`);
-        const post = JSON.parse(readFileSync(`./jsons/${vol}-${issue}.json`, 'utf8')) as Post;
-
-        const postMD = postMarkdown(post);
-        writeFileSync(`./posts/${post.slug}.md`, postMD);
-
-        const issueMD = issueMarkdown(post);
-        writeFileSync(`./issues/${post.slug}.md`, issueMD);
-
-        const newsMD = newsMarkdown(post);
-        writeFileSync(`./news/${post.date}-news.md`, newsMD);
-
-        const mailbagMD = mailbagMarkdown(post);
-        writeFileSync(`./mailbag/${post.date}-mailbag.md`, mailbagMD);
+          const mailbagMD = mailbagMarkdown(post);
+          writeFileSync(`./mailbag/${post.date}-mailbag.md`, mailbagMD);
+        })
       })
     })
   }

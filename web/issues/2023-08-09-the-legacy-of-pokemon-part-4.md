@@ -1,0 +1,11 @@
+---
+Title: 'The Legacy of Pokémon: Part 4'
+News: '2023-08-09-news'
+Post: '2023-08-09-2023-08-09-the-legacy-of-pokemon-part-4'
+Mailbag: '2023-08-09-mailbag'
+Volume: 1
+Issue: 27
+Header: '/web/images/my-copies-of-pokemon-firered-emerald-ruby-and-my-original-game-boy-advance.jpeg'
+Description: 'The continuation of The Legacy of Pokémon feature, focusing on my experiences through the third generation of Pokémon, the latest Pokémon news, and more from the mailbag!'
+---
+Johto Times issue 27 is here! For this issue, I will be sharing the next part of my ongoing feature: The Legacy of Pokémon. In part 4, I dive into my experiences with Generation 3, detailing Pokémon Ruby & Sapphire, playing FireRed and LeafGreen, and attempting to get a high score in Pokémon Pinball Ruby & Sapphire for the Official Nintendo Magazine! We have more news and more from our mailbag, so Wynaut grab yourself a drink, sit back, and relax with our latest issue?

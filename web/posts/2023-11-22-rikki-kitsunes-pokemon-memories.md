@@ -1,0 +1,26 @@
+---
+Title: 'Rikki Kitsune''s Pokémon Memories'
+Volume: 1
+Issue: 42
+Header: '/web/images/rikki-at-his-pokemon-themed-party-on-his-seventh-birthday-in-1998-we-are-super-jealous-of-that-pikac.png'
+Description: 'We share another Pokémon memory, this time from Rikki Kitsune who discusses his personal Pokémon stories and photographs from moments in his life. We have more from our mailbag and some Pokémon news!'
+---
+### Feature: Rikki Kitsune''s Pokémon Memories
+We love to hear memories of individuals who grew up with Pokémon! For this feature, we are highlighting the memories of a fan called Rikki, who tells us about an early birthday party, his involvement in an online Pokémon community, and meeting a famous face from Pokémon!
+
+[![Rikki at his Pokémon-themed party on his seventh birthday in 1998. We are super jealous of that Pikachu cake!](/web/images/rikki-at-his-pokemon-themed-party-on-his-seventh-birthday-in-1998-we-are-super-jealous-of-that-pikac.png)](/web/images/rikki-at-his-pokemon-themed-party-on-his-seventh-birthday-in-1998-we-are-super-jealous-of-that-pikac.png)*Rikki at his Pokémon-themed party on his seventh birthday in 1998. We are super jealous of that Pikachu cake!*
+
+Hi! You can call me Rikki and I'll talk a little about my Pokémon memories. 
+This is my 7-year-old birthday party circa 1998. I was very obsessed with Pokémon as a kid and I asked my parents for it. I can't remember it quite well but I remember I had lots of fun! The first Pokémon CD was playing and I got some Pokémon related gifts. One that I remember well is a Pikachu plushie that I kept for a very long time. The Pikachu cake was also something I asked my mom because it was important to me, and I think a friend of hers made it.
+Pokémon has been a huge part of my life since forever. As a teenager (circa 2005), I was a member of Pokémon fansites in Brazil like Pokémon Village and Poképlus and helped translate the Pokémon Adventures manga to Brazilian Portuguese. That time, I made wonderful friendships that I still maintain today as some of my bestest friends!
+I've been playing every main series game since forever and those are always games I look forward to. And I've always watched the anime too. Even though I didn't watch every single episode, I'm always taking a look at the most important arcs and episodes.
+
+[![Rikki had the pleasure of meeting Rica Matsumoto in December 2012 at the "Ressaca Friends" event in São Paulo, Brazil. She is famous for singing the Japanese Pokémon Anime theme "Mezase Pokémon Master" (Aim to Be a Pokémon Master)](/web/images/rikki-had-the-pleasure-of-meeting-rica-matsumoto-in-december-2012-at-the-ressaca-friends-event-in-sa.png)](/web/images/rikki-had-the-pleasure-of-meeting-rica-matsumoto-in-december-2012-at-the-ressaca-friends-event-in-sa.png)*Rikki had the pleasure of meeting Rica Matsumoto in December 2012 at the "Ressaca Friends" event in São Paulo, Brazil. She is famous for singing the Japanese Pokémon Anime theme "Mezase Pokémon Master" (Aim to Be a Pokémon Master)*
+
+One of my greatest feats as a Pokémon fan was getting to meet Rica Matsumoto in 2012. She attended a convention and I could see her concert and even took a picture with her in the meet and greet! Unfortunately we didn't talk much, but she was very adorable and gave me an autograph. The convention was \[called\] Ressaca Friends in São Paulo, Brazil. It happened in December 2012. Among Pokémon songs, Rica performed Mezase Pokemon Master and Best Wishes! I recorded both at the time but it didn't come out very well hahaha.
+
+[![Rikki shared a photograph of some of his Pokémon belongings, including a Pokémon-themed Nintendo Switch, Pokéwalker, Poké Ball Plus, a Pikachu figure, and his original Game Boy Color console, featuring Pikachu and Pichu.](/web/images/rikki-shared-a-photograph-of-some-of-his-pokemon-belongings-including-a-pokemon-themed-nintendo-swit.png)](/web/images/rikki-shared-a-photograph-of-some-of-his-pokemon-belongings-including-a-pokemon-themed-nintendo-swit.png)*Rikki shared a photograph of some of his Pokémon belongings, including a Pokémon-themed Nintendo Switch, Pokéwalker, Poké Ball Plus, a Pikachu figure, and his original Game Boy Color console, featuring Pikachu and Pichu.*
+
+Pokémon is so important for me and it even helped make \[me\] who I am today. I'm very grateful to everything Pokémon did for me. And as one of my favorite \[episode\] titles say\[s\]: Memories are pearls, friendship is a diamond!
+* * *
+A huge thank you to Rikki for sharing their memories, photographs and feelings about Pokémon. We hope that passion will continue to hold a special place in his heart.

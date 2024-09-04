@@ -1,0 +1,208 @@
+---
+Title: 'Interview with Pokémon Forever'
+Volume: 2
+Issue: 27
+Header: '/web/images/what-remains-of-a-very-early-version-of-pokemon-forevers-layout-from-april-1999.png'
+Description: 'An interview with Christopher Fritz (Meowth346) from Pokémon Forever, an English language hobby and fan site which ran between January 1999–June 2005. Plus a recap of the latest Pokémon news & mailbag'
+---
+### Feature: Interview with Pokémon Forever
+Pokémon Forever was a Pokémon hobby and fan website that opened on January 1st, 1999. Createdby Chris Fritz a.k.a. Meowth346, Pokémon Forever contained a wealth of information about various Pokémon titles from the first three generations, from basic information about the games to tools and data to give people a deeper understanding of each game's mechanics. The website started to add information about newly introduced fourth generation Pokémon, from Diamond & Pearl, before it closed on June 12th, 2005. I am delighted to interview Chris, who shares his memories of the work he produced for his website, his thoughts on Pokémon, and more!
+* * *
+
+[![What remains of a very early version of Pokémon Forever’s layout from April 1999](/web/images/what-remains-of-a-very-early-version-of-pokemon-forevers-layout-from-april-1999.png)](/web/images/what-remains-of-a-very-early-version-of-pokemon-forevers-layout-from-april-1999.png)*What remains of a very early version of Pokémon Forever’s layout from April 1999*
+
+#### Thank you for joining us for this interview, Chris! Would you please introduce yourself to our readers?
+> Chris:
+> 
+> My name is Chris Fritz, and I am a software developer. In the early days of Internet anonymity, I went by Meowth346, a combination of my favorite Pokémon and the numeric sequence of my initials, CDF.
+#### Pokémon Forever was hosted on several different websites between 1999 and 2005. It started on the webhosting service FortuneCity, and later with the German Pokémon fan website, Filb.de. Tell us about how the website originally began and how it evolved throughout the years!
+> Chris:
+> 
+> Before I had Internet access, I spent many hours playing with a Windows 3.11 notecard application that allowed hyperlinking cards together. When I was first online in late 1998, I saw web pages as an amazing extension of that concept, and I jumped right into viewing the source markup of various web pages to decipher how HTML worked.
+> 
+> Although Geocities was a popular free (ad-supported) website hosting service at the time, I happened upon FortuneCity first. After a brief time designing a Studio Ghibli fan site, I knew I'd need something more complex to really learn HTML. As December transitioned into January, I replaced the site with Pokémon Forever, a fan site focused on the Pokémon games. Eventually, FortuneCity accidentally deleted my account, taking down the site and my e-mail account. I contacted support, and they said there was no way to get the site and e-mail address back. This led to me trying other hosting sites, including Infoseek and Xoom. I don't recall what led to it, but Daniel from Filb.de offered to host Pokémon Forever ad-free.
+> 
+> Pokémon Forever was always a technology-learning testbed for me. It started with HTML, then a bit of JavaScript and CSS.
+> 
+> When Daniel introduced me to PHP, which I could now use thanks to being hosted on his server, it completely changed how I developed the site. A frames-based layout was soon replaced with a dynamically generated one. This early introduction to a non-compiling programming language likely helped set me up for a career where I specialize in software development.
+
+[![Pokémon Forever’s layout from October 1999](/web/images/pokemon-forevers-layout-from-october-1999.png)](/web/images/pokemon-forevers-layout-from-october-1999.png)*Pokémon Forever’s layout from October 1999*
+
+#### Your website contained a wealth of useful information about several different Pokémon titles from the first three generations and was an important source of information. Tell us about the kinds of information you compiled there!
+> Chris:
+> 
+> Initially, I had pages on mechanics I'd observed in the game data, such as how stats worked, and later mechanics on breeding, shiny Pokémon, Pokérus, and so on.
+> 
+> After learning the basics of PHP, I added information extracted from the games, such as wild Pokémon charts per location, listings of in-game trainers and their Pokémon, and a fully-featured PokéDex.
+#### How did you first get into data ripping and diving into the technical side of Pokémon games?
+> Chris:
+> 
+> I had been interested in how Game Boy games worked at a program level, and I used Pokémon Forever as an opportunity to dive underneath the hood. Initially, it was limited to poking through RAM, the rewritable data a game runs as. From there my interest went to combing through the ROM data, the unchanging compiled program code, and translating hexadecimal data into function calls and data. Eventually, it expanded to data extraction.
+
+[![Pokémon Forever’s forums from July 2000](/web/images/pokemon-forevers-forums-from-july-2000.png)](/web/images/pokemon-forevers-forums-from-july-2000.png)*Pokémon Forever’s forums from July 2000*
+
+#### Pokémon Forever offered free resources for anyone to use, such as PNGs of every Pokémon and Trainer artwork. Why did you decide to provide these resources to the wider community?
+> Chris:
+> 
+> For most Pokémon fans creating a fan site, sourcing these images was difficult at best and impossible at worst. This was especially true for in-game images back then, when we didn't have a plethora of sites hosting game sprite images.
+> 
+> Having a single place where fans could obtain copies of the images to use was my attempt to assist others who were creating fan websites.
+#### The website hosted a “Sprite recolor project” where users could submit their edited Pokémon sprites of older games, to Ruby and Sapphire's 16-color palettes. What motivated you to start this project?
+> Chris:
+> 
+> This originally started as a personal project in December of 1999. I wanted to see what the Pokémon sprites would look like if they were from Super NES games, so I set to recoloring sprites, sourcing colors from official artwork.
+> 
+> About one week and nearly 200 sprite recolors into it, I grew bored with the effort and abandoned the project.
+> 
+> The release of Ruby/Sapphire reignited my interest, but I knew I couldn't make all the edits on my own.
+> 
+> I decided to try crowdsourcing the effort, expecting a large amount of interest. Unfortunately, that wasn't the case, and the ability of those who were interested was often lacking, so the project never really made it very far.
+
+[![An example of sprites and Ken Sugimori artwork recolours from Pokémon Forever](/web/images/an-example-of-sprites-and-ken-sugimori-artwork-recolours-from-pokemon-forever.jpeg)](/web/images/an-example-of-sprites-and-ken-sugimori-artwork-recolours-from-pokemon-forever.jpeg)*An example of sprites and Ken Sugimori artwork recolours from Pokémon Forever*
+
+#### You attempted some edits of your own too, including all of Ken Sugimori's Ruby, Sapphire, and Emerald Pokémon artwork, what were those used for?
+> Chris:
+> 
+> I wanted to use Ken Sugimori's official artwork as the representative artwork for Pokémon in Pokémon Forever's PokéDex. However, I wanted to do something extra by providing "shiny" versions, a project that took me seven days, spanning February 24th to March 8th of 2005.
+#### When it was active, Pokémon Forever was regularly cited within popular communities such as Serebii and Azure Heights as a reliable source of information that people could turn to and learn about upcoming Pokémon games and their secrets. How did you build up a reliable reputation for yourself?
+> Chris:
+> 
+> My focus was always on two things: learning new technology and providing useful information to others.
+> 
+> I never really looked into whether the site had any reach. I often had disclaimers about the site being a place for me to learn HTML and that, as it was a fan site, there could be mistakes in information.
+
+[![Pokémon Forever’s layout from October 2004](/web/images/pokemon-forevers-layout-from-october-2004.png)](/web/images/pokemon-forevers-layout-from-october-2004.png)*Pokémon Forever’s layout from October 2004*
+
+#### Back in the day, you were one of the very first people to reveal the English names for the third generation of Pokémon from Ruby & Sapphire. What was it like to have the opportunity to share those to the world, and how were they received by fans?
+> Chris:
+> 
+> At the time, I thought it would be nice to slowly release the information to give people something to look forward to seeing come up little by little. I don't recall if the site had a message board then, so I couldn't say what the response was like.
+#### Interestingly, you claim that you were the person who coined the terms "Individual Value" and "Effort Value", terms that are used to describe the stats of Pokémon, that are widely used by Pokémon fans today. Tell us more about that!
+> Chris:
+> 
+> Back in the early days, the terms "DV" and "stat EXP" were spreading on English websites, but I had already become used to seeing Japanese terms that I translated as "Eigenvalue" and "Effort Value". "Eigenvalue" wasn't a clear or accurate term, so I considered switching to DV and stat EXP for the site, as the prevailing English fan terms. However, I could never remember what the "D" in DV stood for, so I came up with "Individual Value" to use instead. Since I didn't like how "stat EXP" didn't end in "value", I continued using "Effort Value."
+> 
+> From there, I persisted in using IV and EV even while every other website went with DV and stat EXP. Following the release of Ruby and Sapphire, with the upgraded stat system, it caught on to use "DV" and "stat EXP" for older generation games and "IV" and "EV" for newer generation games. To this day, when I'm at a convention and overhear someone say "Individual Value" referring to Pokémon, I'm reminded of my stubbornness in using the terms on my site.
+> 
+> These weren't the only terms I originally adapted from Japanese fan sites. Pokémon Forever initially referred to items such as Iron and Carbos as "doping" items before I knew what the term meant. I don't know where "vitamin" originated to refer to these items, but eventually, I switched to that.
+> 
+> Among Japanese sites, some referred to "shiny" Pokémon and others used the term "alternate colored." Pokémon Forever went with the latter until "shiny" became so well-established on other English Pokémon sites that I made the switch.
+
+[![A page from Pokémon Forever in April 2001 and a post from Azure Forums from March 2000 discussing Pokémon IVs](/web/images/a-page-from-pokemon-forever-in-april-2001-and-a-post-from-azure-forums-from-march-2000-discussing-po.jpeg)](/web/images/a-page-from-pokemon-forever-in-april-2001-and-a-post-from-azure-forums-from-march-2000-discussing-po.jpeg)*A page from Pokémon Forever in April 2001 and a post from Azure Forums from March 2000 discussing Pokémon IVs*
+
+#### Let’s talk about something you described to me as your “pride and joy”: the Pokémon Forever PokéDex! It was a tool on your website that shared statistics and useful information for each Pokémon released at the time. I would love to hear more about it and its development!
+> Chris:
+> 
+> I had long wanted to create a "PokéDex," a place to include all possible information about each Pokémon. But creating 151 pages that would all have to be updated to add, change, rearrange, or remove sections was… untenable, even more so when it came to 251 Pokémon.
+> 
+> Once I could use PHP to build the site, I could create one layout and display information for any individual Pokémon.
+> 
+> Add in files with extracted data, and one could view any Pokémon's name in various languages; basic information such as size, gender distribution, egg groups, and evolution; flavor text from the in-game PokéDexes; level up and machine move information across games; stats at various levels; and locations and levels they could be found in the wild.
+> 
+> Alongside in-game sprites, I \[added\] Ken Sugimori's GBA Pokémon artwork and my re-colored "shiny" versions also appeared.
+> 
+> These days, a database-driven website is a small feat that anyone with a little knowledge can set up in minutes, but back then, it amazed me to no end. That same foundation allowed me to assist in populating the initial Pokémon game data in Bulbapedia, even if it was only with a very small amount of basic data.
+#### In 1996, you wrote a letter to Nintendo of America to ask whether Pocket Monsters would ever be released in the United States, and you received a thoughtful response in June that year. What was it like to receive the response?
+> Chris:
+> 
+> After sending that letter, I grabbed the mailbox key every day after school and hurried down to the neighborhood community mailbox to check for a response.
+> 
+> Standing in front of the mailbox, I'd thumb through the stack of envelopes looking for something from "_Redmond, WA_." I soon discovered we received near-daily junk mail from various companies in "_Richmond, VA_."
+> 
+> That was agonizing.
+> 
+> When the letter came in, it was simultaneously exciting to have actually received a response from Nintendo and sorrowful that there were no plans to release the games in English. Of course, this was only three and a half months after the games had been released in Japan. The card game hadn't even come out yet in Japan, let alone the anime, which was nearly a year away.
+
+[![In June 1996, Chris received a letter from Nintendo of America in response to his question, on whether Pocket Monsters would ever be released in the United States](/web/images/in-june-1996-chris-received-a-letter-from-nintendo-of-america-in-response-to-his-question-on-whether.jpeg)](/web/images/in-june-1996-chris-received-a-letter-from-nintendo-of-america-in-response-to-his-question-on-whether.jpeg)*In June 1996, Chris received a letter from Nintendo of America in response to his question, on whether Pocket Monsters would ever be released in the United States*
+
+#### Your website contained some photos and scans from the first Pokémon Rocks America event in 2003. You attended the last scheduled date on the tour, which took place in San Diego, California on November 15th that year. What are your memories of that event?
+> Chris:
+> 
+> I don't remember much of the event outside of my photographs. It was certainly a larger event than the Mew distribution event at Toys "R" Us and the Celebi distribution event at Six Flags Magic Mountain that I had attended, and it may have been my first time seeing just how popular Pokémon was. That may sound odd coming from someone who had been running a Pokémon fan website, but by then, I had been fairly insulated from the size of the fandom.
+#### Despite its name, Pokémon Forever closed its doors on June 12th, 2005. What were your reasons for taking the site offline?
+> Chris:
+> 
+> One misconception people had about the name is that it meant the site would live forever, but the name refers to the staying power of Pokémon itself.
+> 
+> During 2004 and 2005, I became more exposed to the overall Pokémon fandom, and everywhere I went, I encountered less pleasant crowds. This culminated with attending a convention in Arizona (where I had been living at the time), where the Pokémon fans in attendance were not the good kind of company. This was following online harassment against me from people in the community I didn't even know.
+> 
+> None of this was good for my mental well-being, so I decided it was time to shift away from running a Pokémon fan website and turn my attention toward other technological endeavors.
+> 
+> Considering how well things have gone for me in the real world in the following decades, I'd say it was the best choice I could have made at the time. No regrets.
+
+[![The final layout for Pokémon Forever from June 2005](/web/images/the-final-layout-for-pokemon-forever-from-june-2005.png)](/web/images/the-final-layout-for-pokemon-forever-from-june-2005.png)*The final layout for Pokémon Forever from June 2005*
+
+#### As the website closed, Pokémon was just entering its fourth generation of games with Diamond & Pearl. At the time of interview, we have nine generations, with over 1000 Pokémon, and many new products and services from The Pokémon Company. What are your thoughts and feelings on the brand today, in 2024?
+> Chris:
+> 
+> I'm positive about the Pokémon franchise overall.
+> 
+> There are plenty of complaints to be had about the games, such as not bringing the older games to the Switch, about bugginess in Scarlet & Violet, and about Diamond & Pearl's remakes not improving upon them the same as prior remakes had over their originals. But Scarlet & Violet, alongside Pokémon Legends, show the series is evolving and adapting.
+> 
+> Although I stopped watching the anime just as it got into the Johto episodes, I felt they should have retired Ash and Pikachu going into the Johto series, so it's nice that the anime finally started a new series with a new cast. Younger fans can enjoy a series without having missed out on what the characters did 25 years and 500 episodes ago.
+
+[![Living up to his online username, Chris (Meowth346) has a collection of trading cards, figures, and even a drinking flask based on the popular feline Pokémon!](/web/images/living-up-to-his-online-username-chris-meowth346-has-a-collection-of-trading-cards-figures-and-even-.jpeg)](/web/images/living-up-to-his-online-username-chris-meowth346-has-a-collection-of-trading-cards-figures-and-even-.jpeg)*Living up to his online username, Chris (Meowth346) has a collection of trading cards, figures, and even a drinking flask based on the popular feline Pokémon!*
+
+#### I’m interested to hear your Pokémon origin story! How did you first become a fan of the series?
+> Chris:
+> 
+> Nintendo of America had a monthly magazine called _Nintendo Power_. They had a section that featured games out in Japan, and in early 1996, they had a feature on Pocket Monsters. I was intrigued by the article, which led to me writing \[to\] Nintendo of America about when it would be released in America.
+> 
+> After learning there were no plans for an English release, I eventually settled on renting VHS tapes with Japanese episodes of the Pocket Monsters anime and buying Japanese blind box plastic Pocket Monster figures from a small Japanese shop near a friend's house.
+> 
+> Fast-forward to 1998, and _Nintendo Power_ subscribers received a VHS tape in the mail advertising the forthcoming release of the Pokémon anime in America. The games soon followed, and I had in my hands an English copy of Pokémon Red, with Squirtle as my starter. Not long after, the comic shop I worked at had an imported copy of Pocket Monsters Yellow on the shelf, and I bought it right up.
+> 
+> By the way, my familiarity with Marill from those VHS tapes made it painful to live through the "Pikablu" evolution rumor era.
+
+[![Chris’s promotional Pokémon video introducing Pokémon to the United States](/web/images/chriss-promotional-pokemon-video-introducing-pokemon-to-the-united-states.jpeg)](/web/images/chriss-promotional-pokemon-video-introducing-pokemon-to-the-united-states.jpeg)*Chris’s promotional Pokémon video introducing Pokémon to the United States*
+
+#### Do you have any other Pokémon items, merchandise, or anything related to the series that means a lot to you?
+> Chris:
+> 
+> Although my in-game Pokémon collection is big, my actual real-life collection is fairly small. I look highly upon my earliest games and many of those figures I bought from the Japanese shop. My Pokémon Pikachu and Pokémon Pikachu GS pedometers still get occasional use.
+> 
+> My one regret is giving away my plush Dratini, which I bought from KFC. If I were to change only one thing in my past, it might be for me to have not given that away. Maybe the Vulpix, as well. (But I don't mind having given away the Zubat and Seel from that set.)
+
+[![A photograph showing Chris’s collection of Japanese Pokémon games, which include Pokémon Blue, Yellow, Crystal, Emerald, and FireRed](/web/images/a-photograph-showing-chriss-collection-of-japanese-pokemon-games-which-include-pokemon-blue-yellow-c.jpeg)](/web/images/a-photograph-showing-chriss-collection-of-japanese-pokemon-games-which-include-pokemon-blue-yellow-c.jpeg)*A photograph showing Chris’s collection of Japanese Pokémon games, which include Pokémon Blue, Yellow, Crystal, Emerald, and FireRed*
+
+#### What are you up to these days?
+> Chris:
+> 
+> In the Pokémon scene, I'm happily a casual fan. I slowly play through new Pokémon game releases without datamining anything.
+> 
+> I'm currently redoing my living dex so all the Pokémon are ones I caught myself with "Chris346" as the trainer name, a long-term project I'll occasionally work on while listening to livestreams on _Calm and Collecting_'s YouTube channel.
+> 
+> Outside of Pokémon, I spend my time in the Japanese language learning community, mostly the WaniKani Community forum's book clubs. And, after being away from web development for about a decade, I'm learning everything I missed out on by developing a website that provides vocabulary frequency lists for people learning Japanese through reading Japanese comics.
+
+[![Chris's original English copy of Pokémon Red, and Japanese Pokémon Yellow](/web/images/chriss-original-english-copy-of-pokemon-red-and-japanese-pokemon-yellow.jpeg)](/web/images/chriss-original-english-copy-of-pokemon-red-and-japanese-pokemon-yellow.jpeg)*Chris's original English copy of Pokémon Red, and Japanese Pokémon Yellow*
+
+#### What are some of your proudest achievements from your time working on the website?
+> Chris:
+> 
+> When I first started out, I had an account on an instant messaging application called ICQ. Later, I created accounts on other instant messaging applications, AIM, MSN Messenger, and Yahoo. I enjoyed being available to field questions that random Pokémon fans had: "Where do I find this item?" "How do I evolve this Pokémon?" "How do I get past this obstacle?" Even today, in other areas, I like when I can respond to, "How do I ...?"
+> 
+> For the site, there wasn't anything special that hasn't been done a thousand times over by other sites since and probably much better. But, at a personal level, my biggest accomplishment was my progress in becoming a programmer. It's been a mainstay in my life since, and I don't know where I would be today if I hadn't started Pokémon Forever.
+
+[![Chris’s Pokémon Pikachu and a Pokémon Pikachu Color. The photograph confirms that Chris has taken an impressive one million steps with his Pokémon Pikachu](/web/images/chriss-pokemon-pikachu-and-a-pokemon-pikachu-color-the-photograph-confirms-that-chris-has-taken-an-i.jpeg)](/web/images/chriss-pokemon-pikachu-and-a-pokemon-pikachu-color-the-photograph-confirms-that-chris-has-taken-an-i.jpeg)*Chris’s Pokémon Pikachu and a Pokémon Pikachu Color. The photograph confirms that Chris has taken an impressive one million steps with his Pokémon Pikachu*
+
+#### What do you believe has been the continued legacy of Pokémon Forever?
+> Chris:
+> 
+> I'm actually surprised anyone remembers such a relatively short-lived website.
+> 
+> But every time I see or hear mention of Individual Values and Effort Values, even if no one knows the origin of the terms, I feel a bit of Pokémon Forever continues to live on, and it will live on for as long as the English-speaking Pokémon fandom itself.
+> 
+> In that sense, maybe it is a bit "forever."
+
+[![Chris attended the Summer Training Tour in 1999 and received a Mew. This photograph shows some information that was handed out to attendees on the day](/web/images/chris-attended-the-summer-training-tour-in-1999-and-received-a-mew-this-photograph-shows-some-inform.jpeg)](/web/images/chris-attended-the-summer-training-tour-in-1999-and-received-a-mew-this-photograph-shows-some-inform.jpeg)*Chris attended the Summer Training Tour in 1999 and received a Mew. This photograph shows some information that was handed out to attendees on the day*
+
+#### Chris, it has been great to speak with you and learn about your work and Pokémon Forever. Before we end this, do you have any comments you would like to make to our readers, and to the people who visited Pokémon Forever?
+> Chris:
+> 
+> Since the time of Pokémon Forever, we've grown up. Went into careers, started families, and discovered new hobbies and responsibilities. Some have moved on from Pokémon, and others have remained with it.
+> 
+> To those who once visited my little fan site, creating a bond between content creator and consumer, I thank your past self for indulging my past self, and I hope life has taken you to good places since.
+> 
+> For those reading along, especially younger fans, computers are an even larger part of our lives than they were when I was young. If you are interested in learning technology and want to start a Pokémon-related project to help you learn, don't be intimidated by the massive amount of content out there. You'll learn best by actively doing and incorporating something you enjoy. Go for it!
+* * *
+A huge thank you to Chris for taking the time to speak to us. We are thankful for the great work he contributed to the community during those days, and wish him all the best with his future!
