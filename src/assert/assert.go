@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"log"
+	"os"
 	"time"
 )
 
@@ -79,5 +80,15 @@ func Equal(a, b any, msg string, data ...any) {
 	if a != b {
 		log.Println("Assert#Equal failed")
 		log.Fatalf(msg, data...)
+	}
+}
+
+func LogError(msg string, err error) {
+	log.Printf(msg, stringify(err))
+}
+
+func LogDebug(msg string, data ...any) {
+	if os.Getenv("DEBUG") == "true" {
+		log.Printf(msg, data...)
 	}
 }

@@ -39,6 +39,11 @@
   flex: 60%;
 }
 
+.brand a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .logo {
   display: block;
   width: auto;

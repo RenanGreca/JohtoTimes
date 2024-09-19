@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"log"
 	"os"
-	"strings"
 
 	_ "github.com/mattn/go-sqlite3"
 
@@ -38,7 +37,7 @@ func NewDB(dbFile string) {
 		return
 	}
 
-	log.Println("Creating new database")
+	assert.LogDebug("Creating new database")
 	os.Remove(dbFile)
 	db, err := sql.Open("sqlite3", dbFile)
 	defer db.Close()
@@ -60,7 +59,7 @@ func NewDB(dbFile string) {
 }
 
 func Connect() *Database {
-	log.Println("Opening connection to existing database")
+	assert.LogDebug("Opening connection to existing database")
 	db, err := sql.Open("sqlite3", selectedDbFile)
 	if err != nil {
 		log.Fatal(err)
@@ -81,11 +80,6 @@ func Connect() *Database {
 }
 
 func (db *Database) Close() {
-	log.Println("Closing connection")
+	assert.LogDebug("Closing connection")
 	db.Connection.Close()
-}
-
-func printQuery(query string, args ...interface{}) {
-	query = strings.ReplaceAll(query, "?", "%q")
-	log.Printf(query, args...)
 }

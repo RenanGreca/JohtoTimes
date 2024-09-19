@@ -3,17 +3,38 @@ package templates
 import (
   "strings"
   "strconv"
+  "fmt"
 
   "johtotimes.com/src/model"
 )
 
-templ ListTemplate(title string, slug string, description templ.Component, posts []model.Post) {
+templ ListTemplate(title string, slug string, description templ.Component, posts []model.Post, page int) {
   <h1>{title}</h1>
   <h2>@description</h2>
   <div class="list">
     for _, post := range posts {
       @ListItem(&post)
     }
+    <div class="pagination">
+    if page > 1 {
+    <a class="prev"
+       hx-get={ fmt.Sprintf("/%s?page=%d", slug, page-1) }
+       hx-target="#content"
+       hx-swap="innerHTML"
+       hx-replace-url={ fmt.Sprintf("/%s?page=%d", slug, page-1) }
+       hx-push-url="true">
+      ⬅ Previous page
+    </a>
+    }
+    <a class="next"
+       hx-get={ fmt.Sprintf("/%s?page=%d", slug, page+1) }
+       hx-target="#content"
+       hx-swap="innerHTML"
+       hx-replace-url={ fmt.Sprintf("/%s?page=%d", slug, page+1) }
+       hx-push-url="true">
+      Next page ➡
+    </a>
+    </div>
   </div>
 }
 

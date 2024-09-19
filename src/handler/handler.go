@@ -3,7 +3,6 @@ package handler
 import (
 	"context"
 	"io"
-	"log"
 	"net/http"
 	"strconv"
 
@@ -20,7 +19,7 @@ func getPageNumber(req *http.Request) int {
 		assert.NoError(err, "Handler: Error converting %q to int\n", req.URL.Query().Get("page"))
 		return page
 	}
-	return 0
+	return 1
 }
 
 // renderHTML produces the templ component from raw HTML
@@ -35,10 +34,10 @@ func renderHTML(html string) templ.Component {
 // If isHTMX is false, it renders the component to the base template.
 func render(component templ.Component, isHTMX bool, title string, w http.ResponseWriter) {
 	if isHTMX {
-		log.Println("Rendering HTMX")
+		assert.LogDebug("Rendering HTMX")
 		component.Render(context.Background(), http.ResponseWriter(w))
 	} else {
-		log.Println("Rendering HTML")
+		assert.LogDebug("Rendering HTML")
 		templates.Base(title, component).Render(context.Background(), http.ResponseWriter(w))
 	}
 }

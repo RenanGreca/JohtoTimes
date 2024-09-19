@@ -2,7 +2,6 @@ package handler
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 
 	"github.com/a-h/templ"
@@ -16,13 +15,13 @@ import (
 
 // PostHandler handles GET requests to /posts/{slug}
 func PostHandler(w http.ResponseWriter, req *http.Request) {
-	log.Println("Handling Post request to " + req.URL.Path)
+	assert.LogDebug("Handling Post request to " + req.URL.Path)
 	slug := req.PathValue("slug")
 	db := database.Connect()
 	defer db.Close()
 	post, err := db.Posts.GetBySlug(slug, 'P')
 	if err != nil {
-		log.Printf("PostHandler: Error getting post: %s", err)
+		assert.LogError("PostHandler: Error getting post: %s", err)
 		errorPage(404).Render(req.Context(), w)
 		return
 	}
@@ -32,19 +31,19 @@ func PostHandler(w http.ResponseWriter, req *http.Request) {
 // IssueHandler handles GET requests to /issues/{slug}.
 // This involves building an issue based on Issue, Post, News and Mailbag.
 func IssueHandler(w http.ResponseWriter, req *http.Request) {
-	log.Println("Handling Issue request to " + req.URL.Path)
+	assert.LogDebug("Handling Issue request to " + req.URL.Path)
 	slug := req.PathValue("slug")
 	db := database.Connect()
 	defer db.Close()
 	issue, err := db.Posts.GetBySlug(slug, 'I')
 	if err != nil {
-		log.Printf("IssueHandler: Error getting issue: %s", err)
+		assert.LogError("IssueHandler: Error getting issue: %s", err)
 		errorPage(404).Render(req.Context(), w)
 		return
 	}
 	post, err := db.Posts.GetByDateAndType(issue.CreatedAt, 'P')
 	if err != nil {
-		log.Printf("IssueHandler: Error getting post: %s", err)
+		assert.LogError("IssueHandler: Error getting post: %s", err)
 		errorPage(404).Render(req.Context(), w)
 		return
 	}

@@ -42,7 +42,12 @@ templ Head(title string) {
 templ Header() {
   <div class="brand-container">
     <div class="brand">
-      <a class="brand-link" href="/">
+      <a class="brand-link"
+         hx-get="/"
+         hx-target="#content"
+         hx-swap="innerHTML"
+         hx-replace-url="/"
+         hx-push-url="true">
         <img class="logo"  src={ "/" + constants.ImgPath + "/johto-times.png" } />
       </a>
     </div>

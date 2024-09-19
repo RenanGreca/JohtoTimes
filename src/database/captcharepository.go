@@ -2,7 +2,6 @@ package database
 
 import (
 	"database/sql"
-	"log"
 	"time"
 
 	"johtotimes.com/src/assert"
@@ -43,7 +42,7 @@ func (r *CaptchaRepository) Create(captcha *model.Captcha) {
 	)
 	assert.NoError(err, "CaptchaRepository: Error running query: %s", query)
 
-	log.Printf("Created captcha with ID %s\n", captcha.UUID)
+	assert.LogDebug("Created captcha with ID %s\n", captcha.UUID)
 }
 
 func (r *CaptchaRepository) Retrieve(uuid string) (model.Captcha, error) {
@@ -60,7 +59,7 @@ func (r *CaptchaRepository) Retrieve(uuid string) (model.Captcha, error) {
 		&captcha.CreatedAt,
 	)
 
-	log.Printf("Retrieved captcha with ID %s\n", captcha.UUID)
+	assert.LogDebug("Retrieved captcha with ID %s\n", captcha.UUID)
 	return captcha, err
 }
 

@@ -85,7 +85,7 @@ func (r *PostRepository) Populate() {
 			post.SetPermalink()
 
 			created := r.Create(post)
-			log.Printf(
+			assert.LogDebug(
 				"Created post of type %s with slug %s and ID %d\n",
 				string(created.Type), created.Slug, created.ID,
 			)
@@ -129,36 +129,36 @@ func (r *PostRepository) Create(post model.Post) *model.Post {
 	return &post
 }
 
-func (r *PostRepository) Search(search string, offset int, limit int) []model.Post {
+func (r *PostRepository) Search(search string, page int, limit int) []model.Post {
 	query := selectPosts + `
 	WHERE p.title LIKE ? OR p.description LIKE ?
 	ORDER BY p.created_at DESC, p.title
 	LIMIT ?, ?`
-	rows, err := r.db.Query(query, "%"+search+"%", "%"+search+"%", offset, limit)
+	rows, err := r.db.Query(query, "%"+search+"%", "%"+search+"%", offset(page, limit), limit)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
 	return parsePostRows(rows)
 }
 
 // GetPage returns posts of a given type ('P', 'N', or 'M')
-func (r *PostRepository) GetPage(postType byte, offset int, limit int) []model.Post {
+func (r *PostRepository) GetPage(postType byte, page int, limit int) []model.Post {
 	query := selectPosts + `
 	WHERE p.type = ?
 	ORDER BY p.created_at DESC, p.title
 	LIMIT ?, ?`
-	rows, err := r.db.Query(query, postType, offset, limit)
+	rows, err := r.db.Query(query, postType, offset(page, limit), limit)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
 	return parsePostRows(rows)
 }
 
 // GetByCategorySlug returns posts matching category slug.
-func (r *PostRepository) GetByCategorySlug(category string, offset int, limit int) []model.Post {
+func (r *PostRepository) GetByCategorySlug(category string, page int, limit int) []model.Post {
 	query := selectPosts + `
 	WHERE c.slug = ?
 	ORDER BY p.created_at DESC, p.title
 	LIMIT ?, ?`
-	rows, err := r.db.Query(query, category, offset, limit)
+	rows, err := r.db.Query(query, category, offset(page, limit), limit)
 	assert.NoError(err, "PostRepository: Error running query: %s", query)
 
 	return parsePostRows(rows)
@@ -192,7 +192,7 @@ func (r *PostRepository) GetByDateAndType(date time.Time, postType byte) (*model
 
 	posts := parsePostRows(rows)
 	if len(posts) > 1 {
-		log.Printf(
+		assert.LogDebug(
 			"Warning: Query by date %q and type %q found %d results\n",
 			date, string(postType), len(posts),
 		)
@@ -201,6 +201,10 @@ func (r *PostRepository) GetByDateAndType(date time.Time, postType byte) (*model
 		return nil, fmt.Errorf("PostRepository: Error: Query by date %q and type %q found 0 results", date, string(postType))
 	}
 	return &posts[0], nil
+}
+
+func offset(page int, limit int) int {
+	return (page - 1) * limit
 }
 
 func parsePostRows(rows *sql.Rows) []model.Post {

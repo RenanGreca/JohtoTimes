@@ -3,7 +3,6 @@ package model
 import (
 	"crypto/md5"
 	"encoding/hex"
-	"log"
 	"os"
 	"time"
 
@@ -53,7 +52,7 @@ func GetPostsFromDirectory(postsDir string) []Post {
 	var posts []Post
 	for _, e := range entries {
 		fileName := postsDir + "/" + e.Name()
-		log.Printf("Reading post: %s", fileName)
+		assert.LogDebug("Reading post: %s", fileName)
 		post := NewPostFromMarkdown(fileName)
 		posts = append(posts, post)
 	}

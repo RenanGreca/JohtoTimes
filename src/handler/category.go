@@ -2,10 +2,10 @@ package handler
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 
 	"github.com/a-h/templ"
+	"johtotimes.com/src/assert"
 	"johtotimes.com/src/constants"
 	"johtotimes.com/src/database"
 	"johtotimes.com/src/model"
@@ -25,7 +25,7 @@ func CategoryHandler(w http.ResponseWriter, req *http.Request) {
 }
 
 func categoryPage(slug string, page int) templ.Component {
-	log.Println("List category page: ", slug)
+	assert.LogDebug("List category page: ", slug)
 
 	db := database.Connect()
 	defer db.Close()
@@ -34,6 +34,6 @@ func categoryPage(slug string, page int) templ.Component {
 	cat := model.GetCategoryFromFile(constants.CategoriesPath, slug)
 	description := renderHTML(cat.Description)
 
-	return templates.ListTemplate(cat.Plural, slug, description, posts)
+	return templates.ListTemplate(cat.Plural, slug, description, posts, page)
 	// return templates.Base("Johto Times", list)
 }

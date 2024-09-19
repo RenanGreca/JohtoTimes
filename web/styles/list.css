@@ -4,7 +4,7 @@
   width: 800px;
   max-width: 90vw;
   margin: 0 auto;
-  padding-bottom: 40px;
+  /* padding-bottom: 40px; */
   /* height: 100%; */
 }
 
@@ -63,6 +63,25 @@
   color: var(--gray);
   font-size: 12pt;
   line-height: 14pt;
+}
+
+.pagination {
+  height: 40px;
+  margin: 40px 0;
+}
+
+.pagination a {
+  color: var(--gray);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pagination .prev {
+  float: left;
+}
+
+.pagination .next {
+  float: right;
 }
 
 /* Max width for mobile layout is iPad mini portrait */

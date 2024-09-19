@@ -2,7 +2,6 @@ package database
 
 import (
 	"database/sql"
-	"log"
 
 	"johtotimes.com/src/assert"
 	"johtotimes.com/src/constants"
@@ -63,7 +62,7 @@ func (r *CategoryRepository) Create(category *model.Category) {
 	id, err := res.LastInsertId()
 	assert.NoError(err, "CategoryRepository: Error getting last insert ID")
 	category.ID = id
-	log.Printf(
+	assert.LogDebug(
 		"Created category of type %s with slug %s and ID %d\n",
 		string(category.Type), category.Slug, category.ID,
 	)

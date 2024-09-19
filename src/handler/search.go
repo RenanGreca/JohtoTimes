@@ -1,7 +1,6 @@
 package handler
 
 import (
-	"log"
 	"net/http"
 
 	"johtotimes.com/src/assert"
@@ -28,14 +27,14 @@ func SearchResultsHandler(w http.ResponseWriter, req *http.Request) {
 }
 
 func search(query string, page int) []model.Post {
-	log.Printf("Searching for %s", query)
+	assert.LogDebug("Searching for %s", query)
 	db := database.Connect()
 	defer db.Close()
 	assert.NotNil(query, "SearchHandler: query cannot be nil")
 
 	posts := db.Posts.Search(query, page, 10)
 
-	log.Printf("Found %d posts", len(posts))
+	assert.LogDebug("Found %d posts", len(posts))
 
 	return posts
 }

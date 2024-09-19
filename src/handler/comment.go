@@ -2,7 +2,6 @@ package handler
 
 import (
 	"image/png"
-	"log"
 	"net/http"
 	"strconv"
 	"strings"
@@ -52,17 +51,17 @@ func NewCommentHandler(w http.ResponseWriter, req *http.Request) {
 
 func getPostComments(postID int64) templ.Component {
 	assert.NotNil(postID, "CommentHandler: postID cannot be nil")
-	log.Printf("Retrieving comments for post %d", postID)
+	assert.LogDebug("Retrieving comments for post %d", postID)
 	db := database.Connect()
 	defer db.Close()
 	comments := db.Comments.GetCommentsFromPost(postID)
-	log.Printf("Found %d comments", len(comments))
+	assert.LogDebug("Found %d comments", len(comments))
 	return templates.CommentListTemplate(comments)
 }
 
 func createPostComment(req *http.Request, postID int64) (model.Comment, []string) {
 	assert.NotNil(postID, "CommentHandler: postID cannot be nil")
-	log.Printf("Creating comment for post %d", postID)
+	assert.LogDebug("Creating comment for post %d", postID)
 	db := database.Connect()
 	defer db.Close()
 
@@ -102,7 +101,7 @@ func createPostComment(req *http.Request, postID int64) (model.Comment, []string
 
 	if len(errMsg) == 0 {
 		db.Comments.Create(&comment)
-		log.Printf("Created comment with ID %d", comment.ID)
+		assert.LogDebug("Created comment with ID %d", comment.ID)
 	}
 
 	db.Captchas.Delete(captcha.UUID)
@@ -121,7 +120,7 @@ func CaptchaHandler(w http.ResponseWriter, req *http.Request) {
 
 	db := database.Connect()
 	defer db.Close()
-	log.Printf("Creating captcha with ID %s\n", captchaID)
+	assert.LogDebug("Creating captcha with ID %s\n", captchaID)
 	db.Captchas.Create(&captcha)
 
 	png.Encode(w, captcha.Image)
@@ -144,7 +143,7 @@ func AudioCaptchaHandler(w http.ResponseWriter, req *http.Request) {
 	db := database.Connect()
 	defer db.Close()
 
-	log.Printf("Retrieving captcha with ID %s", captchaID)
+	assert.LogDebug("Retrieving captcha with ID %s", captchaID)
 	captcha, err := db.Captchas.Retrieve(captchaID)
 	if err != nil {
 		return
