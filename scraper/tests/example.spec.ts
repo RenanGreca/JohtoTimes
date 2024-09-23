@@ -5,9 +5,13 @@ import { issueMarkdown, mailbagMarkdown, newsMarkdown, Post, postMarkdown } from
 import { readFileSync, writeFileSync } from 'fs';
 
 
+// const vols = {
+//   1: Array.from({ length: 48 }, (_, i) => i + 1),
+//   2: Array.from({ length: 35 }, (_, i) => i + 1),
+// }
+//
 const vols = {
-  1: Array.from({ length: 48 }, (_, i) => i + 1),
-  2: Array.from({ length: 35 }, (_, i) => i + 1),
+  2: [36, 37, 38]
 }
 
 for (const v in vols) {
