@@ -9,3 +9,4 @@ web/audio
 .DS_Store
 johtotimes.tar
 .idea
+.env
