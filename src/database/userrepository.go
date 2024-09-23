@@ -2,7 +2,6 @@ package database
 
 import (
 	"database/sql"
-	"log"
 
 	"johtotimes.com/src/assert"
 	"johtotimes.com/src/model"
@@ -41,14 +40,6 @@ func (r *UserRepository) Populate() {
 		"Created user with ID %d\n",
 		created.ID,
 	)
-
-	u, err := r.GetByEmail(created.Email)
-	assert.NoError(err, "UserRepository: Error getting user by email")
-	log.Printf("UserRepository: Populated user with ID %d\n", u.ID)
-	log.Printf("UserRepository: Populated user with name %s\n", u.Name)
-	log.Printf("UserRepository: Populated user with email %s\n", u.Email)
-	log.Printf("UserRepository: Populated user with password %s\n", string(u.Password))
-	log.Printf("UserRepository: Populated user with salt %s\n", string(u.Salt))
 }
 
 func (r *UserRepository) Create(user model.User) *model.User {
