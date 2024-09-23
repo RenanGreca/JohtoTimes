@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"johtotimes.com/src/assert"
 	"net/http"
 	"os"
+
+	"johtotimes.com/src/assert"
 
 	_ "github.com/mattn/go-sqlite3"
 
@@ -33,11 +34,13 @@ func httpHandler() {
 	// Index page and tab bar items
 	mux.HandleFunc("GET /", handler.IssuesHandler)
 	mux.HandleFunc("GET /archive", handler.ArchiveHandler)
+	// mux.HandleFunc("GET /community", community.Handler)
+	// mux.HandleFunc("GET /about", about.Handler)
+
+	// Search functions
 	mux.HandleFunc("GET /search", handler.SearchHandler)
 	mux.HandleFunc("GET /search/{query}", handler.SearchHandler)
 	mux.HandleFunc("POST /search", handler.SearchResultsHandler)
-	// mux.HandleFunc("GET /community", community.Handler)
-	// mux.HandleFunc("GET /about", about.Handler)
 
 	// Assets directory
 	prefix := "/" + constants.AssetPath + "/"
@@ -55,7 +58,7 @@ func httpHandler() {
 	// Handle category-type link
 	mux.HandleFunc("GET /posts/{category}/{slug}", handler.PostHandler)
 
-	// // Handle direct link to issue
+	// Handle direct link to issue
 	mux.HandleFunc("GET /issues/{slug}", handler.IssueHandler)
 	mux.HandleFunc("GET /issues/{category}/{slug}", handler.IssueHandler)
 
@@ -64,9 +67,12 @@ func httpHandler() {
 	mux.HandleFunc("POST /comments/{postID}", handler.CommentHandler)
 	mux.HandleFunc("GET /newcomment/{postID}", handler.NewCommentHandler)
 
+	// Captcha feature for comments
 	mux.HandleFunc("GET /captcha/{captchaID}", handler.CaptchaHandler)
 	mux.HandleFunc("GET /reloadcaptcha/{captchaID}", handler.NewCaptchaHandler)
 	mux.HandleFunc("GET /audiocaptcha/{captchaID}", handler.AudioCaptchaHandler)
+
+	mux.HandleFunc("GET /admin", handler.BasicAuth(handler.AdminHandler))
 
 	err := http.ListenAndServe(":"+port, mux)
 	assert.NoError(err, "Error starting server")

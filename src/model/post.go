@@ -12,6 +12,22 @@ import (
 	"johtotimes.com/src/markdown"
 )
 
+// Post type constants
+// POST is a post
+const POST byte = 'P'
+
+// NEWS is a news section
+const NEWS byte = 'N'
+
+// MAILBAG is a mailbag section
+const MAILBAG byte = 'M'
+
+// ISSUE is a complete issue
+const ISSUE byte = 'I'
+
+// GUESTBOOK is used for the guestbook comments
+const GUESTBOOK byte = 'G'
+
 type Post struct {
 	ID int64
 	// Title is the post's title
@@ -129,14 +145,14 @@ func (post *Post) SetPermalink() {
 	assert.NotNil(post.Type, "PostRepository: Post Type must be defined before Permalink.")
 
 	switch post.Type {
-	case 'P':
+	case POST:
 		assert.NotNil(post.Category.Slug, "PostRepository: Post Category must be defined before Permalink.")
 		post.Permalink = "/posts/" + post.Category.Slug + "/" + post.Slug
-	case 'M':
+	case MAILBAG:
 		post.Permalink = "/mailbag/" + post.Slug
-	case 'N':
+	case NEWS:
 		post.Permalink = "/news/" + post.Slug
-	case 'I':
+	case ISSUE:
 		post.Permalink = "/issues/" + post.Slug
 	}
 

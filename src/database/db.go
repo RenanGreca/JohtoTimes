@@ -43,6 +43,10 @@ func NewDB(dbFile string) {
 	defer db.Close()
 	assert.NoError(err, "Database: Error opening database")
 
+	userRepository := NewUserRepository(db)
+	userRepository.Migrate()
+	userRepository.Populate()
+
 	categoryRepository := NewCategoryRepository(db)
 	categoryRepository.Migrate()
 	categoryRepository.Populate()

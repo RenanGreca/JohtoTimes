@@ -8,6 +8,13 @@ import (
 	"johtotimes.com/src/markdown"
 )
 
+// Category type constants
+// CATEGORY is a category
+const CATEGORY byte = 'C'
+
+// TAG is a tag
+const TAG byte = 'T'
+
 // Category defines the properties of a category
 // Categories and Tags are defined as the same entity
 // The difference is that posts and categories are 1-to-n
@@ -54,7 +61,7 @@ func NewCategoryFromMarkdown(fileName string) Category {
 	category := Category{
 		Slug:        markdown.ExtractSlug(fileName),
 		Description: buf.String(),
-		Type:        'C',
+		Type:        CATEGORY,
 	}
 	category.extractMetadata(metadata)
 

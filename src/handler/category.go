@@ -25,7 +25,7 @@ func CategoryHandler(w http.ResponseWriter, req *http.Request) {
 }
 
 func categoryPage(slug string, page int) templ.Component {
-	assert.LogDebug("List category page: ", slug)
+	assert.LogDebug("List category page: %s", slug)
 
 	db := database.Connect()
 	defer db.Close()
