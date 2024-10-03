@@ -14,6 +14,7 @@ import (
 type Database struct {
 	Connection *sql.DB
 	Posts      *PostRepository
+	Users      *UserRepository
 	Categories *CategoryRepository
 	Comments   *CommentRepository
 	Captchas   *CaptchaRepository
@@ -69,6 +70,7 @@ func Connect() *Database {
 		log.Fatal(err)
 	}
 	postRepository := NewPostRepository(db)
+	userRepository := NewUserRepository(db)
 	categoryRepository := NewCategoryRepository(db)
 	commentRepository := NewCommentRepository(db)
 	captchaRepository := NewCaptchaRepository(db)
@@ -76,6 +78,7 @@ func Connect() *Database {
 	database := Database{
 		Connection: db,
 		Posts:      postRepository,
+		Users:      userRepository,
 		Categories: categoryRepository,
 		Comments:   commentRepository,
 		Captchas:   captchaRepository,

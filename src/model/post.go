@@ -4,6 +4,8 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 	"os"
+	"strconv"
+	"strings"
 	"time"
 
 	"github.com/gosimple/slug"
@@ -88,10 +90,10 @@ func NewPostFromMarkdown(fileName string) Post {
 	hash := md5.Sum([]byte(buf.String()))
 
 	post := Post{
-		FileName:  fileName,
-		Slug:      markdown.ExtractSlug(fileName),
-		CreatedAt: markdown.ExtractDate(fileName),
-		Hash:      hex.EncodeToString(hash[:]),
+		FileName: fileName,
+		Hash:     hex.EncodeToString(hash[:]),
+		// Slug:      markdown.ExtractSlug(fileName),
+		// CreatedAt: markdown.ExtractDate(fileName),
 	}
 	post.extractMetadata(metadata)
 
@@ -104,6 +106,11 @@ func (post *Post) Content() string {
 	_, buf := markdown.ParseMarkdown(md)
 
 	return buf.String()
+}
+
+func (post *Post) ContentMD() string {
+	md := file.ReadFile(post.FileName)
+	return md
 }
 
 func (post *Post) extractMetadata(metadata map[string]interface{}) {
@@ -138,6 +145,26 @@ func (post *Post) extractMetadata(metadata map[string]interface{}) {
 
 	if metadata["Volume"] != nil {
 		post.Volume = int(metadata["Volume"].(int))
+	}
+
+	if metadata["Slug"] != nil {
+		post.Slug = metadata["Slug"].(string)
+	} else {
+		post.Slug = slug.Make(post.Title)
+	}
+
+	if metadata["Date"] != nil {
+		date := metadata["Date"].(string)
+
+		split := strings.Split(date, "-")
+		year, err := strconv.Atoi(split[0])
+		assert.NoError(err, "PostRepository: Error parsing year")
+		month, err := strconv.Atoi(split[1])
+		assert.NoError(err, "PostRepository: Error parsing month")
+		day, err := strconv.Atoi(split[2])
+		assert.NoError(err, "PostRepository: Error parsing day")
+
+		post.CreatedAt = time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
 	}
 }
 

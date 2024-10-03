@@ -7,6 +7,7 @@ import (
 
 	"johtotimes.com/src/assert"
 
+	"github.com/joho/godotenv"
 	_ "github.com/mattn/go-sqlite3"
 
 	"johtotimes.com/src/constants"
@@ -15,6 +16,7 @@ import (
 )
 
 func main() {
+	godotenv.Load()
 	database.NewDB(database.DEV_DB_FILE)
 
 	// emailSender()
@@ -72,7 +74,11 @@ func httpHandler() {
 	mux.HandleFunc("GET /reloadcaptcha/{captchaID}", handler.NewCaptchaHandler)
 	mux.HandleFunc("GET /audiocaptcha/{captchaID}", handler.AudioCaptchaHandler)
 
-	mux.HandleFunc("GET /admin", handler.BasicAuth(handler.AdminHandler))
+	mux.HandleFunc("GET /login", handler.LoginPageHandler)
+	mux.HandleFunc("POST /login", handler.LoginRequestHandler)
+	mux.HandleFunc("GET /admin", handler.CookieAuth(handler.AdminHandler))
+	mux.HandleFunc("GET /admin/editor/{postID}", handler.CookieAuth(handler.AdminEditorHandler))
+	// mux.HandleFunc("GET /admin", handler.BasicAuth(handler.AdminHandler))
 
 	err := http.ListenAndServe(":"+port, mux)
 	assert.NoError(err, "Error starting server")

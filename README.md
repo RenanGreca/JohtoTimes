@@ -23,10 +23,10 @@ air [-c .air.toml]
 - [x] Improve single post layout
    - [x] Comments
       - [ ] Captcha layout improvements
-   - [ ] Image captions
-   - [ ] Fix to content title
-- [ ] First archive page
-   - [ ] Probably the archives are just the lists of posts by category/type
+   - [x] Image captions
+   - [x] Fix to content title
+- [x] First archive page
+   - [x] Probably the archives are just the lists of posts by category/type
 - [ ] Search box
    - [ ] Search results
 - [ ] Community page

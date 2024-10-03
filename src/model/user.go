@@ -2,6 +2,7 @@ package model
 
 import (
 	"crypto/rand"
+	"log"
 	"os"
 
 	"golang.org/x/crypto/argon2"
@@ -20,6 +21,8 @@ func CreateDefaultUser() User {
 	email := os.Getenv("JOHTOTIMES_ADMIN_EMAIL")
 	password := []byte(os.Getenv("JOHTOTIMES_ADMIN_PASSWORD"))
 	salt := generateSalt()
+
+	log.Printf("Creating default user with name %s, email %s, password %s", name, email, password)
 
 	passwordhash := argon2.IDKey(password, salt, 1, 64*1024, 4, 32)
 

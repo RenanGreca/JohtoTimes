@@ -1,0 +1,59 @@
+package templates
+
+import (
+    "johtotimes.com/src/model"
+	"fmt"
+)
+
+templ LoginTemplate() {
+  <div class="list">
+    <form id="login-form" hx-post="/login" hx-target="#login-form">
+      <div class="comment-form container">
+        <div class="form-field">
+          <label>Email</label>
+          <input name="email" type="text" placeholder="Your email" />
+        </div>
+        <div class="form-field">
+          <label>Password</label>
+          <input name="password" type="password" placeholder="Your password" />
+        </div>
+        <button type="submit" class="button">Login</button>
+      </div>
+    </form>
+  </div>
+}
+
+templ AdminTemplate(name string, posts []model.Post) {
+  <h1>Welcome, {name}</h1>
+  <div class="list">
+    <ul>
+      for _, post := range posts {
+        <li
+          hx-get={ fmt.Sprintf("/admin/editor/%d", post.ID)}
+          hx-target="#content"
+          hx-swap="innerHTML"
+          hx-replace-url={ fmt.Sprintf("/admin/editor/%d", post.ID) }
+          hx-push-url="true"
+          >
+          {post.Title}
+        </li>
+      }
+    </ul>
+  </div>
+}
+
+templ PostEditorTemplate(post model.Post) {
+  <div class="comment-form container">
+    <h1>Title</h1>
+    <textarea id="title">{post.Title}</textarea>
+    <h1>Issue</h1>
+    <textarea id="issue">{post.ContentMD()}</textarea>
+    <h1>News</h1>
+    <textarea id="news"></textarea>
+    <h1>Post</h1>
+    <textarea id="post"></textarea>
+    <h1>Mailbag</h1>
+    <textarea id="mailbag"></textarea>
+    <script src="/web/scripts/editor.js"></script>
+  </div>
+}

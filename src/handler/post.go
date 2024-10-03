@@ -2,6 +2,7 @@ package handler
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/a-h/templ"
@@ -35,21 +36,26 @@ func IssueHandler(w http.ResponseWriter, req *http.Request) {
 	slug := req.PathValue("slug")
 	db := database.Connect()
 	defer db.Close()
+	log.Println(slug)
 	issue, err := db.Posts.GetBySlug(slug, 'I')
 	if err != nil {
 		assert.LogError("IssueHandler: Error getting issue: %s", err)
 		errorPage(404).Render(req.Context(), w)
 		return
 	}
-	post, err := db.Posts.GetByDateAndType(issue.CreatedAt, 'P')
+	// post, err := db.Posts.GetByDateAndType(issue.CreatedAt, 'P')
+	log.Printf("Searching for post with issue %d, volume %d\n", issue.Issue, issue.Volume)
+	post, err := db.Posts.GetByIssueAndType(issue.Volume, issue.Issue, 'P')
 	if err != nil {
 		assert.LogError("IssueHandler: Error getting post: %s", err)
 		errorPage(404).Render(req.Context(), w)
 		return
 	}
-	news, err := db.Posts.GetByDateAndType(issue.CreatedAt, 'N')
+	// news, err := db.Posts.GetByDateAndType(issue.CreatedAt, 'N')
+	news, err := db.Posts.GetByIssueAndType(issue.Volume, issue.Issue, 'N')
 	assert.NoError(err, "IssueHandler: Error getting news")
-	mailbag, err := db.Posts.GetByDateAndType(issue.CreatedAt, 'M')
+	// mailbag, err := db.Posts.GetByDateAndType(issue.CreatedAt, 'M')
+	mailbag, err := db.Posts.GetByIssueAndType(issue.Volume, issue.Issue, 'M')
 	assert.NoError(err, "IssueHandler: Error getting mailbag")
 
 	render(issuePage(issue, post, news, mailbag), isHTMX(req), issue.Title, w)
@@ -68,7 +74,8 @@ func postBody(p *model.Post) templ.Component {
 		return errorPage(404)
 	}
 	filePath := constants.PostTypePath[p.Type]
-	fileName := filePath + "/" + p.Slug + ".md"
+	// fileName := filePath + "/" + p.Volume + "-" p.Issue + ".md"
+	fileName := fmt.Sprintf("%s/%d-%d.md", filePath, p.Volume, p.Issue)
 	fmt.Printf("File path: %s %s\n", string(p.Type), fileName)
 
 	// In the issue builder, if the file doesn't exist, we show a message

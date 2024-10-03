@@ -164,6 +164,18 @@ func (r *PostRepository) GetByCategorySlug(category string, page int, limit int)
 	return parsePostRows(rows)
 }
 
+func (r *PostRepository) GetByID(postID int64) (*model.Post, error) {
+	query := selectPosts + `
+	WHERE p.id = ?`
+
+	rows, err := r.db.Query(query, postID)
+	assert.NoError(err, "PostRepository: Error running query: %s", query)
+	posts := parsePostRows(rows)
+	assert.Equal(len(posts), 1, "PostRepository: Error: Query by ID %d found %d results", postID, len(posts))
+
+	return &posts[0], nil
+}
+
 // GetBySlug returns post matching the given slug. Should always find just 1 row.
 func (r *PostRepository) GetBySlug(slug string, postType byte) (*model.Post, error) {
 	query := selectPosts + `
@@ -178,6 +190,29 @@ func (r *PostRepository) GetBySlug(slug string, postType byte) (*model.Post, err
 	}
 	if len(posts) == 0 {
 		return nil, fmt.Errorf("PostRepository: Error: Query by slug %q found 0 results", slug)
+	}
+	return &posts[0], nil
+}
+
+func (r *PostRepository) GetByIssueAndType(vol, issue int, postType byte) (*model.Post, error) {
+	query := selectPosts + `
+	WHERE p.volume = ?
+	AND p.issue = ?
+	AND p.type = ?
+	ORDER BY p.created_at DESC`
+	rows, err := r.db.Query(query, vol, issue, postType)
+	assert.NoError(err, "PostRepository: Error running query: %s", query)
+
+	posts := parsePostRows(rows)
+	if len(posts) > 1 {
+		assert.LogDebug(
+			"Warning: Query by volume %d, issue %d and type %q found %d results\n",
+			vol, issue, string(postType), len(posts),
+		)
+	}
+	log.Printf("PostRepository: Query by volume %d, issue %d and type %q found %d results\n", vol, issue, string(postType), len(posts))
+	if len(posts) == 0 {
+		return nil, fmt.Errorf("PostRepository: Error: Query by volume %d, issue %d and type %q found 0 results", vol, issue, string(postType))
 	}
 	return &posts[0], nil
 }
