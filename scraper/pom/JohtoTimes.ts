@@ -34,7 +34,9 @@ export class JohtoTimesPOM {
     let title = await this.titleBlock.innerText();
 
     if (title.includes(' - ')) {
-      title = title.split(' - ')[1];
+      const titleComponents = title.split(' - ');
+      // Remove the "vol, issue" part from the title.
+      title = titleComponents.slice(1, titleComponents.length).join(' - ');
     }
 
     return escapeString(title);
@@ -58,7 +60,8 @@ export class JohtoTimesPOM {
     const turndownService = new TurndownService();
     const md = turndownService.turndown(this.components[0]);
 
-    return md.split('\n').filter((el: string) => el.length > 0);
+    // return md.split('\n').filter((el: string) => el.length > 0);
+    return this.filterMarkdown(md, "Intro");
   }
 
   async getNews() {
@@ -68,27 +71,50 @@ export class JohtoTimesPOM {
   }
 
   async getBody() {
-    const mailbagIndex = this.sectionIndex("Mailbag");
-    const featureIndex = this.sectionIndex("Feature");
-    expect(featureIndex).toBeGreaterThan(-1);
-    let body = this.components.slice(featureIndex, this.components.length-2).join("<div><hr></div>");
-    if (mailbagIndex > -1) {
-      body = this.components.slice(featureIndex, mailbagIndex).join("<hr>");
-    }
+    let body = await this.getFeatureBody();
 
     const turndownService = new TurndownService();
     const md = turndownService.turndown(body);
     return this.filterMarkdown(md, "Feature");
   }
 
-  async getImg() {
+  async getFeatureBody() {
     const mailbagIndex = this.sectionIndex("Mailbag");
     const featureIndex = this.sectionIndex("Feature");
-    expect(featureIndex).toBeGreaterThan(-1);
-    let body = this.components.slice(featureIndex, this.components.length-2).join("<div><hr></div>");
-    if (mailbagIndex > -1) {
-      body = this.components.slice(featureIndex, mailbagIndex).join("<hr>");
+    const thatsItIndex = this.sectionIndex("That’s it");
+    if (mailbagIndex > -1 && featureIndex > -1) {
+      // Both sections exist; get from start of feature until start of mailbag.
+      console.log("Both sections exist; get from start of feature until start of mailbag.");
+      return this.components.slice(featureIndex, mailbagIndex).join("<hr>");
     }
+    if (thatsItIndex > -1 && featureIndex > -1) {
+      // Both sections exist; get from start of feature until start of mailbag.
+      console.log("Both sections exist; get from start of feature until start of mailbag.");
+      const body = this.components.slice(featureIndex, this.components.length-2).join("<div><hr></div>");
+      return body;
+    }
+    if (featureIndex > -1) {
+      // Mailbag does not exist; get from start of feature until the end.
+      console.log("Mailbag does not exist; get from start of feature until the end.");
+      const body = this.components.slice(featureIndex, this.components.length-1).join("<div><hr></div>");
+      return body;
+    } 
+
+    // Old style post, feature is within a link
+    const link = this.page.locator('.body').locator('.button').first();
+    await link.click();
+
+    // Extract body from the page and eliminate the share/comment buttons after the final HR.
+    const html = await this.page.locator('.body').innerHTML();
+    let components = html.split("<div><hr></div>");
+    components.pop();
+    const body = components.join("<div><hr></div>");
+
+    return body;
+  }
+
+  async getImg() {
+    let body = await this.getFeatureBody();
 
     const turndownService = new TurndownService();
     const md = turndownService.turndown(body);
@@ -97,7 +123,7 @@ export class JohtoTimesPOM {
     for (let i = 0; i < arr.length; i++) {
       if (this.isImage(arr, i)) {
         const [_, imgpath] = await this.downloadImage(arr, i);
-        console.log("Found image", imgpath);
+        // console.log("Found image", imgpath);
         return imgpath;
       }
     }
@@ -157,6 +183,9 @@ export class JohtoTimesPOM {
       if (el.startsWith(`<h4 class="header-anchor-post">${name}`)) {
         return i;
       }
+      if (el.startsWith(name)) {
+        return i;
+      }
     }
 
     return -1;
@@ -203,7 +232,7 @@ export class JohtoTimesPOM {
   private isImage(arr: string[], i: number) {
     if (arr[i] === "[") {
       expect(i + 2, `i + 2 is out of bounds`).toBeLessThan(arr.length);
-      return arr[i] === "[" && arr[i + 2].startsWith("![");
+      return arr[i] === "[" && arr[i + 2].startsWith("![") && !arr[i + 2].includes("Twitter");
     }
     return false;
   }
@@ -216,11 +245,12 @@ export class JohtoTimesPOM {
    * @returns The markdown for the image
    */
   private async downloadImage(arr: string[], i: number) {
-    expect(i + 8, `i + 8 is out of bounds`).toBeLessThan(arr.length);
-    // const imgstart = arr[i]
-    // const imgblock = arr[i + 2];
+    expect(i + 6, `i + 6 is out of bounds`).toBeLessThan(arr.length);
     const imgend = arr[i + 6];
-    const imgtitle = arr[i + 8];
+    let imgtitle = "";
+    if (i + 8 < arr.length) {
+      imgtitle = arr[i + 8];
+    }
     const imgurl = imgend.split('](')[1].replace(')', '');
 
     const imgpath = "/web/images/" + await download(imgurl, imgtitle);

@@ -5,14 +5,18 @@ import { issueMarkdown, mailbagMarkdown, newsMarkdown, Post, postMarkdown } from
 import { readFileSync, writeFileSync } from 'fs';
 
 
+const vols = {
+  1: Array.from({ length: 48 }, (_, i) => i + 1),
+  2: Array.from({ length: 39 }, (_, i) => i + 1),
+}
+//
 // const vols = {
-//   1: Array.from({ length: 48 }, (_, i) => i + 1),
-//   2: Array.from({ length: 35 }, (_, i) => i + 1),
+//   2: [31],
 // }
 //
-const vols = {
-  2: [36, 37, 38]
-}
+// const vols = {
+//   1: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+// }
 
 for (const v in vols) {
   const vol = Number(v);
@@ -23,6 +27,11 @@ for (const v in vols) {
 
         const pom = await test.step("Load page in Substack", async () => {
           const page = await browser.newPage();
+
+          // Wait random time to avoid overloading the site
+          const random = Math.floor(Math.random() * 10);
+          await page.waitForTimeout(random * 1000);
+
           const pom = new JohtoTimesPOM(page, vol, issue);
           await pom.goTo();
           await pom.preprocess();
@@ -58,16 +67,16 @@ for (const v in vols) {
 
         await test.step(`Generate Markdowns`, () => {
           const postMD = postMarkdown(post);
-          writeFileSync(`./posts/${post.slug}.md`, postMD);
+          writeFileSync(`./posts/${post.volume}-${post.issue}.md`, postMD);
 
           const issueMD = issueMarkdown(post);
-          writeFileSync(`./issues/${post.slug}.md`, issueMD);
+          writeFileSync(`./issues/${post.volume}-${post.issue}.md`, issueMD);
 
           const newsMD = newsMarkdown(post);
-          writeFileSync(`./news/${post.date}-news.md`, newsMD);
+          writeFileSync(`./news/${post.volume}-${post.issue}.md`, newsMD);
 
           const mailbagMD = mailbagMarkdown(post);
-          writeFileSync(`./mailbag/${post.date}-mailbag.md`, mailbagMD);
+          writeFileSync(`./mailbag/${post.volume}-${post.issue}.md`, mailbagMD);
         })
       })
     })
