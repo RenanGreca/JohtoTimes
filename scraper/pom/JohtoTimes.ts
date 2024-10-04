@@ -245,12 +245,12 @@ export class JohtoTimesPOM {
    * @returns The markdown for the image
    */
   private async downloadImage(arr: string[], i: number) {
-    expect(i + 6, `i + 6 is out of bounds`).toBeLessThan(arr.length);
+    expect(i + 8, `i + 8 is out of bounds`).toBeLessThan(arr.length);
     const imgend = arr[i + 6];
-    let imgtitle = "";
-    if (i + 8 < arr.length) {
-      imgtitle = arr[i + 8];
-    }
+    // let imgtitle = "";
+    // if (i + 8 < arr.length) {
+    const imgtitle = arr[i + 8];
+    // }
     const imgurl = imgend.split('](')[1].replace(')', '');
 
     const imgpath = "/web/images/" + await download(imgurl, imgtitle);
