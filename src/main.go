@@ -36,6 +36,7 @@ func httpHandler() {
 	// Index page and tab bar items
 	mux.HandleFunc("GET /", handler.IssuesHandler)
 	mux.HandleFunc("GET /archive", handler.ArchiveHandler)
+	mux.HandleFunc("GET /archive/issues", handler.ArchiveIssuesHandler)
 	// mux.HandleFunc("GET /community", community.Handler)
 	// mux.HandleFunc("GET /about", about.Handler)
 

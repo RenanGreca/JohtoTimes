@@ -2,20 +2,22 @@ package templates
 
 import (
   "strings"
+  "fmt"
 
   "johtotimes.com/src/constants"
+  "johtotimes.com/src/model"
 )
 
 templ ArchiveTemplate(title string) {
   <h1>{title}</h1>
   <div class="list">
     for _, category := range constants.Categories {
-      @ListArchive(category)
+      @listArchiveCategory(category)
     }
   </div>
 }
 
-templ ListArchive(category constants.Link) {
+templ listArchiveCategory(category constants.Link) {
   <div class="archive-item"
        hx-get={ category.URL }
        hx-target="#content"
@@ -28,6 +30,34 @@ templ ListArchive(category constants.Link) {
     </div>
     <div class="archive-contents">
       { category.Name }
+    </div>
+  </div>
+}
+
+templ ArchivePostsTemplate(title string, posts []model.Post) {
+  <h1>{title}</h1>
+  <div class="list">
+    for _, post := range posts {
+      @listArchivePost(&post)
+    }
+  </div>
+}
+
+templ listArchivePost(post *model.Post) {
+  <div class="archive-item"
+    hx-get={ post.Permalink }
+    hx-target="#content"
+    hx-trigger="click"
+    hx-swap="innerHTML"
+    hx-replace-url={ post.Permalink }
+    aria-label={ post.Title }>
+    <img src={ post.Img } />
+    <div class="archive-contents">
+      <span class="description">
+        { post.CreatedAt.Format("2006-01-02") } |
+        { fmt.Sprintf("Vol. %d, Issue %d", post.Volume, post.Issue) }
+      </span>
+      { post.Title }
     </div>
   </div>
 }

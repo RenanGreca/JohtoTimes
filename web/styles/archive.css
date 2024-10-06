@@ -5,16 +5,30 @@
   /* gap: 10px; */
   background-color: var(--card-background);
   border-radius: 10px;
-  padding: 10px;
+  /* padding: 10px; */
   overflow: hidden;
   filter: drop-shadow(0px 4px 4px #000);  
   will-change: filter;
+  cursor: pointer;
 }
+
+.archive-item img {
+  height: 65px;
+  width: 120px;
+  object-fit: cover;
+  corner-radius: 5px;
+} 
 
 .archive-image img {
   width: 40px;
   height: auto;
+  padding: 10px;
+
+  /* height: 40px; */
+  /* max-width: 60px; */
+  /* object-fit: cover; */
 } 
+
 
 .archive-contents {
   flex: 1;
@@ -23,7 +37,7 @@
   justify-content: center;
   gap: 5px;
   padding: 10px;
-  text-align: center;
+  /* text-align: center; */
 
   font-family: var(--font-title);
   font-variant: small-caps;

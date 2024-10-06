@@ -59,7 +59,8 @@
   text-align: center;
 }
 
-.list-item .description {
+.list-item .description,
+.archive-item .description {
   color: var(--gray);
   font-size: 12pt;
   line-height: 14pt;

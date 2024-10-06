@@ -29,12 +29,14 @@ var SocialLinks = [...]Link{
 
 // Probably this should become dynamic according to some DB data
 var Categories = [...]Link{
+	{Name: "Issues", URL: "/archive/issues"},
 	{Name: "Interviews", URL: "/category/interview"},
 	{Name: "Features", URL: "/category/feature"},
 	{Name: "Opinions", URL: "/category/opinion"},
 	{Name: "Collections", URL: "/category/collection"},
 	{Name: "Memories", URL: "/category/memory"},
 	{Name: "Mailbag", URL: "/mailbag"},
+	{Name: "News", URL: "/news"},
 }
 
 var Tabs = []Link{
