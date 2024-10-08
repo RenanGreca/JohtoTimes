@@ -8,12 +8,12 @@ import (
 	"johtotimes.com/src/markdown"
 )
 
-// Category type constants
-// CATEGORY is a category
-const CATEGORY byte = 'C'
+type CategoryType byte
 
-// TAG is a tag
-const TAG byte = 'T'
+const (
+	CATEGORY CategoryType = 'C'
+	TAG CategoryType = 'T'
+)
 
 // Category defines the properties of a category
 // Categories and Tags are defined as the same entity

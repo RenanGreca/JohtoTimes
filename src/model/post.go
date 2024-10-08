@@ -14,21 +14,15 @@ import (
 	"johtotimes.com/src/markdown"
 )
 
-// Post type constants
-// POST is a post
-const POST byte = 'P'
+type PostType byte
 
-// NEWS is a news section
-const NEWS byte = 'N'
-
-// MAILBAG is a mailbag section
-const MAILBAG byte = 'M'
-
-// ISSUE is a complete issue
-const ISSUE byte = 'I'
-
-// GUESTBOOK is used for the guestbook comments
-const GUESTBOOK byte = 'G'
+const (
+	POST      PostType = 'P'
+	NEWS      PostType = 'N'
+	MAILBAG   PostType = 'M'
+	ISSUE     PostType = 'I'
+	GUESTBOOK PostType = 'G'
+)
 
 type Post struct {
 	ID int64
